@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B15E1C32D2FF000ACAA5 /* main.c */; };
+		84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		84A6B15B1C32D2FF000ACAA5 /* AKStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AKStudy; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6B15E1C32D2FF000ACAA5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		84A6B1681C32D431000ACAA5 /* AKMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacro.h; sourceTree = "<group>"; };
+		84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKMacroTests.c; sourceTree = "<group>"; };
+		84A6B16B1C32D454000ACAA5 /* AKMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacroTests.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +61,44 @@
 		84A6B15D1C32D2FF000ACAA5 /* AKStudy */ = {
 			isa = PBXGroup;
 			children = (
+				84A6B1661C32D3B6000ACAA5 /* Tests */,
+				84A6B1651C32D3AB000ACAA5 /* Source */,
 				84A6B15E1C32D2FF000ACAA5 /* main.c */,
 			);
 			path = AKStudy;
+			sourceTree = "<group>";
+		};
+		84A6B1651C32D3AB000ACAA5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B1671C32D3CA000ACAA5 /* AKMacro */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		84A6B1661C32D3B6000ACAA5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B1691C32D445000ACAA5 /* AKMacroTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		84A6B1671C32D3CA000ACAA5 /* AKMacro */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B1681C32D431000ACAA5 /* AKMacro.h */,
+			);
+			path = AKMacro;
+			sourceTree = "<group>";
+		};
+		84A6B1691C32D445000ACAA5 /* AKMacroTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */,
+				84A6B16B1C32D454000ACAA5 /* AKMacroTests.h */,
+			);
+			path = AKMacroTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */,
 				84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

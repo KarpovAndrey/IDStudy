@@ -7,9 +7,12 @@
 //
 
 #include <stdio.h>
+#include "AKMacroTests.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+    AKPrintSizeTypeTest();
+    AKPrintOutputValue();
+    AKPrintOutputTypeMacro();
+    
     return 0;
 }
