@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B15E1C32D2FF000ACAA5 /* main.c */; };
 		84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */; };
+		84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16E1C32DC25000ACAA5 /* AKStruct.c */; };
+		84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,10 @@
 		84A6B1681C32D431000ACAA5 /* AKMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacro.h; sourceTree = "<group>"; };
 		84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKMacroTests.c; sourceTree = "<group>"; };
 		84A6B16B1C32D454000ACAA5 /* AKMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacroTests.h; sourceTree = "<group>"; };
+		84A6B16E1C32DC25000ACAA5 /* AKStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStruct.c; sourceTree = "<group>"; };
+		84A6B16F1C32DC25000ACAA5 /* AKStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStruct.h; sourceTree = "<group>"; };
+		84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStructTests.c; sourceTree = "<group>"; };
+		84A6B1771C32DCD2000ACAA5 /* AKStructTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStructTests.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 		84A6B1651C32D3AB000ACAA5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				84A6B16D1C32DC0A000ACAA5 /* AKStruct */,
 				84A6B1671C32D3CA000ACAA5 /* AKMacro */,
 			);
 			path = Source;
@@ -79,6 +86,7 @@
 		84A6B1661C32D3B6000ACAA5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				84A6B1751C32DCD2000ACAA5 /* AKStructTests */,
 				84A6B1691C32D445000ACAA5 /* AKMacroTests */,
 			);
 			path = Tests;
@@ -99,6 +107,24 @@
 				84A6B16B1C32D454000ACAA5 /* AKMacroTests.h */,
 			);
 			path = AKMacroTests;
+			sourceTree = "<group>";
+		};
+		84A6B16D1C32DC0A000ACAA5 /* AKStruct */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B16E1C32DC25000ACAA5 /* AKStruct.c */,
+				84A6B16F1C32DC25000ACAA5 /* AKStruct.h */,
+			);
+			path = AKStruct;
+			sourceTree = "<group>";
+		};
+		84A6B1751C32DCD2000ACAA5 /* AKStructTests */ = {
+			isa = PBXGroup;
+			children = (
+				84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */,
+				84A6B1771C32DCD2000ACAA5 /* AKStructTests.h */,
+			);
+			path = AKStructTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +183,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */,
+				84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */,
 				84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */,
 				84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */,
 			);

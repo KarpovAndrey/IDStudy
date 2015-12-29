@@ -10,7 +10,7 @@
 #include "AKMacro.h"
 
 AKOutputType(int, %d);
-AKOutputType(double, %f);
+AKOutputType(double, %.2f);
 AKOutputType(char, %s);
 
 void AKPrintSizeTypeTest() {
@@ -28,7 +28,7 @@ void AKPrintOutputValue() {
     printf("Print output values");
     AKOutputValue(%d, 15);
     AKOutputValue(%lu, 15651651655);
-    AKOutputValue(%f, 143453.45);
+    AKOutputValue(%.2f, 143453.45);
     AKOutputValue(%s, "TEXT");
     printf("\n");
 }

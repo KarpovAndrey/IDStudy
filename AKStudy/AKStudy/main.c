@@ -8,11 +8,15 @@
 
 #include <stdio.h>
 #include "AKMacroTests.h"
+#include "AKStructTests.h"
 
 int main(int argc, const char * argv[]) {
     AKPrintSizeTypeTest();
     AKPrintOutputValue();
     AKPrintOutputTypeMacro();
+    
+    AKPrintStructOffsetofTest();
+    AKPrintStructSizeTest();
     
     return 0;
 }
