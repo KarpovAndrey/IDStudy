@@ -9,14 +9,17 @@
 #include <stdio.h>
 #include "AKMacroTests.h"
 #include "AKStructTests.h"
+#include "AKPrintBitValueTests.h"
 
 int main(int argc, const char * argv[]) {
-    AKPrintSizeTypeTest();
-    AKPrintOutputValue();
-    AKPrintOutputTypeMacro();
+//    AKPrintSizeTypeTest();
+//    AKPrintOutputValue();
+//    AKPrintOutputTypeMacro();
+//    
+//    AKPrintStructOffsetofTest();
+//    AKPrintStructSizeTest();
     
-    AKPrintStructOffsetofTest();
-    AKPrintStructSizeTest();
+    AKPrintBitValueOutputTest();
     
     return 0;
 }

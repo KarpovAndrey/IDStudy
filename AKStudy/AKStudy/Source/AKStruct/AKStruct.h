@@ -35,6 +35,7 @@ typedef struct {
             bool haveFancyMan : 1; //1
             bool haveHelicopter : 1;//1
         };
+        char bitFields;
     };
 } AKOfficials;
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8410654C1C3AD4E0002C0F82 /* AKPrintBitValue.c in Sources */ = {isa = PBXBuildFile; fileRef = 8410654A1C3AD4E0002C0F82 /* AKPrintBitValue.c */; };
+		84770D051C3B0D0F0007ED10 /* AKPrintBitValueTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84770D031C3B0D0F0007ED10 /* AKPrintBitValueTests.c */; };
 		84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B15E1C32D2FF000ACAA5 /* main.c */; };
 		84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */; };
 		84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16E1C32DC25000ACAA5 /* AKStruct.c */; };
@@ -26,6 +28,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8410654A1C3AD4E0002C0F82 /* AKPrintBitValue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKPrintBitValue.c; sourceTree = "<group>"; };
+		8410654B1C3AD4E0002C0F82 /* AKPrintBitValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPrintBitValue.h; sourceTree = "<group>"; };
+		84770D031C3B0D0F0007ED10 /* AKPrintBitValueTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKPrintBitValueTests.c; sourceTree = "<group>"; };
+		84770D041C3B0D0F0007ED10 /* AKPrintBitValueTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPrintBitValueTests.h; sourceTree = "<group>"; };
 		84A6B15B1C32D2FF000ACAA5 /* AKStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AKStudy; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A6B15E1C32D2FF000ACAA5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		84A6B1681C32D431000ACAA5 /* AKMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacro.h; sourceTree = "<group>"; };
@@ -48,6 +54,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841065491C3AD4D1002C0F82 /* AKPrintBitValue */ = {
+			isa = PBXGroup;
+			children = (
+				8410654A1C3AD4E0002C0F82 /* AKPrintBitValue.c */,
+				8410654B1C3AD4E0002C0F82 /* AKPrintBitValue.h */,
+			);
+			path = AKPrintBitValue;
+			sourceTree = "<group>";
+		};
+		84770D021C3B0CFC0007ED10 /* AKPrintBitValueTests */ = {
+			isa = PBXGroup;
+			children = (
+				84770D031C3B0D0F0007ED10 /* AKPrintBitValueTests.c */,
+				84770D041C3B0D0F0007ED10 /* AKPrintBitValueTests.h */,
+			);
+			path = AKPrintBitValueTests;
+			sourceTree = "<group>";
+		};
 		84A6B1521C32D2FF000ACAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +101,7 @@
 		84A6B1651C32D3AB000ACAA5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				841065491C3AD4D1002C0F82 /* AKPrintBitValue */,
 				84A6B16D1C32DC0A000ACAA5 /* AKStruct */,
 				84A6B1671C32D3CA000ACAA5 /* AKMacro */,
 			);
@@ -86,6 +111,7 @@
 		84A6B1661C32D3B6000ACAA5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				84770D021C3B0CFC0007ED10 /* AKPrintBitValueTests */,
 				84A6B1751C32DCD2000ACAA5 /* AKStructTests */,
 				84A6B1691C32D445000ACAA5 /* AKMacroTests */,
 			);
@@ -185,6 +211,8 @@
 			files = (
 				84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */,
 				84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */,
+				8410654C1C3AD4E0002C0F82 /* AKPrintBitValue.c in Sources */,
+				84770D051C3B0D0F0007ED10 /* AKPrintBitValueTests.c in Sources */,
 				84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */,
 				84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */,
 			);
@@ -305,6 +333,7 @@
 				84A6B1641C32D2FF000ACAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
