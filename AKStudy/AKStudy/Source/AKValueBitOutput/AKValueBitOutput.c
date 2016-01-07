@@ -51,7 +51,7 @@ void AKPrintBitValueOutput(void *byteAdress, size_t size, AKEndianTypes type);
 
 AKEndianTypes AKBitEndianType() {
     AKTestEndianUnion testEndianUnion;
-    testEndianUnion.charValue = 0;
+    testEndianUnion.charValue = 1;
     uint8_t typeEndian = kAKUndefined;
     if (testEndianUnion.boolValue1 == 1) {
         typeEndian = kAKLittleEndianType;
