@@ -13,9 +13,9 @@
 #include <assert.h>
 
 typedef enum {
-    AKUndefined = 0,
-    AKLittleEndianType,
-    AKBigEndianType,
+    kAKUndefined = 0,
+    kAKLittleEndianType,
+    kAKBigEndianType,
 } AKEndianTypes;
 
 typedef union {
@@ -32,7 +32,7 @@ typedef union {
     char charValue;
 } AKTestEndianUnion;
 
-uint8_t kAKCounter = 8;
+static const uint8_t kAKCounter = 8;
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -51,24 +51,24 @@ void AKPrintBitValueOutput(void *byteAdress, size_t size, AKEndianTypes type);
 
 AKEndianTypes AKBitEndianType() {
     AKTestEndianUnion testEndianUnion;
-    testEndianUnion.charValue = 1;
-    
-    if ((testEndianUnion.boolValue1 != 1) && (testEndianUnion.boolValue8 != 1)) {
-        assert(0);
+    testEndianUnion.charValue = 0;
+    uint8_t typeEndian = kAKUndefined;
+    if (testEndianUnion.boolValue1 == 1) {
+        typeEndian = kAKLittleEndianType;
+    } else if (testEndianUnion.boolValue8 == 1) {
+        typeEndian = kAKBigEndianType;
     }
     
-    return testEndianUnion.charValue ? AKLittleEndianType : AKBigEndianType;
+    return typeEndian;
 }
 
 void AKPrintBitValue(char *byteAdress, AKEndianTypes type) {
-    int8_t value = * byteAdress;
-    
+    int8_t value = *byteAdress;
     for (int8_t shiftedBitCount = kAKCounter; shiftedBitCount > 0; shiftedBitCount--) {
-    uint8_t index = (AKLittleEndianType == type) ?
+        uint8_t index = (kAKLittleEndianType == type) ?
                     (shiftedBitCount) :
                     (kAKCounter - shiftedBitCount + 1);
-        
-    printf((value >> (index - 1) & 1) ? "1" : "0");
+        printf((value >> (index - 1) & 1) ? "1" : "0");
     }
 }
 
@@ -76,17 +76,18 @@ void AKPrintBitValue(char *byteAdress, AKEndianTypes type) {
 #pragma mark Public Implementations
 
 void AKPrintBitValueOutput(void *byteAdress, size_t size, AKEndianTypes type) {
-    char *bitFieldAdress = (char *) byteAdress;
-    
+    char *bitFieldAdress = (char *)byteAdress;
     type = AKBitEndianType();
     
+    if (type == kAKUndefined) {
+        printf("\nATTAENTION!! This is unknown endian-type");
+        assert(0);
+    }
+    
     for (uint16_t count = 0; count < size; count++) {
-        
-        uint8_t index = (AKBigEndianType == type) ? count : size - count - 1;
+        uint8_t index = (kAKBigEndianType == type) ? count : size - count - 1;
         char byte = bitFieldAdress[index];
-        
         AKPrintBitValue(&byte, type);
-        
         printf(" ");
     }
 }
