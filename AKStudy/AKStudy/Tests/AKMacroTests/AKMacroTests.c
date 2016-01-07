@@ -11,7 +11,7 @@
 
 AKOutputType(int, %d);
 AKOutputType(double, %.2f);
-AKOutputType(char, %s);
+AKOutputType(char, %c);
 
 void AKPrintSizeTypeTest() {
     printf("Print type's size\n");
