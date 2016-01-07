@@ -7,9 +7,19 @@
 //
 
 #include <stdio.h>
+#include "AKMacroTests.h"
+#include "AKStructTests.h"
+#include "AKValueBitOutputTests.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+//    AKPrintSizeTypeTest();
+//    AKPrintOutputValue();
+//    AKPrintOutputTypeMacro();
+//    
+//    AKPrintStructOffsetofTest();
+//    AKPrintStructSizeTest();
+
+    AKPrintingByteValuesTest();
+    
     return 0;
 }
