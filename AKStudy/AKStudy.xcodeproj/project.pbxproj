@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840C06F71C40049300B70E34 /* AKHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 840C06F51C40049300B70E34 /* AKHuman.c */; };
 		843594FF1C3C165600026980 /* AKValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 843594FD1C3C165600026980 /* AKValueBitOutput.c */; };
 		843595041C3C170000026980 /* AKValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 843595021C3C170000026980 /* AKValueBitOutputTests.c */; };
 		84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B15E1C32D2FF000ACAA5 /* main.c */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		840C06F51C40049300B70E34 /* AKHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKHuman.c; sourceTree = "<group>"; };
+		840C06F61C40049300B70E34 /* AKHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHuman.h; sourceTree = "<group>"; };
 		843594FD1C3C165600026980 /* AKValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKValueBitOutput.c; sourceTree = "<group>"; };
 		843594FE1C3C165600026980 /* AKValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKValueBitOutput.h; sourceTree = "<group>"; };
 		843595021C3C170000026980 /* AKValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKValueBitOutputTests.c; sourceTree = "<group>"; };
@@ -54,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840C06F41C40048200B70E34 /* AKHuman */ = {
+			isa = PBXGroup;
+			children = (
+				840C06F51C40049300B70E34 /* AKHuman.c */,
+				840C06F61C40049300B70E34 /* AKHuman.h */,
+			);
+			path = AKHuman;
+			sourceTree = "<group>";
+		};
 		843594FC1C3C164600026980 /* AKValueBitOutput */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 		84A6B1651C32D3AB000ACAA5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				840C06F41C40048200B70E34 /* AKHuman */,
 				843594FC1C3C164600026980 /* AKValueBitOutput */,
 				84A6B16D1C32DC0A000ACAA5 /* AKStruct */,
 				84A6B1671C32D3CA000ACAA5 /* AKMacro */,
@@ -210,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */,
+				840C06F71C40049300B70E34 /* AKHuman.c in Sources */,
 				84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */,
 				84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */,
 				843594FF1C3C165600026980 /* AKValueBitOutput.c in Sources */,
