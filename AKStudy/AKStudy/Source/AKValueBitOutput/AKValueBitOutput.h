@@ -12,6 +12,6 @@
 #include <stdio.h>
 
 extern
-void AKPrintingByteValues(void *byteAdress, size_t size);
+void AKPrintingByteValues(void *byte, size_t size);
 
 #endif /* AKValueBitOutput_h */
