@@ -26,9 +26,9 @@ extern
 char *AKHumanGetName(AKHumans *human);
 
 extern
-void AKHumanSetAge(AKHumans *human, int age);
+void AKHumanSetAge(AKHumans *human, uint8_t *age);
 extern
-int *AKHumanGetAge(AKHumans *human);
+uint8_t *AKHumanGetAge(AKHumans *human);
 
 extern
 void AKHumanSetSex(AKHumans *human, bool *sex);

@@ -11,11 +11,11 @@
 #include "AKHuman.h"
 
 struct AKHuman {
-    AKHumans *partner;
-    AKHumans *parents;
-    AKHumans *children[20];
+//    AKHumans *partner;
+//    AKHumans *parents;
+//    AKHumans *children[20];
     char *_name;
-    int _age;
+    uint8_t _age;
     bool _sex;
     uint8_t _quantityChildren;
     bool _married;
@@ -45,11 +45,11 @@ char *AKHumanGetName(AKHumans *human) {
     return human -> _name;
 }
 
-void AKHumanSetAge(AKHumans *human, int age) {
+void AKHumanSetAge(AKHumans *human, uint8_t *age) {
     human -> _age = age;
 }
 
-int *AKHumanGetAge(AKHumans *human) {
+uint8_t *AKHumanGetAge(AKHumans *human) {
     return human -> _age;
 }
 

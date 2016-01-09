@@ -10,7 +10,7 @@
 #include "AKMacroTests.h"
 #include "AKStructTests.h"
 #include "AKValueBitOutputTests.h"
-#include "AKHuman.h"
+#include "AKHumanTest.h"
 
 int main(int argc, const char * argv[]) {
 //    AKPrintSizeTypeTest();
@@ -21,13 +21,8 @@ int main(int argc, const char * argv[]) {
 //    AKPrintStructSizeTest();
 
 //    AKPrintingByteValuesTest();
-  
-    AKHumans *human= AKHumansCreate();
-    AKHumanSetName(human, "Sergey");
- //   AKHumanSetAge(human, 35);
     
-    puts(AKHumanGetName(human));
- //   puts(AKHumanGetAge(human));
+    AKHumanTest();
 
     return 0;
 }
