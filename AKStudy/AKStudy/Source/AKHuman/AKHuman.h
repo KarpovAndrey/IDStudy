@@ -26,22 +26,22 @@ extern
 char *AKHumanGetName(AKHumans *human);
 
 extern
-void AKHumanSetAge(AKHumans *human, uint8_t *age);
+void AKHumanSetAge(AKHumans *human, uint8_t age);
 extern
-uint8_t *AKHumanGetAge(AKHumans *human);
+uint8_t AKHumanGetAge(AKHumans *human);
 
 extern
-void AKHumanSetSex(AKHumans *human, bool *sex);
+void AKHumanSetSex(AKHumans *human, bool sex);
 extern
 bool AKHumanGetSex(AKHumans *human);
 
 extern
-void AKHumanSetQuantityChildren(AKHumans *human, uint8_t *quantityChildren);
+void AKHumanSetQuantityChildren(AKHumans *human, uint8_t quantityChildren);
 extern
 uint8_t AKHumanGetQuantityChildren(AKHumans *human);
 
 extern
-void AKHumanSetMarried(AKHumans *human, bool *married);
+void AKHumanSetMarried(AKHumans *human, bool married);
 extern
 bool AKHumanGetMarried(AKHumans *human);
 #endif /* AKHuman_h */
