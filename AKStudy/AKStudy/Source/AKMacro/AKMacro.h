@@ -9,6 +9,8 @@
 #ifndef AKMacro_h
 #define AKMacro_h
 
+#include <assert.h>
+
 #define AKPrintTypeSize(type) printf("The size of '"#type"' is %lu bytes\n", sizeof(type))
 
 #define AKOutputValue(specifier, value) printf("This is "#specifier"\n", value)
@@ -19,4 +21,8 @@
             }
 
 #define AKOutputTypeMacro(type, value) AKOutput_##type(value)
+
+
+#define AKCheckOnNull(value) assert(value != NULL);
+
 #endif /* AKMacro_h */

@@ -10,49 +10,56 @@
 #include "AKHuman.h"
 
 void AKHumanTest(void) {
-    AKHumans *humanSergey= AKHumansCreate();
+    AKHuman *humanSergey= AKHumanCreate();
     AKHumanSetName(humanSergey, "Sergey");
     printf("Name = '%s'\n", AKHumanGetName(humanSergey));
     
     AKHumanSetAge(humanSergey, 35);
     printf("Age = %d years\n", AKHumanGetAge(humanSergey));
     
-    AKHumanSetSex(humanSergey, true);
-    printf("Sex = %s\n", AKHumanGetSex(humanSergey)? "Man" : "Woman");
+    AKHumanSetSex(humanSergey, kAKManType);
+    printf("Sex = %s\n", (AKHumanGetSex(humanSergey) == 1) ? "man" : "woman");
     
-    AKHumanSetMarried(humanSergey, true);
-    printf("%s is ", AKHumanGetSex(humanSergey) ? "He" : "She");
-    printf("%s\n", AKHumanGetMarried(humanSergey) ? "married" : "not married");
+//    AKHumanSetMarried(humanSergey, false);
+//    printf("%s is ", AKHumanGetSex(humanSergey) ? "He" : "She");
+//    printf("%s", AKHumanGetMarried(humanSergey) ? "is not married" : "married");
     
-    AKHumanSetQuantityChildren(humanSergey, 0);
-    printf("%s has ", AKHumanGetSex(humanSergey) ? "He" : "She");
+    AKHumanSetQuantityChildren(humanSergey, kAKManType);
+    printf("%s has ", AKHumanGetSex(humanSergey) == kAKManType ? "He" : "She");
     printf("%d %s\n", AKHumanGetQuantityChildren(humanSergey),
-           (AKHumanGetQuantityChildren(humanSergey) > 1) ? "children" : "child");
-    
-    AKHumanDeallocate(humanSergey);
-    humanSergey = NULL;
-    
+           AKHumanGetQuantityChildren(humanSergey) > 1 ? "children" : "child");
+        
     printf("\n");
     
-    AKHumans *humanSveta= AKHumansCreate();
+    AKHuman *humanSveta= AKHumanCreate();
     AKHumanSetName(humanSveta, "Sveta");
     printf("Name = '%s'\n", AKHumanGetName(humanSveta));
     
     AKHumanSetAge(humanSveta, 27);
     printf("Age = %d years\n", AKHumanGetAge(humanSveta));
     
-    AKHumanSetSex(humanSveta, false);
-    printf("Sex = %s\n", AKHumanGetSex(humanSveta)? "Man" : "Woman");
+    AKHumanSetSex(humanSveta, kAKWomanType);
+    printf("Sex = %s\n", AKHumanGetSex(humanSveta) == kAKManType ? "man" : "woman");
     
-    AKHumanSetMarried(humanSveta, false);
-    printf("%s is ", AKHumanGetSex(humanSveta) ? "He" : "She");
-    printf("%s\n", AKHumanGetMarried(humanSveta) ? "married" : "not married");
+//    AKHumanSetMarried(humanSveta, 1);
+//    printf("%s is ", AKHumanGetSex(humanSveta) == kAKManType ? "He" : "She");
+//    printf("%s\n", AKHumanGetMarried(humanSveta) ? "married" : "not married");
     
-    AKHumanSetQuantityChildren(humanSveta, 1);
-    printf("%s has ", AKHumanGetSex(humanSveta) ? "He" : "She");
+    AKHumanSetQuantityChildren(humanSveta, 3);
+    printf("%s has ", AKHumanGetSex(humanSveta) == kAKManType ? "He" : "She");
     printf("%d %s\n", AKHumanGetQuantityChildren(humanSveta),
-           (AKHumanGetQuantityChildren(humanSveta) > 1) ? "children" : "child");
+           AKHumanGetQuantityChildren(humanSveta) > 1 ? "children" : "child");
     
+    AKHumanMarry(humanSergey, humanSveta);
+    printf("\n%s is %s\n", AKHumanGetName(humanSergey),
+           AKHumanGetMarried(humanSergey) ? "married" : "not married");
+    
+    AKHumanDivorce(humanSergey, humanSveta);
+    printf("%s is %s\n", AKHumanGetName(humanSveta),
+           AKHumanGetMarried(humanSveta) ? "married" : "not married");
+        
+    AKHumanDeallocate(humanSergey);
+    humanSergey = NULL;
     AKHumanDeallocate(humanSveta);
     humanSveta = NULL;
 }

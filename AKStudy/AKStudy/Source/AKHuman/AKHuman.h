@@ -12,36 +12,52 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct AKHuman AKHumans;
+typedef enum {
+    kAKUndefined,
+    kAKManType = 1,
+    kAKWomanType = 2,
+} AKHumanSexType;
+
+typedef struct AKHuman AKHuman;
 
 extern
-AKHumans *AKHumansCreate(void);
+AKHuman *AKHumanCreate(void);
 
 extern
-void AKHumanDeallocate(AKHumans *human);
+void AKHumanDeallocate(AKHuman *human);
 
 extern
-void AKHumanSetName(AKHumans *human, char *name);
+void AKHumanSetName(AKHuman *human, char *name);
 extern
-char *AKHumanGetName(AKHumans *human);
+char *AKHumanGetName(AKHuman *human);
 
 extern
-void AKHumanSetAge(AKHumans *human, uint8_t age);
+void AKHumanSetAge(AKHuman *human, uint8_t age);
 extern
-uint8_t AKHumanGetAge(AKHumans *human);
+uint8_t AKHumanGetAge(AKHuman *human);
 
 extern
-void AKHumanSetSex(AKHumans *human, bool sex);
+void AKHumanSetSex(AKHuman *human, AKHumanSexType sex);
 extern
-bool AKHumanGetSex(AKHumans *human);
+AKHumanSexType AKHumanGetSex(AKHuman *human);
 
 extern
-void AKHumanSetQuantityChildren(AKHumans *human, uint8_t quantityChildren);
+void AKHumanSetQuantityChildren(AKHuman *human, uint8_t quantityChildren);
 extern
-uint8_t AKHumanGetQuantityChildren(AKHumans *human);
+uint8_t AKHumanGetQuantityChildren(AKHuman *human);
 
 extern
-void AKHumanSetMarried(AKHumans *human, bool married);
+void AKHumanSetMarried(AKHuman *human, bool married);
 extern
-bool AKHumanGetMarried(AKHumans *human);
+bool AKHumanGetMarried(AKHuman *human);
+
+extern
+AKHuman *AKHumanGetPartner(AKHuman *human);
+
+extern
+void AKHumanMarry(AKHuman *human, AKHuman *partner);
+
+extern
+void AKHumanDivorce(AKHuman *human, AKHuman *partner);
+
 #endif /* AKHuman_h */
