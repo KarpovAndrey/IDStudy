@@ -12,6 +12,6 @@
 #include <stdio.h>
 
 extern
-void AKHumanTest(void);
+void AKHumanTest();
 
 #endif /* AKHumanTest_h */

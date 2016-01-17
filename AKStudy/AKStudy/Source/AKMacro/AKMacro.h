@@ -23,6 +23,8 @@
 #define AKOutputTypeMacro(type, value) AKOutput_##type(value)
 
 
-#define AKCheckOnNull(value) assert(value != NULL);
+#define AKCheckOnNull(value) if (value == NULL) {\
+                                  return;\
+                                }\
 
 #endif /* AKMacro_h */

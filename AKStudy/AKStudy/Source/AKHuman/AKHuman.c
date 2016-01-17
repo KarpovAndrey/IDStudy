@@ -16,25 +16,11 @@ struct AKHuman {
     AKHuman *_father;
     AKHuman *_mother;
     AKHuman *_children[20];
+    AKHumanGenderType _gender;
     char *_name;
     uint8_t _age;
-    AKHumanSexType _sex;
-    uint8_t _quantityChildren;
-    bool _married;
+    uint32_t _retainCount;
 };
-
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-AKHuman *AKHumanCreate(void) {
-    AKHuman *human = calloc(1, sizeof(AKHuman));
-    AKCheckOnNull(human);
-    return human;
-}
-
-void AKHumanDeallocate(AKHuman *human) {
-    free(human);
-}
 
 #pragma mark -
 #pragma mark Private Declaration
@@ -42,7 +28,56 @@ void AKHumanDeallocate(AKHuman *human) {
 static
 void AKHumanSetPartner(AKHuman *human, AKHuman *partner);
 
-#pragma mark - 
+static
+void __AKHumanDeallocate(AKHuman *human);
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+void __AKHumanDeallocate(AKHuman *human) {
+    free(human);
+}
+
+AKHuman *AKHumanCreate(void) {
+    AKHuman *human = calloc(1, sizeof(AKHuman));
+    human->_retainCount = 1;
+    
+    return human;
+}
+
+AKHuman *AKHumanCreateWithName(char *name) {
+    AKHuman *humanWithName = AKHumanCreate();
+    AKHumanSetName(humanWithName, name);
+    
+    return humanWithName;
+}
+
+AKHuman *AKHumanCreateWithGenderNamed(char *name, AKHumanGenderType gender) {
+    AKHuman *human = AKHumanCreateWithName(name);
+    AKHumanSetGender(human, gender);
+    
+    return human;
+}
+
+AKHuman *AKChildCreate(void) {
+    AKHuman *child = calloc(1, sizeof(AKHuman));
+    child->_retainCount = 1;
+    
+    return child;
+}
+
+AKHuman *AKChildCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *mother) {
+    AKHuman *childWithNameAndParents = AKChildCreate();
+    AKHumanSetName(childWithNameAndParents, name);
+    AKHumanSetFather(childWithNameAndParents, father);
+    AKHumanSetMother(childWithNameAndParents, mother);
+    AKHumanSetChild(father, childWithNameAndParents);
+    AKHumanSetChild(mother, childWithNameAndParents);
+    
+    return childWithNameAndParents;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 void AKHumanSetName(AKHuman *human, char *name) {
@@ -51,7 +86,6 @@ void AKHumanSetName(AKHuman *human, char *name) {
 }
 
 char *AKHumanGetName(AKHuman *human) {
-    AKCheckOnNull(human);
     return human->_name;
 }
 
@@ -61,62 +95,113 @@ void AKHumanSetAge(AKHuman *human, uint8_t age) {
 }
 
 uint8_t AKHumanGetAge(AKHuman *human) {
-    AKCheckOnNull(human);
     return human->_age;
 }
 
-void AKHumanSetSex(AKHuman *human, AKHumanSexType sex) {
-    if ((sex != kAKManType) && (sex != kAKWomanType)) {
+void AKHumanSetGender(AKHuman *human, AKHumanGenderType gender) {
+    if ((gender != kAKManType) && (gender != kAKWomanType)) {
         return assert(0);
     }
     AKCheckOnNull(human);
-    human->_sex = sex;
+    human->_gender = gender;
 }
 
-AKHumanSexType AKHumanGetSex(AKHuman *human) {
-    return human->_sex;
-}
-
-void AKHumanSetQuantityChildren(AKHuman *human, uint8_t quantityChildren) {
-    AKCheckOnNull(human);
-    human->_quantityChildren = quantityChildren;
-}
-
-uint8_t AKHumanGetQuantityChildren(AKHuman *human) {
-    AKCheckOnNull(human);
-    return human->_quantityChildren;
-}
-
-void AKHumanSetMarried(AKHuman *human, bool married) {
-    AKCheckOnNull(human);
-    human->_married = married;
+AKHumanGenderType AKHumanGetGender(AKHuman *human) {
+    return human->_gender;
 }
 
 bool AKHumanGetMarried(AKHuman *human) {
-    AKCheckOnNull(human);
     return AKHumanGetPartner(human) ? true : false;
 }
 
 void AKHumanSetPartner(AKHuman *human, AKHuman *partner) {
     AKCheckOnNull(human);
-    human->_partner = partner;
+    if (human->_partner == partner) {
+        return;
+    }
+    
+    AKHumanGenderType type = AKHumanGetGender(human);
+    
+    if (kAKWomanType == type) {
+        human->_partner = partner;
+    } else {
+        AKHumanRelease(human->_partner);
+        human->_partner = partner;
+        AKHumanRetain(human->_partner);
+    }
 }
 
 AKHuman *AKHumanGetPartner(AKHuman *human) {
-    AKCheckOnNull(human);
     return human->_partner;
 }
 
+#pragma mark -
+#pragma mark Public Implementation
+
 void AKHumanMarry(AKHuman *human, AKHuman *partner) {
     AKCheckOnNull(human);
+    AKCheckOnNull(partner);
+    if (AKHumanGetGender(human) == AKHumanGetGender(partner)) {
+        return;
+    }
+    
     AKHumanSetPartner(human, partner);
     AKHumanSetPartner(partner, human);
 }
 
-void AKHumanDivorce(AKHuman *human, AKHuman *partner) {
+void AKHumanDivorce(AKHuman *human) {
     AKCheckOnNull(human);
     AKHumanSetPartner(AKHumanGetPartner(human), NULL);
     AKHumanSetPartner(human, NULL);
 }
 
+void AKHumanSetFather(AKHuman *child, AKHuman *father) {
+//   AKCheckOnNull(father);
+    child->_father = father;
+}
+
+AKHuman *AKHumanGetFather(AKHuman *child) {
+    return child->_father;
+}
+
+void AKHumanSetMother(AKHuman *child, AKHuman *mother) {
+    AKCheckOnNull(mother);
+    child->_mother = mother;
+}
+
+AKHuman *AKHumanGetMother(AKHuman *child) {
+    return child->_mother;
+}
+
+void AKHumanSetChild(AKHuman *human, AKHuman *_children) {
+//    AKCheckOnNull(_children);
+    
+    uint8_t index = 0;
+    while (human->_children[index] != 0) {
+        index++;
+    }
+        human->_children[index] = _children;
+}
+
+AKHuman *AKHumanGetChild(AKHuman *human) {
+    return *human->_children;
+}
+
+void AKHumanChildDelete(AKHuman *child) {
+    AKHumanSetChild(AKHumanGetFather(child), NULL);
+    AKHumanSetChild(AKHumanGetMother(child), NULL);
+}
+
+void AKHumanRetain(AKHuman *human) {
+    AKCheckOnNull(human);
+    human->_retainCount++;
+}
+
+void AKHumanRelease(AKHuman *human) {
+    AKCheckOnNull(human);
+    human->_retainCount--;
+    if (0 ==human->_retainCount) {
+        __AKHumanDeallocate(human);
+    }
+}
 
