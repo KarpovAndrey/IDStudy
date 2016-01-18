@@ -23,8 +23,12 @@
 #define AKOutputTypeMacro(type, value) AKOutput_##type(value)
 
 
-#define AKCheckOnNull(value) if (value == NULL) {\
-                                  return;\
-                                }\
+#define AKReturnMacro(value) if (value == NULL) {\
+                                return;\
+                             }\
+
+#define AKReturnNullMacro(value) if (value == NULL) {\
+                                return 0;\
+                             }\
 
 #endif /* AKMacro_h */

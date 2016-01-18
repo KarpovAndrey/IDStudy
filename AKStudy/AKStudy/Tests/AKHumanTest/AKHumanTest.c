@@ -71,11 +71,15 @@ void AKHumanTest() {
     AKHuman *mama = AKHumanCreateWithGenderNamed("MAMA", kAKWomanType);
     printf("%s\n", AKHumanGetName(mama));
     
-    AKHuman *child = AKChildCreateWithNameAndParents("Kinder", papa, mama);
-    printf("%s\n", AKHumanGetName(child));
+    AKHuman *child1 = AKHumanCreateWithNameAndParents("Kinder1", papa, mama);
+    printf("%s\n", AKHumanGetName(child1));
     
-    AKHumanSetAge(child, 1);
-    AKHumanChildDelete(child);
-
+    AKHuman *child2 = AKHumanCreateWithNameAndParents("Kinder2", papa, mama);
+    printf("%s\n", AKHumanGetName(child2));
     
+//    AKHumanRemoveChild(papa, child1);
+//    AKHumanRemoveChild(mama, child1);
+    
+    AKHumanMarry(child1, child2);
+//    AKHumanDivorce(child1);
  }
