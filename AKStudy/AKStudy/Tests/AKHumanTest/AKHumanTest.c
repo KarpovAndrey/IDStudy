@@ -65,10 +65,10 @@ void AKHumanTest() {
 //    AKHumanDeallocate(humanSveta);
 //    humanSveta = NULL;
     
-    AKHuman *papa = AKHumanCreateWithGenderNamed("PAPA", kAKManType);
+    AKHuman *papa = AKHumanCreateWithNameAndGender("PAPA", kAKManType);
     printf("%s\n", AKHumanGetName(papa));
     
-    AKHuman *mama = AKHumanCreateWithGenderNamed("MAMA", kAKWomanType);
+    AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
     printf("%s\n", AKHumanGetName(mama));
     
     AKHuman *child1 = AKHumanCreateWithNameAndParents("Kinder1", papa, mama);
@@ -77,9 +77,16 @@ void AKHumanTest() {
     AKHuman *child2 = AKHumanCreateWithNameAndParents("Kinder2", papa, mama);
     printf("%s\n", AKHumanGetName(child2));
     
+    AKHuman *child3 = AKHumanCreateWithNameAndParents("Kinder3", papa, mama);
+    printf("%s\n", AKHumanGetName(child3));
+    
 //    AKHumanRemoveChild(papa, child1);
 //    AKHumanRemoveChild(mama, child1);
     
-    AKHumanMarry(child1, child2);
+//    AKHumanMarry(child1, child2);
 //    AKHumanDivorce(child1);
+    AKHumanRemoveChild(papa, child1);
+    AKHumanRemoveChild(mama, child1);
+    AKHumanRelease(child1);
+    
  }

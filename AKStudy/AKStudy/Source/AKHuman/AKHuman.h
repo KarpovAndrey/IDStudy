@@ -21,7 +21,7 @@ typedef enum {
 typedef struct AKHuman AKHuman;
 
 extern
-AKHuman *AKHumanCreateWithGenderNamed(char *name, AKHumanGenderType gender);
+AKHuman *AKHumanCreateWithNameAndGender(char *name, AKHumanGenderType gender);
 
 extern
 AKHuman *AKHumanCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *mother);
@@ -64,9 +64,6 @@ void AKHumanSetMother(AKHuman *child, AKHuman *mother);
 
 extern
 AKHuman *AKHumanGetMother(AKHuman *child);
-
-extern
-void AKHumanAddChild(AKHuman *human, AKHuman *_children);
 
 extern
 void AKHumanRemoveChild(AKHuman *human, AKHuman *child);

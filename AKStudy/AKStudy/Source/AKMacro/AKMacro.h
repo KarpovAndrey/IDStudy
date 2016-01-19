@@ -31,4 +31,20 @@
                                 return 0;\
                              }\
 
+#define AKRetainSetter(oldValue, newValue) {\
+            if (oldValue != newValue) {\
+                AKHumanRelease(oldValue);\
+                oldValue = newValue;\
+                AKHumanRetain(oldValue);\
+            }\
+        }\
+
+//#define AKSetter(oldValue, newValue) {\
+//            if (oldValue != newValue) {\
+//                AKHumanRelease(oldValue);\
+//                oldValue = newValue;\
+//                AKHumanRetain(oldValue);\
+//            }\
+//        }\
+
 #endif /* AKMacro_h */
