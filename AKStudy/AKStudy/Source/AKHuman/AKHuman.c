@@ -11,10 +11,12 @@
 
 #include "AKHuman.h"
 #include "AKMacro.h"
+#include "AKObject.h"
 
 static const uint8_t kAKChildrenCount = 20;
 
 struct AKHuman {
+    AKObject *object;
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
