@@ -16,7 +16,7 @@
 static const uint8_t kAKChildrenCount = 20;
 
 struct AKHuman {
-    AKObject *object;
+    AKObject *_super;
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
