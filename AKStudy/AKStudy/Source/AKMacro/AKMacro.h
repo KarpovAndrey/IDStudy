@@ -39,12 +39,10 @@
             }\
         }\
 
-//#define AKSetter(oldValue, newValue) {\
-//            if (oldValue != newValue) {\
-//                AKHumanRelease(oldValue);\
-//                oldValue = newValue;\
-//                AKHumanRetain(oldValue);\
-//            }\
-//        }\
+#define AKAssignSetter(oldValue, newValue) {\
+            if (oldValue != newValue) {\
+                oldValue = newValue;\
+            }\
+        }\
 
 #endif /* AKMacro_h */
