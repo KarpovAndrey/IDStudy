@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "AKHumanTest.h"
 #include "AKHuman.h"
+#include "AKObject.h"
 
 void AKHumanTest() {
     
@@ -70,6 +71,8 @@ void AKHumanTest() {
     
     AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
     printf("%s\n", AKHumanGetName(mama));
+    
+//    AKObjectRelease(mama);
     
 //    AKHuman *child1 = AKHumanCreateWithNameAndParents("Kinder1", papa, mama);
 //    printf("%s\n", AKHumanGetName(child1));

@@ -16,7 +16,7 @@
 static const uint8_t kAKChildrenCount = 20;
 
 struct AKHuman {
-    AKObject *_super;
+    AKObject _super;
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
@@ -24,7 +24,6 @@ struct AKHuman {
     char *_name;
     AKHumanGenderType _gender;
     uint8_t _age;
-    uint32_t _retainCount;
 };
 
 #pragma mark -
@@ -58,13 +57,13 @@ void __AKHumanDeallocate(AKHuman *human) {
     AKHumanSetFather(human, NULL);
     AKHumanRemoveChildren(human);
     
-    free(human);
+    __AKObjectDeallocate(human);
+    puts("HUMAN KILLED");
 }
 
 AKHuman *AKHumanCreate(void) {
-    AKHuman *human = calloc(1, sizeof(AKHuman));
-    human->_retainCount = 1;
-    assert(human);
+    AKHuman *human = AKObjectCreate(AKHuman);
+
     return human;
 }
 
@@ -127,7 +126,7 @@ AKHumanGenderType AKHumanGetGender(AKHuman *human) {
     return human->_gender;
 }
 
-bool AKHumanGetMarried(AKHuman *human) {
+bool AKHumanGetIsMarried(AKHuman *human) {
     return AKHumanGetPartner(human) ? true : false;
 }
 
@@ -208,18 +207,18 @@ void AKHumanRemoveChild(AKHuman *human, AKHuman *child) {
     }
 }
 
-void AKHumanRetain(AKHuman *human) {
-    AKReturnMacro(human);
-    human->_retainCount++;
-}
-
-void AKHumanRelease(AKHuman *human) {
-    AKReturnMacro(human);
-    human->_retainCount--;
-    if (0 == human->_retainCount) {
-        __AKHumanDeallocate(human);
-    }
-}
+//void AKHumanRetain(AKHuman *human) {
+//    AKReturnMacro(human);
+//    human->_retainCount++;
+//}
+//
+//void AKHumanRelease(AKHuman *human) {
+//    AKReturnMacro(human);
+//    human->_retainCount--;
+//    if (0 == human->_retainCount) {
+//        __AKHumanDeallocate(human);
+//    }
+//}
 
 #pragma mark -
 #pragma mark Private Implementation

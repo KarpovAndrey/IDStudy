@@ -42,7 +42,7 @@ extern
 AKHumanGenderType AKHumanGetGender(AKHuman *human);
 
 extern
-bool AKHumanGetMarried(AKHuman *human);
+bool AKHumanGetIsMarried(AKHuman *human);
 
 extern
 AKHuman *AKHumanGetPartner(AKHuman *human);
@@ -71,10 +71,10 @@ void AKHumanRemoveChild(AKHuman *human, AKHuman *child);
 extern
 void AKHumanRemoveChildren(AKHuman *human);
 
-extern
-void AKHumanRetain(AKHuman *human);
-
-extern
-void AKHumanRelease(AKHuman *human);
+//extern
+//void AKHumanRetain(AKHuman *human);
+//
+//extern
+//void AKHumanRelease(AKHuman *human);
 
 #endif /* AKHuman_h */

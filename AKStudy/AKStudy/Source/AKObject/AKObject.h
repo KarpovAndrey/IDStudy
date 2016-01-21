@@ -13,18 +13,21 @@
 
 typedef struct AKObject AKObject;
 
+typedef void (AKObjectDeallocator)(void *object);
+
 struct AKObject {
-    uint8_t _retainCount;
+    uint64_t _retainCount;
+    AKObjectDeallocator *_deallocator;
 };
 
 extern
 void __AKObjectDeallocate(void *object);
 
 #define AKObjectCreate(type)\
-        __AKObjectCreate(sizeof(type), )\
+        __AKObjectCreate(sizeof(type), (AKObjectDeallocator *)__##type##Deallocate)\
 
 extern
-AKObject *__AKObjectCreate(size_t size);
+void *__AKObjectCreate(size_t size, AKObjectDeallocator *_deallocator);
 
 extern
 void *AKObjectRetain(void *object);

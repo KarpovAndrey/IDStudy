@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
 
 //    AKPrintingByteValuesTest();
     
-//    AKHumanTest();
+    AKHumanTest();
 
     return 0;
 }
