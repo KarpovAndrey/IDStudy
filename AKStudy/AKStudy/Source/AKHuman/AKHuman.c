@@ -47,6 +47,9 @@ void AKHumanSetChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
 static
 AKHuman *AKHumanGetChildAtIndex(AKHuman *human, uint8_t index);
 
+static
+void AKRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -115,11 +118,11 @@ uint8_t AKHumanGetAge(AKHuman *human) {
 }
 
 void AKHumanSetGender(AKHuman *human, AKHumanGenderType gender) {
+    AKReturnMacro(human);
+    AKAssignSetter(human->_gender, gender);
     if ((gender != kAKManType) && (gender != kAKWomanType)) {
         return assert(0);
     }
-    AKReturnMacro(human);
-    AKAssignSetter(human->_gender, gender);
 }
 
 AKHumanGenderType AKHumanGetGender(AKHuman *human) {
@@ -135,7 +138,7 @@ void AKHumanSetPartner(AKHuman *human, AKHuman *partner) {
     if (human->_partner == partner) {
         return;
     }
-    
+
     AKHumanGenderType type = AKHumanGetGender(human);
     
     if (kAKWomanType == type) {
@@ -181,6 +184,12 @@ AKHuman *AKHumanGetChildAtIndex(AKHuman *human, uint8_t index) {
 void AKHumanMarry(AKHuman *human, AKHuman *partner) {
     AKReturnMacro(human);
     AKReturnMacro(partner);
+    
+    if ((human->_super._retainCount == 0) || (partner->_super._retainCount == 0)) {
+        printf("RETAIN ERROR\n");
+        return;
+    }
+    
     if (AKHumanGetGender(human) == AKHumanGetGender(partner)) {
         printf("I am opposed to gay marriage\n");
     } else {
@@ -197,28 +206,16 @@ void AKHumanDivorce(AKHuman *human) {
 
 void AKHumanRemoveChild(AKHuman *human, AKHuman *child) {
     for (uint8_t index = 0; index < kAKChildrenCount; index++) {
-        if (AKHumanGetChildAtIndex(human, index) == child) {
-            AKHumanSetChildAtIndex(human, NULL, index);
-            
-            AKHumanGetGender(human) == kAKManType
-            ? AKHumanSetFather(child, NULL)
-            : AKHumanSetMother(child, NULL);
-        }
+        AKRemoveChildAtIndex(human, child, index);
     }
 }
 
-//void AKHumanRetain(AKHuman *human) {
-//    AKReturnMacro(human);
-//    human->_retainCount++;
-//}
-//
-//void AKHumanRelease(AKHuman *human) {
-//    AKReturnMacro(human);
-//    human->_retainCount--;
-//    if (0 == human->_retainCount) {
-//        __AKHumanDeallocate(human);
-//    }
-//}
+void AKHumanRemoveChildren(AKHuman *human) {
+    AKReturnMacro(human);
+    for (uint8_t index = 0; index < kAKChildrenCount; index++) {
+        AKRemoveChildAtIndex(human, AKHumanGetChildAtIndex(human, index), index);
+    }
+}
 
 #pragma mark -
 #pragma mark Private Implementation
@@ -233,9 +230,12 @@ void AKHumanAddChild(AKHuman *human, AKHuman *child) {
     AKHumanSetChildAtIndex(human, child, index);
 }
 
-void AKHumanRemoveChildren(AKHuman *human) {
-    AKReturnMacro(human);
-    for (uint8_t index = 0; index < kAKChildrenCount; index++) {
-        AKHumanRemoveChild(human, human->_children[index]);
+void AKRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index) {
+    if (AKHumanGetChildAtIndex(human, index) == child) {
+        AKHumanSetChildAtIndex(human, NULL, index);
+        
+        AKHumanGetGender(human) == kAKManType
+        ? AKHumanSetFather(child, NULL)
+        : AKHumanSetMother(child, NULL);
     }
 }

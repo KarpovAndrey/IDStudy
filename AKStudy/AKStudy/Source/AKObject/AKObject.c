@@ -34,9 +34,16 @@ void *__AKObjectCreate(size_t size, AKObjectDeallocator *_deallocator) {
 void *AKObjectRetain(void *object) {
     AKReturnNullMacro(object);
     AKObject *newObject = object;
-    newObject->_retainCount++;
-    assert(UINT64_MAX > newObject->_retainCount);
     
+//    if (newObject->_retainCount == 0) {
+//        printf("RETAIN ERROR");
+//        return 0;
+//    }
+//    assert(UINT64_MAX > newObject->_retainCount);
+//    assert(newObject->_retainCount > 0);
+    
+    newObject->_retainCount++;
+      
     return newObject;
 }
 

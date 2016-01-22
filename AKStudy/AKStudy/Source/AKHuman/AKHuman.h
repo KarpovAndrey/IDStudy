@@ -71,10 +71,4 @@ void AKHumanRemoveChild(AKHuman *human, AKHuman *child);
 extern
 void AKHumanRemoveChildren(AKHuman *human);
 
-//extern
-//void AKHumanRetain(AKHuman *human);
-//
-//extern
-//void AKHumanRelease(AKHuman *human);
-
 #endif /* AKHuman_h */
