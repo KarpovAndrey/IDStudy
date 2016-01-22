@@ -7,10 +7,12 @@
 //
 
 #include <stdio.h>
+
 #include "AKMacroTests.h"
 #include "AKStructTests.h"
 #include "AKValueBitOutputTests.h"
 #include "AKHumanTest.h"
+#include "AKString.h"
 
 int main(int argc, const char * argv[]) {
 //    AKPrintSizeTypeTest();
@@ -23,6 +25,12 @@ int main(int argc, const char * argv[]) {
 //    AKPrintingByteValuesTest();
     
     AKHumanTest();
-
+//    
+//    AKString *string1 = __AKStringCreate();
+//    AKStringSetData(string1, "HELLO STRING");
+//    printf("%s\n", AKStringGetData(string1));
+//    AKObjectRelease(string1);
+//    
+    
     return 0;
 }

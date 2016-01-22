@@ -26,10 +26,10 @@ AKHuman *AKHumanCreateWithNameAndGender(char *name, AKHumanGenderType gender);
 extern
 AKHuman *AKHumanCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *mother);
 
-extern
-void AKHumanSetName(AKHuman *human, char *name);
-extern
-char *AKHumanGetName(AKHuman *human);
+//extern
+//void AKHumanSetName(AKHuman *human, char *name);
+//extern
+//char *AKHumanGetName(AKHuman *human);
 
 extern
 void AKHumanSetAge(AKHuman *human, uint8_t age);

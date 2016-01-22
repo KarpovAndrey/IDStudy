@@ -12,11 +12,13 @@
 #include "AKHuman.h"
 #include "AKMacro.h"
 #include "AKObject.h"
+#include "AKString.h"
 
 static const uint8_t kAKChildrenCount = 20;
 
 struct AKHuman {
     AKObject _super;
+    AKString __super;
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
@@ -54,7 +56,7 @@ void AKRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
 #pragma mark Initializations and Deallocations
 
 void __AKHumanDeallocate(AKHuman *human) {
-    AKHumanSetName(human, NULL);
+    AKStringSetData((AKString *)human, NULL);
     AKHumanDivorce(human);
     AKHumanSetMother(human, NULL);
     AKHumanSetFather(human, NULL);
@@ -72,7 +74,8 @@ AKHuman *AKHumanCreate(void) {
 
 AKHuman *AKHumanCreateWithNameAndGender(char *name,  AKHumanGenderType gender) {
     AKHuman *humanWithName = AKHumanCreate();
-    AKHumanSetName(humanWithName, name);
+    AKStringSetData((AKString *)humanWithName, name);
+//    AKHumanSetName(humanWithName, name);
     AKHumanSetGender(humanWithName, gender);
     
     return humanWithName;
@@ -91,21 +94,21 @@ AKHuman *AKHumanCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *m
 #pragma mark -
 #pragma mark Accessors
 
-void AKHumanSetName(AKHuman *human, char *name) {
-    AKReturnMacro(human);
-    
-    if (human->_name != NULL) {
-        free(human->_name);
-    } if (!name) {
-        human->_name = NULL;
-    } else {
-        human->_name = strdup(name);
-    }
-}
-
-char *AKHumanGetName(AKHuman *human) {
-    return human->_name;
-}
+//void AKHumanSetName(AKHuman *human, char *name) {
+//    AKReturnMacro(human);
+//    
+//    if (human->_name != NULL) {
+//        free(human->_name);
+//    } if (!name) {
+//        human->_name = NULL;
+//    } else {
+//        human->_name = strdup(name);
+//    }
+//}
+//
+//char *AKHumanGetName(AKHuman *human) {
+//    return human->_name;
+//}
 
 void AKHumanSetAge(AKHuman *human, uint8_t age) {
     AKReturnMacro(human);

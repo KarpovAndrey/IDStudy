@@ -10,6 +10,7 @@
 #include "AKHumanTest.h"
 #include "AKHuman.h"
 #include "AKObject.h"
+#include "AKString.h"
 
 void AKHumanTest() {
     
@@ -67,31 +68,33 @@ void AKHumanTest() {
 //    humanSveta = NULL;
     
     AKHuman *papa = AKHumanCreateWithNameAndGender("PAPA", kAKManType);
-    printf("%s\n", AKHumanGetName(papa));
+    printf("%s\n", AKStringGetData((AKString *)papa));
     
-    AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
-    printf("%s\n", AKHumanGetName(mama));
-    
-//    AKObjectRelease(papa);
-    AKHumanMarry(papa, mama);
-    AKHuman *child1 = AKHumanCreateWithNameAndParents("Kinder1", papa, mama);
-    printf("%s\n", AKHumanGetName(child1));
-    
-    AKHuman *child2 = AKHumanCreateWithNameAndParents("Kinder2", papa, mama);
-    printf("%s\n", AKHumanGetName(child2));
-    
-    AKHuman *child3 = AKHumanCreateWithNameAndParents("Kinder3", papa, mama);
-    printf("%s\n", AKHumanGetName(child3));
-    
-//    AKHumanRemoveChild(papa, child1);
-//    AKHumanRemoveChild(mama, child1);
-    
-//    AKHumanMarry(child1, child2);
-//    AKHumanDivorce(child1);
+    AKObjectRelease(papa);
+
+//    AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
+//    printf("%s\n", AKHumanGetName(mama));
+//    
+////    AKObjectRelease(papa);
+//    AKHumanMarry(papa, mama);
+//    AKHuman *child1 = AKHumanCreateWithNameAndParents("Kinder1", papa, mama);
+//    printf("%s\n", AKHumanGetName(child1));
+//    
+//    AKHuman *child2 = AKHumanCreateWithNameAndParents("Kinder2", papa, mama);
+//    printf("%s\n", AKHumanGetName(child2));
+//    
+//    AKHuman *child3 = AKHumanCreateWithNameAndParents("Kinder3", papa, mama);
+//    printf("%s\n", AKHumanGetName(child3));
+//    
+////    AKHumanRemoveChild(papa, child1);
+////    AKHumanRemoveChild(mama, child1);
+//    
+////    AKHumanMarry(child1, child2);
+////    AKHumanDivorce(child1);
+////    AKHumanRemoveChildren(papa);
+////    AKHumanRelease(child1);
 //    AKHumanRemoveChildren(papa);
-//    AKHumanRelease(child1);
-    AKHumanRemoveChildren(papa);
-    printf("%s\n", AKHumanGetName(child3));
+//    printf("%s\n", AKHumanGetName(child3));
 //    AKHumanDivorce(papa);
     
  }
