@@ -21,11 +21,12 @@ void __AKStringDeallocate(AKString *string) {
     AKReturnMacro(string);
     AKStringSetData(string, NULL);
     __AKObjectDeallocate(string);
+    printf("STRING KILLED\n");
 }
 
 void *__AKStringCreate() {
     AKString *string = AKObjectCreate(AKString);
-    
+
     return string;
 }
 
@@ -45,7 +46,6 @@ char *AKStringGetData(AKString *string) {
 #pragma mark -
 #pragma mark Public
 
-//void AKStringLong(AKString *string) {
-//
-//    printf("%lu", strlen(string));
+//void AKStringLong(void *string) {
+//    printf("The string has %lu symbols\n", strlen(AKStringGetData(string)));
 //}

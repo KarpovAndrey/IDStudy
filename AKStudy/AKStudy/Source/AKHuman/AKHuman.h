@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#include "AKString.h"
+
 typedef enum {
     kAKUndefined,
     kAKManType = 1,
@@ -21,15 +23,16 @@ typedef enum {
 typedef struct AKHuman AKHuman;
 
 extern
-AKHuman *AKHumanCreateWithNameAndGender(char *name, AKHumanGenderType gender);
+AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName, AKHumanGenderType gender);
 
 extern
-AKHuman *AKHumanCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *mother);
+AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, AKHuman *mother);
 
-//extern
-//void AKHumanSetName(AKHuman *human, char *name);
-//extern
-//char *AKHumanGetName(AKHuman *human);
+extern
+void AKHumanSetName(AKHuman *human, AKString *string);
+
+extern
+char *AKHumanGetName(AKHuman *human);
 
 extern
 void AKHumanSetAge(AKHuman *human, uint8_t age);

@@ -18,12 +18,11 @@ static const uint8_t kAKChildrenCount = 20;
 
 struct AKHuman {
     AKObject _super;
-    AKString __super;
+    AKString *_name;
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
     AKHuman *_children[kAKChildrenCount];
-    char *_name;
     AKHumanGenderType _gender;
     uint8_t _age;
 };
@@ -56,13 +55,13 @@ void AKRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
 #pragma mark Initializations and Deallocations
 
 void __AKHumanDeallocate(AKHuman *human) {
-    AKStringSetData((AKString *)human, NULL);
+    AKHumanSetName(human, NULL);
     AKHumanDivorce(human);
     AKHumanSetMother(human, NULL);
     AKHumanSetFather(human, NULL);
     AKHumanRemoveChildren(human);
-    
     __AKObjectDeallocate(human);
+    
     puts("HUMAN KILLED");
 }
 
@@ -72,17 +71,16 @@ AKHuman *AKHumanCreate(void) {
     return human;
 }
 
-AKHuman *AKHumanCreateWithNameAndGender(char *name,  AKHumanGenderType gender) {
+AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName,  AKHumanGenderType gender) {
     AKHuman *humanWithName = AKHumanCreate();
-    AKStringSetData((AKString *)humanWithName, name);
-//    AKHumanSetName(humanWithName, name);
+    AKHumanSetName(humanWithName, (AKString *)stringName);
     AKHumanSetGender(humanWithName, gender);
     
     return humanWithName;
 }
 
-AKHuman *AKHumanCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *mother) {
-    AKHuman *humanWithNameAndParents = AKHumanCreateWithNameAndGender(name, arc4random_uniform(2)+1);
+AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, AKHuman *mother) {
+    AKHuman *humanWithNameAndParents = AKHumanCreateWithNameAndGender(stringName, arc4random_uniform(2)+1);
     AKHumanSetFather(humanWithNameAndParents, father);
     AKHumanSetMother(humanWithNameAndParents, mother);
     AKHumanAddChild(father, humanWithNameAndParents);
@@ -109,6 +107,17 @@ AKHuman *AKHumanCreateWithNameAndParents(char *name, AKHuman *father, AKHuman *m
 //char *AKHumanGetName(AKHuman *human) {
 //    return human->_name;
 //}
+
+void AKHumanSetName(AKHuman *human, AKString *stringName) {
+    AKReturnMacro(human);
+    
+    AKRetainSetter(human->_name, stringName);
+}
+
+char *AKHumanGetName(AKHuman *human) {
+    AKReturnNullMacro(human);
+    return human->_name->_data;
+}
 
 void AKHumanSetAge(AKHuman *human, uint8_t age) {
     AKReturnMacro(human);

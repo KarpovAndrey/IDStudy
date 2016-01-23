@@ -67,11 +67,15 @@ void AKHumanTest() {
 //    AKHumanDeallocate(humanSveta);
 //    humanSveta = NULL;
     
-    AKHuman *papa = AKHumanCreateWithNameAndGender("PAPA", kAKManType);
-    printf("%s\n", AKStringGetData((AKString *)papa));
     
+    AKString *namePapa = __AKStringCreate();
+    AKStringSetData(namePapa, "Tom");
+    
+    AKHuman *papa = AKHumanCreateWithNameAndGender(namePapa, kAKManType);
+    printf("%s\n", AKHumanGetName(papa));
+    AKObjectRelease(namePapa);
     AKObjectRelease(papa);
-
+    AKStringGetData(namePapa);
 //    AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
 //    printf("%s\n", AKHumanGetName(mama));
 //    
