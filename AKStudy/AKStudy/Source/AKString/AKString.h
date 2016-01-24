@@ -18,6 +18,7 @@ typedef struct AKString AKString;
 struct AKString {
     AKObject _super;
     char *_data;
+    uint8_t _dataCount;
 };
 
 extern
@@ -33,6 +34,18 @@ extern
 char *AKStringGetData(AKString *string);
 
 //extern
-//void AKStringLong(void *string);
+//void AKStringLong(AKString *string);
+
+extern
+void AKStringSetStringLong(AKString *string, uint8_t dataCount);
+
+extern
+uint8_t AKStringGetStringLong(AKString *string);
+
+extern
+void AKStringSetDataWithData(AKString *string, char *data);
+
+extern
+char *AKStringGetDataWithData(AKString *string);
 
 #endif /* AKString_h */

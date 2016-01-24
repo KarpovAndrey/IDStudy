@@ -20,6 +20,7 @@
 void __AKStringDeallocate(AKString *string) {
     AKReturnMacro(string);
     AKStringSetData(string, NULL);
+    AKStringSetStringLong(string, 0);
     __AKObjectDeallocate(string);
     printf("STRING KILLED\n");
 }
@@ -36,6 +37,8 @@ void *__AKStringCreate() {
 void AKStringSetData(AKString *string, char *data) {
     AKReturnMacro(string);
     AKAssignSetter(string->_data , data);
+    AKReturnMacro(data);
+    AKStringSetStringLong(string, strlen(AKStringGetData(string)));
 }
 
 char *AKStringGetData(AKString *string) {
@@ -43,9 +46,31 @@ char *AKStringGetData(AKString *string) {
     return string->_data;
 }
 
+void AKStringSetStringLong(AKString *string, uint8_t dataCount) {
+    AKReturnMacro(string);
+    AKAssignSetter(string->_dataCount, dataCount);
+}
+
+uint8_t AKStringGetStringLong(AKString *string) {
+    return string->_dataCount;
+}
+
+void AKStringSetDataWithData(AKString *string, char *data) {
+    AKReturnMacro(string);
+    AKAssignSetter(string->_data, strcat(string->_data, data));
+    
+    AKReturnMacro(data);
+    AKStringSetStringLong(string, strlen(AKStringGetData(string)));
+}
+
+char *AKStringGetDataWithData(AKString *string) {
+    AKReturnNullMacro(string);
+    return string->_data;
+}
+
 #pragma mark -
 #pragma mark Public
 
-//void AKStringLong(void *string) {
-//    printf("The string has %lu symbols\n", strlen(AKStringGetData(string)));
+//void AKStringLong(AKString *string) {
+//    printf("The string has %d symbols\n", string->_dataCount);
 //}

@@ -70,12 +70,22 @@ void AKHumanTest() {
     
     AKString *namePapa = __AKStringCreate();
     AKStringSetData(namePapa, "Tom");
+    printf("%d\n", AKStringGetStringLong(namePapa));
     
-    AKHuman *papa = AKHumanCreateWithNameAndGender(namePapa, kAKManType);
-    printf("%s\n", AKHumanGetName(papa));
-    AKObjectRelease(namePapa);
-    AKObjectRelease(papa);
-    AKStringGetData(namePapa);
+    AKString *nameMama = __AKStringCreate();
+    AKStringSetData(nameMama, "Sara");
+    printf("%d\n", AKStringGetStringLong(nameMama));
+    
+    AKStringSetDataWithData(namePapa, nameMama);
+    printf("%d\n", AKStringGetStringLong(namePapa));
+    printf("%s\n", AKStringGetDataWithData(namePapa));
+    
+//    AKHuman *papa = AKHumanCreateWithNameAndGender(namePapa, kAKManType);
+//    printf("%s\n", AKHumanGetName(papa));
+    
+//    AKObjectRelease(namePapa);
+//    AKObjectRelease(papa);
+
 //    AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
 //    printf("%s\n", AKHumanGetName(mama));
 //    
