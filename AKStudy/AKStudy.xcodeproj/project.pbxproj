@@ -17,6 +17,7 @@
 		84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */; };
 		84B1EA701C500311006E77EC /* AKObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 84B1EA6E1C500311006E77EC /* AKObject.c */; };
 		84BA0D1D1C526886001D9D68 /* AKString.c in Sources */ = {isa = PBXBuildFile; fileRef = 84BA0D1B1C526886001D9D68 /* AKString.c */; };
+		84C0151B1C568C4300C150BF /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 84C015191C568C4300C150BF /* AKArray.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		84B1EA6F1C500311006E77EC /* AKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObject.h; sourceTree = "<group>"; };
 		84BA0D1B1C526886001D9D68 /* AKString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKString.c; sourceTree = "<group>"; };
 		84BA0D1C1C526886001D9D68 /* AKString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKString.h; sourceTree = "<group>"; };
+		84C015191C568C4300C150BF /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
+		84C0151A1C568C4300C150BF /* AKArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKArray.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,7 @@
 		84A6B1651C32D3AB000ACAA5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				84C015181C568C3300C150BF /* AKArray */,
 				84BA0D1A1C526874001D9D68 /* AKString */,
 				84B1EA6D1C500304006E77EC /* AKObject */,
 				840C06F41C40048200B70E34 /* AKHuman */,
@@ -205,6 +209,15 @@
 			path = AKString;
 			sourceTree = "<group>";
 		};
+		84C015181C568C3300C150BF /* AKArray */ = {
+			isa = PBXGroup;
+			children = (
+				84C015191C568C4300C150BF /* AKArray.c */,
+				84C0151A1C568C4300C150BF /* AKArray.h */,
+			);
+			path = AKArray;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,6 +281,7 @@
 				84BA0D1D1C526886001D9D68 /* AKString.c in Sources */,
 				84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */,
 				843594FF1C3C165600026980 /* AKValueBitOutput.c in Sources */,
+				84C0151B1C568C4300C150BF /* AKArray.c in Sources */,
 				843595041C3C170000026980 /* AKValueBitOutputTests.c in Sources */,
 				84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */,
 				84B1EA701C500311006E77EC /* AKObject.c in Sources */,

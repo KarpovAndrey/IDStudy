@@ -67,30 +67,28 @@ void AKHumanTest() {
 //    AKHumanDeallocate(humanSveta);
 //    humanSveta = NULL;
     
-    AKString *sergey = AKStringCreateWithData("Sergey");
-    puts(AKStringGetData(sergey));
-    
-    AKString *namePapa = __AKStringCreate();
-    AKStringSetData(namePapa, "Tom");
-    printf("%d\n", AKStringGetStringLong(namePapa));
-    
-    AKString *nameMama = __AKStringCreate();
-    AKStringSetData(nameMama, "Sara");
-    printf("%d\n", AKStringGetStringLong(nameMama));
-    
-    AKStringSetDataWithData(namePapa, nameMama);
+//    AKString *sergey = AKStringCreateWithData("Sergey");
+//    puts(AKStringGetData(sergey));
+//    
+//    AKString *namePapa = __AKStringCreate();
+//    AKStringSetData(namePapa, "Tom");
 //    printf("%d\n", AKStringGetStringLong(namePapa));
-    printf("%s\n", AKStringGetDataWithData(namePapa));
-//
-//    AKHuman *papa = AKHumanCreateWithNameAndGender(namePapa, kAKManType);
-//    printf("%s\n", AKHumanGetName(papa));
+//    
+//    AKString *nameMama = __AKStringCreate();
+//    AKStringSetData(nameMama, "Sara");
+//    printf("%d\n", AKStringGetStringLong(nameMama));
+//    
+//    printf("%d\n", AKStringIsEqual(namePapa, nameMama));
+//    
+//    puts(AKStringGetData(AKStringWithString(namePapa, nameMama)));
+//    
+    
+    
+//    printf("%d\n", AKStringGetStringLong(namePapa));
     
 //    AKObjectRelease(namePapa);
 //    AKObjectRelease(papa);
 
-//    AKHuman *mama = AKHumanCreateWithNameAndGender("MAMA", kAKWomanType);
-//    printf("%s\n", AKHumanGetName(mama));
-//    
 ////    AKObjectRelease(papa);
 //    AKHumanMarry(papa, mama);
 //    AKHuman *child1 = AKHumanCreateWithNameAndParents("Kinder1", papa, mama);

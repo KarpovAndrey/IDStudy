@@ -10,6 +10,7 @@
 #define AKString_h
 
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "AKObject.h"
 
@@ -36,16 +37,13 @@ void AKStringSetData(AKString *string, char *data);
 extern
 char *AKStringGetData(AKString *string);
 
-//extern
-//void AKStringSetStringLong(AKString *string, uint8_t dataCount);
-
 extern
 uint8_t AKStringGetStringLong(AKString *string);
 
 extern
-AKString *AKStringSetDataWithData(AKString *string, AKString *secondString);
+AKString *AKStringWithString(AKString *string, AKString *secondString);
 
 extern
-char *AKStringGetDataWithData(AKString *string);
+bool AKStringIsEqual(AKString *firstString, AKString *secondString);
 
 #endif /* AKString_h */

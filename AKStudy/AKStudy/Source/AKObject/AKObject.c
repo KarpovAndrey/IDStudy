@@ -35,13 +35,6 @@ void *AKObjectRetain(void *object) {
     AKReturnNullMacro(object);
     AKObject *newObject = object;
     
-//    if (newObject->_retainCount == 0) {
-//        printf("RETAIN ERROR");
-//        return 0;
-//    }
-//    assert(UINT64_MAX > newObject->_retainCount);
-//    assert(newObject->_retainCount > 0);
-    
     newObject->_retainCount++;
       
     return newObject;

@@ -73,7 +73,7 @@ AKHuman *AKHumanCreate(void) {
 
 AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName,  AKHumanGenderType gender) {
     AKHuman *humanWithName = AKHumanCreate();
-    AKHumanSetName(humanWithName, (AKString *)stringName);
+    AKHumanSetName(humanWithName, stringName);
     AKHumanSetGender(humanWithName, gender);
     
     return humanWithName;
@@ -91,22 +91,6 @@ AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, 
 
 #pragma mark -
 #pragma mark Accessors
-
-//void AKHumanSetName(AKHuman *human, char *name) {
-//    AKReturnMacro(human);
-//    
-//    if (human->_name != NULL) {
-//        free(human->_name);
-//    } if (!name) {
-//        human->_name = NULL;
-//    } else {
-//        human->_name = strdup(name);
-//    }
-//}
-//
-//char *AKHumanGetName(AKHuman *human) {
-//    return human->_name;
-//}
 
 void AKHumanSetName(AKHuman *human, AKString *stringName) {
     AKReturnMacro(human);

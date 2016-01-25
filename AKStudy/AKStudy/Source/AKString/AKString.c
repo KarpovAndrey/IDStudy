@@ -13,15 +13,11 @@
 #include "AKMacro.h"
 
 #pragma mark -
-#pragma mark Public Declarations
-
-#pragma mark -
 #pragma mark Initializations an Deallocations
 
 void __AKStringDeallocate(AKString *string) {
     AKReturnMacro(string);
     AKStringSetData(string, NULL);
-//    AKStringSetStringLong(string, 0);
     __AKObjectDeallocate(string);
     printf("STRING KILLED\n");
 }
@@ -44,6 +40,7 @@ void *AKStringCreateWithData(char *data) {
 
 void AKStringSetData(AKString *string, char *data) {
     AKReturnMacro(string);
+    
     free(string->_data);
     
     if (data) {
@@ -51,14 +48,12 @@ void AKStringSetData(AKString *string, char *data) {
     } else {
         string->_data = NULL;
     }
-    AKAssignSetter(string->_data , data);
 }
 
 char *AKStringGetData(AKString *string) {
     AKReturnNullMacro(string);
     return string->_data;
 }
-
 
 uint8_t AKStringGetStringLong(AKString *string) {
     AKReturnNullMacro(string);
@@ -67,13 +62,16 @@ uint8_t AKStringGetStringLong(AKString *string) {
     return string->_dataCount;
 }
 
-AKString *AKStringSetDataWithData(AKString *string, AKString *secondString) {
+#pragma mark -
+#pragma mark Public
+
+AKString *AKStringWithString(AKString *string, AKString *secondString) {
     AKReturnNullMacro(string);
     if (!secondString) {
         return string;
     }
     
-    uint32_t count = AKStringGetStringLong(string);
+    uint32_t count;
     count = AKStringGetStringLong(string) + AKStringGetStringLong(secondString);
     printf("%d\n", count);
     
@@ -87,10 +85,13 @@ AKString *AKStringSetDataWithData(AKString *string, AKString *secondString) {
     return newString;
 }
 
-char *AKStringGetDataWithData(AKString *string) {
-    AKReturnNullMacro(string);
-    return string->_data;
+bool AKStringIsEqual(AKString *firstString, AKString *secondString) {
+    AKReturnNullMacro(firstString);
+    AKReturnNullMacro(secondString);
+    bool isEqual = false;
+    if (strcmp(AKStringGetData(firstString), AKStringGetData(secondString)) == 0) {
+        isEqual = true;
+    }
+    
+    return isEqual;
 }
-
-#pragma mark -
-#pragma mark Public
