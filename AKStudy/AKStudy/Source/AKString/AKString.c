@@ -6,10 +6,11 @@
 //  Copyright © 2016 Admin. All rights reserved.
 //
 
-#include "AKString.h"
-#include "AKMacro.h"
 #include <string.h>
 #include <stdlib.h>
+
+#include "AKString.h"
+#include "AKMacro.h"
 
 #pragma mark -
 #pragma mark Public Declarations
@@ -20,7 +21,7 @@
 void __AKStringDeallocate(AKString *string) {
     AKReturnMacro(string);
     AKStringSetData(string, NULL);
-    AKStringSetStringLong(string, 0);
+//    AKStringSetStringLong(string, 0);
     __AKObjectDeallocate(string);
     printf("STRING KILLED\n");
 }
@@ -31,14 +32,26 @@ void *__AKStringCreate() {
     return string;
 }
 
+void *AKStringCreateWithData(char *data) {
+    AKString *string = __AKStringCreate();
+    AKStringSetData(string, data);
+    
+    return string;
+}
+
 #pragma mark -
 #pragma mark Accessors
 
 void AKStringSetData(AKString *string, char *data) {
     AKReturnMacro(string);
+    free(string->_data);
+    
+    if (data) {
+        string->_data = strdup(data);
+    } else {
+        string->_data = NULL;
+    }
     AKAssignSetter(string->_data , data);
-    AKReturnMacro(data);
-    AKStringSetStringLong(string, strlen(AKStringGetData(string)));
 }
 
 char *AKStringGetData(AKString *string) {
@@ -46,21 +59,32 @@ char *AKStringGetData(AKString *string) {
     return string->_data;
 }
 
-void AKStringSetStringLong(AKString *string, uint8_t dataCount) {
-    AKReturnMacro(string);
-    AKAssignSetter(string->_dataCount, dataCount);
-}
 
 uint8_t AKStringGetStringLong(AKString *string) {
+    AKReturnNullMacro(string);
+    AKAssignSetter(string->_dataCount, strlen(AKStringGetData(string)));
+    
     return string->_dataCount;
 }
 
-void AKStringSetDataWithData(AKString *string, char *data) {
-    AKReturnMacro(string);
-    AKAssignSetter(string->_data, strcat(string->_data, data));
+AKString *AKStringSetDataWithData(AKString *string, AKString *secondString) {
+    AKReturnNullMacro(string);
+    if (!secondString) {
+        return string;
+    }
     
-    AKReturnMacro(data);
-    AKStringSetStringLong(string, strlen(AKStringGetData(string)));
+    uint32_t count = AKStringGetStringLong(string);
+    count = AKStringGetStringLong(string) + AKStringGetStringLong(secondString);
+    printf("%d\n", count);
+    
+    char *charString = calloc(count, sizeof(char));
+    assert(charString);
+    charString = AKStringGetData(string);
+    
+    strcat(charString, AKStringGetData(secondString));
+    AKString *newString = AKStringCreateWithData(charString);
+    
+    return newString;
 }
 
 char *AKStringGetDataWithData(AKString *string) {
@@ -70,7 +94,3 @@ char *AKStringGetDataWithData(AKString *string) {
 
 #pragma mark -
 #pragma mark Public
-
-//void AKStringLong(AKString *string) {
-//    printf("The string has %d symbols\n", string->_dataCount);
-//}

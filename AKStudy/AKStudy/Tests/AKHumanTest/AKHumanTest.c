@@ -67,6 +67,8 @@ void AKHumanTest() {
 //    AKHumanDeallocate(humanSveta);
 //    humanSveta = NULL;
     
+    AKString *sergey = AKStringCreateWithData("Sergey");
+    puts(AKStringGetData(sergey));
     
     AKString *namePapa = __AKStringCreate();
     AKStringSetData(namePapa, "Tom");
@@ -77,9 +79,9 @@ void AKHumanTest() {
     printf("%d\n", AKStringGetStringLong(nameMama));
     
     AKStringSetDataWithData(namePapa, nameMama);
-    printf("%d\n", AKStringGetStringLong(namePapa));
+//    printf("%d\n", AKStringGetStringLong(namePapa));
     printf("%s\n", AKStringGetDataWithData(namePapa));
-    
+//
 //    AKHuman *papa = AKHumanCreateWithNameAndGender(namePapa, kAKManType);
 //    printf("%s\n", AKHumanGetName(papa));
     

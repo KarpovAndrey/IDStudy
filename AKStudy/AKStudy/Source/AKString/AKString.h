@@ -28,22 +28,22 @@ extern
 void *__AKStringCreate();
 
 extern
+void *AKStringCreateWithData(char *data);
+
+extern
 void AKStringSetData(AKString *string, char *data);
 
 extern
 char *AKStringGetData(AKString *string);
 
 //extern
-//void AKStringLong(AKString *string);
-
-extern
-void AKStringSetStringLong(AKString *string, uint8_t dataCount);
+//void AKStringSetStringLong(AKString *string, uint8_t dataCount);
 
 extern
 uint8_t AKStringGetStringLong(AKString *string);
 
 extern
-void AKStringSetDataWithData(AKString *string, char *data);
+AKString *AKStringSetDataWithData(AKString *string, AKString *secondString);
 
 extern
 char *AKStringGetDataWithData(AKString *string);
