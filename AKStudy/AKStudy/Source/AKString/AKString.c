@@ -55,7 +55,7 @@ char *AKStringGetData(AKString *string) {
     return string->_data;
 }
 
-uint8_t AKStringGetStringLong(AKString *string) {
+uint8_t AKStringGetStringCount(AKString *string) {
     AKReturnNullMacro(string);
     AKAssignSetter(string->_dataCount, strlen(AKStringGetData(string)));
     
@@ -71,14 +71,12 @@ AKString *AKStringWithString(AKString *string, AKString *secondString) {
         return string;
     }
     
-    uint32_t count;
-    count = AKStringGetStringLong(string) + AKStringGetStringLong(secondString);
+    uint32_t count = AKStringGetStringCount(string) + AKStringGetStringCount(secondString);
     printf("%d\n", count);
     
     char *charString = calloc(count, sizeof(char));
     assert(charString);
-    charString = AKStringGetData(string);
-    
+    strcat(charString, AKStringGetData(string));
     strcat(charString, AKStringGetData(secondString));
     AKString *newString = AKStringCreateWithData(charString);
     
@@ -88,10 +86,10 @@ AKString *AKStringWithString(AKString *string, AKString *secondString) {
 bool AKStringIsEqual(AKString *firstString, AKString *secondString) {
     AKReturnNullMacro(firstString);
     AKReturnNullMacro(secondString);
-    bool isEqual = false;
-    if (strcmp(AKStringGetData(firstString), AKStringGetData(secondString)) == 0) {
-        isEqual = true;
-    }
     
-    return isEqual;
+    return (strcmp(AKStringGetData(firstString), AKStringGetData(secondString)) == 0);
+}
+
+void AKStringPrintData(AKString *string) {
+    puts(AKStringGetData(string));
 }

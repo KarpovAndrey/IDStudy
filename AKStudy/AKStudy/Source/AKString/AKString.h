@@ -38,12 +38,15 @@ extern
 char *AKStringGetData(AKString *string);
 
 extern
-uint8_t AKStringGetStringLong(AKString *string);
+uint8_t AKStringGetStringCount(AKString *string);
 
 extern
 AKString *AKStringWithString(AKString *string, AKString *secondString);
 
 extern
 bool AKStringIsEqual(AKString *firstString, AKString *secondString);
+
+extern
+void AKStringPrintData(AKString *string);
 
 #endif /* AKString_h */
