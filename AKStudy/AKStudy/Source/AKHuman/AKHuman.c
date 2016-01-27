@@ -13,6 +13,7 @@
 #include "AKMacro.h"
 #include "AKObject.h"
 #include "AKString.h"
+#include "AKArray.h"
 
 static const uint8_t kAKChildrenCount = 20;
 
@@ -22,7 +23,7 @@ struct AKHuman {
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
-    AKHuman *_children[kAKChildrenCount];
+    AKArray *_children[kAKChildrenCount];
     AKHumanGenderType _gender;
     uint8_t _age;
 };
@@ -40,7 +41,7 @@ static
 void AKHumanSetPartner(AKHuman *human, AKHuman *partner);
 
 static
-void AKHumanAddChild(AKHuman *human, AKHuman *_children);
+void AKHumanAddChild(AKHuman *human, AKHuman *child);
 
 static
 void AKHumanSetChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
@@ -49,7 +50,7 @@ static
 AKHuman *AKHumanGetChildAtIndex(AKHuman *human, uint8_t index);
 
 static
-void AKRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
+void AKHumanRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -201,15 +202,16 @@ void AKHumanDivorce(AKHuman *human) {
 }
 
 void AKHumanRemoveChild(AKHuman *human, AKHuman *child) {
+    AKReturnMacro(human);
     for (uint8_t index = 0; index < kAKChildrenCount; index++) {
-        AKRemoveChildAtIndex(human, child, index);
+        AKHumanRemoveChildAtIndex(human, child, index);
     }
 }
 
 void AKHumanRemoveChildren(AKHuman *human) {
     AKReturnMacro(human);
     for (uint8_t index = 0; index < kAKChildrenCount; index++) {
-        AKRemoveChildAtIndex(human, AKHumanGetChildAtIndex(human, index), index);
+        AKHumanRemoveChildAtIndex(human, AKArrayGetObjectAtIndex(human->_children, index), index);
     }
 }
 
@@ -218,17 +220,13 @@ void AKHumanRemoveChildren(AKHuman *human) {
 
 void AKHumanAddChild(AKHuman *human, AKHuman *child) {
     AKReturnMacro(human);
-    uint8_t index = 0;
-    while (AKHumanGetChildAtIndex(human, index) != 0) {
-        index++;
-    }
-    
-    AKHumanSetChildAtIndex(human, child, index);
+    AKReturnMacro(child);
+    AKArraySetObject(human->_children, child);
 }
 
-void AKRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index) {
-    if (AKHumanGetChildAtIndex(human, index) == child) {
-        AKHumanSetChildAtIndex(human, NULL, index);
+void AKHumanRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index) {
+    if (AKArrayGetObjectAtIndex(human->_children, index) == child) {
+        AKArraySetObjectAtIndex(human->_children, NULL, index);
         
         AKHumanGetGender(human) == kAKManType
         ? AKHumanSetFather(child, NULL)

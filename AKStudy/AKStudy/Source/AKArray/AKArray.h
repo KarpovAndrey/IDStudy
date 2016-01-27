@@ -19,7 +19,7 @@ typedef struct AKArray AKArray;
 
 struct AKArray {
     AKObject _super;
-    void ** _array[kAKArrayCount];
+    void *_array[kAKArrayCount];
     uint8_t _countFull;
 };
 
@@ -42,12 +42,12 @@ extern
 uint8_t AKArrayGetCountFull(AKArray *array);
 
 extern
-void AKArrayRemoveObjectAtIndex(AKArray *array, uint8_t index);
-
-extern
 void AKArrayRemoveObject(AKArray *array, void *object);
 
 extern
 void AKArrayRemoveAllObjects(AKArray *array);
+
+extern
+void AKArrayRemoveObjectAtIndex(AKArray *array, uint8_t index);
 
 #endif /* AKArray_h */

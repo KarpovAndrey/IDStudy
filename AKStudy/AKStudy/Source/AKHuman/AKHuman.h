@@ -13,6 +13,7 @@
 #include <stdbool.h>
 
 #include "AKString.h"
+#include "AKArray.h"
 
 typedef enum {
     kAKUndefined,
@@ -73,5 +74,8 @@ void AKHumanRemoveChild(AKHuman *human, AKHuman *child);
 
 extern
 void AKHumanRemoveChildren(AKHuman *human);
+
+extern
+void AKHumanAddChildrenArray(AKHuman *human, AKArray *object);
 
 #endif /* AKHuman_h */

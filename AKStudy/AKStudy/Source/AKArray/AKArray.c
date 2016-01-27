@@ -33,7 +33,7 @@ void *__AKArrayCreate() {
 #pragma mark Accessors
 
 void AKArraySetObject(AKArray *array, void *object) {
-    AKReturnMacro(array);
+    //AKReturnMacro(array);
     uint8_t index = 0;
     while (AKArrayGetObjectAtIndex(array, index) != 0) {
         index++;
@@ -44,8 +44,11 @@ void AKArraySetObject(AKArray *array, void *object) {
 
 void AKArraySetObjectAtIndex(AKArray *array, void *object, uint8_t index) {
     AKReturnMacro(array);
-    
-    AKRetainSetter(array->_array[index], object);
+    if (AKArrayGetCountFull(array) == kAKArrayCount) {
+        printf("ARRAY IS FULL\n");
+        return;
+    }
+    array->_array[index] = object;
 }
 
 void *AKArrayGetObjectAtIndex(AKArray *array, uint8_t index) {
@@ -88,7 +91,7 @@ void AKArrayRemoveAllObjects(AKArray *array) {
 #pragma mark Private Implementation
 
 void AKArrayResort(AKArray *array, uint8_t index) {
-    
+    AKReturnMacro(array);
     for (uint8_t index = 0; index < kAKArrayCount; index++) {
         if ((array->_array[index] == NULL) && (array->_array[index+1] != NULL)) {
             array->_array[index] = array->_array[index + 1];
