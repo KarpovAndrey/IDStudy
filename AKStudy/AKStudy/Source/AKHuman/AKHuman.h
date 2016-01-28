@@ -17,11 +17,14 @@
 
 typedef enum {
     kAKUndefined,
-    kAKManType = 1,
-    kAKWomanType = 2,
+    kAKManGender,
+    kAKWomanGender
 } AKHumanGenderType;
 
 typedef struct AKHuman AKHuman;
+
+extern
+AKHuman *AKHumanCreate(void);
 
 extern
 AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName, AKHumanGenderType gender);

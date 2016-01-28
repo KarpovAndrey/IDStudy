@@ -15,31 +15,33 @@
 
 static const uint8_t kAKArrayCount = 20;
 
+extern const uint8_t kAKUndefindedIndex;
+
 typedef struct AKArray AKArray;
 
 struct AKArray {
     AKObject _super;
     void *_array[kAKArrayCount];
-    uint8_t _countFull;
+    uint8_t _count;
 };
 
 extern
 void __AKArrayDeallocate(AKArray *array);
 
 extern
-void *__AKArrayCreate();
+void *AKArrayCreate();
 
 extern
-void AKArraySetObject(AKArray *array, void *object);
+void *AKArrayCreateWithObject(AKArray *array, void *object);
 
 extern
-void AKArraySetObjectAtIndex(AKArray *array, void *object, uint8_t index);
+void AKArrayAddObject(AKArray *array, void *object);
 
 extern
 void *AKArrayGetObjectAtIndex(AKArray *array, uint8_t index);
 
 extern
-uint8_t AKArrayGetCountFull(AKArray *array);
+uint8_t AKArrayGetCount(AKArray *array);
 
 extern
 void AKArrayRemoveObject(AKArray *array, void *object);
@@ -48,6 +50,6 @@ extern
 void AKArrayRemoveAllObjects(AKArray *array);
 
 extern
-void AKArrayRemoveObjectAtIndex(AKArray *array, uint8_t index);
+void AKArrayAddObjectAtIndex(AKArray *array, void *object, uint8_t index);
 
 #endif /* AKArray_h */

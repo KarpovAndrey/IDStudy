@@ -15,15 +15,13 @@
 #include "AKString.h"
 #include "AKArray.h"
 
-static const uint8_t kAKChildrenCount = 20;
-
 struct AKHuman {
     AKObject _super;
     AKString *_name;
     AKHuman *_partner;
     AKHuman *_father;
     AKHuman *_mother;
-    AKArray *_children[kAKChildrenCount];
+    AKArray *_children;
     AKHumanGenderType _gender;
     uint8_t _age;
 };
@@ -35,22 +33,16 @@ static
 void __AKHumanDeallocate(AKHuman *human);
 
 static
-AKHuman *AKHumanCreate(void);
-
-static
 void AKHumanSetPartner(AKHuman *human, AKHuman *partner);
 
 static
 void AKHumanAddChild(AKHuman *human, AKHuman *child);
 
 static
-void AKHumanSetChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
+void AKHumanSetChildren(AKHuman *human, AKArray *array);
 
 static
-AKHuman *AKHumanGetChildAtIndex(AKHuman *human, uint8_t index);
-
-static
-void AKHumanRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index);
+void *AKHumanGetChildren(AKHuman *human);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -68,7 +60,8 @@ void __AKHumanDeallocate(AKHuman *human) {
 
 AKHuman *AKHumanCreate(void) {
     AKHuman *human = AKObjectCreate(AKHuman);
-
+    AKHumanSetChildren(human, AKArrayCreate());
+    
     return human;
 }
 
@@ -82,6 +75,8 @@ AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName,  AKHumanGenderType
 
 AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, AKHuman *mother) {
     AKHuman *humanWithNameAndParents = AKHumanCreateWithNameAndGender(stringName, arc4random_uniform(2)+1);
+    assert(AKHumanGetGender(father) == kAKManGender);
+    assert(AKHumanGetGender(mother) == kAKWomanGender);
     AKHumanSetFather(humanWithNameAndParents, father);
     AKHumanSetMother(humanWithNameAndParents, mother);
     AKHumanAddChild(father, humanWithNameAndParents);
@@ -92,6 +87,16 @@ AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, 
 
 #pragma mark -
 #pragma mark Accessors
+
+void AKHumanSetChildren(AKHuman *human, AKArray *array) {
+    AKReturnMacro(human);
+    AKReturnMacro(array);
+    AKRetainSetter(human->_children, array);
+}
+
+void *AKHumanGetChildren(AKHuman *human) {
+    return human->_children;
+}
 
 void AKHumanSetName(AKHuman *human, AKString *stringName) {
     AKReturnMacro(human);
@@ -117,9 +122,7 @@ uint8_t AKHumanGetAge(AKHuman *human) {
 void AKHumanSetGender(AKHuman *human, AKHumanGenderType gender) {
     AKReturnMacro(human);
     AKAssignSetter(human->_gender, gender);
-    if ((gender != kAKManType) && (gender != kAKWomanType)) {
-        return assert(0);
-    }
+    assert((gender = kAKManGender) || (gender != kAKWomanGender));
 }
 
 AKHumanGenderType AKHumanGetGender(AKHuman *human) {
@@ -138,7 +141,7 @@ void AKHumanSetPartner(AKHuman *human, AKHuman *partner) {
 
     AKHumanGenderType type = AKHumanGetGender(human);
     
-    if (kAKWomanType == type) {
+    if (kAKWomanGender == type) {
         AKAssignSetter(human->_partner, partner);
     } else {
         AKRetainSetter(human->_partner, partner);
@@ -165,14 +168,6 @@ void AKHumanSetMother(AKHuman *human, AKHuman *mother) {
 
 AKHuman *AKHumanGetMother(AKHuman *human) {
     return human->_mother;
-}
-
-void AKHumanSetChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index) {
-    AKRetainSetter(human->_children[index], child);
-}
-
-AKHuman *AKHumanGetChildAtIndex(AKHuman *human, uint8_t index) {
-    return human->_children[index];
 }
 
 #pragma mark -
@@ -203,15 +198,19 @@ void AKHumanDivorce(AKHuman *human) {
 
 void AKHumanRemoveChild(AKHuman *human, AKHuman *child) {
     AKReturnMacro(human);
-    for (uint8_t index = 0; index < kAKChildrenCount; index++) {
-        AKHumanRemoveChildAtIndex(human, child, index);
-    }
+    AKReturnMacro(child);
+    
+    AKArrayRemoveObject(AKHumanGetChildren(human), child);
+    
+    AKHumanGetGender(human) == kAKManGender
+    ? AKHumanSetFather(child, NULL)
+    : AKHumanSetMother(child, NULL);
 }
 
 void AKHumanRemoveChildren(AKHuman *human) {
     AKReturnMacro(human);
-    for (uint8_t index = 0; index < kAKChildrenCount; index++) {
-        AKHumanRemoveChildAtIndex(human, AKArrayGetObjectAtIndex(human->_children, index), index);
+    for (uint8_t index = 0; index < AKArrayGetCount(AKHumanGetChildren(human)); index++) {
+        AKHumanRemoveChild(human, AKHumanGetChildren(human));
     }
 }
 
@@ -221,15 +220,5 @@ void AKHumanRemoveChildren(AKHuman *human) {
 void AKHumanAddChild(AKHuman *human, AKHuman *child) {
     AKReturnMacro(human);
     AKReturnMacro(child);
-    AKArraySetObject(human->_children, child);
-}
-
-void AKHumanRemoveChildAtIndex(AKHuman *human, AKHuman *child, uint8_t index) {
-    if (AKArrayGetObjectAtIndex(human->_children, index) == child) {
-        AKArraySetObjectAtIndex(human->_children, NULL, index);
-        
-        AKHumanGetGender(human) == kAKManType
-        ? AKHumanSetFather(child, NULL)
-        : AKHumanSetMother(child, NULL);
-    }
+    AKArrayAddObject(human->_children, child);
 }
