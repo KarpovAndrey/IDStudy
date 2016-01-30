@@ -28,8 +28,13 @@
                              }\
 
 #define AKReturnNullMacro(value) if (value == NULL) {\
-                                return 0;\
-                             }\
+                                    return NULL;\
+                                 }\
+
+#define AKReturnZeroMacro(value) if (value == NULL) {\
+                                    return 0;\
+                                  }\
+
 
 #define AKRetainSetter(oldValue, newValue) {\
             if (oldValue != newValue) {\

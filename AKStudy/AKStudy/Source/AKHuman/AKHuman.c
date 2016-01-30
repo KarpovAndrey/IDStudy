@@ -44,6 +44,9 @@ void AKHumanSetChildren(AKHuman *human, AKArray *array);
 static
 void *AKHumanGetChildren(AKHuman *human);
 
+static
+void AKHumanSetParents(AKHuman *firstParent, AKHuman *secondParent, AKHuman *child);
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -53,6 +56,7 @@ void __AKHumanDeallocate(AKHuman *human) {
     AKHumanSetMother(human, NULL);
     AKHumanSetFather(human, NULL);
     AKHumanRemoveChildren(human);
+    AKHumanSetChildren(human, NULL);
     __AKObjectDeallocate(human);
     
     puts("HUMAN KILLED");
@@ -60,7 +64,9 @@ void __AKHumanDeallocate(AKHuman *human) {
 
 AKHuman *AKHumanCreate(void) {
     AKHuman *human = AKObjectCreate(AKHuman);
-    AKHumanSetChildren(human, AKArrayCreate());
+    AKArray *array = AKArrayCreate();
+    AKHumanSetChildren(human, array);
+    AKObjectRelease(array);
     
     return human;
 }
@@ -73,14 +79,11 @@ AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName,  AKHumanGenderType
     return humanWithName;
 }
 
-AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, AKHuman *mother) {
+AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *firstParent, AKHuman *secondParent) {
     AKHuman *humanWithNameAndParents = AKHumanCreateWithNameAndGender(stringName, arc4random_uniform(2)+1);
-    assert(AKHumanGetGender(father) == kAKManGender);
-    assert(AKHumanGetGender(mother) == kAKWomanGender);
-    AKHumanSetFather(humanWithNameAndParents, father);
-    AKHumanSetMother(humanWithNameAndParents, mother);
-    AKHumanAddChild(father, humanWithNameAndParents);
-    AKHumanAddChild(mother, humanWithNameAndParents);
+    AKHumanSetParents(firstParent, secondParent, humanWithNameAndParents);
+    AKHumanAddChild(firstParent, humanWithNameAndParents);
+    AKHumanAddChild(secondParent, humanWithNameAndParents);
     
     return humanWithNameAndParents;
 }
@@ -115,7 +118,7 @@ void AKHumanSetAge(AKHuman *human, uint8_t age) {
 }
 
 uint8_t AKHumanGetAge(AKHuman *human) {
-    AKReturnNullMacro(human);
+    AKReturnZeroMacro(human);
     return human->_age;
 }
 
@@ -221,4 +224,17 @@ void AKHumanAddChild(AKHuman *human, AKHuman *child) {
     AKReturnMacro(human);
     AKReturnMacro(child);
     AKArrayAddObject(human->_children, child);
+}
+
+void AKHumanSetParents(AKHuman *firstParent, AKHuman *secondParent, AKHuman *child) {
+    assert(AKHumanGetGender(firstParent) != AKHumanGetGender(secondParent));
+    if (AKHumanGetGender(firstParent) == kAKManGender &&
+        AKHumanGetGender(secondParent) == kAKWomanGender) {
+        AKHumanSetFather(child, firstParent);
+        AKHumanSetMother(child, secondParent);
+    } else {
+        AKHumanSetMother(child, firstParent);
+        AKHumanSetFather(child, secondParent);
+    }
+    
 }

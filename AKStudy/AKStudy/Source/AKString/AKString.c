@@ -56,7 +56,7 @@ char *AKStringGetData(AKString *string) {
 }
 
 uint8_t AKStringGetStringCount(AKString *string) {
-    AKReturnNullMacro(string);
+    AKReturnZeroMacro(string);
     AKAssignSetter(string->_dataCount, strlen(AKStringGetData(string)));
     
     return string->_dataCount;

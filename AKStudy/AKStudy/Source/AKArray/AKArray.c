@@ -18,6 +18,9 @@ static
 void AKArrayResort(AKArray *array, uint8_t index);
 
 static
+void AKArraySetObjectAtIndex(AKArray *array, void *object, uint8_t index);
+
+static
 uint8_t AKArrayGetIndexObject(AKArray *array, void *object);
 
 static
@@ -49,16 +52,7 @@ void *AKArrayCreateWithObject(AKArray *array, void *object) {
 #pragma mark - 
 #pragma mark Accessors
 
-void AKArrayAddObject(AKArray *array, void *object) {
-    AKReturnMacro(array);
-    uint8_t index = AKArrayGetIndexObject(array, NULL);
-
-    if (index != kAKUndefindedIndex) {
-        AKArrayAddObjectAtIndex(array, object, index);
-    }
-}
-
-void AKArrayAddObjectAtIndex(AKArray *array, void *object, uint8_t index) {
+void AKArraySetObjectAtIndex(AKArray *array, void *object, uint8_t index) {
     AKReturnMacro(array);
     AKRetainSetter(array->_array[index], object);
 }
@@ -69,7 +63,7 @@ void *AKArrayGetObjectAtIndex(AKArray *array, uint8_t index) {
 
 
 uint8_t AKArrayGetCount(AKArray *array) {
-    AKReturnNullMacro(array);
+    AKReturnZeroMacro(array);
     uint8_t count = AKArrayGetIndexObject(array, NULL);
     
     return (kAKUndefindedIndex == count) ? kAKArrayCount : count;
@@ -77,6 +71,19 @@ uint8_t AKArrayGetCount(AKArray *array) {
 
 #pragma mark -
 #pragma mark Public Implementation
+
+void AKArrayAddObject(AKArray *array, void *object) {
+    AKReturnMacro(array);
+    AKReturnMacro(object);
+    if (AKArrayIsContain(array, object)) {
+        return;
+    }
+    
+    uint8_t index = AKArrayGetIndexObject(array, NULL);
+    if (index != kAKUndefindedIndex) {
+        AKArraySetObjectAtIndex(array, object, index);
+    }
+}
 
 void AKArrayRemoveObject(AKArray *array, void *object) {
     uint8_t index = AKArrayGetIndexObject(array, object);
@@ -92,6 +99,12 @@ void AKArrayRemoveAllObjects(AKArray *array) {
     }
 }
 
+bool AKArrayIsContain(AKArray *array, void *object) {
+    uint8_t index = AKArrayGetIndexObject(array, object);
+    
+    return (AKArrayGetObjectAtIndex(array, index) ? true : false);
+}
+
 #pragma mark -
 #pragma mark Private Implementation
 
@@ -100,15 +113,16 @@ void AKArrayResort(AKArray *array, uint8_t index) {
     for (; index < kAKArrayCount-1; index++) {
         void *firstValue = AKArrayGetObjectAtIndex(array, index);
         void *secondValue = AKArrayGetObjectAtIndex(array, index + 1);
+        
         if ((firstValue == NULL) && (secondValue != NULL)) {
-            AKArrayAddObjectAtIndex(array, AKArrayGetObjectAtIndex(array, index + 1), index);
-            AKArrayAddObjectAtIndex(array, NULL, index + 1);
+            AKArraySetObjectAtIndex(array, secondValue, index);
+            AKArraySetObjectAtIndex(array, NULL, index + 1);
         }
     }
 }
 
 void AKArrayRemoveObjectAtIndex(AKArray *array, uint8_t index) {
-    AKArrayAddObjectAtIndex(array, NULL, index);
+    AKArraySetObjectAtIndex(array, NULL, index);
     AKArrayResort(array, index);
 }
 

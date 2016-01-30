@@ -38,11 +38,14 @@ void AKArrayTest() {
     AKString *string3 = AKStringCreateWithData("Child 3");
 
     AKArrayAddObject(arrayChildren, string1);
-    AKArrayAddObject(arrayChildren, string2);
+    AKArrayAddObject(arrayChildren, string1);
     AKArrayAddObject(arrayChildren, string3);
-    
-    printf("%d\n", AKArrayGetCount(arrayChildren));
-    
-    AKArrayRemoveObject(arrayChildren, string1);
+    printf("%d\n", AKArrayIsContain(arrayChildren, string1));
+//    
+//    printf("%d\n", AKArrayGetCount(arrayChildren));
+//    
+//    AKArrayRemoveObject(arrayChildren, string1);
+//    printf("%d\n", AKArrayIsContain(arrayChildren, string1));
+//    printf("%d\n", AKArrayGetCount(arrayChildren));
 
 }

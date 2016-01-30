@@ -30,7 +30,7 @@ extern
 AKHuman *AKHumanCreateWithNameAndGender(AKString *stringName, AKHumanGenderType gender);
 
 extern
-AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *father, AKHuman *mother);
+AKHuman *AKHumanCreateWithNameAndParents(AKString *stringName, AKHuman *firstParent, AKHuman *secondParent);
 
 extern
 void AKHumanSetName(AKHuman *human, AKString *string);

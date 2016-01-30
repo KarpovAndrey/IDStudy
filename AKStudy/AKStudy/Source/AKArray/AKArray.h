@@ -10,6 +10,7 @@
 #define AKArray_h
 
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "AKObject.h"
 
@@ -22,7 +23,6 @@ typedef struct AKArray AKArray;
 struct AKArray {
     AKObject _super;
     void *_array[kAKArrayCount];
-    uint8_t _count;
 };
 
 extern
@@ -50,6 +50,6 @@ extern
 void AKArrayRemoveAllObjects(AKArray *array);
 
 extern
-void AKArrayAddObjectAtIndex(AKArray *array, void *object, uint8_t index);
+bool AKArrayIsContain(AKArray *array, void *object);
 
 #endif /* AKArray_h */
