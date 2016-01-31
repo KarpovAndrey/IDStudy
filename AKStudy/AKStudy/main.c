@@ -30,17 +30,9 @@ int main(int argc, const char * argv[]) {
 //    AKPrintStructSizeTest();
 
 //    AKPrintingByteValuesTest();
-    AKHumanTest();
+    //AKHumanTest();
     //AKArrayTest();
     
-//    AKHuman *humanMan = AKHumanCreateWithNameAndGender(AKStringCreateWithData("Man"), kAKManGender);
-//    AKHuman *humanWoman = AKHumanCreateWithNameAndGender(AKStringCreateWithData("Woman"), kAKWomanGender);
-//    
-//    AKHuman *humanKinder1 = AKHumanCreateWithNameAndParents(AKStringCreateWithData("Kinder1"), humanMan, humanWoman);
-//    AKHuman *humanKinder2 = AKHumanCreateWithNameAndParents(AKStringCreateWithData("Kinder1"), humanMan, humanWoman);
-//    AKHuman *humanKinder3 = AKHumanCreateWithNameAndParents(AKStringCreateWithData("Kinder1"), humanMan, humanWoman);
-//
-//    AKHumanRemoveChild(humanMan, humanKinder1);
-//    AKHumanRemoveChild(humanMan, humanKinder2);
+    
     return 0;
 }

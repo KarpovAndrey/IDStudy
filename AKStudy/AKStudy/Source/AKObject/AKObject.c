@@ -28,6 +28,11 @@ void *__AKObjectCreate(size_t size, AKObjectDeallocator *_deallocator) {
     return object;
 }
 
+void *AKObjectCreateNew(AKObject *object, size_t size) {
+    AKObject *newObject = realloc(object, sizeof(AKObject));
+    return newObject;
+}
+
 #pragma mark -
 #pragma mark Public Implementation
 

@@ -28,6 +28,12 @@ void *__AKStringCreate() {
     return string;
 }
 
+void *__AKStringCreateNew(AKString *string) {
+    AKString *newString =(AKString *) AKObjectCreateNew(string, (2*sizeof(string)));
+    
+    return newString;
+}
+
 void *AKStringCreateWithData(char *data) {
     AKString *string = __AKStringCreate();
     AKStringSetData(string, data);

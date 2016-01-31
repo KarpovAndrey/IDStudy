@@ -49,4 +49,7 @@ bool AKStringIsEqual(AKString *firstString, AKString *secondString);
 extern
 void AKStringPrintData(AKString *string);
 
+extern
+void *__AKStringCreateNew(AKString *string);
+
 #endif /* AKString_h */
