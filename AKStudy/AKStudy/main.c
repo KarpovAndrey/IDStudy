@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
 
 //    AKPrintingByteValuesTest();
     //AKHumanTest();
-    //AKArrayTest();
+    AKArrayTest();
     
     
     return 0;

@@ -10,11 +10,10 @@
 #define AKArray_h
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 #include "AKObject.h"
-
-static const uint8_t kAKArrayCount = 20;
 
 extern const uint8_t kAKUndefindedIndex;
 
@@ -22,7 +21,9 @@ typedef struct AKArray AKArray;
 
 struct AKArray {
     AKObject _super;
-    void *_array[kAKArrayCount];
+    void **_arrayData;
+    uint64_t _count;
+    uint64_t _capacity;
 };
 
 extern
@@ -51,5 +52,11 @@ void AKArrayRemoveAllObjects(AKArray *array);
 
 extern
 bool AKArrayIsContain(AKArray *array, void *object);
+
+extern
+void AKArraySetData(AKArray *array, void **data);
+
+extern
+void **AKArrayGetData(AKArray *array);
 
 #endif /* AKArray_h */

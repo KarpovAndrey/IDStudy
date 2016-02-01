@@ -35,7 +35,4 @@ void *AKObjectRetain(void *object);
 extern
 void AKObjectRelease(void *object);
 
-extern
-void *AKObjectCreateNew(AKObject *object, size_t size);
-
 #endif /* AKObject_h */

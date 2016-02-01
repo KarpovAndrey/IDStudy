@@ -10,6 +10,7 @@
 #include "AKString.h"
 #include "AKObject.h"
 #include "AKHuman.h"
+#include "AKArray.h"
 
 void AKArrayTest() {
 //    
@@ -38,9 +39,10 @@ void AKArrayTest() {
     AKString *string3 = AKStringCreateWithData("Child 3");
 
     AKArrayAddObject(arrayChildren, string1);
-    AKArrayAddObject(arrayChildren, string1);
+    AKArrayAddObject(arrayChildren, string2);
     AKArrayAddObject(arrayChildren, string3);
     printf("%d\n", AKArrayIsContain(arrayChildren, string1));
+    AKArrayRemoveObject(arrayChildren, string2);
 //    
 //    printf("%d\n", AKArrayGetCount(arrayChildren));
 //    
