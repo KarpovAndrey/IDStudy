@@ -11,7 +11,7 @@
 
 #include <string.h>
 
-const uint8_t kAKUndefindedIndex = UINT8_MAX;
+const uint64_t kAKUndefindedIndex = UINT64_MAX;
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -22,8 +22,8 @@ void AKArrayResort(AKArray *array, uint8_t index);
 static
 void AKArraySetObjectAtIndex(AKArray *array, void *object, uint8_t index);
 
-static
-uint8_t AKArrayGetIndexObject(AKArray *array, void *object);
+//static
+//uint8_t AKArrayGetIndexObject(AKArray *array, void *object);
 
 static
 void AKArrayRemoveObjectAtIndex(AKArray *array, uint8_t index);
@@ -36,6 +36,12 @@ void AKArraySetCapacity(AKArray *array, uint64_t capacity);
 
 static
 uint64_t AKArrayGetCapacity(AKArray *array);
+
+static
+bool AKArrayNeedToChangeSize(AKArray *array);
+
+static
+void AKRemoveObjectsInRange(AKArray *array, uint64_t firstIndex, uint64_t lastIndex);
 
 #pragma mark -
 #pragma mark Initializations an Deallocations
@@ -71,20 +77,20 @@ void AKArraySetObjectAtIndex(AKArray *array, void *object, uint8_t index) {
 }
 
 void *AKArrayGetObjectAtIndex(AKArray *array, uint8_t index) {
+    AKReturnNullMacro(array);
     return array->_arrayData[index];
 }
 
 
 void AKArraySetCount(AKArray *array, uint64_t count) {
+    AKReturnMacro(array);
     AKAssignSetter(array->_count, count);
 }
 
 uint8_t AKArrayGetCount(AKArray *array) {
     AKReturnZeroMacro(array);
-//    uint8_t count = AKArrayGetIndexObject(array, NULL);
     
     return array->_count;
-//    (kAKUndefindedIndex == count) ? kAKArrayCount : count;
 }
 
 void AKArraySetData(AKArray *array, void **data) {
@@ -92,60 +98,45 @@ void AKArraySetData(AKArray *array, void **data) {
 }
 
 void **AKArrayGetData(AKArray *array) {
+    AKReturnNullMacro(array);
     return array->_arrayData;
 }
 
 void AKArraySetCapacity(AKArray *array, uint64_t capacity) {
-    AKAssignSetter(array->_capacity, capacity);
-    size_t size = sizeof(void *);
-    
-    void **pointer = realloc(array->_arrayData, array->_count * size);
-    AKArraySetData(array, pointer);
-    
-//    void *object = AKArrayGetObjectAtIndex(array, AKArrayGetCount(array));
-//    memset(object, 0, (capacity - AKArrayGetCount(array)) * size);
-}
-
-uint64_t AKArrayGetCapacity(AKArray *array) {
-    return array->_capacity;
-}
-
-#pragma mark -
-#pragma mark Public Implementation
-
-void AKArrayAddObject(AKArray *array, void *object) {
     AKReturnMacro(array);
-//    if (AKArrayIsContain(array, object)) {
+//    if (array->_capacity == capacity) {
 //        return;
 //    }
     
-    AKArraySetCapacity(array, (AKArrayGetCount(array) + 1));
+    uint64_t count = AKArrayGetCount(array);
+    size_t size = sizeof(void *);
     
-    uint8_t index = AKArrayGetIndexObject(array, NULL);
-//    if (index != kAKUndefindedIndex) {
-        AKArraySetObjectAtIndex(array, object, index);
-        AKArraySetCount(array, (array->_count + 1));
-//    }
-}
-
-void AKArrayRemoveObject(AKArray *array, void *object) {
-    uint8_t index = AKArrayGetIndexObject(array, object);
-    if (index != kAKUndefindedIndex) {
-        AKArrayRemoveObjectAtIndex(array, index);
-    }
-}
-
-void AKArrayRemoveAllObjects(AKArray *array) {
-    AKReturnMacro(array);
-    for (uint8_t index = 0; index < AKArrayGetCount(array); index++) {
-        AKArrayRemoveObjectAtIndex(array, index);
-    }
-}
-
-bool AKArrayIsContain(AKArray *array, void *object) {
-    uint8_t index = AKArrayGetIndexObject(array, object);
     
-    return (AKArrayGetObjectAtIndex(array, index) ? true : false);
+    if (array->_capacity < capacity) {
+        memset(&array->_arrayData[count], 0, (capacity - count) * size);
+        AKArraySetData(array, realloc(AKArrayGetData(array), capacity * size));
+    }
+        else {
+        AKRemoveObjectsInRange(array, capacity, count);
+        AKArraySetData(array, realloc(AKArrayGetData(array), capacity * size));
+    }
+    
+    AKAssignSetter(array->_capacity, capacity);
+}
+
+uint64_t AKArrayGetCapacity(AKArray *array) {
+    AKReturnZeroMacro(array);
+    return array->_capacity;
+}
+
+void *AKGetFirstElement(AKArray *array) {
+    AKReturnNullMacro(array);
+    return AKArrayGetObjectAtIndex(array, 0);
+}
+
+void *AKGetLastElement(AKArray *array) {
+    AKReturnNullMacro(array);
+    return AKArrayGetObjectAtIndex(array, (AKArrayGetCount(array) - 1));
 }
 
 #pragma mark -
@@ -173,12 +164,89 @@ void AKArrayRemoveObjectAtIndex(AKArray *array, uint8_t index) {
 }
 
 uint8_t AKArrayGetIndexObject(AKArray *array, void *object) {
-    for (uint8_t index = 0; index < AKArrayGetCount(array); index++) {
-        if (AKArrayGetObjectAtIndex(array, index) == object) {
-            return index;
+    
+    uint64_t indexObject = kAKUndefindedIndex;
+    
+    if ((object != NULL) && (array != NULL)) {
+        for (uint8_t index = 0; index < AKArrayGetCount(array); index++) {
+            if (AKArrayGetObjectAtIndex(array, index) == object) {
+                indexObject = index;
+            }
         }
     }
-
-    return kAKUndefindedIndex;
+    
+    return indexObject;
 }
 
+void AKArrayResizeIfNeeded(AKArray *array) {
+    uint64_t count = AKArrayGetCount(array);
+    uint64_t capacity = AKArrayGetCapacity(array);
+    
+    if (AKArrayNeedToChangeSize(array)) {
+        if (count == capacity) {
+            AKArraySetCapacity(array, capacity + 100);
+        } else {
+            AKArraySetCapacity(array, capacity - 100);
+        }
+    }
+}
+
+bool AKArrayNeedToChangeSize(AKArray *array) {
+    uint64_t count = AKArrayGetCount(array);
+    uint64_t capacity = AKArrayGetCapacity(array);
+    
+    if (capacity == count && (capacity - 100) == count) {
+        return true;
+    }
+    
+    return false;
+}
+
+void AKRemoveObjectsInRange(AKArray *array, uint64_t firstIndex, uint64_t lastIndex) {
+    AKReturnMacro(array);
+    if (firstIndex > lastIndex) {
+        return;
+    }
+    
+    uint64_t count = AKArrayGetCount(array);
+    for (uint64_t index = lastIndex; index > firstIndex; index --) {
+        if (index < count) {
+            AKArrayRemoveObjectAtIndex(array, index);
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Public Implementation
+
+void AKArrayAddObject(AKArray *array, void *object) {
+    AKReturnMacro(array);
+    if (AKArrayIsContain(array, object)) {
+        return;
+    }
+    
+    AKArraySetCapacity(array, (AKArrayGetCount(array) + 1));
+    AKArraySetObjectAtIndex(array, object, AKArrayGetCount(array));
+    AKArraySetCount(array, (array->_count + 1));
+
+}
+
+void AKArrayRemoveObject(AKArray *array, void *object) {
+    uint8_t index = AKArrayGetIndexObject(array, object);
+    if (index != kAKUndefindedIndex) {
+        AKArrayRemoveObjectAtIndex(array, index);
+    }
+}
+
+void AKArrayRemoveAllObjects(AKArray *array) {
+    AKReturnMacro(array);
+    for (uint8_t index = 0; index < AKArrayGetCount(array); index++) {
+        AKArrayRemoveObjectAtIndex(array, index);
+    }
+}
+
+bool AKArrayIsContain(AKArray *array, void *object) {
+    uint8_t index = AKArrayGetIndexObject(array, object);
+    
+    return (AKArrayGetObjectAtIndex(array, index) ? true : false);
+}

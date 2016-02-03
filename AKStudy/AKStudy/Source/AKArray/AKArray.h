@@ -15,7 +15,7 @@
 
 #include "AKObject.h"
 
-extern const uint8_t kAKUndefindedIndex;
+extern const uint64_t kAKUndefindedIndex;
 
 typedef struct AKArray AKArray;
 
@@ -58,5 +58,14 @@ void AKArraySetData(AKArray *array, void **data);
 
 extern
 void **AKArrayGetData(AKArray *array);
+
+extern
+void *AKGetFirstElement(AKArray *array);
+
+extern
+void *AKGetLastElement(AKArray *array);
+
+extern
+uint8_t AKArrayGetIndexObject(AKArray *array, void *object);
 
 #endif /* AKArray_h */
