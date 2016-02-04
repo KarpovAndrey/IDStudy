@@ -267,7 +267,7 @@ void AKArrayRemoveAllObjects(AKArray *array) {
         AKArrayRemoveObjectAtIndex(array, index);
     }
     
-    AKArraySetCapacity(array, 5);
+    AKArraySetCapacity(array, 0);
 }
 
 bool AKArrayContainObject(AKArray *array, void *object) {

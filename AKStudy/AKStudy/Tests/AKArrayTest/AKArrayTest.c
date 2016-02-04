@@ -49,7 +49,8 @@ void AKArrayTest() {
     
 //
     printf("%d\n", AKArrayGetCount(array));
-//    
+    AKArrayAddObject(array, string1);
+    printf("%d\n", AKArrayGetCount(array));
 //    AKArrayRemoveObject(arrayChildren, string1);
 //    printf("%d\n", AKArrayIsContain(arrayChildren, string1));
 //    printf("%d\n", AKArrayGetCount(arrayChildren));
