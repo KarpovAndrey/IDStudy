@@ -39,10 +39,10 @@ extern
 void AKArrayAddObject(AKArray *array, void *object);
 
 extern
-void *AKArrayGetObjectAtIndex(AKArray *array, uint8_t index);
+void *AKArrayGetObjectAtIndex(AKArray *array, uint64_t index);
 
 extern
-uint8_t AKArrayGetCount(AKArray *array);
+uint64_t AKArrayGetCount(AKArray *array);
 
 extern
 void AKArrayRemoveObject(AKArray *array, void *object);
@@ -51,7 +51,7 @@ extern
 void AKArrayRemoveAllObjects(AKArray *array);
 
 extern
-bool AKArrayIsContain(AKArray *array, void *object);
+bool AKArrayContainObject(AKArray *array, void *object);
 
 extern
 void AKArraySetData(AKArray *array, void **data);
@@ -64,8 +64,5 @@ void *AKGetFirstElement(AKArray *array);
 
 extern
 void *AKGetLastElement(AKArray *array);
-
-extern
-uint8_t AKArrayGetIndexObject(AKArray *array, void *object);
 
 #endif /* AKArray_h */

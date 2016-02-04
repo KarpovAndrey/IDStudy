@@ -51,7 +51,7 @@ void AKStringSetData(AKString *string, char *data) {
 }
 
 char *AKStringGetData(AKString *string) {
-    AKReturnNullMacro(string);
+    AKReturnNullMacro(string, NULL);
     return string->_data;
 }
 
@@ -66,7 +66,7 @@ uint8_t AKStringGetStringCount(AKString *string) {
 #pragma mark Public
 
 AKString *AKStringWithString(AKString *string, AKString *secondString) {
-    AKReturnNullMacro(string);
+    AKReturnNullMacro(string, NULL);
     if (!secondString) {
         return string;
     }
@@ -84,8 +84,8 @@ AKString *AKStringWithString(AKString *string, AKString *secondString) {
 }
 
 bool AKStringIsEqual(AKString *firstString, AKString *secondString) {
-    AKReturnNullMacro(firstString);
-    AKReturnNullMacro(secondString);
+    AKReturnNullMacro(firstString, NULL);
+    AKReturnNullMacro(secondString, NULL);
     
     return (strcmp(AKStringGetData(firstString), AKStringGetData(secondString)) == 0);
 }

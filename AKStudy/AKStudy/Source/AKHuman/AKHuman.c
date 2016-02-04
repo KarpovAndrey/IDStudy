@@ -108,7 +108,7 @@ void AKHumanSetName(AKHuman *human, AKString *stringName) {
 }
 
 char *AKHumanGetName(AKHuman *human) {
-    AKReturnNullMacro(human);
+    AKReturnNullMacro(human, NULL);
     return human->_name->_data;
 }
 

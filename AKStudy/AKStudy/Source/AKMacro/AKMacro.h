@@ -27,8 +27,8 @@
                                 return;\
                              }\
 
-#define AKReturnNullMacro(value) if (value == NULL) {\
-                                    return NULL;\
+#define AKReturnNullMacro(value, returnValue) if (value == NULL) {\
+                                    return returnValue;\
                                  }\
 
 #define AKReturnZeroMacro(value) if (value == NULL) {\

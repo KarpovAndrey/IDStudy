@@ -32,7 +32,7 @@ void *__AKObjectCreate(size_t size, AKObjectDeallocator *_deallocator) {
 #pragma mark Public Implementation
 
 void *AKObjectRetain(void *object) {
-    AKReturnNullMacro(object);
+    AKReturnNullMacro(object, NULL);
     AKObject *newObject = object;
     
     newObject->_retainCount++;
