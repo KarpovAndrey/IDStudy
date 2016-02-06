@@ -51,7 +51,7 @@ extern
 void AKArrayRemoveAllObjects(AKArray *array);
 
 extern
-bool AKArrayContainObject(AKArray *array, void *object);
+bool AKArrayContainsObject(AKArray *array, void *object);
 
 extern
 void AKArraySetData(AKArray *array, void **data);

@@ -109,9 +109,9 @@ void **AKArrayGetData(AKArray *array) {
 
 void AKArraySetCapacity(AKArray *array, uint64_t capacity) {
     AKReturnMacro(array);
-//    if (array->_capacity == capacity) {
-//        return;
-//    }
+    if (array->_capacity == capacity) {
+        return;
+    }
     
     uint64_t count = AKArrayGetCount(array);
     size_t size = sizeof(void *);
@@ -169,7 +169,7 @@ void AKArrayRemoveObjectAtIndex(AKArray *array, uint64_t index) {
     AKArraySetObjectAtIndex(array, NULL, index);
     AKArrayResort(array, index);
     AKArraySetCount(array, AKArrayGetCount(array) - 1);
-    AKArraySetCapacity(array, AKArrayGetCapacity(array) - 1);
+    AKArrayNeedToChangeSize(array);
 }
 
 uint64_t AKArrayGetIndexObject(AKArray *array, void *object) {
@@ -196,20 +196,14 @@ void AKArrayResizeIfNeeded(AKArray *array) {
 }
 
 bool AKArrayNeedToChangeSize(AKArray *array) {
-    AKReturnNullMacro(array, false);
     
     uint64_t count = AKArrayGetCount(array);
     uint64_t capacity = AKArrayGetCapacity(array);
     
-    if (capacity == count || (capacity - count) < (capacity * 0.2)) {
-        return true;
-    }
-    
-    return false;
+    return (capacity == count || (capacity - count) < (capacity * 0.2));
 }
 
 uint64_t AKRecomendedSize(AKArray *array) {
-    AKReturnNullMacro(array, 0);
     
     uint64_t count = AKArrayGetCount(array);
     uint64_t capacity = AKArrayGetCapacity(array);
@@ -270,10 +264,10 @@ void AKArrayRemoveAllObjects(AKArray *array) {
     AKArraySetCapacity(array, 0);
 }
 
-bool AKArrayContainObject(AKArray *array, void *object) {
+bool AKArrayContainsObject(AKArray *array, void *object) {
     AKReturnNullMacro(array, false);
     
     uint64_t index = AKArrayGetIndexObject(array, object);
     
-    return (AKArrayGetObjectAtIndex(array, index) ? true : false);
+    return kAKUndefindedIndex != index;
 }

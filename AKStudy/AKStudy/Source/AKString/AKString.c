@@ -13,7 +13,7 @@
 #include "AKMacro.h"
 
 #pragma mark -
-#pragma mark Initializations an Deallocations
+#pragma mark Initializations and Deallocations
 
 void __AKStringDeallocate(AKString *string) {
     AKReturnMacro(string);

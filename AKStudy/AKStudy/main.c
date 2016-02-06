@@ -20,6 +20,7 @@
 #include "AKObject.h"
 #include "AKString.h"
 #include "AKArray.h"
+#include "AKLinkedList.h"
 
 int main(int argc, const char * argv[]) {
 //    AKPrintSizeTypeTest();
@@ -31,8 +32,17 @@ int main(int argc, const char * argv[]) {
 
 //    AKPrintingByteValuesTest();
     //AKHumanTest();
-    AKArrayTest();
+//    AKArrayTest();
+ 
+    AKNode *list = AKNodeCreate();
+    AKNodePush(&list, AKStringCreateWithData("Hello"));
+    AKNodePush(&list, AKStringCreateWithData("Guys"));
+    AKNodePush(&list, AKStringCreateWithData("and"));
+    AKNodePush(&list, AKStringCreateWithData("Girls"));
+
     
+    
+
     
     return 0;
 }

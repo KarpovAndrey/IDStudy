@@ -32,25 +32,27 @@ void AKArrayTest() {
 //    AKHumanRemoveChild(humanVasia, humanKinder1);
 //    AKHumanRemoveChild(humanLinda, humanKinder2);
     
-    AKArray *array = AKArrayCreate();
-    
-    AKString *string1 = AKStringCreateWithData("Child 1");
-    AKString *string2 = AKStringCreateWithData("Child 2");
-    AKString *string3 = AKStringCreateWithData("Child 3");
-
-    for (int index = 0; index < 30; index++) {
-        AKArrayAddObject(array, string1);
-        AKArrayAddObject(array, string2);
-        AKArrayAddObject(array, string3);
-    }
-    
-    //AKArrayRemoveObject(array, string1);
-    AKArrayRemoveAllObjects(array);
-    
+//    AKArray *array = AKArrayCreate();
+//    
+//    AKString *string1 = AKStringCreateWithData("Child 1");
+//    AKString *string2 = AKStringCreateWithData("Child 2");
+//    AKString *string3 = AKStringCreateWithData("Child 3");
 //
-    printf("%d\n", AKArrayGetCount(array));
-    AKArrayAddObject(array, string1);
-    printf("%d\n", AKArrayGetCount(array));
+//    for (int index = 0; index < 30; index++) {
+//        AKArrayAddObject(array, string1);
+//        AKArrayAddObject(array, string2);
+//        AKArrayAddObject(array, string3);
+//    }
+//    
+//    //AKArrayRemoveObject(array, string1);
+//    //AKArrayRemoveAllObjects(array);
+//    for (int iterator = 0; iterator < 30; iterator++) {
+//        AKArrayRemoveObject(array, string1);
+//    }
+////
+//    printf("%d\n", AKArrayGetCount(array));
+//    AKArrayAddObject(array, string1);
+//    printf("%d\n", AKArrayGetCount(array));
 //    AKArrayRemoveObject(arrayChildren, string1);
 //    printf("%d\n", AKArrayIsContain(arrayChildren, string1));
 //    printf("%d\n", AKArrayGetCount(arrayChildren));

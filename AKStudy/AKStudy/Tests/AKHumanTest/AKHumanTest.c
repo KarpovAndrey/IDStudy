@@ -110,9 +110,9 @@ void AKHumanTest() {
 //    AKHumanRemoveChildren(papa);
 //    printf("%s\n", AKHumanGetName(child3));
 //    AKHumanDivorce(papa);
-    AKHuman *man = AKHumanCreateWithNameAndGender(AKStringCreateWithData("Man"), kAKManGender);
-    AKHuman *woman = AKHumanCreateWithNameAndGender(AKStringCreateWithData("Woman"), kAKWomanGender);
-    AKHuman *child = AKHumanCreateWithNameAndParents(AKStringCreateWithData("Child"), man, woman);
+//    AKHuman *man = AKHumanCreateWithNameAndGender(AKStringCreateWithData("Man"), kAKManGender);
+//    AKHuman *woman = AKHumanCreateWithNameAndGender(AKStringCreateWithData("Woman"), kAKWomanGender);
+//    AKHuman *child = AKHumanCreateWithNameAndParents(AKStringCreateWithData("Child"), man, woman);
 
     
  }
