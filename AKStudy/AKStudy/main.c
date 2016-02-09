@@ -15,6 +15,8 @@
 #include "AKHumanTest.h"
 #include "AKStringTest.h"
 #include "AKArrayTest.h"
+#include "AKNodeTest.h"
+#include "AKLinkedListTest.h"
 
 #include "AKHuman.h"
 #include "AKObject.h"
@@ -34,12 +36,7 @@ int main(int argc, const char * argv[]) {
     //AKHumanTest();
 //    AKArrayTest();
  
-    AKNode *list = AKNodeCreate();
-    AKNodePush(&list, AKStringCreateWithData("Hello"));
-    AKNodePush(&list, AKStringCreateWithData("Guys"));
-    AKNodePush(&list, AKStringCreateWithData("and"));
-    AKNodePush(&list, AKStringCreateWithData("Girls"));
-
+    AKLinkedListTest();
     
     
 

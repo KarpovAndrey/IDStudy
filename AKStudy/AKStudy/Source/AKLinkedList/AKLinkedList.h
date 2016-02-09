@@ -12,39 +12,36 @@
 #include <stdio.h>
 
 #include "AKObject.h"
+#include "AKNode.h"
 #include "AKString.h"
 
-typedef struct AKNode AKNode;
+typedef struct AKLinkedList AKLinkedList;
 
-struct AKNode {
+struct AKLinkedList {
     AKObject _super;
-    AKString *_data;
-    AKNode *next;
-//    uint64_t _counter;
+    AKNode *_head;
+    uint64_t _count;
 };
 
 extern
-void __AKNodeDeallocate(AKNode *list);
+void *AKLinkedListCreate(void);
 
 extern
-void *AKNodeCreate();
+void AKLinkedListAddObject(AKLinkedList *linkedList, void *object);
 
 extern
-void AKNodeSetData(AKNode *node, AKString *data);
+void AKLinkedListRemoveObject(AKLinkedList *linkedList, void *object);
 
 extern
-char *AKNodeGetData(AKNode *node);
+void AKRemoveAllObjects(AKLinkedList *linkedList);
 
 extern
-AKNode *AKNodeGetObjectAtIndex(AKNode *head, uint64_t index);
+void *AKLinkedListGetFirstObject(AKLinkedList *linkedList);
 
 extern
-void AKNodePush(AKNode **head, AKString *data);
+void *AKLinkedListGetLastObject(AKLinkedList *linkedList);
 
 extern
-AKString AKNodePop(AKNode **list);
-
-extern
-void AKNodePrintAll(AKNode *list);
+bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object);
 
 #endif /* AKLinkedList_h */

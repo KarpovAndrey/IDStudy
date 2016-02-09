@@ -38,9 +38,9 @@
 
 #define AKRetainSetter(oldValue, newValue) {\
             if (oldValue != newValue) {\
+                AKObjectRetain(newValue);\
                 AKObjectRelease(oldValue);\
                 oldValue = newValue;\
-                AKObjectRetain(oldValue);\
             }\
         }\
 

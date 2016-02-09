@@ -15,89 +15,176 @@
 #pragma mark -
 #pragma mark Private Declarations
 
-//static
-//void AKNodeSetCounter(AKNode *node, uint64_t counter);
-//
-//static
-//uint64_t AKNodeGetCounter(AKNode *node);
+static
+void AKLinkedListSetCount(AKLinkedList *linkedList, uint64_t count);
+
+static
+uint64_t AKLinkedListGetCount(AKLinkedList *linkedList);
+
+static
+void AKLinkedListSetHead(AKLinkedList *linkedList, void *node);
+
+static
+void *AKLinkedListGetHead(AKLinkedList *linkedList);
+
+static
+AKNode *AKLinkedListGetLastNode(AKLinkedList *linkedList);
+
+static
+void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node);
+
+static
+void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-void __AKNodeDeallocate(AKNode *Node) {
-    AKReturnMacro(Node);
-    AKNodeSetData(Node, NULL);
-    __AKObjectDeallocate(Node);
+void __AKLinkedListDeallocate(AKLinkedList *linkedList) {
+    AKReturnMacro(linkedList);
+    AKLinkedListSetHead(linkedList, NULL);
+    __AKObjectDeallocate(linkedList);
     printf("Node KILLED\n");
 }
 
-void *AKNodeCreate() {
-    AKNode *list = AKObjectCreate(AKNode);
-//    AKNodeSetCounter(node, 0);
-
-    return list;
+void *AKLinkedListCreate(void) {
+    AKLinkedList *linkedList = AKObjectCreate(AKLinkedList);
+    AKLinkedListSetCount(linkedList, 0);
+    AKLinkedListSetHead(linkedList, NULL);
+    
+    return linkedList;
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-void AKNodeSetData(AKNode *node, AKString *data) {
-    AKReturnMacro(node);
-    AKReturnMacro(data);
+void AKLinkedListSetCount(AKLinkedList *linkerList, uint64_t count) {
+    AKReturnMacro(linkerList);
     
-    AKRetainSetter(node->_data, data);
+    AKAssignSetter(linkerList->_count, count);
 }
 
-char *AKNodeGetData(AKNode *node) {
-    AKReturnNullMacro(node, NULL);
-    
-    return (char *)node->_data;
+uint64_t AKLinkedListGetCount(AKLinkedList *linkerList) {
+    return linkerList->_count;
 }
 
-//void AKNodeSetCounter(AKNode *node, uint64_t counter) {
-//    AKAssignSetter(node->_counter, counter);
-//}
-//
-//uint64_t AKNodeGetCounter(AKNode *node) {
-//    return node->_counter;
-//}
+void AKLinkedListSetHead(AKLinkedList *linkedList, void *node) {
+    AKReturnMacro(linkedList);
+    
+    AKRetainSetter(linkedList->_head, node);
+}
 
-#pragma mark -
-#pragma mark Private
+void *AKLinkedListGetHead(AKLinkedList *linkedList) {
+    AKReturnNullMacro(linkedList, NULL);
+    
+    return linkedList->_head;
+}
 
 #pragma mark -
 #pragma mark Public
 
-void AKNodePrintAll(AKNode *list) {
-    AKNode *p;
-    for (p = list; p != NULL; p = p->next) {
-        printf("%s\n", (char *)p->_data);
+void AKLinkedListAddObject(AKLinkedList *linkedList, void *object) {
+    AKReturnMacro(linkedList);
+    
+    AKNode *node = AKNodeCreateWithObject(object);
+    AKLinkedListAddNode(linkedList, node);
+    
+    AKObjectRelease(node);
+}
+
+void *AKLinkedListGetFirstObject(AKLinkedList *linkedList) {
+    AKReturnNullMacro(linkedList, NULL);
+    
+    AKNode *node = AKLinkedListGetHead(linkedList);
+    
+    return node ? AKNodeGetObject(node) : NULL;
+}
+
+void *AKLinkedListGetLastObject(AKLinkedList *linkedList) {
+    AKReturnNullMacro(linkedList, NULL);
+    
+    AKNode  *node = AKLinkedListGetLastNode(linkedList);
+    
+    return node ? AKNodeGetObject(node) : NULL;
+}
+
+bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object) {
+    AKReturnNullMacro(linkedList, NULL);
+    
+    AKNode * node = AKLinkedListGetHead(linkedList);
+    do {
+        if (AKNodeGetObject(node) == object) {
+            return true;
+        }
+        
+        node = AKNodeGetNextNode(node);
+    } while (NULL != node);
+    
+    return false;
+}
+
+void AKLinkedListRemoveObject(AKLinkedList *linkedList, void *object) {
+    AKReturnMacro(linkedList);
+    
+    if (AKLinkedListContainsObject(linkedList, object)) {
+        AKNode *node = AKLinkedListGetHead(linkedList);
+        AKNode *nextNode = AKNodeGetNextNode(node);
+        
+        do {
+            if (object == AKNodeGetObject(node)) {
+                AKLinkedListRemoveNode(linkedList, node);
+                break;
+            }
+            
+            node = nextNode;
+            nextNode = AKNodeGetNextNode(node);
+        } while (NULL != node);
     }
 }
 
-void AKNodePush(AKNode **head, AKString *data) {
-    AKNode *node = (AKNode *) malloc(sizeof(AKNode)); //create new Node and allocate space for it
-    //AKNodeSetData(node, data);
-    node->_data = data; // write data to it
-    node->next = *head; // assign pointer Node to address of the previous Node
-    *head = node; // assign to the pointer head address of the new Noda
+void AKRemoveAllObjects(AKLinkedList *linkedList) {
+    AKReturnMacro(linkedList);
+    AKLinkedListSetHead(linkedList, NULL);
+    AKLinkedListSetCount(linkedList, 0);
 }
 
+#pragma mark -
+#pragma mark Private Implimentations
 
-AKNode *AKNodeGetObjectAtIndex(AKNode *head, uint64_t index) {
-    uint64_t counter = 0;
-    while (counter < index && head) {
-        head = head->next;
-        counter++;
+AKNode *AKLinkedListGetLastNode(AKLinkedList *linkedList) {
+    AKReturnNullMacro(linkedList, NULL);
+    
+    AKNode *node = AKLinkedListGetHead(linkedList);
+    while (NULL != AKNodeGetNextNode(node)) {
+        node = AKNodeGetNextNode(node);
     }
-    return head;
+    
+    return node;
 }
 
-AKString AKNodePop(AKNode **list) {
-    AKString res = *(*list)->_data;
-    AKNode *p = *list;
-    *list = (*list)->next;
-    free(p);
-
-    return res;
+void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node) {
+    AKReturnMacro(linkedList);
+    
+    AKNodeSetNextNode(node, AKLinkedListGetHead(linkedList));
+    AKLinkedListSetHead(linkedList, node);
+    AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) + 1);
 }
+
+void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node) {
+    AKReturnMacro(linkedList);
+    
+    AKNode *firstNode = AKLinkedListGetHead(linkedList);
+    AKNode *secondNode = AKNodeGetNextNode(node);
+    
+    if (firstNode == node) {
+        AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));
+    } else {
+        while (secondNode != node) {
+            firstNode = secondNode;
+            secondNode = AKNodeGetNextNode(secondNode);
+        }
+    }
+    
+    AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
+    AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
+}
+
