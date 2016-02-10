@@ -9,10 +9,21 @@
 #include "AKLinkedListTest.h"
 #include "AKLinkedList.h"
 #include "AKNode.h"
+#include "AKString.h"
+#include "AKObject.h"
 
 void AKLinkedListTest() {
     AKLinkedList *list = AKLinkedListCreate();
-    AKLinkedListAddObject(list, AKNodeCreateWithObject(AKStringCreateWithData("Hello")));
-    AKLinkedListAddObject(list, AKNodeCreateWithObject(AKStringCreateWithData("People")));
+    
+    AKString *string1 = AKStringCreateWithData("Hello");
+    AKString *string2 = AKStringCreateWithData("People");
 
+//    AKNode *node1 = AKNodeCreateWithObject(string1);
+//    AKNode *node2 = AKNodeCreateWithObject(string2);
+
+    AKLinkedListAddObject(list, string1);
+    AKLinkedListAddObject(list, string2);
+
+
+    AKLinkedListRemoveObject(list, string1);
 }

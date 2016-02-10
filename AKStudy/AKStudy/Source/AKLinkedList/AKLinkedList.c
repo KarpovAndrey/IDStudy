@@ -54,6 +54,11 @@ void *AKLinkedListCreate(void) {
     return linkedList;
 }
 
+AKEnumerator *AKLinkedListEnumeratorFromList(AKLinkedList *linkedList) {
+    return AKEnumeratorCreateWithList(linkedList);
+}
+
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -173,7 +178,7 @@ void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node) {
     AKReturnMacro(linkedList);
     
     AKNode *firstNode = AKLinkedListGetHead(linkedList);
-    AKNode *secondNode = AKNodeGetNextNode(node);
+    AKNode *secondNode = AKNodeGetNextNode(firstNode);
     
     if (firstNode == node) {
         AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));

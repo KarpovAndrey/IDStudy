@@ -24,6 +24,7 @@
 		84D6A98E1C6A3D0D008D95E6 /* AKNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A98C1C6A3D0D008D95E6 /* AKNode.c */; };
 		84D6A9921C6A464C008D95E6 /* AKNodeTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A9901C6A464C008D95E6 /* AKNodeTest.c */; };
 		84D6A9961C6A65A6008D95E6 /* AKLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6A9941C6A65A6008D95E6 /* AKLinkedListTest.c */; };
+		84FC481F1C6BC179001366EE /* AKEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 84FC481D1C6BC179001366EE /* AKEnumerator.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +75,8 @@
 		84D6A9911C6A464C008D95E6 /* AKNodeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNodeTest.h; sourceTree = "<group>"; };
 		84D6A9941C6A65A6008D95E6 /* AKLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKLinkedListTest.c; sourceTree = "<group>"; };
 		84D6A9951C6A65A6008D95E6 /* AKLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLinkedListTest.h; sourceTree = "<group>"; };
+		84FC481D1C6BC179001366EE /* AKEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKEnumerator.c; sourceTree = "<group>"; };
+		84FC481E1C6BC179001366EE /* AKEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnumerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		84A6B1651C32D3AB000ACAA5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				84FC481C1C6BC168001366EE /* AKEnumerator */,
 				84D6A98B1C6A3CFF008D95E6 /* AKNode */,
 				84BBC57B1C65F692000B49CE /* AKLinkedList */,
 				84C015181C568C3300C150BF /* AKArray */,
@@ -296,6 +300,15 @@
 			path = AKLinkedListTest;
 			sourceTree = "<group>";
 		};
+		84FC481C1C6BC168001366EE /* AKEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				84FC481D1C6BC179001366EE /* AKEnumerator.c */,
+				84FC481E1C6BC179001366EE /* AKEnumerator.h */,
+			);
+			path = AKEnumerator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */,
+				84FC481F1C6BC179001366EE /* AKEnumerator.c in Sources */,
 				840C06F71C40049300B70E34 /* AKHuman.c in Sources */,
 				847016561C593324006F34B1 /* AKStringTest.c in Sources */,
 				84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */,

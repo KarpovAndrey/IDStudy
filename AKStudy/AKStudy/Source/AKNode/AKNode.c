@@ -16,7 +16,7 @@
 void __AKNodeDeallocate(AKNode *node);
 
 #pragma mark -
-#pragma mark Initialisations and Deallocarions
+#pragma mark Initialisations and Deallocations
 
 void __AKNodeDeallocate(AKNode *node) {
     AKReturnMacro(node);
