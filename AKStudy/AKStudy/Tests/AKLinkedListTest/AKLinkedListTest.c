@@ -11,6 +11,7 @@
 #include "AKNode.h"
 #include "AKString.h"
 #include "AKObject.h"
+#include "AKEnumerator.h"
 
 void AKLinkedListTest() {
     AKLinkedList *list = AKLinkedListCreate();

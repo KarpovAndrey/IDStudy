@@ -22,17 +22,14 @@ struct AKEnumerator {
     AKNode *_currentNode;
     AKLinkedList *_linkedList;
     uint64_t _mutationsCount;
-    bool _isValid;
+    bool _valid;
 };
 
 extern
 AKEnumerator *AKEnumeratorCreateWithList(AKLinkedList *linkedList);
 
 extern
-void *AKEnumeratorGetNextNode(AKEnumerator *enumerator);
-
-extern
-bool AKEnumeratorIsValid(AKEnumerator *enumerator);
+bool AKEnumeratorGetIsValid(AKEnumerator *enumerator);
 
 extern
 void __AKEnumeratorDeallocate(void *object);

@@ -24,7 +24,7 @@ struct AKLinkedList {
     AKObject _super;
     AKNode *_head;
     uint64_t _count;
-    uint64_t mutationsCount;
+    uint64_t _mutationsCount;
 };
 
 extern
@@ -41,9 +41,6 @@ void AKRemoveAllObjects(AKLinkedList *linkedList);
 
 extern
 void *AKLinkedListGetFirstObject(AKLinkedList *linkedList);
-
-extern
-void *AKLinkedListGetLastObject(AKLinkedList *linkedList);
 
 extern
 bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object);

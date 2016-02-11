@@ -69,6 +69,8 @@
 		84BBC57D1C65F6A2000B49CE /* AKLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLinkedList.h; sourceTree = "<group>"; };
 		84C015191C568C4300C150BF /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
 		84C0151A1C568C4300C150BF /* AKArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKArray.h; sourceTree = "<group>"; };
+		84D628341C6D307300562060 /* AKLinkedListPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKLinkedListPrivate.h; sourceTree = "<group>"; };
+		84D628351C6D319900562060 /* AKEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnumeratorPrivate.h; sourceTree = "<group>"; };
 		84D6A98C1C6A3D0D008D95E6 /* AKNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKNode.c; sourceTree = "<group>"; };
 		84D6A98D1C6A3D0D008D95E6 /* AKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNode.h; sourceTree = "<group>"; };
 		84D6A9901C6A464C008D95E6 /* AKNodeTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKNodeTest.c; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			children = (
 				84BBC57C1C65F6A2000B49CE /* AKLinkedList.c */,
 				84BBC57D1C65F6A2000B49CE /* AKLinkedList.h */,
+				84D628341C6D307300562060 /* AKLinkedListPrivate.h */,
 			);
 			path = AKLinkedList;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			children = (
 				84FC481D1C6BC179001366EE /* AKEnumerator.c */,
 				84FC481E1C6BC179001366EE /* AKEnumerator.h */,
+				84D628351C6D319900562060 /* AKEnumeratorPrivate.h */,
 			);
 			path = AKEnumerator;
 			sourceTree = "<group>";

@@ -11,6 +11,8 @@
 
 #include "AKLinkedList.h"
 #include "AKMacro.h"
+#include "AKLinkedListPrivate.h"
+#include "AKEnumeratorPrivate.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -25,16 +27,13 @@ static
 void AKLinkedListSetHead(AKLinkedList *linkedList, void *node);
 
 static
-void *AKLinkedListGetHead(AKLinkedList *linkedList);
-
-static
-AKNode *AKLinkedListGetLastNode(AKLinkedList *linkedList);
-
-static
 void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node);
 
 static
 void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node);
+
+static
+void AKLinkedListSetMutationsCount(AKLinkedList *linkedList, uint64_t mutationsCount);
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -42,34 +41,33 @@ void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node);
 void __AKLinkedListDeallocate(AKLinkedList *linkedList) {
     AKReturnMacro(linkedList);
     AKLinkedListSetHead(linkedList, NULL);
+    
     __AKObjectDeallocate(linkedList);
-    printf("Node KILLED\n");
+    printf("LinkedList KILLED\n");
 }
 
 void *AKLinkedListCreate(void) {
     AKLinkedList *linkedList = AKObjectCreate(AKLinkedList);
+    AKLinkedListSetMutationsCount(linkedList, 0);
     AKLinkedListSetCount(linkedList, 0);
     AKLinkedListSetHead(linkedList, NULL);
     
     return linkedList;
 }
 
-AKEnumerator *AKLinkedListEnumeratorFromList(AKLinkedList *linkedList) {
-    return AKEnumeratorCreateWithList(linkedList);
-}
-
-
 #pragma mark -
 #pragma mark Accessors
 
-void AKLinkedListSetCount(AKLinkedList *linkerList, uint64_t count) {
-    AKReturnMacro(linkerList);
+void AKLinkedListSetCount(AKLinkedList *linkedList, uint64_t count) {
+    AKReturnMacro(linkedList);
     
-    AKAssignSetter(linkerList->_count, count);
+    AKAssignSetter(linkedList->_count, count);
+    uint64_t mutationsCount = AKLinkedListGetMutationsCount(linkedList);
+    AKLinkedListSetMutationsCount(linkedList, mutationsCount + 1);
 }
 
-uint64_t AKLinkedListGetCount(AKLinkedList *linkerList) {
-    return linkerList->_count;
+uint64_t AKLinkedListGetCount(AKLinkedList *linkedList) {
+    return linkedList->_count;
 }
 
 void AKLinkedListSetHead(AKLinkedList *linkedList, void *node) {
@@ -82,6 +80,17 @@ void *AKLinkedListGetHead(AKLinkedList *linkedList) {
     AKReturnNullMacro(linkedList, NULL);
     
     return linkedList->_head;
+}
+
+void AKLinkedListSetMutationsCount(AKLinkedList *linkedList, uint64_t mutationsCount) {
+    AKReturnMacro(linkedList);
+    AKAssignSetter(linkedList->_mutationsCount, mutationsCount);
+}
+
+uint64_t AKLinkedListGetMutationsCount(AKLinkedList *linkedList) {
+    AKReturnNullMacro(linkedList, 0);
+    
+    return linkedList->_mutationsCount;
 }
 
 #pragma mark -
@@ -104,46 +113,71 @@ void *AKLinkedListGetFirstObject(AKLinkedList *linkedList) {
     return node ? AKNodeGetObject(node) : NULL;
 }
 
-void *AKLinkedListGetLastObject(AKLinkedList *linkedList) {
-    AKReturnNullMacro(linkedList, NULL);
-    
-    AKNode  *node = AKLinkedListGetLastNode(linkedList);
-    
-    return node ? AKNodeGetObject(node) : NULL;
-}
-
 bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object) {
     AKReturnNullMacro(linkedList, NULL);
     
-    AKNode * node = AKLinkedListGetHead(linkedList);
-    do {
+    AKEnumerator *enumerator = AKEnumeratorCreateWithList(linkedList);
+    
+    bool containsObject = false;
+    while (AKEnumeratorGetIsValid(enumerator)) {
+        AKNode * node = AKLinkedListGetHead(linkedList);
+        
         if (AKNodeGetObject(node) == object) {
-            return true;
+            containsObject = true;
+            break;
         }
         
         node = AKNodeGetNextNode(node);
-    } while (NULL != node);
+    }
     
-    return false;
+    AKObjectRelease(enumerator);
+    
+    return containsObject;
+    
+//    AKNode * node = AKLinkedListGetHead(linkedList);
+//    do {
+//        if (AKNodeGetObject(node) == object) {
+//            return true;
+//        }
+//        
+//        node = AKNodeGetNextNode(node);
+//    } while (NULL != node);
+//    
+//    return false;
 }
 
 void AKLinkedListRemoveObject(AKLinkedList *linkedList, void *object) {
     AKReturnMacro(linkedList);
+    AKReturnMacro(object);
     
-    if (AKLinkedListContainsObject(linkedList, object)) {
-        AKNode *node = AKLinkedListGetHead(linkedList);
-        AKNode *nextNode = AKNodeGetNextNode(node);
+    AKEnumerator *enumerator = AKEnumeratorCreateWithList(linkedList);
+    
+    while (AKEnumeratorGetIsValid(enumerator)) {
+        AKNode *node = AKEnumeratorGetNextNode(enumerator);
         
-        do {
-            if (object == AKNodeGetObject(node)) {
-                AKLinkedListRemoveNode(linkedList, node);
-                break;
-            }
-            
-            node = nextNode;
-            nextNode = AKNodeGetNextNode(node);
-        } while (NULL != node);
+        if (object == AKNodeGetObject(node)) {
+            AKLinkedListRemoveNode(linkedList, node);
+            break;
+        }
+    //    if (AKLinkedListContainsObject(linkedList, object)) {
+    //        AKNode *node = AKLinkedListGetHead(linkedList);
+    //        AKNode *nextNode = AKNodeGetNextNode(node);
+    //
+    //        do {
+    //            if (object == AKNodeGetObject(node)) {
+    //                AKLinkedListRemoveNode(linkedList, node);
+    //                break;
+    //            }
+    //
+    //            node = nextNode;
+    //            nextNode = AKNodeGetNextNode(node);
+    //        } while (NULL != node);
+    //    }
+        
     }
+    
+    AKObjectRelease(enumerator);
+    
 }
 
 void AKRemoveAllObjects(AKLinkedList *linkedList) {
@@ -154,17 +188,6 @@ void AKRemoveAllObjects(AKLinkedList *linkedList) {
 
 #pragma mark -
 #pragma mark Private Implimentations
-
-AKNode *AKLinkedListGetLastNode(AKLinkedList *linkedList) {
-    AKReturnNullMacro(linkedList, NULL);
-    
-    AKNode *node = AKLinkedListGetHead(linkedList);
-    while (NULL != AKNodeGetNextNode(node)) {
-        node = AKNodeGetNextNode(node);
-    }
-    
-    return node;
-}
 
 void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node) {
     AKReturnMacro(linkedList);
@@ -177,19 +200,37 @@ void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node) {
 void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node) {
     AKReturnMacro(linkedList);
     
-    AKNode *firstNode = AKLinkedListGetHead(linkedList);
-    AKNode *secondNode = AKNodeGetNextNode(firstNode);
-    
-    if (firstNode == node) {
+    if (node == AKLinkedListGetHead(linkedList)) {
         AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));
     } else {
-        while (secondNode != node) {
-            firstNode = secondNode;
-            secondNode = AKNodeGetNextNode(secondNode);
+        AKEnumerator *enumerator = AKEnumeratorCreateWithList(linkedList);
+        while (AKEnumeratorGetIsValid(enumerator)) {
+            AKNode *firstNode = AKEnumeratorGetNextNode(enumerator);
+            AKNode *secondNode = AKNodeGetNextNode(firstNode);
+            if (firstNode == secondNode) {
+                AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
+            }
+            
         }
+        
+        AKObjectRelease(enumerator);
     }
     
-    AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
     AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
+
+//    AKNode *firstNode = AKLinkedListGetHead(linkedList);
+//    AKNode *secondNode = AKNodeGetNextNode(firstNode);
+//
+//    if (firstNode == node) {
+//        AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));
+//    } else {
+//        while (secondNode != node) {
+//            firstNode = secondNode;
+//            secondNode = AKNodeGetNextNode(secondNode);
+//        }
+//    }
+//    
+//    AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
+//    AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
 }
 
