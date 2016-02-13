@@ -18,13 +18,17 @@ void AKLinkedListTest() {
     
     AKString *string1 = AKStringCreateWithData("Hello");
     AKString *string2 = AKStringCreateWithData("People");
-
-//    AKNode *node1 = AKNodeCreateWithObject(string1);
-//    AKNode *node2 = AKNodeCreateWithObject(string2);
+    AKString *string3 = AKStringCreateWithData("Hello");
+    AKString *string4 = AKStringCreateWithData("People");
+    AKString *string5 = AKStringCreateWithData("People");
 
     AKLinkedListAddObject(list, string1);
     AKLinkedListAddObject(list, string2);
+    AKLinkedListAddObject(list, string3);
+    AKLinkedListAddObject(list, string4);
+    AKLinkedListAddObject(list, string5);
 
+    AKLinkedListRemoveObject(list, string3);
+    AKLinkedListRemoveObject(list, string4);
 
-    AKLinkedListRemoveObject(list, string1);
 }

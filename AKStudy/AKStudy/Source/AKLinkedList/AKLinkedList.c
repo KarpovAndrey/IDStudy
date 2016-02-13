@@ -133,17 +133,6 @@ bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object) {
     AKObjectRelease(enumerator);
     
     return containsObject;
-    
-//    AKNode * node = AKLinkedListGetHead(linkedList);
-//    do {
-//        if (AKNodeGetObject(node) == object) {
-//            return true;
-//        }
-//        
-//        node = AKNodeGetNextNode(node);
-//    } while (NULL != node);
-//    
-//    return false;
 }
 
 void AKLinkedListRemoveObject(AKLinkedList *linkedList, void *object) {
@@ -159,25 +148,9 @@ void AKLinkedListRemoveObject(AKLinkedList *linkedList, void *object) {
             AKLinkedListRemoveNode(linkedList, node);
             break;
         }
-    //    if (AKLinkedListContainsObject(linkedList, object)) {
-    //        AKNode *node = AKLinkedListGetHead(linkedList);
-    //        AKNode *nextNode = AKNodeGetNextNode(node);
-    //
-    //        do {
-    //            if (object == AKNodeGetObject(node)) {
-    //                AKLinkedListRemoveNode(linkedList, node);
-    //                break;
-    //            }
-    //
-    //            node = nextNode;
-    //            nextNode = AKNodeGetNextNode(node);
-    //        } while (NULL != node);
-    //    }
-        
     }
-    
+
     AKObjectRelease(enumerator);
-    
 }
 
 void AKRemoveAllObjects(AKLinkedList *linkedList) {
@@ -207,30 +180,15 @@ void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node) {
         while (AKEnumeratorGetIsValid(enumerator)) {
             AKNode *firstNode = AKEnumeratorGetNextNode(enumerator);
             AKNode *secondNode = AKNodeGetNextNode(firstNode);
-            if (firstNode == secondNode) {
+            if (secondNode == node) {
                 AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
+                break;
             }
-            
         }
         
         AKObjectRelease(enumerator);
     }
     
     AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
-
-//    AKNode *firstNode = AKLinkedListGetHead(linkedList);
-//    AKNode *secondNode = AKNodeGetNextNode(firstNode);
-//
-//    if (firstNode == node) {
-//        AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));
-//    } else {
-//        while (secondNode != node) {
-//            firstNode = secondNode;
-//            secondNode = AKNodeGetNextNode(secondNode);
-//        }
-//    }
-//    
-//    AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
-//    AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
 }
 

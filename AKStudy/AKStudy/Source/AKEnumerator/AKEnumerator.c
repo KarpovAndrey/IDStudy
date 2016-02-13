@@ -62,9 +62,10 @@ AKNode *AKEnumeratorGetNextNode(AKEnumerator *enumerator) {
     
     AKNode *node = AKEnumeratorGetCurrentNode(enumerator);
     AKLinkedList *linkedList = AKEnumeratorGetList(enumerator);
-    
+
     if (!node) {
         node = AKLinkedListGetHead(linkedList);
+        AKEnumeratorSetCurrentNode(enumerator, node);
     } else {
         node = AKNodeGetNextNode(node);
         AKEnumeratorSetCurrentNode(enumerator, node);
