@@ -9,6 +9,7 @@
 #include "AKEnumerator.h"
 #include "AKMacro.h"
 #include "AKLinkedListPrivate.h"
+#include "AKEnumeratorPrivate.h"
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -20,10 +21,7 @@ static
 AKLinkedList *AKEnumeratorGetList(AKEnumerator *enumerator);
 
 static
-void AKEnumeratorSetCurrentNode(AKEnumerator *enumerator, AKNode *node);
-
-static
-AKNode *AKEnumeratorGetCurrentNode(AKEnumerator *enumerator);
+void AKEnumeratorSetNode(AKEnumerator *enumerator, AKNode *node);
 
 static
 void AKEnumeratorSetMutationsCount(AKEnumerator *enumerator, uint64_t mutationsCount);
@@ -40,7 +38,7 @@ void AKEnumeratorSetValid(AKEnumerator *enumerator, bool valid);
 extern
 void __AKEnumeratorDeallocate(void *object) {
     AKEnumeratorSetList(object, NULL);
-    AKEnumeratorSetCurrentNode(object, NULL);
+    AKEnumeratorSetNode(object, NULL);
     __AKObjectDeallocate(object);
 }
 
@@ -52,7 +50,7 @@ AKEnumerator *AKEnumeratorCreateWithList(AKLinkedList *linkedList) {
     uint64_t mutationsCount = AKLinkedListGetMutationsCount(linkedList);
     AKEnumeratorSetMutationsCount(enumerator, mutationsCount);
     AKEnumeratorSetValid(enumerator, true);
-    AKEnumeratorSetCurrentNode(enumerator, NULL);
+    AKEnumeratorSetNode(enumerator, NULL);
     
     return enumerator;
 }
@@ -60,15 +58,15 @@ AKEnumerator *AKEnumeratorCreateWithList(AKLinkedList *linkedList) {
 AKNode *AKEnumeratorGetNextNode(AKEnumerator *enumerator) {
     AKReturnNullMacro(enumerator, NULL);
     
-    AKNode *node = AKEnumeratorGetCurrentNode(enumerator);
+    AKNode *node = AKEnumeratorGetNode(enumerator);
     AKLinkedList *linkedList = AKEnumeratorGetList(enumerator);
 
     if (!node) {
         node = AKLinkedListGetHead(linkedList);
-        AKEnumeratorSetCurrentNode(enumerator, node);
+        AKEnumeratorSetNode(enumerator, node);
     } else {
         node = AKNodeGetNextNode(node);
-        AKEnumeratorSetCurrentNode(enumerator, node);
+        AKEnumeratorSetNode(enumerator, node);
     }
     
     uint64_t mutationsCount = AKEnumeratorGetMutationsCount(enumerator);
@@ -92,13 +90,13 @@ AKLinkedList *AKEnumeratorGetList(AKEnumerator *enumerator) {
     return enumerator->_linkedList;
 }
 
-void AKEnumeratorSetCurrentNode(AKEnumerator *enumerator, AKNode *node) {
+void AKEnumeratorSetNode(AKEnumerator *enumerator, AKNode *node) {
     AKReturnMacro(node);
-    AKRetainSetter(enumerator->_currentNode, node);
+    AKRetainSetter(enumerator->_node, node);
 }
 
-AKNode *AKEnumeratorGetCurrentNode(AKEnumerator *enumerator) {
-    return enumerator->_currentNode;
+AKNode *AKEnumeratorGetNode(AKEnumerator *enumerator) {
+    return enumerator->_node;
 }
 
 void AKEnumeratorSetMutationsCount(AKEnumerator *enumerator, uint64_t mutationsCount) {
@@ -120,8 +118,3 @@ bool AKEnumeratorGetIsValid(AKEnumerator *enumerator) {
     
     return enumerator->_valid;
 }
-
-#pragma mark -
-#pragma mark Public
-
-

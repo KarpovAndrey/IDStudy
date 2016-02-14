@@ -14,4 +14,7 @@
 extern
 AKNode *AKEnumeratorGetNextNode(AKEnumerator *enumerator);
 
+extern
+AKNode *AKEnumeratorGetNode(AKEnumerator *enumerator);
+
 #endif /* AKEnumeratorPrivate_h */

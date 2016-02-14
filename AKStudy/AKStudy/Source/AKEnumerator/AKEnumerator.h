@@ -19,7 +19,7 @@ typedef struct AKLinkedList AKLinkedList;
 
 struct AKEnumerator {
     AKObject _super;
-    AKNode *_currentNode;
+    AKNode *_node;
     AKLinkedList *_linkedList;
     uint64_t _mutationsCount;
     bool _valid;
