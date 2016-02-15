@@ -19,7 +19,7 @@ typedef struct {
     void *object;
 } AKLinkedListContext;
 
-typedef bool (*AKLinkedListComparator)(AKNode *node, AKLinkedListContext context);
+typedef bool (*AKLinkedListComparator)(AKNode *node, AKLinkedListContext *context);
 
 extern
 uint64_t AKLinkedListGetMutationsCount(AKLinkedList *linkedList);
@@ -33,6 +33,6 @@ AKNode *AKLinkedListGetNodeWithContext(AKLinkedList *linkedList,
                                        AKLinkedListContext *context);
 
 extern
-bool AKLinkedListNodeContainsObject(AKNode *node, AKLinkedListContext context);
+bool AKLinkedListNodeContainsObject(AKLinkedListContext *context);
 
 #endif /* AKLinkedListPrivate_h */

@@ -21,6 +21,7 @@ void AKLinkedListTest() {
     AKString *string3 = AKStringCreateWithData("Hello");
     AKString *string4 = AKStringCreateWithData("People");
     AKString *string5 = AKStringCreateWithData("People");
+    AKString *string6 = AKStringCreateWithData("People");
 
     AKLinkedListAddObject(list, string1);
     AKLinkedListAddObject(list, string2);
@@ -28,7 +29,7 @@ void AKLinkedListTest() {
     AKLinkedListAddObject(list, string4);
     AKLinkedListAddObject(list, string5);
 
+    AKLinkedListRemoveObject(list, string5);
     AKLinkedListRemoveObject(list, string3);
-    AKLinkedListRemoveObject(list, string4);
-
+    AKLinkedListRemoveObject(list, string6);
 }

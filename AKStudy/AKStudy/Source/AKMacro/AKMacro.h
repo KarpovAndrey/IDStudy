@@ -50,4 +50,9 @@
             }\
         }\
 
+#define AKContextCreate(type,object)\
+        type *context = calloc(1, sizeof(type));\
+        assert(context);\
+        context->object = object;\
+
 #endif /* AKMacro_h */

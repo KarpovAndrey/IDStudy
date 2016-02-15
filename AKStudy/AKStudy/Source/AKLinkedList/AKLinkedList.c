@@ -30,9 +30,6 @@ static
 void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node);
 
 static
-void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node);
-
-static
 void AKLinkedListSetMutationsCount(AKLinkedList *linkedList, uint64_t mutationsCount);
 
 #pragma mark -
@@ -116,29 +113,11 @@ void *AKLinkedListGetFirstObject(AKLinkedList *linkedList) {
 bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object) {
     AKReturnNullMacro(linkedList, NULL);
     
-//    AKEnumerator *enumerator = AKEnumeratorCreateWithList(linkedList);
-//    
-//    bool containsObject = false;
-//    while (AKEnumeratorGetIsValid(enumerator)) {
-//        AKNode * node = AKLinkedListGetHead(linkedList);
-//        
-//        if (AKNodeGetObject(node) == object) {
-//            containsObject = true;
-//            break;
-//        }
-//        
-//        node = AKNodeGetNextNode(node);
-//    }
-//    
-//    AKObjectRelease(enumerator);
-//    
-//    return containsObject;
-    bool result = false;
-    AKLinkedListContext *context = calloc(1, sizeof(context));
-    assert(context);
+    AKContextCreate(AKLinkedListContext, object);
     
-    context->object = object;
-    result = NULL != AKLinkedListGetNodeWithContext(linkedList, AKLinkedListNodeContainsObject, context);
+    bool result = AKLinkedListGetNodeWithContext(linkedList,
+                                                 AKLinkedListNodeContainsObject,
+                                                 context);
     free(context);
     
     return result;
@@ -147,19 +126,21 @@ bool AKLinkedListContainsObject(AKLinkedList *linkedList, void *object) {
 void AKLinkedListRemoveObject(AKLinkedList *linkedList, void *object) {
     AKReturnMacro(linkedList);
     AKReturnMacro(object);
-    
-    AKEnumerator *enumerator = AKEnumeratorCreateWithList(linkedList);
-    
-    while (AKEnumeratorGetIsValid(enumerator)) {
-        AKNode *node = AKEnumeratorGetNextNode(enumerator);
-        
-        if (object == AKNodeGetObject(node)) {
-            AKLinkedListRemoveNode(linkedList, node);
-            break;
-        }
-    }
 
-    AKObjectRelease(enumerator);
+    AKContextCreate(AKLinkedListContext, object);
+    AKNode *node = AKLinkedListGetNodeWithContext(linkedList,
+                                                  AKLinkedListNodeContainsObject,
+                                                  context);
+    
+    AKReturnMacro(node);
+    if (node == AKLinkedListGetHead(linkedList)) {
+        AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));
+    } else {
+        AKNodeSetNextNode(context->previousNode, AKNodeGetNextNode(node));
+    }
+    AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
+    
+    free(context);
 }
 
 void AKRemoveAllObjects(AKLinkedList *linkedList) {
@@ -179,28 +160,6 @@ void AKLinkedListAddNode(AKLinkedList *linkedList, AKNode *node) {
     AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) + 1);
 }
 
-void AKLinkedListRemoveNode(AKLinkedList *linkedList, AKNode *node) {
-    AKReturnMacro(linkedList);
-    
-    if (node == AKLinkedListGetHead(linkedList)) {
-        AKLinkedListSetHead(linkedList, AKNodeGetNextNode(node));
-    } else {
-        AKEnumerator *enumerator = AKEnumeratorCreateWithList(linkedList);
-        while (AKEnumeratorGetIsValid(enumerator)) {
-            AKNode *firstNode = AKEnumeratorGetNextNode(enumerator);
-            AKNode *secondNode = AKNodeGetNextNode(firstNode);
-            if (secondNode == node) {
-                AKNodeSetNextNode(firstNode, AKNodeGetNextNode(secondNode));
-                break;
-            }
-        }
-        
-        AKObjectRelease(enumerator);
-    }
-    
-    AKLinkedListSetCount(linkedList, AKLinkedListGetCount(linkedList) - 1);
-}
-
 AKNode *AKLinkedListGetNodeWithContext(AKLinkedList *linkedList,
                                        AKLinkedListComparator comparator,
                                        AKLinkedListContext *context)
@@ -213,7 +172,7 @@ AKNode *AKLinkedListGetNodeWithContext(AKLinkedList *linkedList,
             AKNode *node = AKEnumeratorGetNode(enumerator);
             
             context->node = node;
-            if (true == AKLinkedListNodeContainsObject(node, *context)) {
+            if (true == AKLinkedListNodeContainsObject(context)) {
                 result = node;
                 break;
             }
@@ -227,7 +186,7 @@ AKNode *AKLinkedListGetNodeWithContext(AKLinkedList *linkedList,
     return result;
 }
 
-bool AKLinkedListNodeContainsObject(AKNode *node, AKLinkedListContext context) {
-    return node && context.node == AKNodeGetObject(node);
+bool AKLinkedListNodeContainsObject(AKLinkedListContext *context) {
+    return context->object == AKNodeGetObject(context->node);
 }
 
