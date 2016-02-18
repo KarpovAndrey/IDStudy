@@ -19,7 +19,7 @@ typedef struct {
     void *object;
 } AKLinkedListContext;
 
-typedef bool (*AKLinkedListComparator)(AKNode *node, AKLinkedListContext *context);
+typedef bool (*AKLinkedListComparator)(AKLinkedListContext *context);
 
 extern
 uint64_t AKLinkedListGetMutationsCount(AKLinkedList *linkedList);
