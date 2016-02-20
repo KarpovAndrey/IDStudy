@@ -10,4 +10,6 @@
 
 @interface AKCreatureTest : AKCreature
 
++(void)creatureTest;
+
 @end
