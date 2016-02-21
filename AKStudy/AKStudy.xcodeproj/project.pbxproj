@@ -28,6 +28,8 @@
 		847692311C763B66008682D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847692301C763B66008682D4 /* main.m */; };
 		847A81371C77ADB9004110B2 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A813D1C77C195004110B2 /* AKCreatureTest.m */; };
+		84D867E11C79C722005B7E18 /* AKCreatureWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D867E01C79C722005B7E18 /* AKCreatureWoman.m */; };
+		84D867E41C79C72F005B7E18 /* AKCreatureMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D867E31C79C72F005B7E18 /* AKCreatureMan.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -98,6 +100,11 @@
 		847A813C1C77C195004110B2 /* AKCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureTest.h; sourceTree = "<group>"; };
 		847A813D1C77C195004110B2 /* AKCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureTest.m; sourceTree = "<group>"; };
 		84A6B15B1C32D2FF000ACAA5 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
+		84D867DF1C79C722005B7E18 /* AKCreatureWoman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureWoman.h; sourceTree = "<group>"; };
+		84D867E01C79C722005B7E18 /* AKCreatureWoman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureWoman.m; sourceTree = "<group>"; };
+		84D867E21C79C72F005B7E18 /* AKCreatureMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureMan.h; sourceTree = "<group>"; };
+		84D867E31C79C72F005B7E18 /* AKCreatureMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureMan.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +367,8 @@
 		847A81341C77ADB9004110B2 /* AKCreature */ = {
 			isa = PBXGroup;
 			children = (
+				84D867DE1C79C712005B7E18 /* AKCreatureWoman */,
+				84D867DD1C79C701005B7E18 /* AKCreatureMan */,
 				847A81351C77ADB9004110B2 /* AKCreature.h */,
 				847A81361C77ADB9004110B2 /* AKCreature.m */,
 			);
@@ -378,6 +387,7 @@
 		84A6B1521C32D2FF000ACAA5 = {
 			isa = PBXGroup;
 			children = (
+				84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */,
 				847691D81C762984008682D4 /* C */,
 				847691D21C762922008682D4 /* ObjC */,
 				8476922F1C763B66008682D4 /* ObjC */,
@@ -392,6 +402,24 @@
 				8476922E1C763B66008682D4 /* ObjC */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		84D867DD1C79C701005B7E18 /* AKCreatureMan */ = {
+			isa = PBXGroup;
+			children = (
+				84D867E21C79C72F005B7E18 /* AKCreatureMan.h */,
+				84D867E31C79C72F005B7E18 /* AKCreatureMan.m */,
+			);
+			path = AKCreatureMan;
+			sourceTree = "<group>";
+		};
+		84D867DE1C79C712005B7E18 /* AKCreatureWoman */ = {
+			isa = PBXGroup;
+			children = (
+				84D867DF1C79C722005B7E18 /* AKCreatureWoman.h */,
+				84D867E01C79C722005B7E18 /* AKCreatureWoman.m */,
+			);
+			path = AKCreatureWoman;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,7 +501,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
+				84D867E11C79C722005B7E18 /* AKCreatureWoman.m in Sources */,
 				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
+				84D867E41C79C72F005B7E18 /* AKCreatureMan.m in Sources */,
 				847692311C763B66008682D4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -518,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
