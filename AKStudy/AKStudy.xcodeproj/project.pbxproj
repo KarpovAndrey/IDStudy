@@ -7,15 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843594FF1C3C165600026980 /* AKValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 843594FD1C3C165600026980 /* AKValueBitOutput.c */; };
-		843595041C3C170000026980 /* AKValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 843595021C3C170000026980 /* AKValueBitOutputTests.c */; };
-		84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B15E1C32D2FF000ACAA5 /* main.c */; };
-		84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */; };
-		84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B16E1C32DC25000ACAA5 /* AKStruct.c */; };
-		84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */; };
+		847692131C762984008682D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691D91C762984008682D4 /* main.c */; };
+		847692141C762984008682D4 /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DC1C762984008682D4 /* AKArray.c */; };
+		847692151C762984008682D4 /* AKEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DF1C762984008682D4 /* AKEnumerator.c */; };
+		847692161C762984008682D4 /* AKHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691E31C762984008682D4 /* AKHuman.c */; };
+		847692171C762984008682D4 /* AKLinkedList.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691E61C762984008682D4 /* AKLinkedList.c */; };
+		847692181C762984008682D4 /* AKNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691EC1C762984008682D4 /* AKNode.c */; };
+		847692191C762984008682D4 /* AKObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691EF1C762984008682D4 /* AKObject.c */; };
+		8476921A1C762984008682D4 /* AKString.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691F21C762984008682D4 /* AKString.c */; };
+		8476921B1C762984008682D4 /* AKStruct.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691F51C762984008682D4 /* AKStruct.c */; };
+		8476921C1C762984008682D4 /* AKValueBitOutput.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691F81C762984008682D4 /* AKValueBitOutput.c */; };
+		8476921D1C762984008682D4 /* AKArrayTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691FC1C762984008682D4 /* AKArrayTest.c */; };
+		8476921E1C762984008682D4 /* AKHumanTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691FF1C762984008682D4 /* AKHumanTest.c */; };
+		8476921F1C762984008682D4 /* AKLinkedListTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692021C762984008682D4 /* AKLinkedListTest.c */; };
+		847692201C762984008682D4 /* AKMacroTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692051C762984008682D4 /* AKMacroTests.c */; };
+		847692211C762984008682D4 /* AKNodeTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692081C762984008682D4 /* AKNodeTest.c */; };
+		847692221C762984008682D4 /* AKStringTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 8476920B1C762984008682D4 /* AKStringTest.c */; };
+		847692231C762984008682D4 /* AKStructTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 8476920E1C762984008682D4 /* AKStructTests.c */; };
+		847692241C762984008682D4 /* AKValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692111C762984008682D4 /* AKValueBitOutputTests.c */; };
+		847692311C763B66008682D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847692301C763B66008682D4 /* main.m */; };
+		847A81371C77ADB9004110B2 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
+		847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A813D1C77C195004110B2 /* AKCreatureTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8476922C1C763B66008682D4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		84A6B1591C32D2FF000ACAA5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -28,22 +52,62 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		843594FD1C3C165600026980 /* AKValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKValueBitOutput.c; sourceTree = "<group>"; };
-		843594FE1C3C165600026980 /* AKValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKValueBitOutput.h; sourceTree = "<group>"; };
-		843595021C3C170000026980 /* AKValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKValueBitOutputTests.c; sourceTree = "<group>"; };
-		843595031C3C170000026980 /* AKValueBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKValueBitOutputTests.h; sourceTree = "<group>"; };
-		84A6B15B1C32D2FF000ACAA5 /* AKStudy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AKStudy; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A6B15E1C32D2FF000ACAA5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		84A6B1681C32D431000ACAA5 /* AKMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacro.h; sourceTree = "<group>"; };
-		84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKMacroTests.c; sourceTree = "<group>"; };
-		84A6B16B1C32D454000ACAA5 /* AKMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacroTests.h; sourceTree = "<group>"; };
-		84A6B16E1C32DC25000ACAA5 /* AKStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStruct.c; sourceTree = "<group>"; };
-		84A6B16F1C32DC25000ACAA5 /* AKStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStruct.h; sourceTree = "<group>"; };
-		84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStructTests.c; sourceTree = "<group>"; };
-		84A6B1771C32DCD2000ACAA5 /* AKStructTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStructTests.h; sourceTree = "<group>"; };
+		847691D31C762922008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		847691D91C762984008682D4 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		847691DC1C762984008682D4 /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
+		847691DD1C762984008682D4 /* AKArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKArray.h; sourceTree = "<group>"; };
+		847691DF1C762984008682D4 /* AKEnumerator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKEnumerator.c; sourceTree = "<group>"; };
+		847691E01C762984008682D4 /* AKEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnumerator.h; sourceTree = "<group>"; };
+		847691E11C762984008682D4 /* AKEnumeratorPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnumeratorPrivate.h; sourceTree = "<group>"; };
+		847691E31C762984008682D4 /* AKHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKHuman.c; sourceTree = "<group>"; };
+		847691E41C762984008682D4 /* AKHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHuman.h; sourceTree = "<group>"; };
+		847691E61C762984008682D4 /* AKLinkedList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKLinkedList.c; sourceTree = "<group>"; };
+		847691E71C762984008682D4 /* AKLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLinkedList.h; sourceTree = "<group>"; };
+		847691E81C762984008682D4 /* AKLinkedListPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLinkedListPrivate.h; sourceTree = "<group>"; };
+		847691EA1C762984008682D4 /* AKMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacro.h; sourceTree = "<group>"; };
+		847691EC1C762984008682D4 /* AKNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKNode.c; sourceTree = "<group>"; };
+		847691ED1C762984008682D4 /* AKNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNode.h; sourceTree = "<group>"; };
+		847691EF1C762984008682D4 /* AKObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKObject.c; sourceTree = "<group>"; };
+		847691F01C762984008682D4 /* AKObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObject.h; sourceTree = "<group>"; };
+		847691F21C762984008682D4 /* AKString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKString.c; sourceTree = "<group>"; };
+		847691F31C762984008682D4 /* AKString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKString.h; sourceTree = "<group>"; };
+		847691F51C762984008682D4 /* AKStruct.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStruct.c; sourceTree = "<group>"; };
+		847691F61C762984008682D4 /* AKStruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStruct.h; sourceTree = "<group>"; };
+		847691F81C762984008682D4 /* AKValueBitOutput.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKValueBitOutput.c; sourceTree = "<group>"; };
+		847691F91C762984008682D4 /* AKValueBitOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKValueBitOutput.h; sourceTree = "<group>"; };
+		847691FC1C762984008682D4 /* AKArrayTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArrayTest.c; sourceTree = "<group>"; };
+		847691FD1C762984008682D4 /* AKArrayTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKArrayTest.h; sourceTree = "<group>"; };
+		847691FF1C762984008682D4 /* AKHumanTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKHumanTest.c; sourceTree = "<group>"; };
+		847692001C762984008682D4 /* AKHumanTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKHumanTest.h; sourceTree = "<group>"; };
+		847692021C762984008682D4 /* AKLinkedListTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKLinkedListTest.c; sourceTree = "<group>"; };
+		847692031C762984008682D4 /* AKLinkedListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLinkedListTest.h; sourceTree = "<group>"; };
+		847692051C762984008682D4 /* AKMacroTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKMacroTests.c; sourceTree = "<group>"; };
+		847692061C762984008682D4 /* AKMacroTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacroTests.h; sourceTree = "<group>"; };
+		847692081C762984008682D4 /* AKNodeTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKNodeTest.c; sourceTree = "<group>"; };
+		847692091C762984008682D4 /* AKNodeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKNodeTest.h; sourceTree = "<group>"; };
+		8476920B1C762984008682D4 /* AKStringTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStringTest.c; sourceTree = "<group>"; };
+		8476920C1C762984008682D4 /* AKStringTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStringTest.h; sourceTree = "<group>"; };
+		8476920E1C762984008682D4 /* AKStructTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKStructTests.c; sourceTree = "<group>"; };
+		8476920F1C762984008682D4 /* AKStructTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStructTests.h; sourceTree = "<group>"; };
+		847692111C762984008682D4 /* AKValueBitOutputTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKValueBitOutputTests.c; sourceTree = "<group>"; };
+		847692121C762984008682D4 /* AKValueBitOutputTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKValueBitOutputTests.h; sourceTree = "<group>"; };
+		8476922E1C763B66008682D4 /* ObjC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ObjC; sourceTree = BUILT_PRODUCTS_DIR; };
+		847692301C763B66008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		847A81351C77ADB9004110B2 /* AKCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreature.h; sourceTree = "<group>"; };
+		847A81361C77ADB9004110B2 /* AKCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreature.m; sourceTree = "<group>"; };
+		847A813C1C77C195004110B2 /* AKCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureTest.h; sourceTree = "<group>"; };
+		847A813D1C77C195004110B2 /* AKCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureTest.m; sourceTree = "<group>"; };
+		84A6B15B1C32D2FF000ACAA5 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8476922B1C763B66008682D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A6B1581C32D2FF000ACAA5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,28 +118,269 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		843594FC1C3C164600026980 /* AKValueBitOutput */ = {
+		847691D21C762922008682D4 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				843594FD1C3C165600026980 /* AKValueBitOutput.c */,
-				843594FE1C3C165600026980 /* AKValueBitOutput.h */,
+				8476923D1C764F68008682D4 /* Test */,
+				847692251C762AAA008682D4 /* SRC */,
+				847691D31C762922008682D4 /* main.m */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		847691D81C762984008682D4 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				847691D91C762984008682D4 /* main.c */,
+				847691DA1C762984008682D4 /* Source */,
+				847691FA1C762984008682D4 /* Tests */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		847691DA1C762984008682D4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				847691DB1C762984008682D4 /* AKArray */,
+				847691DE1C762984008682D4 /* AKEnumerator */,
+				847691E21C762984008682D4 /* AKHuman */,
+				847691E51C762984008682D4 /* AKLinkedList */,
+				847691E91C762984008682D4 /* AKMacro */,
+				847691EB1C762984008682D4 /* AKNode */,
+				847691EE1C762984008682D4 /* AKObject */,
+				847691F11C762984008682D4 /* AKString */,
+				847691F41C762984008682D4 /* AKStruct */,
+				847691F71C762984008682D4 /* AKValueBitOutput */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		847691DB1C762984008682D4 /* AKArray */ = {
+			isa = PBXGroup;
+			children = (
+				847691DC1C762984008682D4 /* AKArray.c */,
+				847691DD1C762984008682D4 /* AKArray.h */,
+			);
+			path = AKArray;
+			sourceTree = "<group>";
+		};
+		847691DE1C762984008682D4 /* AKEnumerator */ = {
+			isa = PBXGroup;
+			children = (
+				847691DF1C762984008682D4 /* AKEnumerator.c */,
+				847691E01C762984008682D4 /* AKEnumerator.h */,
+				847691E11C762984008682D4 /* AKEnumeratorPrivate.h */,
+			);
+			path = AKEnumerator;
+			sourceTree = "<group>";
+		};
+		847691E21C762984008682D4 /* AKHuman */ = {
+			isa = PBXGroup;
+			children = (
+				847691E31C762984008682D4 /* AKHuman.c */,
+				847691E41C762984008682D4 /* AKHuman.h */,
+			);
+			path = AKHuman;
+			sourceTree = "<group>";
+		};
+		847691E51C762984008682D4 /* AKLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				847691E61C762984008682D4 /* AKLinkedList.c */,
+				847691E71C762984008682D4 /* AKLinkedList.h */,
+				847691E81C762984008682D4 /* AKLinkedListPrivate.h */,
+			);
+			path = AKLinkedList;
+			sourceTree = "<group>";
+		};
+		847691E91C762984008682D4 /* AKMacro */ = {
+			isa = PBXGroup;
+			children = (
+				847691EA1C762984008682D4 /* AKMacro.h */,
+			);
+			path = AKMacro;
+			sourceTree = "<group>";
+		};
+		847691EB1C762984008682D4 /* AKNode */ = {
+			isa = PBXGroup;
+			children = (
+				847691EC1C762984008682D4 /* AKNode.c */,
+				847691ED1C762984008682D4 /* AKNode.h */,
+			);
+			path = AKNode;
+			sourceTree = "<group>";
+		};
+		847691EE1C762984008682D4 /* AKObject */ = {
+			isa = PBXGroup;
+			children = (
+				847691EF1C762984008682D4 /* AKObject.c */,
+				847691F01C762984008682D4 /* AKObject.h */,
+			);
+			path = AKObject;
+			sourceTree = "<group>";
+		};
+		847691F11C762984008682D4 /* AKString */ = {
+			isa = PBXGroup;
+			children = (
+				847691F21C762984008682D4 /* AKString.c */,
+				847691F31C762984008682D4 /* AKString.h */,
+			);
+			path = AKString;
+			sourceTree = "<group>";
+		};
+		847691F41C762984008682D4 /* AKStruct */ = {
+			isa = PBXGroup;
+			children = (
+				847691F51C762984008682D4 /* AKStruct.c */,
+				847691F61C762984008682D4 /* AKStruct.h */,
+			);
+			path = AKStruct;
+			sourceTree = "<group>";
+		};
+		847691F71C762984008682D4 /* AKValueBitOutput */ = {
+			isa = PBXGroup;
+			children = (
+				847691F81C762984008682D4 /* AKValueBitOutput.c */,
+				847691F91C762984008682D4 /* AKValueBitOutput.h */,
 			);
 			path = AKValueBitOutput;
 			sourceTree = "<group>";
 		};
-		843595011C3C16EE00026980 /* AKValueBitOutputTests */ = {
+		847691FA1C762984008682D4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				843595021C3C170000026980 /* AKValueBitOutputTests.c */,
-				843595031C3C170000026980 /* AKValueBitOutputTests.h */,
+				847691FB1C762984008682D4 /* AKArrayTest */,
+				847691FE1C762984008682D4 /* AKHumanTest */,
+				847692011C762984008682D4 /* AKLinkedListTest */,
+				847692041C762984008682D4 /* AKMacroTests */,
+				847692071C762984008682D4 /* AKNodeTest */,
+				8476920A1C762984008682D4 /* AKStringTest */,
+				8476920D1C762984008682D4 /* AKStructTests */,
+				847692101C762984008682D4 /* AKValueBitOutputTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		847691FB1C762984008682D4 /* AKArrayTest */ = {
+			isa = PBXGroup;
+			children = (
+				847691FC1C762984008682D4 /* AKArrayTest.c */,
+				847691FD1C762984008682D4 /* AKArrayTest.h */,
+			);
+			path = AKArrayTest;
+			sourceTree = "<group>";
+		};
+		847691FE1C762984008682D4 /* AKHumanTest */ = {
+			isa = PBXGroup;
+			children = (
+				847691FF1C762984008682D4 /* AKHumanTest.c */,
+				847692001C762984008682D4 /* AKHumanTest.h */,
+			);
+			path = AKHumanTest;
+			sourceTree = "<group>";
+		};
+		847692011C762984008682D4 /* AKLinkedListTest */ = {
+			isa = PBXGroup;
+			children = (
+				847692021C762984008682D4 /* AKLinkedListTest.c */,
+				847692031C762984008682D4 /* AKLinkedListTest.h */,
+			);
+			path = AKLinkedListTest;
+			sourceTree = "<group>";
+		};
+		847692041C762984008682D4 /* AKMacroTests */ = {
+			isa = PBXGroup;
+			children = (
+				847692051C762984008682D4 /* AKMacroTests.c */,
+				847692061C762984008682D4 /* AKMacroTests.h */,
+			);
+			path = AKMacroTests;
+			sourceTree = "<group>";
+		};
+		847692071C762984008682D4 /* AKNodeTest */ = {
+			isa = PBXGroup;
+			children = (
+				847692081C762984008682D4 /* AKNodeTest.c */,
+				847692091C762984008682D4 /* AKNodeTest.h */,
+			);
+			path = AKNodeTest;
+			sourceTree = "<group>";
+		};
+		8476920A1C762984008682D4 /* AKStringTest */ = {
+			isa = PBXGroup;
+			children = (
+				8476920B1C762984008682D4 /* AKStringTest.c */,
+				8476920C1C762984008682D4 /* AKStringTest.h */,
+			);
+			path = AKStringTest;
+			sourceTree = "<group>";
+		};
+		8476920D1C762984008682D4 /* AKStructTests */ = {
+			isa = PBXGroup;
+			children = (
+				8476920E1C762984008682D4 /* AKStructTests.c */,
+				8476920F1C762984008682D4 /* AKStructTests.h */,
+			);
+			path = AKStructTests;
+			sourceTree = "<group>";
+		};
+		847692101C762984008682D4 /* AKValueBitOutputTests */ = {
+			isa = PBXGroup;
+			children = (
+				847692111C762984008682D4 /* AKValueBitOutputTests.c */,
+				847692121C762984008682D4 /* AKValueBitOutputTests.h */,
 			);
 			path = AKValueBitOutputTests;
+			sourceTree = "<group>";
+		};
+		847692251C762AAA008682D4 /* SRC */ = {
+			isa = PBXGroup;
+			children = (
+				847A81341C77ADB9004110B2 /* AKCreature */,
+			);
+			path = SRC;
+			sourceTree = "<group>";
+		};
+		8476922F1C763B66008682D4 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				847692301C763B66008682D4 /* main.m */,
+			);
+			path = ObjC;
+			sourceTree = "<group>";
+		};
+		8476923D1C764F68008682D4 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				847A81381C77ADC8004110B2 /* AKCreatureTest */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		847A81341C77ADB9004110B2 /* AKCreature */ = {
+			isa = PBXGroup;
+			children = (
+				847A81351C77ADB9004110B2 /* AKCreature.h */,
+				847A81361C77ADB9004110B2 /* AKCreature.m */,
+			);
+			path = AKCreature;
+			sourceTree = "<group>";
+		};
+		847A81381C77ADC8004110B2 /* AKCreatureTest */ = {
+			isa = PBXGroup;
+			children = (
+				847A813C1C77C195004110B2 /* AKCreatureTest.h */,
+				847A813D1C77C195004110B2 /* AKCreatureTest.m */,
+			);
+			path = AKCreatureTest;
 			sourceTree = "<group>";
 		};
 		84A6B1521C32D2FF000ACAA5 = {
 			isa = PBXGroup;
 			children = (
-				84A6B15D1C32D2FF000ACAA5 /* AKStudy */,
+				847691D81C762984008682D4 /* C */,
+				847691D21C762922008682D4 /* ObjC */,
+				8476922F1C763B66008682D4 /* ObjC */,
 				84A6B15C1C32D2FF000ACAA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,82 +388,35 @@
 		84A6B15C1C32D2FF000ACAA5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84A6B15B1C32D2FF000ACAA5 /* AKStudy */,
+				84A6B15B1C32D2FF000ACAA5 /* C */,
+				8476922E1C763B66008682D4 /* ObjC */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		84A6B15D1C32D2FF000ACAA5 /* AKStudy */ = {
-			isa = PBXGroup;
-			children = (
-				84A6B1661C32D3B6000ACAA5 /* Tests */,
-				84A6B1651C32D3AB000ACAA5 /* Source */,
-				84A6B15E1C32D2FF000ACAA5 /* main.c */,
-			);
-			path = AKStudy;
-			sourceTree = "<group>";
-		};
-		84A6B1651C32D3AB000ACAA5 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				843594FC1C3C164600026980 /* AKValueBitOutput */,
-				84A6B16D1C32DC0A000ACAA5 /* AKStruct */,
-				84A6B1671C32D3CA000ACAA5 /* AKMacro */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		84A6B1661C32D3B6000ACAA5 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				843595011C3C16EE00026980 /* AKValueBitOutputTests */,
-				84A6B1751C32DCD2000ACAA5 /* AKStructTests */,
-				84A6B1691C32D445000ACAA5 /* AKMacroTests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		84A6B1671C32D3CA000ACAA5 /* AKMacro */ = {
-			isa = PBXGroup;
-			children = (
-				84A6B1681C32D431000ACAA5 /* AKMacro.h */,
-			);
-			path = AKMacro;
-			sourceTree = "<group>";
-		};
-		84A6B1691C32D445000ACAA5 /* AKMacroTests */ = {
-			isa = PBXGroup;
-			children = (
-				84A6B16A1C32D454000ACAA5 /* AKMacroTests.c */,
-				84A6B16B1C32D454000ACAA5 /* AKMacroTests.h */,
-			);
-			path = AKMacroTests;
-			sourceTree = "<group>";
-		};
-		84A6B16D1C32DC0A000ACAA5 /* AKStruct */ = {
-			isa = PBXGroup;
-			children = (
-				84A6B16E1C32DC25000ACAA5 /* AKStruct.c */,
-				84A6B16F1C32DC25000ACAA5 /* AKStruct.h */,
-			);
-			path = AKStruct;
-			sourceTree = "<group>";
-		};
-		84A6B1751C32DCD2000ACAA5 /* AKStructTests */ = {
-			isa = PBXGroup;
-			children = (
-				84A6B1761C32DCD2000ACAA5 /* AKStructTests.c */,
-				84A6B1771C32DCD2000ACAA5 /* AKStructTests.h */,
-			);
-			path = AKStructTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84A6B15A1C32D2FF000ACAA5 /* AKStudy */ = {
+		8476922D1C763B66008682D4 /* ObjC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84A6B1621C32D2FF000ACAA5 /* Build configuration list for PBXNativeTarget "AKStudy" */;
+			buildConfigurationList = 847692321C763B66008682D4 /* Build configuration list for PBXNativeTarget "ObjC" */;
+			buildPhases = (
+				8476922A1C763B66008682D4 /* Sources */,
+				8476922B1C763B66008682D4 /* Frameworks */,
+				8476922C1C763B66008682D4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjC;
+			productName = ObjC;
+			productReference = 8476922E1C763B66008682D4 /* ObjC */;
+			productType = "com.apple.product-type.tool";
+		};
+		84A6B15A1C32D2FF000ACAA5 /* C */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A6B1621C32D2FF000ACAA5 /* Build configuration list for PBXNativeTarget "C" */;
 			buildPhases = (
 				84A6B1571C32D2FF000ACAA5 /* Sources */,
 				84A6B1581C32D2FF000ACAA5 /* Frameworks */,
@@ -168,9 +426,9 @@
 			);
 			dependencies = (
 			);
-			name = AKStudy;
+			name = C;
 			productName = AKStudy;
-			productReference = 84A6B15B1C32D2FF000ACAA5 /* AKStudy */;
+			productReference = 84A6B15B1C32D2FF000ACAA5 /* C */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -182,6 +440,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Admin;
 				TargetAttributes = {
+					8476922D1C763B66008682D4 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					84A6B15A1C32D2FF000ACAA5 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -193,34 +454,74 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 84A6B1521C32D2FF000ACAA5;
 			productRefGroup = 84A6B15C1C32D2FF000ACAA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84A6B15A1C32D2FF000ACAA5 /* AKStudy */,
+				84A6B15A1C32D2FF000ACAA5 /* C */,
+				8476922D1C763B66008682D4 /* ObjC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8476922A1C763B66008682D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
+				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
+				847692311C763B66008682D4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A6B1571C32D2FF000ACAA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A6B1781C32DCD2000ACAA5 /* AKStructTests.c in Sources */,
-				84A6B1701C32DC25000ACAA5 /* AKStruct.c in Sources */,
-				84A6B16C1C32D454000ACAA5 /* AKMacroTests.c in Sources */,
-				843594FF1C3C165600026980 /* AKValueBitOutput.c in Sources */,
-				843595041C3C170000026980 /* AKValueBitOutputTests.c in Sources */,
-				84A6B15F1C32D2FF000ACAA5 /* main.c in Sources */,
+				8476921D1C762984008682D4 /* AKArrayTest.c in Sources */,
+				8476921B1C762984008682D4 /* AKStruct.c in Sources */,
+				847692221C762984008682D4 /* AKStringTest.c in Sources */,
+				847692131C762984008682D4 /* main.c in Sources */,
+				847692151C762984008682D4 /* AKEnumerator.c in Sources */,
+				847692231C762984008682D4 /* AKStructTests.c in Sources */,
+				847692141C762984008682D4 /* AKArray.c in Sources */,
+				847692171C762984008682D4 /* AKLinkedList.c in Sources */,
+				847692191C762984008682D4 /* AKObject.c in Sources */,
+				847692161C762984008682D4 /* AKHuman.c in Sources */,
+				8476921F1C762984008682D4 /* AKLinkedListTest.c in Sources */,
+				8476921A1C762984008682D4 /* AKString.c in Sources */,
+				8476921C1C762984008682D4 /* AKValueBitOutput.c in Sources */,
+				847692211C762984008682D4 /* AKNodeTest.c in Sources */,
+				847692181C762984008682D4 /* AKNode.c in Sources */,
+				847692201C762984008682D4 /* AKMacroTests.c in Sources */,
+				847692241C762984008682D4 /* AKValueBitOutputTests.c in Sources */,
+				8476921E1C762984008682D4 /* AKHumanTest.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		847692331C763B66008682D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		847692341C763B66008682D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		84A6B1601C32D2FF000ACAA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -303,6 +604,7 @@
 		84A6B1631C32D2FF000ACAA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -310,6 +612,7 @@
 		84A6B1641C32D2FF000ACAA5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -317,6 +620,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		847692321C763B66008682D4 /* Build configuration list for PBXNativeTarget "ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847692331C763B66008682D4 /* Debug */,
+				847692341C763B66008682D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84A6B1561C32D2FF000ACAA5 /* Build configuration list for PBXProject "AKStudy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -326,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84A6B1621C32D2FF000ACAA5 /* Build configuration list for PBXNativeTarget "AKStudy" */ = {
+		84A6B1621C32D2FF000ACAA5 /* Build configuration list for PBXNativeTarget "C" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84A6B1631C32D2FF000ACAA5 /* Debug */,

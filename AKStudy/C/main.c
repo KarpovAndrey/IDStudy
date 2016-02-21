@@ -7,9 +7,22 @@
 //
 
 #include <stdio.h>
+#include <string.h>
+
 #include "AKMacroTests.h"
 #include "AKStructTests.h"
 #include "AKValueBitOutputTests.h"
+#include "AKHumanTest.h"
+#include "AKStringTest.h"
+#include "AKArrayTest.h"
+#include "AKNodeTest.h"
+#include "AKLinkedListTest.h"
+
+#include "AKHuman.h"
+#include "AKObject.h"
+#include "AKString.h"
+#include "AKArray.h"
+#include "AKLinkedList.h"
 
 int main(int argc, const char * argv[]) {
 //    AKPrintSizeTypeTest();
@@ -19,7 +32,14 @@ int main(int argc, const char * argv[]) {
 //    AKPrintStructOffsetofTest();
 //    AKPrintStructSizeTest();
 
-    AKPrintingByteValuesTest();
+//    AKPrintingByteValuesTest();
+    //AKHumanTest();
+//    AKArrayTest();
+ 
+    AKLinkedListTest();
+    
+    
+
     
     return 0;
 }
