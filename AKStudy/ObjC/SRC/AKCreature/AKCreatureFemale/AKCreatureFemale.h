@@ -1,5 +1,5 @@
 //
-//  AKCreatureMan.h
+//  AKCreatureFemale.h
 //  AKStudy
 //
 //  Created by Admin on 21.02.16.
@@ -8,9 +8,7 @@
 
 #import "AKCreature.h"
 
-@interface AKCreatureMan : AKCreature
+@interface AKCreatureFemale : AKCreature
 @property(nonatomic, readonly) AKCreatureGender  gender;
-
--(void)goToWar;
 
 @end

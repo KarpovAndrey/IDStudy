@@ -15,30 +15,19 @@ typedef NS_ENUM(NSUInteger, AKCreatureGender) {
 };
 
 @interface AKCreature : NSObject
-@property(nonatomic, readonly) NSString          *name;
-//@property(nonatomic, readonly) AKCreatureGender  gender;
-@property(nonatomic, readonly) NSUInteger        age;
-@property(nonatomic, readonly) CGFloat           weight;
-@property(nonatomic, readonly) NSArray           *children;
+@property(nonatomic, readonly) NSString   *name;
+@property(nonatomic, readonly) NSArray    *children;
+@property(nonatomic, readonly) NSUInteger age;
+@property(nonatomic, readonly) CGFloat    weight;
 
-- (instancetype)initWithName:(NSString *) name;
++ (instancetype)creature;
 
-- (NSString *)name:(NSString *) name;
-
-- (NSArray *)children;
+- (instancetype)initWithName:(NSString *)name;
 
 - (void)addChild:(id)child;
-
-- (void)removeChild:(AKCreature *) child;
-
+- (void)removeChild:(AKCreature *)child;
+- (void)removeChildren;
 - (void)sayHello;
-
-//- (AKCreature *)giveBirthToChild;
-//
-//- (void)goToWar;
-
 - (void)performGenderSpecificOperation;
-
-+ (AKCreature *)objectCreate;
 
 @end

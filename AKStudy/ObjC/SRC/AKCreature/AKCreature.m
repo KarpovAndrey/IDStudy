@@ -7,58 +7,73 @@
 //
 
 #import "AKCreature.h"
+#import "NSObject+AKCategoryObject.h"
 
 @interface AKCreature ()
-@property(nonatomic, copy)   NSString          *name;
-//@property(nonatomic, assign) AKCreatureGender  gender;
-@property(nonatomic, assign) NSUInteger        age;
-@property(nonatomic, assign) CGFloat           weight;
-@property(nonatomic, retain) NSMutableArray    *childrenArray;
-
+@property(nonatomic, copy)   NSString       *name;
+@property(nonatomic, retain) NSMutableArray *childrenArray;
+@property(nonatomic, assign) NSUInteger     age;
+@property(nonatomic, assign) CGFloat        weight;
 @end
 
 @implementation AKCreature
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Initializations an Deallocations
+
+- (void)dealloc {
+    self.name = nil;
+    self.childrenArray = nil;
+    
+    [super dealloc];
+}
+
++ (instancetype)creature {
+    return [[self new] autorelease];
+}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.childrenArray = [NSMutableArray array];
-//        self.gender = arc4random_uniform(2) + 1;
     }
+    
     return self;
 }
 
-- (instancetype)initWithName:(NSString *) name {
-    self = [super init];
+- (instancetype)initWithName:(NSString *)name {
+    self = [self init];
     if(self){
         self.name = name;
     }
+    
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)children {
+    return [self.childrenArray copy];
 }
 
 #pragma mark -
 #pragma mark Public
 
--(NSString *)name:(NSString *) name {
-    return self.name = name;
-}
-
--(NSArray *)children {
-    return [self.childrenArray copy];
-}
 
 - (void)addChild:(id)child {
     [self.childrenArray addObject:child];
 }
 
--(void)removeChild:(AKCreature *) child {
+- (void)removeChild:(AKCreature *)child {
     [self.childrenArray removeObject:child];
 }
 
--(void)sayHello {
+- (void)removeChildren {
+    [self.childrenArray removeAllObjects];
+}
+
+- (void)sayHello {
     NSLog(@"Hello!");
     if (self.childrenArray) {
         for (NSUInteger i = 0; i < [self.childrenArray count]; i++) {
@@ -67,21 +82,7 @@
     }
 }
 
-//-(AKCreature *)giveBirthToChild {
-//    AKCreature *child = [[[AKCreature alloc] init] autorelease];
-//    NSLog(@"OOOOOooo I'm giving birth");
-//    return child;
-//}
-//
-//-(void)goToWar{
-//    NSLog(@"I am a man, I going to war");
-//}
-
 - (void)performGenderSpecificOperation {
-}
-
-+ (AKCreature *)objectCreate {
-    return [[[AKCreature alloc] init] autorelease];
 }
 
 @end

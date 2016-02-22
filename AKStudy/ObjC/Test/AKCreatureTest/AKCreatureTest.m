@@ -8,8 +8,8 @@
 
 #import "AKCreatureTest.h"
 #import "AKCreature.h"
-#import "AKCreatureMan.h"
-#import "AKCreatureWoman.h"
+#import "AKCreatureMale.h"
+#import "AKCreatureFemale.h"
 
 @interface AKCreatureTest ()
 @end
@@ -18,14 +18,9 @@
 
 +(void)creatureTest {
     //creating new creatures
-    AKCreature *child1 = [[[AKCreature alloc] init] autorelease];
-    AKCreature *child2 = [[[AKCreature alloc] init] autorelease];
-    AKCreature *human = [[[AKCreature alloc] init] autorelease];
-    AKCreature *human1 = [[[AKCreature alloc] init] autorelease];
-    AKCreature *human2 = [[[AKCreature alloc] init] autorelease];
-    AKCreature *human3 = [[[AKCreature alloc] init] autorelease];
-
-    [human name:@"Alex"];
+    AKCreature *child1 = [[[AKCreature alloc] initWithName:@"Child1"] autorelease];
+    AKCreature *child2 = [[[AKCreature alloc] initWithName:@"Child2"] autorelease];
+    AKCreature *human = [[[AKCreature alloc] initWithName:@"Human"] autorelease];
     
     //adding children to human's childrenArray
     [human addChild:child1];
@@ -45,6 +40,7 @@
     
     NSLog(@"-------------------------------------------");
     
+    
 //    NSArray *array = @[human, human1, human2, human3];
 //    
 //    for (NSUInteger i = 0; i < [array count]; i++) {
@@ -54,26 +50,25 @@
 //            [array[i] giveBirthToChild];
 //        }
 //    }
+    
     NSLog(@"TASK 2\n");
-    AKCreatureMan *man1 = [[[AKCreatureMan alloc] init] autorelease];
-    AKCreatureMan *man2 = [[[AKCreatureMan alloc] init] autorelease];
-
-    AKCreatureWoman *woman1 = [[[AKCreatureWoman alloc] init] autorelease];
-    AKCreatureWoman *woman2 = [[[AKCreatureWoman alloc] init] autorelease];
-    AKCreatureMan *new = [AKCreatureMan objectCreate];
-
-//    
+    AKCreatureMale *man1 = [AKCreatureMale creature];
+    AKCreatureMale *man2 = [AKCreatureMale creature];
+    AKCreatureFemale *woman1 = [AKCreatureFemale creature];
+    AKCreatureFemale *woman2 = [AKCreatureFemale creature];
+    
 //    [man1 performGenderSpecificOperation];
 //    [man2 performGenderSpecificOperation];
-//    [woman1 performGenderSpecificOperation];
+    [woman1 performGenderSpecificOperation];
 //    [woman2 performGenderSpecificOperation];
 
-    NSArray *array = @[man1, man2, woman1, woman2];
+    NSArray *creatures = @[man1, man2, woman1, woman2];
     
-    for (NSUInteger i = 0; i < [array count]; i++) {
-        [array[i] performGenderSpecificOperation];
+    for (AKCreature *creature in creatures) {
+        [creature performGenderSpecificOperation];
     }
-
+    
+    AKCreatureMale *male = [AKCreatureMale object];
 }
 
 @end
