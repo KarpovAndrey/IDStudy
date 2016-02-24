@@ -7,9 +7,9 @@
 //
 
 #import "AKCreatureMale.h"
+#import "NSObject+AKCategoryObject.h"
 
 @interface AKCreatureMale ()
-@property(nonatomic, assign) AKCreatureGender gender;
 
 #pragma mark -
 #pragma mark Private Declarations
@@ -21,18 +21,6 @@
 @implementation AKCreatureMale
 
 #pragma mark -
-#pragma mark Private
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.gender = kAKManGender;
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (void)goToWar {
@@ -40,9 +28,7 @@
 }
 
 - (void)performGenderSpecificOperation {
-    if (self.gender == kAKManGender) {
         [self goToWar];
-    }
 }
 
 @end

@@ -9,6 +9,5 @@
 #import "AKCreature.h"
 
 @interface AKCreatureMale : AKCreature
-@property(nonatomic, readonly) AKCreatureGender  gender;
 
 @end

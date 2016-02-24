@@ -8,19 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, AKCreatureGender) {
-    kAKUndefined,
-    kAKManGender,
-    kAKWomanGender
-};
-
 @interface AKCreature : NSObject
 @property(nonatomic, readonly) NSString   *name;
 @property(nonatomic, readonly) NSArray    *children;
 @property(nonatomic, readonly) NSUInteger age;
 @property(nonatomic, readonly) CGFloat    weight;
-
-+ (instancetype)creature;
 
 - (instancetype)initWithName:(NSString *)name;
 

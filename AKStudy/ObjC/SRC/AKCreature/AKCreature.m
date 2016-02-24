@@ -7,13 +7,13 @@
 //
 
 #import "AKCreature.h"
-#import "NSObject+AKCategoryObject.h"
 
 @interface AKCreature ()
 @property(nonatomic, copy)   NSString       *name;
 @property(nonatomic, retain) NSMutableArray *childrenArray;
 @property(nonatomic, assign) NSUInteger     age;
 @property(nonatomic, assign) CGFloat        weight;
+
 @end
 
 @implementation AKCreature
@@ -26,10 +26,6 @@
     self.childrenArray = nil;
     
     [super dealloc];
-}
-
-+ (instancetype)creature {
-    return [[self new] autorelease];
 }
 
 - (instancetype)init {
@@ -60,7 +56,6 @@
 #pragma mark -
 #pragma mark Public
 
-
 - (void)addChild:(id)child {
     [self.childrenArray addObject:child];
 }
@@ -75,10 +70,8 @@
 
 - (void)sayHello {
     NSLog(@"Hello!");
-    if (self.childrenArray) {
-        for (NSUInteger i = 0; i < [self.childrenArray count]; i++) {
-            [self.childrenArray[i] sayHello];
-        }
+        for (AKCreature *creature in self.childrenArray) {
+            [creature sayHello];
     }
 }
 

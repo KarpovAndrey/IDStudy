@@ -10,6 +10,6 @@
 
 @interface NSObject (AKCategoryObject)
 
-- (instancetype)object;
++ (instancetype)object;
 
 @end

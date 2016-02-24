@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKCreature.h"
 #import "AKCreatureTest.h"
 
 int main(int argc, const char * argv[]) {

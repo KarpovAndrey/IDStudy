@@ -25,9 +25,13 @@
     //adding children to human's childrenArray
     [human addChild:child1];
     [human addChild:child2];
+    [child1 addChild:child2];
+
     
     //removing child2 from human's childrenArray
-    [human removeChild:child2];
+    //[human removeChild:child2];
+    
+    [human sayHello];
     
     //creating new creature with method giveBirthToChild
     //AKCreature *child3 = [human giveBirthToChild];
@@ -52,10 +56,10 @@
 //    }
     
     NSLog(@"TASK 2\n");
-    AKCreatureMale *man1 = [AKCreatureMale creature];
-    AKCreatureMale *man2 = [AKCreatureMale creature];
-    AKCreatureFemale *woman1 = [AKCreatureFemale creature];
-    AKCreatureFemale *woman2 = [AKCreatureFemale creature];
+    AKCreatureMale *man1 = [AKCreatureMale object];
+    AKCreatureMale *man2 = [AKCreatureMale object];
+    AKCreatureFemale *woman1 = [AKCreatureFemale object];
+    AKCreatureFemale *woman2 = [AKCreatureFemale object];
     
 //    [man1 performGenderSpecificOperation];
 //    [man2 performGenderSpecificOperation];

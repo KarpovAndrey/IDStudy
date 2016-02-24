@@ -9,43 +9,24 @@
 #import "AKCreatureFemale.h"
 
 @interface AKCreatureFemale ()
-@property(nonatomic, assign) AKCreatureGender gender;
-
-#pragma mark -
-#pragma mark Private Declarations
-
-- (AKCreatureFemale *)giveBirthToChild;
+- (AKCreature *)giveBirthToChild;
 
 @end
 
 @implementation AKCreatureFemale
 
 #pragma mark -
-#pragma mark Private
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.gender = kAKWomanGender;
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (AKCreature *)giveBirthToChild {
-    AKCreature *child = [[AKCreature new] autorelease];
+    AKCreature *child = [AKCreature object];
     NSLog(@"I am a woman OOOOOooo I'm giving birth");
     
     return child;
 }
 
 - (void)performGenderSpecificOperation {
-    if (self.gender == kAKWomanGender) {
         [self giveBirthToChild];
-    }
 }
 
 @end
