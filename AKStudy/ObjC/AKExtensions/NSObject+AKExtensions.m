@@ -6,9 +6,9 @@
 //  Copyright © 2016 Admin. All rights reserved.
 //
 
-#import "NSObject+AKCategoryObject.h"
+#import "NSObject+AKExtensions.h"
 
-@implementation NSObject (AKCategoryObject)
+@implementation NSObject (AKCategory)
 
 + (instancetype)object {
     return [[[[self class] alloc] init] autorelease];

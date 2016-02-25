@@ -10,6 +10,6 @@
 #define AKStudy_Prefix_pch
 
 #import <Foundation/Foundation.h>
-#import "NSObject+AKCategoryObject.h"
+#import "NSObject+AKExtensions.h"
 
 #endif /* AKStudy_Prefix_pch */

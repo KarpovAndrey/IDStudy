@@ -1,5 +1,5 @@
 //
-//  NSObject+AKCategoryObject.h
+//  NSObject+AKCategory.h
 //  AKStudy
 //
 //  Created by Admin on 22.02.16.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (AKCategoryObject)
+@interface NSObject (AKCategory)
 
 + (instancetype)object;
 

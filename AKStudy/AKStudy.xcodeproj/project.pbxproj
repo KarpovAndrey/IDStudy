@@ -29,8 +29,9 @@
 		847692241C762984008682D4 /* AKValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692111C762984008682D4 /* AKValueBitOutputTests.c */; };
 		847A81371C77ADB9004110B2 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A813D1C77C195004110B2 /* AKCreatureTest.m */; };
+		84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */; };
+		84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
-		84E1BBA21C7CD17800EC8FB1 /* NSObject+AKCategoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E1BBA11C7CD17800EC8FB1 /* NSObject+AKCategoryObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -104,10 +105,12 @@
 		847A813C1C77C195004110B2 /* AKCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureTest.h; sourceTree = "<group>"; };
 		847A813D1C77C195004110B2 /* AKCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureTest.m; sourceTree = "<group>"; };
 		84A6B15B1C32D2FF000ACAA5 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B14F5B1C7F4D45003B4B17 /* AKStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AKStudy-Prefix.pch"; sourceTree = "<group>"; };
+		84B14F611C7F51E4003B4B17 /* NSObject+AKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AKExtensions.h"; sourceTree = "<group>"; };
+		84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AKExtensions.m"; sourceTree = "<group>"; };
+		84B14F671C7FAD8E003B4B17 /* NSString+AKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AKExtensions.h"; sourceTree = "<group>"; };
+		84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKExtensions.m"; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
-		84E1BBA01C7CD17800EC8FB1 /* NSObject+AKCategoryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AKCategoryObject.h"; sourceTree = "<group>"; };
-		84E1BBA11C7CD17800EC8FB1 /* NSObject+AKCategoryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AKCategoryObject.m"; sourceTree = "<group>"; };
-		84E1BBA61C7CD19100EC8FB1 /* AKStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AKStudy-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +152,8 @@
 		847691D21C762922008682D4 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				84E1BBA51C7CD19100EC8FB1 /* Supported Files */,
-				84E1BB9F1C7CD17800EC8FB1 /* Catogories */,
+				84B14F601C7F51E4003B4B17 /* AKExtensions */,
+				84B14F5A1C7F4D45003B4B17 /* Supporting Files */,
 				8476923D1C764F68008682D4 /* Test */,
 				847692251C762AAA008682D4 /* SRC */,
 				847691D31C762922008682D4 /* main.m */,
@@ -418,21 +421,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84E1BB9F1C7CD17800EC8FB1 /* Catogories */ = {
+		84B14F5A1C7F4D45003B4B17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84E1BBA01C7CD17800EC8FB1 /* NSObject+AKCategoryObject.h */,
-				84E1BBA11C7CD17800EC8FB1 /* NSObject+AKCategoryObject.m */,
+				84B14F5B1C7F4D45003B4B17 /* AKStudy-Prefix.pch */,
 			);
-			path = Catogories;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		84E1BBA51C7CD19100EC8FB1 /* Supported Files */ = {
+		84B14F601C7F51E4003B4B17 /* AKExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				84E1BBA61C7CD19100EC8FB1 /* AKStudy-Prefix.pch */,
+				84B14F611C7F51E4003B4B17 /* NSObject+AKExtensions.h */,
+				84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */,
+				84B14F671C7FAD8E003B4B17 /* NSString+AKExtensions.h */,
+				84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */,
 			);
-			path = "Supported Files";
+			path = AKExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,11 +518,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */,
 				8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */,
+				84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */,
 				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
 				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
 				8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */,
-				84E1BBA21C7CD17800EC8FB1 /* NSObject+AKCategoryObject.m in Sources */,
 				84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,7 +561,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supported Files/AKStudy-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supporting Files/AKStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -566,7 +572,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supported Files/AKStudy-Prefix.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supporting Files/AKStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -72,7 +72,7 @@
         [creature performGenderSpecificOperation];
     }
     
-    AKCreatureMale *male = [AKCreatureMale object];
+    //AKCreatureMale *male = [AKCreatureMale object];
 }
 
 @end

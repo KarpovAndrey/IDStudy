@@ -9,6 +9,7 @@
 #import "AKCreatureFemale.h"
 
 @interface AKCreatureFemale ()
+
 - (AKCreature *)giveBirthToChild;
 
 @end
@@ -19,10 +20,9 @@
 #pragma mark Public
 
 - (AKCreature *)giveBirthToChild {
-    AKCreature *child = [AKCreature object];
     NSLog(@"I am a woman OOOOOooo I'm giving birth");
     
-    return child;
+    return [AKCreature object];
 }
 
 - (void)performGenderSpecificOperation {

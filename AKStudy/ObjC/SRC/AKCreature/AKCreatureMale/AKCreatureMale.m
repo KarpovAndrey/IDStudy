@@ -7,12 +7,9 @@
 //
 
 #import "AKCreatureMale.h"
-#import "NSObject+AKCategoryObject.h"
+#import "NSObject+AKExtensions.h"
 
 @interface AKCreatureMale ()
-
-#pragma mark -
-#pragma mark Private Declarations
 
 - (void)goToWar;
 
