@@ -13,13 +13,20 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        [AKCreatureTest creatureTest];
-        NSLog(@"%@", [NSString randomString]);
-        NSLog(@"%@", [NSString randomStringCapitalLetters]);
-        NSLog(@"%@", [NSString randomStringWithLenght:10]);
-        NSLog(@"%@", [NSString randomStringSmallLetters]);
-        NSLog(@"%@", [NSString randomStringWithAlphabet:@"qwertyuiop"]);
-        NSLog(@"%@", [NSString randomStringWithAlphabet:@"asdfghjkl" Lenght:15]);
-        NSLog(@"%@", [NSString randomStringNumbers]);
+//        NSLog(@"%@", [NSString randomString]);
+//        NSLog(@"%@", [NSString randomStringCapitalLetters]);
+//        NSLog(@"%@", [NSString randomStringWithLenght:10]);
+//        NSLog(@"%@", [NSString randomStringSmallLetters]);
+//        NSLog(@"%@", [NSString randomStringWithAlphabet:@"qwertyuiop"]);
+//        NSLog(@"%@", [NSString randomStringWithAlphabet:@"asdfghjkl" Lenght:15]);
+//        NSLog(@"%@", [NSString randomStringNumbers]);
+//        NSLog(@"%@", [NSString randomStringWithType:kAKUppercase]);
+//        NSLog(@"%@", [NSString randomStringWithType:kAKLowercase]);
+//        NSLog(@"%@", [NSString randomStringWithType:kAKNumbers]);
+//        NSLog(@"%@", [NSString randomStringWithUpperAndLowCases]);
+        NSLog(@"%@", [NSString randomStringWithAlphabet:@"fasfnlwaenfxznmvzbxpweiojvklnzvx" Length:150]);
+
+
     }
     return 0;
 }
