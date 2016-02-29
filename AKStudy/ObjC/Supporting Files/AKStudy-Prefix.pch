@@ -1,0 +1,15 @@
+//
+//  AKStudy-Prefix.pch
+//  AKStudy
+//
+//  Created by Admin on 23.02.16.
+//  Copyright © 2016 Admin. All rights reserved.
+//
+
+#ifndef AKStudy_Prefix_pch
+#define AKStudy_Prefix_pch
+
+#import <Foundation/Foundation.h>
+#import "NSObject+AKExtensions.h"
+
+#endif /* AKStudy_Prefix_pch */

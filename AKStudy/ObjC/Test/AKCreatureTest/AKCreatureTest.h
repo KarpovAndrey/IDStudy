@@ -8,7 +8,7 @@
 
 #import "AKCreature.h"
 
-@interface AKCreatureTest : AKCreature
+@interface AKCreatureTest : NSObject
 
 +(void)creatureTest;
 

@@ -8,33 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    kAKUndefined,
-    kAKManGender,
-    kAKWomanGender
-} AKCreatureGender;
-
 @interface AKCreature : NSObject
-@property(nonatomic, readonly) NSString          *name;
-@property(nonatomic, readonly) AKCreatureGender  gender;
-@property(nonatomic, readonly) NSUInteger        age;
-@property(nonatomic, readonly) CGFloat           weight;
-@property(nonatomic, readonly) NSArray           *children;
+@property(nonatomic, readonly) NSString   *name;
+@property(nonatomic, readonly) NSArray    *children;
+@property(nonatomic, readonly) NSUInteger age;
+@property(nonatomic, readonly) CGFloat    weight;
 
-- (instancetype)initWithName: (NSString *) name;
-
-- (NSString *)name: (NSString *) name;
-
-- (NSArray *)children;
+- (instancetype)initWithName:(NSString *)name;
 
 - (void)addChild:(id)child;
-
-- (void)removeChild: (AKCreature *) child;
-
-- (AKCreature *)giveBirthToChild;
-
+- (void)removeChild:(AKCreature *)child;
+- (void)removeChildren;
 - (void)sayHello;
-
-- (void)goToWar;
+- (void)performGenderSpecificOperation;
 
 @end
