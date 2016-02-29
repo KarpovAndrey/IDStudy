@@ -19,16 +19,13 @@ typedef NS_ENUM(NSUInteger, AKAlphabetType) {
 
 @interface NSString (AKExtension)
 //Default alphabet is upper case letters
+//Default alphabet length = 20 symbols
 + (instancetype)randomString;
 + (instancetype)randomStringWithLenght:(NSUInteger)lenght;
-+ (instancetype)randomStringWithAlphabet:(NSString *)alphabet Length:(NSUInteger)length;
-
-+ (instancetype)randomStringCapitalLetters;
-+ (instancetype)randomStringSmallLetters;
-+ (instancetype)randomStringNumbers;
-+ (instancetype)randomStringWithUpperAndLowCases;
++ (instancetype)randomStringWithAlphabet:(NSString *)alphabet length:(NSUInteger)length;
 
 + (instancetype)randomStringWithType:(AKAlphabetType)type;
++ (instancetype)randomStringWithType:(AKAlphabetType)type length:(NSUInteger)length;
 
 @end
 

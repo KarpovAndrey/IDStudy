@@ -12,36 +12,18 @@ const NSUInteger kAKDefaultLenght = 20;
 
 @interface NSString (AKExtensions)
 
-+ (NSString *)stringWithRange:(NSRange)range;
-+ (NSString *)stringWithFirstValue:(NSUInteger)firstValue SecondValue:(NSUInteger)secondValue;
-+ (NSString *)stringWithAlphabet:(NSString *)firstAlphabet WithAlphabet:(NSString *)secondAlphabet;
++ (NSString *)alphabetWithRange:(NSRange)range;
++ (NSString *)alphabetWithRangeWithCharacterRangeFirstValue:(unichar)firstValue
+                                                secondValue:(unichar)secondValue;
 
 @end
 
 @implementation NSString (AKExtension)
 
-#pragma mark - 
-#pragma mark Private Implementation
+#pragma mark -
+#pragma mark Private Class Methods
 
-+ (NSString *)stringWithRange:(NSRange)range {
-    NSString *string = [NSString string];
-    for (NSUInteger index = range.location; index <range.location +range.length; index++) {
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", (unichar)index]];
-    }
-    
-    return string;
-}
-
-+ (NSString *)stringWithFirstValue:(NSUInteger)firstValue SecondValue:(NSUInteger)secondValue {
-    NSRange range = NSMakeRange(firstValue, secondValue - firstValue);
-    return [NSString stringWithRange:range];
-}
-
-+ (NSString *)stringWithAlphabet:(NSString *)firstAlphabet WithAlphabet:(NSString *)secondAlphabet {
-    return [firstAlphabet stringByAppendingString:secondAlphabet];
-}
-
-+ (instancetype)randomStringWithAlphabet:(NSString *)alphabet Length:(NSUInteger)length{
++ (instancetype)randomStringWithAlphabet:(NSString *)alphabet length:(NSUInteger)length{
     NSString *string = [NSString string];
     
     for (NSUInteger index = 0; index < length; index++) {
@@ -57,63 +39,84 @@ const NSUInteger kAKDefaultLenght = 20;
 }
 
 #pragma mark -
-#pragma mark Class Methods
+#pragma mark Public Class Methods
 
 + (instancetype)randomString {
-    return [NSString stringWithFirstValue:'A' SecondValue:'Z'];
+    return [NSString randomStringWithAlphabet:[NSString uppercaseAlphabet] length:kAKDefaultLenght];
 }
 
 + (instancetype)randomStringWithLenght:(NSUInteger)lenght {
-    return [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'A' SecondValue:'Z']
-                                       Length:lenght];
-}
-
-+ (instancetype)randomStringCapitalLetters {
-    return [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'A' SecondValue:'Z']
-                                       Length:kAKDefaultLenght];
-}
-
-+ (instancetype)randomStringSmallLetters {
-    return [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'a' SecondValue:'z']
-                                       Length:kAKDefaultLenght];
-}
-
-+ (instancetype)randomStringNumbers {
-    return [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'0' SecondValue:'9']
-                                       Length:kAKDefaultLenght];
-}
-
-+ (instancetype)randomStringWithUpperAndLowCases {
-    return [NSString randomStringWithAlphabet:[NSString
-                           stringWithAlphabet:[NSString stringWithFirstValue:'A' SecondValue:'Z']
-                                 WithAlphabet:[NSString stringWithFirstValue:'a' SecondValue:'z']]
-                                       Length:kAKDefaultLenght];
+    return [NSString randomStringWithAlphabet:[NSString uppercaseAlphabet] length:lenght];
 }
 
 + (instancetype)randomStringWithType:(AKAlphabetType)type {
-    NSString *string;
+    return [NSString randomStringWithType:type length:kAKDefaultLenght];
+}
+
++ (instancetype)randomStringWithType:(AKAlphabetType)type length:(NSUInteger)length {
+    NSString *string = nil;
     
     switch (type) {
-        case kAKUppercase:
-            string = [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'A' SecondValue:'Z']
-                                                 Length:kAKDefaultLenght];
+        case kAKUppercase: {
+            string = [NSString randomStringWithAlphabet: [NSString uppercaseAlphabet]
+                                                 length:length];
             break;
-        case kAKLowercase:
-            string = [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'a' SecondValue:'z']
-                                                 Length:kAKDefaultLenght];
+        }
+            
+        case kAKLowercase: {
+            string = [NSString randomStringWithAlphabet:[NSString lowerrcaseAlphabet]
+                                                 length:length];
             break;
-        case kAKNumbers:
-            string = [NSString randomStringWithAlphabet:[NSString stringWithFirstValue:'0' SecondValue:'9']
-                                                 Length:kAKDefaultLenght];
+        }
+            
+        case kAKNumbers: {
+            string = [NSString randomStringWithAlphabet:[NSString numericAlphabet]
+                                                 length:length];
             break;
-        case kAKUpperAndLowercases:
-            string = [NSString randomStringWithAlphabet:[NSString                                                                                                       stringWithAlphabet:[NSString stringWithFirstValue:'A' SecondValue:'Z']
-                      WithAlphabet:[NSString stringWithFirstValue:'a' SecondValue:'z']]
-                            Length:kAKDefaultLenght];
+        }
+            
+        case kAKUpperAndLowercases: {
+            NSString *uppercaseAlphabet = [NSString uppercaseAlphabet];
+            NSString *lowercaseAlphabet = [NSString uppercaseAlphabet];
+            string = [NSString randomStringWithAlphabet:
+                      [uppercaseAlphabet stringByAppendingString:lowercaseAlphabet]
+                                                 length:length];
             break;
+        }
     }
     
     return string;
+}
+
+#pragma mark -
+#pragma mark Alphabets
+
++ (NSString *)alphabetWithRange:(NSRange)range {
+    NSString *string = [NSString string];
+    for (NSUInteger index = range.location; index <range.location +range.length; index++) {
+        string = [string stringByAppendingString:[NSString stringWithFormat:@"%c", (unichar)index]];
+    }
+    
+    return string;
+}
+
++ (NSString *)alphabetWithRangeWithCharacterRangeFirstValue:(unichar)firstValue
+                                                secondValue:(unichar)secondValue
+{
+    NSRange range = NSMakeRange(firstValue, secondValue - firstValue);
+    return [NSString alphabetWithRange:range];
+}
+
++ (instancetype)uppercaseAlphabet {
+    return [NSString alphabetWithRangeWithCharacterRangeFirstValue:'A' secondValue:'Z'];
+}
+
++ (instancetype)lowerrcaseAlphabet {
+    return [NSString alphabetWithRangeWithCharacterRangeFirstValue:'a' secondValue:'z'];
+}
+
++ (instancetype)numericAlphabet {
+    return [NSString alphabetWithRangeWithCharacterRangeFirstValue:'0' secondValue:'9'];
 }
 
 @end
