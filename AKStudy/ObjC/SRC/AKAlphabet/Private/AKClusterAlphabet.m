@@ -8,6 +8,19 @@
 
 #import "AKClusterAlphabet.h"
 
+@interface AKClusterAlphabet ()
+@property (nonatomic, assign) NSArray *alphabets;
+
+@end
+
 @implementation AKClusterAlphabet
+
+- (instancetype)initWithAlphabets:(NSArray *)alphabets {
+    self = [super init];
+    if (self) {
+        self.alphabets = alphabets;
+    }
+    return self;
+}
 
 @end

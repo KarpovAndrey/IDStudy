@@ -10,4 +10,6 @@
 
 @interface AKRangeAlphabet : AKAlphabet
 
+- (instancetype)initWithRange:(NSRange)range;
+
 @end

@@ -9,23 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "AKCreatureTest.h"
 #import "NSString+AKExtensions.h"
+#import "AKAlphabet.h"
+#import "AKRangeAlphabet.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-//        [AKCreatureTest creatureTest];
-//        NSLog(@"%@", [NSString randomString]);
-//        NSLog(@"%@", [NSString randomStringCapitalLetters]);
-//        NSLog(@"%@", [NSString randomStringWithLenght:10]);
-//        NSLog(@"%@", [NSString randomStringSmallLetters]);
-//        NSLog(@"%@", [NSString randomStringWithAlphabet:@"qwertyuiop"]);
-//        NSLog(@"%@", [NSString randomStringWithAlphabet:@"asdfghjkl" Lenght:15]);
-//        NSLog(@"%@", [NSString randomStringNumbers]);
-//        NSLog(@"%@", [NSString randomStringWithType:kAKUppercase]);
-//        NSLog(@"%@", [NSString randomStringWithType:kAKLowercase]);
-//        NSLog(@"%@", [NSString randomStringWithType:kAKNumbers]);
-//        NSLog(@"%@", [NSString randomStringWithUpperAndLowCases]);
-        NSLog(@"%@", [NSString randomStringWithAlphabet:@"fasfnlwaenfxznmvzbxpweiojvklnzvx" length:150]);
-
+        AKAlphabet *range = [[[AKAlphabet alloc ]initWithRange:NSMakeRange(15, 20)]autorelease];
+//        AKAlphabet *alphabet = [AKAlphabet alphabetWithRange:NSMakeRange('A', 'Z')];
+//        AKAlphabet *alphabetWithAlphabet = [AKAlphabet alphabetWithAlphabets:@[@"dsadasdsada", @"sdasdasdas"]];
+//        AKAlphabet *alphabetWithStrings = [AKAlphabet alphabetWithStrings:@[@"dsfsdfsdfsdf", @"35435345gfdf"]];
+        NSLog(@"%@", range);
 
     }
     return 0;

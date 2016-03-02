@@ -10,4 +10,6 @@
 
 @interface AKStringAlphabet : AKAlphabet
 
+- (instancetype)initWithString:(NSArray *)strings;
+
 @end

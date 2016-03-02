@@ -31,18 +31,14 @@
 		847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A813D1C77C195004110B2 /* AKCreatureTest.m */; };
 		84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */; };
 		84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; };
+		84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B677931C86E3500042FC86 /* TestAKStudy.m */; };
+		84B677991C86E3770042FC86 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
+		84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
-		84FB410B1C84B9EB00AB4C4C /* TestAKStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB410A1C84B9EB00AB4C4C /* TestAKStudy.m */; };
-		84FB41101C84BA3100AB4C4C /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
-		84FB41111C84BA4000AB4C4C /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; };
-		84FB41121C84BA4200AB4C4C /* NSObject+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */; };
 		84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84FB411A1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41191C84E29B00AB4C4C /* AKRangeAlphabet.m */; };
-		84FB411B1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41191C84E29B00AB4C4C /* AKRangeAlphabet.m */; };
 		84FB411E1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */; };
-		84FB411F1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */; };
 		84FB41221C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41211C84E3C900AB4C4C /* AKClusterAlphabet.m */; };
-		84FB41231C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41211C84E3C900AB4C4C /* AKClusterAlphabet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,10 +117,10 @@
 		84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AKExtensions.m"; sourceTree = "<group>"; };
 		84B14F671C7FAD8E003B4B17 /* NSString+AKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AKExtensions.h"; sourceTree = "<group>"; };
 		84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKExtensions.m"; sourceTree = "<group>"; };
+		84B677911C86E3500042FC86 /* TestAKStudy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAKStudy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B677931C86E3500042FC86 /* TestAKStudy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAKStudy.m; sourceTree = "<group>"; };
+		84B677951C86E3500042FC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
-		84FB41081C84B9EB00AB4C4C /* TestAKStudy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAKStudy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84FB410A1C84B9EB00AB4C4C /* TestAKStudy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAKStudy.m; sourceTree = "<group>"; };
-		84FB410C1C84B9EB00AB4C4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84FB41141C84E07E00AB4C4C /* AKAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAlphabet.h; sourceTree = "<group>"; };
 		84FB41151C84E07E00AB4C4C /* AKAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAlphabet.m; sourceTree = "<group>"; };
 		84FB41181C84E29B00AB4C4C /* AKRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRangeAlphabet.h; sourceTree = "<group>"; };
@@ -150,7 +146,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84FB41051C84B9EB00AB4C4C /* Frameworks */ = {
+		84B6778E1C86E3500042FC86 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,7 +434,7 @@
 				84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */,
 				847691D81C762984008682D4 /* C */,
 				847691D21C762922008682D4 /* ObjC */,
-				84FB41091C84B9EB00AB4C4C /* TestAKStudy */,
+				84B677921C86E3500042FC86 /* TestAKStudy */,
 				84A6B15C1C32D2FF000ACAA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -448,7 +444,7 @@
 			children = (
 				84A6B15B1C32D2FF000ACAA5 /* C */,
 				8476922E1C763B66008682D4 /* ObjC */,
-				84FB41081C84B9EB00AB4C4C /* TestAKStudy.xctest */,
+				84B677911C86E3500042FC86 /* TestAKStudy.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -472,11 +468,11 @@
 			path = AKExtensions;
 			sourceTree = "<group>";
 		};
-		84FB41091C84B9EB00AB4C4C /* TestAKStudy */ = {
+		84B677921C86E3500042FC86 /* TestAKStudy */ = {
 			isa = PBXGroup;
 			children = (
-				84FB410A1C84B9EB00AB4C4C /* TestAKStudy.m */,
-				84FB410C1C84B9EB00AB4C4C /* Info.plist */,
+				84B677931C86E3500042FC86 /* TestAKStudy.m */,
+				84B677951C86E3500042FC86 /* Info.plist */,
 			);
 			path = TestAKStudy;
 			sourceTree = "<group>";
@@ -541,13 +537,13 @@
 			productReference = 84A6B15B1C32D2FF000ACAA5 /* C */;
 			productType = "com.apple.product-type.tool";
 		};
-		84FB41071C84B9EB00AB4C4C /* TestAKStudy */ = {
+		84B677901C86E3500042FC86 /* TestAKStudy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84FB410F1C84B9EB00AB4C4C /* Build configuration list for PBXNativeTarget "TestAKStudy" */;
+			buildConfigurationList = 84B677961C86E3500042FC86 /* Build configuration list for PBXNativeTarget "TestAKStudy" */;
 			buildPhases = (
-				84FB41041C84B9EB00AB4C4C /* Sources */,
-				84FB41051C84B9EB00AB4C4C /* Frameworks */,
-				84FB41061C84B9EB00AB4C4C /* Resources */,
+				84B6778D1C86E3500042FC86 /* Sources */,
+				84B6778E1C86E3500042FC86 /* Frameworks */,
+				84B6778F1C86E3500042FC86 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -555,7 +551,7 @@
 			);
 			name = TestAKStudy;
 			productName = TestAKStudy;
-			productReference = 84FB41081C84B9EB00AB4C4C /* TestAKStudy.xctest */;
+			productReference = 84B677911C86E3500042FC86 /* TestAKStudy.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -573,7 +569,7 @@
 					84A6B15A1C32D2FF000ACAA5 = {
 						CreatedOnToolsVersion = 7.2;
 					};
-					84FB41071C84B9EB00AB4C4C = {
+					84B677901C86E3500042FC86 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -593,13 +589,13 @@
 			targets = (
 				84A6B15A1C32D2FF000ACAA5 /* C */,
 				8476922D1C763B66008682D4 /* ObjC */,
-				84FB41071C84B9EB00AB4C4C /* TestAKStudy */,
+				84B677901C86E3500042FC86 /* TestAKStudy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		84FB41061C84B9EB00AB4C4C /* Resources */ = {
+		84B6778F1C86E3500042FC86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -652,17 +648,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84FB41041C84B9EB00AB4C4C /* Sources */ = {
+		84B6778D1C86E3500042FC86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84FB41101C84BA3100AB4C4C /* AKCreature.m in Sources */,
-				84FB411F1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */,
-				84FB41121C84BA4200AB4C4C /* NSObject+AKExtensions.m in Sources */,
-				84FB41231C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */,
-				84FB41111C84BA4000AB4C4C /* NSString+AKExtensions.m in Sources */,
-				84FB411B1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */,
-				84FB410B1C84B9EB00AB4C4C /* TestAKStudy.m in Sources */,
+				84B677991C86E3770042FC86 /* AKCreature.m in Sources */,
+				84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */,
+				84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +665,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supporting Files/AKStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -684,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supporting Files/AKStudy-Prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -786,7 +780,7 @@
 			};
 			name = Release;
 		};
-		84FB410D1C84B9EB00AB4C4C /* Debug */ = {
+		84B677971C86E3500042FC86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -800,7 +794,7 @@
 			};
 			name = Debug;
 		};
-		84FB410E1C84B9EB00AB4C4C /* Release */ = {
+		84B677981C86E3500042FC86 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
@@ -844,11 +838,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84FB410F1C84B9EB00AB4C4C /* Build configuration list for PBXNativeTarget "TestAKStudy" */ = {
+		84B677961C86E3500042FC86 /* Build configuration list for PBXNativeTarget "TestAKStudy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84FB410D1C84B9EB00AB4C4C /* Debug */,
-				84FB410E1C84B9EB00AB4C4C /* Release */,
+				84B677971C86E3500042FC86 /* Debug */,
+				84B677981C86E3500042FC86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

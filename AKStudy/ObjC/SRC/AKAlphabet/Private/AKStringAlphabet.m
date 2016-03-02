@@ -8,6 +8,20 @@
 
 #import "AKStringAlphabet.h"
 
+@interface AKStringAlphabet ()
+@property (nonatomic, assign) NSArray *strings;
+
+@end
+
 @implementation AKStringAlphabet
+
+- (instancetype)initWithString:(NSArray *)strings {
+    self = [super init];
+    if (self) {
+        self.strings = strings;
+    }
+    
+    return self;
+}
 
 @end

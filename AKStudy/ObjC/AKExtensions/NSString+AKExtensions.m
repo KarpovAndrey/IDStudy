@@ -119,4 +119,17 @@ const NSUInteger kAKDefaultLenght = 20;
     return [NSString alphabetWithRangeWithCharacterRangeFirstValue:'0' secondValue:'9'];
 }
 
+- (NSArray *)symbols {
+    NSMutableArray *arraySymbols = [NSMutableArray arrayWithCapacity:[self length]];
+    NSUInteger length = [self length];
+    
+    for (NSUInteger index = 0; index < length; index++) {
+        unichar resultChar = [self characterAtIndex:index];
+        [arraySymbols addObject:[NSString stringWithFormat:@"%c", resultChar]];
+    }
+    
+    return [[arraySymbols copy] autorelease];
+}
+
+
 @end
