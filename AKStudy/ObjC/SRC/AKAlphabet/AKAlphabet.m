@@ -15,22 +15,41 @@
 
 @implementation AKAlphabet
 
+@dynamic alphabetString;
+@dynamic count;
+
 #pragma mark -
 #pragma mark Class Methods
 
 + (instancetype)alphabetWithRange:(NSRange)range {
-    return [[[AKRangeAlphabet alloc] initWithRange:range] autorelease];
+    return [[[self alloc] initWithRange:range] autorelease];
 }
 + (instancetype)alphabetWithAlphabets:(NSArray *)alphabets {
-    return [[[AKClusterAlphabet alloc] initWithAlphabets:alphabets] autorelease];
+    return [[[self alloc] initWithAlphabets:alphabets] autorelease];
 }
-+ (instancetype)alphabetWithStrings:(NSArray *)strings {
-    return [[[AKStringAlphabet alloc] initWithString:strings] autorelease];
++ (instancetype)alphabetWithString:(NSString *)string {
+    return [[[self alloc] initWithString:string] autorelease];
 }
 
-+ (instancetype)alphabetWithSymbols:(NSString *)string {
-    return [[AKStringAlphabet alloc] initWithString:[string symbols]];
++ (instancetype)alphabetWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue {
+    return [[[self alloc] initWithCharactersRange:firstValue lastValue:lastValue] autorelease];
 }
+
+#pragma mark - 
+#pragma mark Alphabets
+
++ (instancetype)alphabetsWithUpperCaseLetters {
+    return [self alphabetWithCharactersRange:'A' lastValue:'Z'];
+}
+
++ (instancetype)alphabetsWithLowerCaseLetters {
+    return [self alphabetWithCharactersRange:'a' lastValue:'z'];
+}
+
++ (instancetype)alphabetsWithNumericLetters {
+    return [self alphabetWithCharactersRange:'0' lastValue:'9'];
+}
+
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -47,25 +66,28 @@
     return [[AKClusterAlphabet alloc] initWithAlphabets:alphabets];
 }
 
-- (instancetype)initWithString:(NSArray *)strings {
+- (instancetype)initWithString:(NSString *)string {
     [self release];
     
-    return [[AKStringAlphabet alloc] initWithString:strings];
+    return [[AKStringAlphabet alloc] initWithString:string];
 }
 
-- (instancetype)initWithSymbols:(NSString *)string {
+- (instancetype)initWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue {
     [self release];
 
-    return [[AKStringAlphabet alloc] initWithString:[string symbols]];
+    return [[AKRangeAlphabet alloc] initWithCharactersRange:firstValue lastValue:lastValue];
 }
 
+#pragma mark -
+#pragma mark Accessors
 
+- (NSString *)alphabetString {
+    return nil;
+}
 
-
-//+ (instancetype)alphabetWithRange:(NSRange)range {
-//    return [[[self alloc] initWithRange:range] autorelease];
-//}
-//
+- (NSUInteger)count {
+    return self.alphabetString.length;
+}
 
 @end
 		

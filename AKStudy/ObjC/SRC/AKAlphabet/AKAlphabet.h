@@ -9,15 +9,22 @@
 #import <Foundation/Foundation.h>
 
 @interface AKAlphabet : NSObject
+@property (nonatomic, readonly) NSString   *alphabetString;
+@property (nonatomic, readonly) NSUInteger count;
+
 
 + (instancetype)alphabetWithRange:(NSRange)range;
++ (instancetype)alphabetWithString:(NSString *)string;
 + (instancetype)alphabetWithAlphabets:(NSArray *)alphabets;
-+ (instancetype)alphabetWithStrings:(NSArray *)strings;
-+ (instancetype)alphabetWithSymbols:(NSString *)string;
++ (instancetype)alphabetWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue;
+
++ (instancetype)alphabetsWithUpperCaseLetters;
++ (instancetype)alphabetsWithLowerCaseLetters;
++ (instancetype)alphabetsWithNumericLetters;
 
 - (instancetype)initWithRange:(NSRange)range;
+- (instancetype)initWithString:(NSString *)string;
 - (instancetype)initWithAlphabets:(NSArray *)alphabets;
-- (instancetype)initWithString:(NSArray *)strings;
-- (instancetype)initWithSymbols:(NSString *)string;
+- (instancetype)initWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue;
 
 @end

@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKAlphabet.h"
+#import "AKRangeAlphabet.h"
+#import "AKStringAlphabet.h"
+#import "AKClusterAlphabet.h"
 
 extern const NSUInteger kAKDefaultLenght;
 
 typedef NS_ENUM(NSUInteger, AKAlphabetType) {
-    kAKUppercase,
-    kAKLowercase,
+    kAKUppercaseLetters,
+    kAKLowercaseLetters,
     kAKNumbers,
-    kAKUpperAndLowercases
 };
 
 @interface NSString (AKExtension)
@@ -22,12 +25,10 @@ typedef NS_ENUM(NSUInteger, AKAlphabetType) {
 //Default alphabet length = 20 symbols
 + (instancetype)randomString;
 + (instancetype)randomStringWithLenght:(NSUInteger)lenght;
-+ (instancetype)randomStringWithAlphabet:(NSString *)alphabet length:(NSUInteger)length;
++ (instancetype)randomStringWithAlphabet:(AKAlphabet *)alphabet length:(NSUInteger)length;
 
 + (instancetype)randomStringWithType:(AKAlphabetType)type;
 + (instancetype)randomStringWithType:(AKAlphabetType)type length:(NSUInteger)length;
-
-- (NSArray *)symbols;
 
 @end
 

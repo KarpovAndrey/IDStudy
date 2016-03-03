@@ -10,6 +10,4 @@
 
 @interface AKClusterAlphabet : AKAlphabet
 
-- (instancetype)initWithAlphabets:(NSArray *)alphabets;
-
 @end

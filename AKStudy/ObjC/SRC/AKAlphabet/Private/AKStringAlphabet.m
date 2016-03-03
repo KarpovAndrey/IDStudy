@@ -9,19 +9,36 @@
 #import "AKStringAlphabet.h"
 
 @interface AKStringAlphabet ()
-@property (nonatomic, assign) NSArray *strings;
+@property (nonatomic, copy) NSString *string;
 
 @end
 
 @implementation AKStringAlphabet
 
-- (instancetype)initWithString:(NSArray *)strings {
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+-(void) dealloc {
+    self.string = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)initWithString:(NSString *)string {
     self = [super init];
     if (self) {
-        self.strings = strings;
+        self.string = string;
     }
     
     return self;
+}
+
+- (NSString *)alphabetString {
+    return [[self.string copy] autorelease];
+}
+
+- (NSUInteger)count {
+    return self.alphabetString.length;
 }
 
 @end
