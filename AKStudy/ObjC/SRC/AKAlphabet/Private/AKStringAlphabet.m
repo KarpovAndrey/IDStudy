@@ -33,12 +33,11 @@
     return self;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
 - (NSString *)alphabetString {
     return [[self.string copy] autorelease];
-}
-
-- (NSUInteger)count {
-    return self.alphabetString.length;
 }
 
 @end

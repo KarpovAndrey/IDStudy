@@ -24,32 +24,33 @@
 + (instancetype)alphabetWithRange:(NSRange)range {
     return [[[self alloc] initWithRange:range] autorelease];
 }
+
 + (instancetype)alphabetWithAlphabets:(NSArray *)alphabets {
     return [[[self alloc] initWithAlphabets:alphabets] autorelease];
 }
+
 + (instancetype)alphabetWithString:(NSString *)string {
     return [[[self alloc] initWithString:string] autorelease];
 }
 
 + (instancetype)alphabetWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue {
-    return [[[self alloc] initWithCharactersRange:firstValue lastValue:lastValue] autorelease];
+    return [[[self alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue)] autorelease];
 }
 
 #pragma mark - 
 #pragma mark Alphabets
 
-+ (instancetype)alphabetsWithUpperCaseLetters {
++ (instancetype)upperCaseLettersAlphabet {
     return [self alphabetWithCharactersRange:'A' lastValue:'Z'];
 }
 
-+ (instancetype)alphabetsWithLowerCaseLetters {
++ (instancetype)lowerCaseLettersAlphabet {
     return [self alphabetWithCharactersRange:'a' lastValue:'z'];
 }
 
-+ (instancetype)alphabetsWithNumericLetters {
++ (instancetype)numericLettersAlphabet {
     return [self alphabetWithCharactersRange:'0' lastValue:'9'];
 }
-
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -61,21 +62,21 @@
 }
 
 - (instancetype)initWithAlphabets:(NSArray *)alphabets {
-    [self release];
+    [self autorelease];
     
     return [[AKClusterAlphabet alloc] initWithAlphabets:alphabets];
 }
 
 - (instancetype)initWithString:(NSString *)string {
-    [self release];
+    [self autorelease];
     
     return [[AKStringAlphabet alloc] initWithString:string];
 }
 
 - (instancetype)initWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue {
-    [self release];
+    [self autorelease];
 
-    return [[AKRangeAlphabet alloc] initWithCharactersRange:firstValue lastValue:lastValue];
+    return [[AKRangeAlphabet alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue)];
 }
 
 #pragma mark -

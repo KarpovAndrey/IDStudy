@@ -8,6 +8,7 @@
 
 #import "NSString+AKExtensions.h"
 
+#import "AKAlphabet.h"
 
 const NSUInteger kAKDefaultLenght = 20;
 
@@ -34,11 +35,11 @@ const NSUInteger kAKDefaultLenght = 20;
 }
 
 + (instancetype)randomString {
-    return [NSString randomStringWithAlphabet:[AKAlphabet alphabetsWithUpperCaseLetters] length:kAKDefaultLenght];
+    return [NSString randomStringWithAlphabet:[AKAlphabet upperCaseLettersAlphabet] length:kAKDefaultLenght];
 }
 
 + (instancetype)randomStringWithLenght:(NSUInteger)lenght {
-    return [NSString randomStringWithAlphabet:[AKAlphabet alphabetsWithUpperCaseLetters] length:lenght];
+    return [NSString randomStringWithAlphabet:[AKAlphabet upperCaseLettersAlphabet] length:lenght];
 }
 
 + (instancetype)randomStringWithType:(AKAlphabetType)type {
@@ -50,19 +51,19 @@ const NSUInteger kAKDefaultLenght = 20;
     
     switch (type) {
         case kAKUppercaseLetters: {
-            string = [NSString randomStringWithAlphabet: [AKAlphabet alphabetsWithUpperCaseLetters]
+            string = [NSString randomStringWithAlphabet: [AKAlphabet upperCaseLettersAlphabet]
                                                  length:length];
             break;
         }
             
         case kAKLowercaseLetters: {
-            string = [NSString randomStringWithAlphabet:[AKAlphabet alphabetsWithLowerCaseLetters]
+            string = [NSString randomStringWithAlphabet:[AKAlphabet lowerCaseLettersAlphabet]
                                                  length:length];
             break;
         }
             
         case kAKNumbers: {
-            string = [NSString randomStringWithAlphabet:[AKAlphabet alphabetsWithNumericLetters]
+            string = [NSString randomStringWithAlphabet:[AKAlphabet numericLettersAlphabet]
                                                  length:length];
             break;
         }

@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKAlphabet.h"
-#import "AKRangeAlphabet.h"
-#import "AKStringAlphabet.h"
-#import "AKClusterAlphabet.h"
+
+
+@class AKAlphabet;
 
 extern const NSUInteger kAKDefaultLenght;
 

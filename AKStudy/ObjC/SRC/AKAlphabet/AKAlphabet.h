@@ -12,15 +12,14 @@
 @property (nonatomic, readonly) NSString   *alphabetString;
 @property (nonatomic, readonly) NSUInteger count;
 
-
 + (instancetype)alphabetWithRange:(NSRange)range;
 + (instancetype)alphabetWithString:(NSString *)string;
 + (instancetype)alphabetWithAlphabets:(NSArray *)alphabets;
 + (instancetype)alphabetWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue;
 
-+ (instancetype)alphabetsWithUpperCaseLetters;
-+ (instancetype)alphabetsWithLowerCaseLetters;
-+ (instancetype)alphabetsWithNumericLetters;
++ (instancetype)upperCaseLettersAlphabet;
++ (instancetype)lowerCaseLettersAlphabet;
++ (instancetype)numericLettersAlphabet;
 
 - (instancetype)initWithRange:(NSRange)range;
 - (instancetype)initWithString:(NSString *)string;

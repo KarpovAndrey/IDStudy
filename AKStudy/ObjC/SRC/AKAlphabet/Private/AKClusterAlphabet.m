@@ -14,6 +14,7 @@
 @end
 
 @implementation AKClusterAlphabet
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
@@ -22,6 +23,7 @@
     
     [super dealloc];
 }
+
 - (instancetype)initWithAlphabets:(NSArray *)alphabets {
     self = [super init];
     if (self) {
@@ -29,6 +31,9 @@
     }
     return self;
 }
+
+#pragma mark -
+#pragma mark Accessors
 
 - (NSString *)alphabetString {
     NSMutableString *mutableString = [NSMutableString string];

@@ -18,11 +18,6 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
--(void) dealloc {
-    
-    [super dealloc];
-}
-
 - (instancetype)initWithRange:(NSRange)range {
     self = [super init];
     if (self) {
@@ -32,14 +27,6 @@
     return self;
 }
 
-- (instancetype)initWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue {
-    self = [super init];
-    if (self) {
-        self.range = NSMakeRange(firstValue, lastValue - firstValue);
-    }
-    
-    return self;
-}
 #pragma mark -
 #pragma mark Accessors
 
