@@ -14,15 +14,18 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-//        AKAlphabet *alphabet = [[[AKAlphabet alloc ]initWithRange:NSMakeRange(65, 20)]autorelease];
-//        AKAlphabet *alphabet1 = [[AKAlphabet alloc ]initWithString:@"dsfgfdgdfgdf"];
-        AKAlphabet *alphabet2 = [[[AKAlphabet alloc] initWithCharactersRange:'A' lastValue:'Z'] autorelease];
-//        AKAlphabet *alphabet3 = [[AKAlphabet alloc ]initWithAlphabets:@[alphabet1, alphabet2]];
-
-        NSLog(@"%@", alphabet2.alphabetString);
-        NSLog(@"%lu", (unsigned long)alphabet2.count);
-
-        NSLog(@"%@", [NSString randomStringWithType:kAKLowercaseLetters length:111]);
+        AKAlphabet *alphabet1 = [[[AKAlphabet alloc] initWithRange:NSMakeRange(65, 20)]autorelease];
+     
+        for (NSString *symbol in alphabet1) {
+//            if ([symbol  isEqual: @"B"]) {
+                NSLog(@"%@", symbol);
+//            }
+        }
+        
+        //        NSLog(@"%@", alphabet2.alphabetString);
+//        NSLog(@"%lu", (unsigned long)alphabet2.count);
+//
+//        NSLog(@"%@", [NSString randomStringWithType:kAKLowercaseLetters length:111]);
 //        AKAlphabet *alphabet = [AKAlphabet alphabetWithRange:NSMakeRange('A', 'Z')];
 //        AKAlphabet *alphabetWithAlphabet = [AKAlphabet alphabetWithAlphabets:@[@"dsadasdsada", @"sdasdasdas"]];
 //        AKAlphabet *alphabetWithStrings = [AKAlphabet alphabetWithStrings:@[@"dsfsdfsdfsdf", @"35435345gfdf"]];
@@ -31,5 +34,6 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"%lu", (unsigned long)alphabet2.count);
 
     }
+    
     return 0;
 }

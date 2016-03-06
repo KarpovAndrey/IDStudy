@@ -34,7 +34,7 @@
 }
 
 + (instancetype)alphabetWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue {
-    return [[[self alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue)] autorelease];
+    return [[[self alloc] initWithRange:NSMakeRange(firstValue, lastValue - firstValue + 1)] autorelease];
 }
 
 #pragma mark - 
@@ -88,6 +88,32 @@
 
 - (NSUInteger)count {
     return self.alphabetString.length;
+}
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index {
+    return [NSString stringWithFormat:@"%c", [self.alphabetString characterAtIndex:index]];
+}
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len
+{
+    state->mutationsPtr = (unsigned long *) self;
+    NSUInteger stateCount = state->state;
+    NSUInteger length = self.count - stateCount;
+    length = MIN(length, len);
+    
+    for (NSUInteger index = stateCount; index < stateCount + length; index++) {
+        buffer[index] = self[index];
+    }
+    
+    state->state = stateCount + length;
+    
+    state->itemsPtr = buffer;
+    
+    return length;
 }
 
 @end

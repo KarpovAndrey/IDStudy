@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AKAlphabet : NSObject
+@interface AKAlphabet : NSObject <NSFastEnumeration>
 @property (nonatomic, readonly) NSString   *alphabetString;
 @property (nonatomic, readonly) NSUInteger count;
 
@@ -25,5 +25,11 @@
 - (instancetype)initWithString:(NSString *)string;
 - (instancetype)initWithAlphabets:(NSArray *)alphabets;
 - (instancetype)initWithCharactersRange:(unichar)firstValue lastValue:(unichar)lastValue;
+
+- (NSString *)objectAtIndexedSubscript:(NSUInteger)index;
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(id __unsafe_unretained [])buffer
+                                    count:(NSUInteger)len;
 
 @end
