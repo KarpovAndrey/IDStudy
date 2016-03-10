@@ -11,16 +11,18 @@
 #import "NSString+AKExtensions.h"
 #import "AKAlphabet.h"
 #import "AKRangeAlphabet.h"
+#import "AKEnterprise.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        AKAlphabet *alphabet1 = [[[AKAlphabet alloc] initWithRange:NSMakeRange(65, 20)]autorelease];
-     
-        for (NSString *symbol in alphabet1) {
-//            if ([symbol  isEqual: @"B"]) {
-                NSLog(@"%@", symbol);
-//            }
-        }
+        
+//        AKAlphabet *alphabet1 = [[[AKAlphabet alloc] initWithRange:NSMakeRange(65, 20)]autorelease];
+//     
+//        for (NSString *symbol in alphabet1) {
+////            if ([symbol  isEqual: @"B"]) {
+//                NSLog(@"%@", symbol);
+////            }
+//        }
         
         //        NSLog(@"%@", alphabet2.alphabetString);
 //        NSLog(@"%lu", (unsigned long)alphabet2.count);

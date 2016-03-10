@@ -40,6 +40,12 @@
 		84B677991C86E3770042FC86 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
+		84E9CABC1C9207C50097ECCB /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CABB1C9207C50097ECCB /* AKEnterprise.m */; };
+		84E9CAC01C92080C0097ECCB /* AKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CABF1C92080C0097ECCB /* AKEmployee.m */; };
+		84E9CAC41C9209620097ECCB /* AKCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CAC31C9209620097ECCB /* AKCarsWasher.m */; };
+		84E9CAC81C9209870097ECCB /* AKBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CAC71C9209870097ECCB /* AKBoss.m */; };
+		84E9CACC1C9209C90097ECCB /* AKAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CACB1C9209C90097ECCB /* AKAccountant.m */; };
+		84E9CAD31C921D760097ECCB /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CAD21C921D760097ECCB /* AKCar.m */; };
 		84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84FB411A1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41191C84E29B00AB4C4C /* AKRangeAlphabet.m */; };
 		84FB411E1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */; };
@@ -126,6 +132,19 @@
 		84B677931C86E3500042FC86 /* TestAKStudy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAKStudy.m; sourceTree = "<group>"; };
 		84B677951C86E3500042FC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
+		84E9CABA1C9207C50097ECCB /* AKEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnterprise.h; sourceTree = "<group>"; };
+		84E9CABB1C9207C50097ECCB /* AKEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEnterprise.m; sourceTree = "<group>"; };
+		84E9CABE1C92080C0097ECCB /* AKEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEmployee.h; sourceTree = "<group>"; };
+		84E9CABF1C92080C0097ECCB /* AKEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEmployee.m; sourceTree = "<group>"; };
+		84E9CAC21C9209620097ECCB /* AKCarsWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCarsWasher.h; sourceTree = "<group>"; };
+		84E9CAC31C9209620097ECCB /* AKCarsWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCarsWasher.m; sourceTree = "<group>"; };
+		84E9CAC61C9209870097ECCB /* AKBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKBoss.h; sourceTree = "<group>"; };
+		84E9CAC71C9209870097ECCB /* AKBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKBoss.m; sourceTree = "<group>"; };
+		84E9CACA1C9209C90097ECCB /* AKAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAccountant.h; sourceTree = "<group>"; };
+		84E9CACB1C9209C90097ECCB /* AKAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAccountant.m; sourceTree = "<group>"; };
+		84E9CACE1C920A6D0097ECCB /* AKMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMoneyProtocol.h; sourceTree = "<group>"; };
+		84E9CAD11C921D760097ECCB /* AKCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCar.h; sourceTree = "<group>"; };
+		84E9CAD21C921D760097ECCB /* AKCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCar.m; sourceTree = "<group>"; };
 		84FB41141C84E07E00AB4C4C /* AKAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAlphabet.h; sourceTree = "<group>"; };
 		84FB41151C84E07E00AB4C4C /* AKAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAlphabet.m; sourceTree = "<group>"; };
 		84FB41181C84E29B00AB4C4C /* AKRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRangeAlphabet.h; sourceTree = "<group>"; };
@@ -399,6 +418,7 @@
 		847692251C762AAA008682D4 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				84E9CAB91C9207BA0097ECCB /* AKEnterprise */,
 				84FB41131C84E04E00AB4C4C /* AKAlphabet */,
 				847A81341C77ADB9004110B2 /* AKCreature */,
 			);
@@ -480,6 +500,66 @@
 				84B677951C86E3500042FC86 /* Info.plist */,
 			);
 			path = TestAKStudy;
+			sourceTree = "<group>";
+		};
+		84E9CAB91C9207BA0097ECCB /* AKEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				84E9CACE1C920A6D0097ECCB /* AKMoneyProtocol.h */,
+				84E9CACF1C921D2C0097ECCB /* AKCar */,
+				84E9CABD1C9207F00097ECCB /* AKEmployee */,
+				84E9CABA1C9207C50097ECCB /* AKEnterprise.h */,
+				84E9CABB1C9207C50097ECCB /* AKEnterprise.m */,
+			);
+			path = AKEnterprise;
+			sourceTree = "<group>";
+		};
+		84E9CABD1C9207F00097ECCB /* AKEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				84E9CAC91C9209B10097ECCB /* AKAccountant */,
+				84E9CAC51C9209760097ECCB /* AKBoss */,
+				84E9CAC11C9209490097ECCB /* AKCarsWasher */,
+				84E9CABE1C92080C0097ECCB /* AKEmployee.h */,
+				84E9CABF1C92080C0097ECCB /* AKEmployee.m */,
+			);
+			path = AKEmployee;
+			sourceTree = "<group>";
+		};
+		84E9CAC11C9209490097ECCB /* AKCarsWasher */ = {
+			isa = PBXGroup;
+			children = (
+				84E9CAC21C9209620097ECCB /* AKCarsWasher.h */,
+				84E9CAC31C9209620097ECCB /* AKCarsWasher.m */,
+			);
+			path = AKCarsWasher;
+			sourceTree = "<group>";
+		};
+		84E9CAC51C9209760097ECCB /* AKBoss */ = {
+			isa = PBXGroup;
+			children = (
+				84E9CAC61C9209870097ECCB /* AKBoss.h */,
+				84E9CAC71C9209870097ECCB /* AKBoss.m */,
+			);
+			path = AKBoss;
+			sourceTree = "<group>";
+		};
+		84E9CAC91C9209B10097ECCB /* AKAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				84E9CACA1C9209C90097ECCB /* AKAccountant.h */,
+				84E9CACB1C9209C90097ECCB /* AKAccountant.m */,
+			);
+			path = AKAccountant;
+			sourceTree = "<group>";
+		};
+		84E9CACF1C921D2C0097ECCB /* AKCar */ = {
+			isa = PBXGroup;
+			children = (
+				84E9CAD11C921D760097ECCB /* AKCar.h */,
+				84E9CAD21C921D760097ECCB /* AKCar.m */,
+			);
+			path = AKCar;
 			sourceTree = "<group>";
 		};
 		84FB41131C84E04E00AB4C4C /* AKAlphabet */ = {
@@ -616,12 +696,18 @@
 			files = (
 				84FB411A1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */,
 				84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */,
+				84E9CABC1C9207C50097ECCB /* AKEnterprise.m in Sources */,
 				8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */,
+				84E9CAC41C9209620097ECCB /* AKCarsWasher.m in Sources */,
+				84E9CACC1C9209C90097ECCB /* AKAccountant.m in Sources */,
 				84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */,
 				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
+				84E9CAD31C921D760097ECCB /* AKCar.m in Sources */,
 				84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */,
 				84FB41221C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */,
 				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
+				84E9CAC01C92080C0097ECCB /* AKEmployee.m in Sources */,
+				84E9CAC81C9209870097ECCB /* AKBoss.m in Sources */,
 				8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */,
 				84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */,
 				84FB411E1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */,
