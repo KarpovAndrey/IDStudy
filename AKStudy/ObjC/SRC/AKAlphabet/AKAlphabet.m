@@ -106,7 +106,7 @@
     length = MIN(length, len);
     
     for (NSUInteger index = stateCount; index < stateCount + length; index++) {
-        buffer[index] = self[index];
+        buffer[index - stateCount] = self[index];
     }
     
     state->state = stateCount + length;
