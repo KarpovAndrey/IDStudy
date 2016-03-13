@@ -23,17 +23,24 @@ static const NSUInteger carCash = 100;
         self.carState = kAKCarStateDirty;
         self.money = carCash;
     }
+    
     return self;
 }
 
 #pragma mark -
 #pragma mark - Money Protocol
 
-- (NSUInteger)takeMoney {
-    NSUInteger money = self.money;
+- (void)takeMoney:(NSUInteger)money {
+    self.money += money;
+}
+
+- (NSUInteger)giveMoney {
+    NSUInteger payment = self.money;
     self.money = 0;
     
-    return money;
+    self.carState = kAKCarStateClean;
+    
+    return payment;
 }
 
 @end

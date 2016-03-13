@@ -13,10 +13,10 @@
 
 @required
 
-- (NSUInteger)takeMoney;
+- (void)takeMoney:(NSUInteger)money;
 
 @optional
 
-- (void)giveMoney:(NSUInteger)money;
+- (NSUInteger)giveMoney;
 
 @end

@@ -8,10 +8,6 @@
 
 #import "AKEmployee.h"
 
-@class AKCar;
-
 @interface AKCarsWasher : AKEmployee
-
-- (void)washCar:(AKCar *)car;
 
 @end

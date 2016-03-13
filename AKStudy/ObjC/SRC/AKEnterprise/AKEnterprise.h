@@ -12,6 +12,6 @@
 
 @interface AKEnterprise : NSObject
 
-- (void)addCarToWash:(AKCar *)car;
+- (void)washCar:(AKCar *)car;
 
 @end

@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 
 #import "AKMoneyProtocol.h"
+#import "AKWorkerProtocol.h"
 
-@interface AKEmployee : NSObject <AKMoneyProtocol>
-@property (nonatomic, assign) NSUInteger money;
+@interface AKEmployee : NSObject <AKMoneyProtocol, AKWorkerProtocol>
+@property (nonatomic, assign) id <AKWorkerProtocol> delegate;
+
+- (void)performWorkWithObject:(id)object;
 
 @end

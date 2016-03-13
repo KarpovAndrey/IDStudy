@@ -8,13 +8,11 @@
 
 #import "AKCarsWasher.h"
 
-@implementation AKCarsWasher
+@interface AKCarsWasher ()
 
-- (void)washCar:(AKCar *)car {
-    NSLog(@"CAR WASHED");
-    
-    self.money = [car takeMoney];
-}
+@end
+
+@implementation AKCarsWasher
 
 @end
 

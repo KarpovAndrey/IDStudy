@@ -8,6 +8,10 @@
 
 #import "AKAccountant.h"
 
+@interface AKAccountant ()
+
+@end
+
 @implementation AKAccountant
 
 @end

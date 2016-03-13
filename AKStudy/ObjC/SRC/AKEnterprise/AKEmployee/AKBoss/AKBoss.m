@@ -8,6 +8,16 @@
 
 #import "AKBoss.h"
 
+@interface AKBoss ()
+
+@end
+
 @implementation AKBoss
+
+- (void)performWorkWithObject:(id)object {
+    [super performWorkWithObject:object];
+    
+    NSLog(@"%@ received @%lu$", self, self.money);
+}
 
 @end

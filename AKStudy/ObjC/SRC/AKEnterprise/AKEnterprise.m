@@ -9,8 +9,8 @@
 #import "AKEnterprise.h"
 
 #import "AKCarsWasher.h"
-#import "AKBoss.h"
 #import "AKAccountant.h"
+#import "AKBoss.h"
 
 @interface AKEnterprise()
 @property (nonatomic, retain) NSMutableArray *staff;
@@ -25,12 +25,20 @@
 #pragma mark -
 #pragma mark - Initializations and Deallocations
 
-- (void)dealloc
-{
+- (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
     
     [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self hireStaff];
+    }
+    
+    return self;
 }
 
 #pragma mark -
@@ -41,19 +49,26 @@
     AKAccountant *accountant = [AKAccountant object];
     AKCarsWasher *carsWasher = [AKCarsWasher object];
     
-    self.staff = [@[boss, accountant, carsWasher] mutableCopy];
+    carsWasher.delegate = accountant;
+    accountant.delegate = boss;
+    
+    boss.busyness = kAKWorkerFree;
+    accountant.busyness = kAKWorkerFree;
+    carsWasher.busyness = kAKWorkerFree;
 
+    self.staff = [@[boss, accountant, carsWasher] mutableCopy];
 }
 
 - (void)dismissStaff {
-    for (AKEmployee *employee in self.staff){
-        [self.staff removeObject:employee];
-    }
+//    for (AKEmployee *employee in self.staff){
+//        [self.staff removeObject:employee];
+//    }
+    [self.staff removeAllObjects];
 }
 
 - (id)freeEmployeeWithClass:(Class)class {
     for (AKEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class]) {
+        if ([employee isMemberOfClass:class] && employee.busyness == kAKWorkerFree) {
             return employee;
         }
     }
@@ -64,10 +79,9 @@
 #pragma mark -
 #pragma mark - Public
 
-- (void)addCarToWash:(AKCar *)car {
+- (void)washCar:(AKCar *)car {
     AKCarsWasher *carWasher = [self freeEmployeeWithClass:[AKCarsWasher class]];
-    [carWasher washCar:car];
+    [carWasher performWorkWithObject:car];
 }
-
 
 @end

@@ -12,9 +12,23 @@
 #import "AKAlphabet.h"
 #import "AKRangeAlphabet.h"
 #import "AKEnterprise.h"
+#import "AKCar.h"
+#import "AKBoss.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        AKEnterprise *enterprise = [AKEnterprise object];
+        AKCar *car1 = [AKCar object];
+        AKCar *car2 = [AKCar object];
+        AKCar *car3 = [AKCar object];
+
+        NSArray *carsArray = @[car1, car2, car3];
+        
+        for (AKCar *car in carsArray) {
+            [enterprise washCar:car];
+        }
+        
         
 //        AKAlphabet *alphabet1 = [[[AKAlphabet alloc] initWithRange:NSMakeRange(65, 20)]autorelease];
 //     

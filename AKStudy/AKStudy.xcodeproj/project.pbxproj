@@ -131,6 +131,7 @@
 		84B677911C86E3500042FC86 /* TestAKStudy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAKStudy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B677931C86E3500042FC86 /* TestAKStudy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAKStudy.m; sourceTree = "<group>"; };
 		84B677951C86E3500042FC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84CF4B901C94778C00A6CA32 /* AKWorkerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKWorkerProtocol.h; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
 		84E9CABA1C9207C50097ECCB /* AKEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnterprise.h; sourceTree = "<group>"; };
 		84E9CABB1C9207C50097ECCB /* AKEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEnterprise.m; sourceTree = "<group>"; };
@@ -506,10 +507,11 @@
 			isa = PBXGroup;
 			children = (
 				84E9CACE1C920A6D0097ECCB /* AKMoneyProtocol.h */,
-				84E9CACF1C921D2C0097ECCB /* AKCar */,
-				84E9CABD1C9207F00097ECCB /* AKEmployee */,
+				84CF4B901C94778C00A6CA32 /* AKWorkerProtocol.h */,
 				84E9CABA1C9207C50097ECCB /* AKEnterprise.h */,
 				84E9CABB1C9207C50097ECCB /* AKEnterprise.m */,
+				84E9CACF1C921D2C0097ECCB /* AKCar */,
+				84E9CABD1C9207F00097ECCB /* AKEmployee */,
 			);
 			path = AKEnterprise;
 			sourceTree = "<group>";
@@ -517,11 +519,11 @@
 		84E9CABD1C9207F00097ECCB /* AKEmployee */ = {
 			isa = PBXGroup;
 			children = (
-				84E9CAC91C9209B10097ECCB /* AKAccountant */,
-				84E9CAC51C9209760097ECCB /* AKBoss */,
-				84E9CAC11C9209490097ECCB /* AKCarsWasher */,
 				84E9CABE1C92080C0097ECCB /* AKEmployee.h */,
 				84E9CABF1C92080C0097ECCB /* AKEmployee.m */,
+				84E9CAC11C9209490097ECCB /* AKCarsWasher */,
+				84E9CAC91C9209B10097ECCB /* AKAccountant */,
+				84E9CAC51C9209760097ECCB /* AKBoss */,
 			);
 			path = AKEmployee;
 			sourceTree = "<group>";
