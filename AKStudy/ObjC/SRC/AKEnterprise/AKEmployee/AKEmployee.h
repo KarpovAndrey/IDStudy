@@ -13,6 +13,7 @@
 
 @interface AKEmployee : NSObject <AKMoneyProtocol, AKWorkerProtocol>
 @property (nonatomic, assign) id <AKWorkerProtocol> delegate;
+@property (nonatomic, assign) AKWorkerState         workerState;
 
 - (void)performWorkWithObject:(id)object;
 

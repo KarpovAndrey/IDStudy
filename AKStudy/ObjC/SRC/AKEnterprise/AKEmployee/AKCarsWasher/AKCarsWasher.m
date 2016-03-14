@@ -7,12 +7,17 @@
 //
 
 #import "AKCarsWasher.h"
+#import "AKCar.h"
 
 @interface AKCarsWasher ()
 
 @end
 
 @implementation AKCarsWasher
+
+- (void)completeWorkWithObject:(AKCar *)car {
+    car.carState = kAKCarStateClean;
+}
 
 @end
 

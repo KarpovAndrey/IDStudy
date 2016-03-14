@@ -37,9 +37,7 @@ static const NSUInteger carCash = 100;
 - (NSUInteger)giveMoney {
     NSUInteger payment = self.money;
     self.money = 0;
-    
-    self.carState = kAKCarStateClean;
-    
+        
     return payment;
 }
 

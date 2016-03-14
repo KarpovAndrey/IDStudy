@@ -51,10 +51,6 @@
     
     carsWasher.delegate = accountant;
     accountant.delegate = boss;
-    
-    boss.busyness = kAKWorkerFree;
-    accountant.busyness = kAKWorkerFree;
-    carsWasher.busyness = kAKWorkerFree;
 
     self.staff = [@[boss, accountant, carsWasher] mutableCopy];
 }
@@ -68,7 +64,7 @@
 
 - (id)freeEmployeeWithClass:(Class)class {
     for (AKEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class] && employee.busyness == kAKWorkerFree) {
+        if ([employee isMemberOfClass:class] && employee.workerState == kAKWorkerStateFree) {
             return employee;
         }
     }

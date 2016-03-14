@@ -14,10 +14,10 @@
 
 @implementation AKBoss
 
-- (void)performWorkWithObject:(id)object {
-    [super performWorkWithObject:object];
-    
+- (void)completeWorkWithObject:(AKEmployee *)object {
+    object.workerState = kAKWorkerStateFree;
     NSLog(@"%@ received @%lu$", self, self.money);
+    self.workerState = kAKWorkerStateFree;
 }
 
 @end

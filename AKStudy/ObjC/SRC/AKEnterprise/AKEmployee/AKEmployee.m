@@ -11,39 +11,43 @@
 
 @interface AKEmployee ()
 
-- (void)changeBusynessToFree:(id<AKMoneyProtocol>)employee;
-- (void)changeBusynessToBusy:(id<AKMoneyProtocol>)employee;
-
 @end
 
 @implementation AKEmployee
-@synthesize busyness = _busyness;
-@synthesize delegate = _delegate;
+@synthesize workerState = _busyness;
 @synthesize money = _money;
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Initializations & Deallocations
 
-- (void)changeBusynessToFree:(id<AKMoneyProtocol>)employee {
-    self.busyness = kAKWorkerFree;
-}
-
-- (void)changeBusynessToBusy:(id<AKMoneyProtocol>)employee {
-    self.busyness = kAKWorkerBusy;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.workerState = kAKWorkerStateFree;
+    }
+    return self;
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(id)object {
+- (void)performWorkWithObject:(AKEmployee *)object {
     NSLog(@"%@ starting", self);
+
+    self.workerState = kAKWorkerStateBusy;
     [self takeMoney:[object giveMoney]];
+    [self completeWorkWithObject:object];
     
     if (self.delegate) {
         [self.delegate workerDidFinishWorkWithObject:self];
-    } else {
-        [self changeBusynessToFree:self];
     }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)completeWorkWithObject:(AKEmployee *)object {
+    object.workerState = kAKWorkerStateFree;
 }
 
 #pragma mark -
@@ -52,14 +56,12 @@
 - (NSUInteger)giveMoney {
     NSUInteger payment = self.money;
     self.money = 0;
-    [self changeBusynessToFree:self];
 
     return payment;
 }
 
 - (void)takeMoney:(NSUInteger)money {
     self.money += money;
-    [self changeBusynessToBusy:self];
 }
 
 #pragma mark -
