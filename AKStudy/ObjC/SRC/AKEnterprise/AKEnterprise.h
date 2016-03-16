@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AKCar.h"
+#import "AKEmployee.h"
 @class AKCar;
 
-@interface AKEnterprise : NSObject
+@interface AKEnterprise <AKCarStateProtocol, AKEmployeeStateProtocol>: NSObject
 
 - (void)washCar:(AKCar *)car;
 

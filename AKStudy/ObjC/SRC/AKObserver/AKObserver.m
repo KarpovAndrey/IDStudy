@@ -10,7 +10,7 @@
 
 @interface AKObserver ()
 @property  (nonatomic, assign) NSMutableArray *mutableObservers;
-@property  (nonatomic, assign) NSUInteger     stateObserver;
+//@property  (nonatomic, assign) NSUInteger     stateObserver;
 
 @end
 
@@ -42,18 +42,10 @@
 - (NSArray *)observers {
     return [self.mutableObservers copy];
 }
-
-- (void)setState:(NSUInteger)state {
-    if (_stateObserver != state) {
-        _stateObserver = state;
-    
-        [self notifyObservers];
-    }
-}
-
-- (NSUInteger)state {
-    return self.stateObserver;
-}
+//
+//- (NSUInteger)state {
+//    return self.stateObserver;
+//}
 
 #pragma mark -
 #pragma mark Public

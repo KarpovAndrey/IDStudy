@@ -10,11 +10,10 @@
 #import "AKCar.h"
 
 @interface AKEmployee ()
-
 @end
 
 @implementation AKEmployee
-@synthesize workerState = _busyness;
+@synthesize state = _state;
 @synthesize money = _money;
 
 #pragma mark -
@@ -23,7 +22,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.workerState = kAKWorkerStateFree;
+        self.state = kAKEmployeeStateFree;
     }
     return self;
 }
@@ -34,20 +33,12 @@
 - (void)performWorkWithObject:(AKEmployee *)object {
     NSLog(@"%@ starting", self);
 
-    self.workerState = kAKWorkerStateBusy;
+    self.state = kAKEmployeeStateBusy;
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];
-    
-    if (self.delegate) {
-        [self.delegate workerDidFinishWorkWithObject:self];
-    }
-}
+    self.state = kAKEmployeeStateFree;
 
-#pragma mark -
-#pragma mark Private
-
-- (void)completeWorkWithObject:(AKEmployee *)object {
-    object.workerState = kAKWorkerStateFree;
+    [self workerDidFinishWorkWithObject:object];
 }
 
 #pragma mark -
@@ -71,4 +62,41 @@
     [self performWorkWithObject:object];
 }
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(AKEmployeeState)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObservers];
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)completeWorkWithObject:(AKEmployee *)object {
+    object.state = kAKEmployeeStateFree;
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kAKEmployeeStateFree:
+            return @selector(employeeGotFree);
+            
+        case kAKEmployeeStateBusy:
+            return @selector(employeeBecameBusy);
+            
+        default:
+            return [super selectorForState:state];
+    }
+}
+
+- (void)employeeGotFree {
+    NSLog(@"ASDASDASD");
+}
 @end

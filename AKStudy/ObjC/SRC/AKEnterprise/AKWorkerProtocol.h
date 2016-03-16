@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM (NSUInteger, AKWorkerState) {
-    kAKWorkerStateBusy,
-    kAKWorkerStateFree,
-    kAKWorkerStateUndefined
+typedef NS_ENUM (NSUInteger, AKEmployeeState) {
+    kAKEmployeeStateBusy,
+    kAKEmployeeStateFree,
+    kAKEmployeeStateUndefined
 };
 
 @protocol AKWorkerProtocol <NSObject>
-
 - (void)workerDidFinishWorkWithObject:(id<AKMoneyProtocol>)object;
 
 @end

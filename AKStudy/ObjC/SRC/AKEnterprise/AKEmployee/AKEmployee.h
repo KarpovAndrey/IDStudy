@@ -11,9 +11,22 @@
 #import "AKMoneyProtocol.h"
 #import "AKWorkerProtocol.h"
 
-@interface AKEmployee : NSObject <AKMoneyProtocol, AKWorkerProtocol>
-@property (nonatomic, assign) id <AKWorkerProtocol> delegate;
-@property (nonatomic, assign) AKWorkerState         workerState;
+#import "AKObserver.h"
+
+@class AKEmployee;
+@protocol AKEmployeeStateProtocol <NSObject>
+
+@optional
+
+- (void)employeeGotFree;
+- (void)employeeBecameBusy;
+
+@end
+
+
+@interface AKEmployee : AKObserver <AKMoneyProtocol, AKWorkerProtocol, AKEmployeeStateProtocol>
+//@property (nonatomic, assign) id <AKWorkerProtocol> delegate;
+@property (nonatomic, assign) AKEmployeeState state;
 
 - (void)performWorkWithObject:(id)object;
 

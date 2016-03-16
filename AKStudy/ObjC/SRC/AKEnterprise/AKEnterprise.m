@@ -14,6 +14,7 @@
 
 @interface AKEnterprise()
 @property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) AKCar          *car;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -42,6 +43,17 @@
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setCar:(AKCar *)car {
+    if (_car != car) {
+        [_car removeObserver:self];
+        _car = car;
+        [_car addObserver:self];
+    }
+}
+
+#pragma mark -
 #pragma mark - Private
 
 - (void)hireStaff {
@@ -49,22 +61,27 @@
     AKAccountant *accountant = [AKAccountant object];
     AKCarsWasher *carsWasher = [AKCarsWasher object];
     
-    carsWasher.delegate = accountant;
-    accountant.delegate = boss;
+    [boss removeObserver:self];
+    [accountant removeObserver:self];
+    [carsWasher removeObserver:self];
+
+    [boss addObserver:self];
+    [accountant addObserver:self];
+    [carsWasher addObserver:self];
+
+//    carsWasher.delegate = accountant;
+//    accountant.delegate = boss;
 
     self.staff = [@[boss, accountant, carsWasher] mutableCopy];
 }
 
 - (void)dismissStaff {
-//    for (AKEmployee *employee in self.staff){
-//        [self.staff removeObject:employee];
-//    }
     [self.staff removeAllObjects];
 }
 
 - (id)freeEmployeeWithClass:(Class)class {
     for (AKEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class] && employee.workerState == kAKWorkerStateFree) {
+        if ([employee isMemberOfClass:class] && employee.state == kAKEmployeeStateFree) {
             return employee;
         }
     }
@@ -76,8 +93,35 @@
 #pragma mark - Public
 
 - (void)washCar:(AKCar *)car {
+    self.car = car;
+    
     AKCarsWasher *carWasher = [self freeEmployeeWithClass:[AKCarsWasher class]];
     [carWasher performWorkWithObject:car];
 }
+
+#pragma mark -
+#pragma mark AKCarStateProtocol
+
+- (void)carWashed {
+    NSLog(@"CAR WASHED");
+}
+
+- (void)carSolied {
+    NSLog(@"CAR SOILED");
+}
+
+#pragma mark -
+#pragma mark EmployeeStateProtocol
+//
+//- (void)employeeGotFree {
+//    NSLog(@"EMPLOYEE GOT FREE");
+//    
+//    AKAccountant *accountant = [self freeEmployeeWithClass:[AKAccountant class]];
+//    [accountant performWorkWithObject:[self freeEmployeeWithClass:[AKCarsWasher class]]];
+//}
+//
+//- (void)employeeBecameBusy {
+//    NSLog(@"EMPLOYEE BECAME BUSY");
+//}
 
 @end

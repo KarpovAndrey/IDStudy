@@ -15,9 +15,9 @@
 @implementation AKBoss
 
 - (void)completeWorkWithObject:(AKEmployee *)object {
-    object.workerState = kAKWorkerStateFree;
+    object.state = kAKEmployeeStateFree;
     NSLog(@"%@ received @%lu$", self, self.money);
-    self.workerState = kAKWorkerStateFree;
+    self.state = kAKEmployeeStateFree;
 }
 
 @end

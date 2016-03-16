@@ -8,6 +8,7 @@
 
 #import "AKCarsWasher.h"
 #import "AKCar.h"
+#import "AKAccountant.h"
 
 @interface AKCarsWasher ()
 
@@ -16,7 +17,7 @@
 @implementation AKCarsWasher
 
 - (void)completeWorkWithObject:(AKCar *)car {
-    car.carState = kAKCarStateClean;
+    car.state = kAKCarStateClean;
 }
 
 @end

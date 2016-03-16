@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AKMoneyProtocol.h"
+#import "AKObserver.h"
 
 typedef NS_ENUM(NSUInteger, AKCarState) {
     kAKCarStateUndefined,
@@ -16,9 +17,18 @@ typedef NS_ENUM(NSUInteger, AKCarState) {
     kAKCarStateDirty
 };
 
+@protocol AKCarStateProtocol <NSObject>
+
+@optional
+
+- (void)carWashed;
+- (void)carSolied;
+
+@end
+
 @class AKCar;
 
-@interface AKCar : NSObject <AKMoneyProtocol>
-@property (nonatomic, assign) AKCarState carState;
+@interface AKCar : AKObserver <AKMoneyProtocol, AKCarStateProtocol>
+@property (nonatomic, assign) AKCarState state;
 
 @end
