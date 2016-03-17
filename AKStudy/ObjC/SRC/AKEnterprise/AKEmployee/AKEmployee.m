@@ -9,9 +9,6 @@
 #import "AKEmployee.h"
 #import "AKCar.h"
 
-@interface AKEmployee ()
-@end
-
 @implementation AKEmployee
 @synthesize state = _state;
 @synthesize money = _money;
@@ -24,21 +21,58 @@
     if (self) {
         self.state = kAKEmployeeStateFree;
     }
+    
     return self;
+}
+
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(NSUInteger)state {
+    if (_state != state) {
+        _state = state;
+        
+        [self notifyObservers];
+    }
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(AKEmployee *)object {
+- (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
     NSLog(@"%@ starting", self);
 
     self.state = kAKEmployeeStateBusy;
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];
-    self.state = kAKEmployeeStateFree;
+    self.state = kAKEmployeeStateWaiting;
+}
 
-    [self workerDidFinishWorkWithObject:object];
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case kAKEmployeeStateFree:
+            return @selector(workerDidFinishWork:);
+            
+        case kAKEmployeeStateBusy:
+            return @selector(workerDidStartWork:);
+            
+        case kAKEmployeeStateWaiting:
+            return @selector(workerIsWaiting:);
+            
+        default:
+            return [super selectorForState:state];
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)completeWorkWithObject:(id)object {
+    if ([object isKindOfClass:[AKEmployee class]]) {
+        AKEmployee *employee = (AKEmployee *)object;
+        employee.state = kAKEmployeeStateFree;
+    }
 }
 
 #pragma mark -
@@ -58,45 +92,16 @@
 #pragma mark -
 #pragma mark - Worker Protocol
 
-- (void)workerDidFinishWorkWithObject:(id<AKMoneyProtocol>)object {
-    [self performWorkWithObject:object];
+- (void)workerDidStartWork:(id)worker {
+    
 }
 
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setState:(AKEmployeeState)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObservers];
-    }
+- (void)workerDidFinishWork:(id)worker {
+    
 }
 
-#pragma mark -
-#pragma mark Private
-
-- (void)completeWorkWithObject:(AKEmployee *)object {
-    object.state = kAKEmployeeStateFree;
+- (void)workerIsWaiting:(id<AKMoneyProtocol>)worker {
+    [self performWorkWithObject:worker];
 }
 
-#pragma mark -
-#pragma mark Public
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kAKEmployeeStateFree:
-            return @selector(employeeGotFree);
-            
-        case kAKEmployeeStateBusy:
-            return @selector(employeeBecameBusy);
-            
-        default:
-            return [super selectorForState:state];
-    }
-}
-
-- (void)employeeGotFree {
-    NSLog(@"ASDASDASD");
-}
 @end

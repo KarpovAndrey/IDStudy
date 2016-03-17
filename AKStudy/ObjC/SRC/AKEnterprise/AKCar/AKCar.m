@@ -49,6 +49,7 @@ static const NSUInteger carCash = 100;
             
         case kAKCarStateDirty:
             return @selector(carSolied);
+            
         default:
             return [super selectorForState:state];
     }

@@ -12,11 +12,9 @@
 @property (nonatomic, assign) NSUInteger money;
 
 @required
-
 - (void)takeMoney:(NSUInteger)money;
 
 @optional
-
 - (NSUInteger)giveMoney;
 
 @end

@@ -8,11 +8,6 @@
 
 #import "AKCarsWasher.h"
 #import "AKCar.h"
-#import "AKAccountant.h"
-
-@interface AKCarsWasher ()
-
-@end
 
 @implementation AKCarsWasher
 

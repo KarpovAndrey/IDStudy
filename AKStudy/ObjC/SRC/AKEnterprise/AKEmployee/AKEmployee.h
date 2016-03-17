@@ -14,20 +14,9 @@
 #import "AKObserver.h"
 
 @class AKEmployee;
-@protocol AKEmployeeStateProtocol <NSObject>
 
-@optional
+@interface AKEmployee : AKObserver <AKMoneyProtocol, AKWorkerProtocol>
 
-- (void)employeeGotFree;
-- (void)employeeBecameBusy;
-
-@end
-
-
-@interface AKEmployee : AKObserver <AKMoneyProtocol, AKWorkerProtocol, AKEmployeeStateProtocol>
-//@property (nonatomic, assign) id <AKWorkerProtocol> delegate;
-@property (nonatomic, assign) AKEmployeeState state;
-
-- (void)performWorkWithObject:(id)object;
+- (void)performWorkWithObject:(id<AKMoneyProtocol>)object;
 
 @end

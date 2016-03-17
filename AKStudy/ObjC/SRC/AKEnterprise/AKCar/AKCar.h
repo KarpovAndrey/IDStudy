@@ -17,16 +17,15 @@ typedef NS_ENUM(NSUInteger, AKCarState) {
     kAKCarStateDirty
 };
 
+@class AKCar;
+
 @protocol AKCarStateProtocol <NSObject>
 
 @optional
-
 - (void)carWashed;
 - (void)carSolied;
 
 @end
-
-@class AKCar;
 
 @interface AKCar : AKObserver <AKMoneyProtocol, AKCarStateProtocol>
 @property (nonatomic, assign) AKCarState state;

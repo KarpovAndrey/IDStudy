@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface AKObserver : NSObject
-@property (nonatomic, readonly) NSUInteger state;
+@property (nonatomic, assign)   NSUInteger state;
 @property (nonatomic, readonly) NSArray    *observers;
 
 - (void)addObserver:(id)observer;
@@ -20,5 +20,6 @@
 
 - (void)notifyObservers;
 - (void)notifyObserversWithSelector:(SEL)selector;
+- (BOOL)isObservedByObject:(id)object;
 
 @end

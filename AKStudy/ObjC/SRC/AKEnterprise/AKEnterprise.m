@@ -12,8 +12,10 @@
 #import "AKAccountant.h"
 #import "AKBoss.h"
 
+#import "AKObserver.h"
+
 @interface AKEnterprise()
-@property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) NSHashTable    *staff;
 @property (nonatomic, retain) AKCar          *car;
 
 - (void)hireStaff;
@@ -36,6 +38,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.staff = [NSHashTable weakObjectsHashTable];
+
         [self hireStaff];
     }
     
@@ -61,18 +65,12 @@
     AKAccountant *accountant = [AKAccountant object];
     AKCarsWasher *carsWasher = [AKCarsWasher object];
     
-    [boss removeObserver:self];
-    [accountant removeObserver:self];
-    [carsWasher removeObserver:self];
+    [self.staff addObject:boss];
+    [self.staff addObject:accountant];
+    [self.staff addObject:carsWasher];
 
-    [boss addObserver:self];
-    [accountant addObserver:self];
-    [carsWasher addObserver:self];
-
-//    carsWasher.delegate = accountant;
-//    accountant.delegate = boss;
-
-    self.staff = [@[boss, accountant, carsWasher] mutableCopy];
+    [carsWasher addObserver:accountant];
+    [accountant addObserver:boss];
 }
 
 - (void)dismissStaff {
@@ -92,6 +90,18 @@
 #pragma mark -
 #pragma mark - Public
 
+- (void)dismissEmployee:(AKEmployee *)object {
+    for (AKEmployee *employee in self.staff) {
+        if ([employee isObservedByObject:object]) {
+            if ([employee respondsToSelector:@selector(removeObserver:)]) {
+                [employee removeObserver:object];
+            }
+        }
+    }
+    
+    [self.staff removeObject:object];
+}
+
 - (void)washCar:(AKCar *)car {
     self.car = car;
     
@@ -109,19 +119,5 @@
 - (void)carSolied {
     NSLog(@"CAR SOILED");
 }
-
-#pragma mark -
-#pragma mark EmployeeStateProtocol
-//
-//- (void)employeeGotFree {
-//    NSLog(@"EMPLOYEE GOT FREE");
-//    
-//    AKAccountant *accountant = [self freeEmployeeWithClass:[AKAccountant class]];
-//    [accountant performWorkWithObject:[self freeEmployeeWithClass:[AKCarsWasher class]]];
-//}
-//
-//- (void)employeeBecameBusy {
-//    NSLog(@"EMPLOYEE BECAME BUSY");
-//}
 
 @end

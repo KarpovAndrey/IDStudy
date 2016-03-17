@@ -10,7 +10,6 @@
 
 @interface AKObserver ()
 @property  (nonatomic, assign) NSMutableArray *mutableObservers;
-//@property  (nonatomic, assign) NSUInteger     stateObserver;
 
 @end
 
@@ -33,6 +32,7 @@
     if (self) {
         self.mutableObservers = [NSMutableArray array];
     }
+    
     return self;
 }
 
@@ -42,10 +42,10 @@
 - (NSArray *)observers {
     return [self.mutableObservers copy];
 }
-//
-//- (NSUInteger)state {
-//    return self.stateObserver;
-//}
+
+- (NSUInteger)state {
+    return 0;
+}
 
 #pragma mark -
 #pragma mark Public
@@ -56,6 +56,10 @@
 
 - (void)removeObserver:(id)observer {
     [self.mutableObservers removeObject:observer];
+}
+
+- (BOOL)isObservedByObject:(id)object {
+    return [self.mutableObservers containsObject:object];
 }
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -69,7 +73,7 @@
 - (void)notifyObserversWithSelector:(SEL)selector {
     for (id observer in self.observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector];
+            [observer performSelector:selector withObject:self];
         }
     }
 }

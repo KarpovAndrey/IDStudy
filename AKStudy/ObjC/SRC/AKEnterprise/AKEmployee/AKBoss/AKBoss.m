@@ -8,16 +8,13 @@
 
 #import "AKBoss.h"
 
-@interface AKBoss ()
-
-@end
-
 @implementation AKBoss
 
-- (void)completeWorkWithObject:(AKEmployee *)object {
-    object.state = kAKEmployeeStateFree;
-    NSLog(@"%@ received @%lu$", self, self.money);
+- (void)performWorkWithObject:(AKEmployee *)object {
+    [super performWorkWithObject:object];
+    
     self.state = kAKEmployeeStateFree;
+    NSLog(@"Boss received @%lu$", (unsigned long)self.money);
 }
 
 @end
