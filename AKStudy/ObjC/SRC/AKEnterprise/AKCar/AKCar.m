@@ -29,17 +29,6 @@ static const NSUInteger carCash = 100;
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (void)setState:(AKCarState)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObservers];
-    }
-}
-
-#pragma mark -
 #pragma mark Public
 
 - (SEL)selectorForState:(NSUInteger)state {

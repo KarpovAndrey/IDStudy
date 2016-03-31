@@ -14,6 +14,23 @@
 @synthesize money = _money;
 
 #pragma mark -
+#pragma mark Class Methods
+
++ (NSArray *)employeesOfClass:(Class)theClass
+                   withCount:(NSUInteger)count
+                   observers:(NSArray *)observers
+{
+    NSArray *employees = [NSArray objectWithCount:count ofClass:theClass];
+    for (AKEmployee *employee in employees) {
+        for (id observer in observers) {
+            [employee addObserver:observer];
+        }
+    }
+    
+    return employees;
+}
+
+#pragma mark -
 #pragma mark Initializations & Deallocations
 
 - (instancetype)init {
@@ -24,7 +41,6 @@
     
     return self;
 }
-
 
 #pragma mark -
 #pragma mark Accessors
@@ -42,7 +58,8 @@
 
 - (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
     NSLog(@"%@ starting", self);
-
+    
+    sleep(arc4random_uniform(2) + 1);
     self.state = kAKEmployeeStateBusy;
     [self takeMoney:[object giveMoney]];
     [self completeWorkWithObject:object];

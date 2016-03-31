@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface AKObserver : NSObject
-@property (nonatomic, assign)   NSUInteger state;
-@property (nonatomic, readonly) NSArray    *observers;
+@property (nonatomic, assign)   NSUInteger     state;
+@property (nonatomic, readonly) NSArray        *observers;
 
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;

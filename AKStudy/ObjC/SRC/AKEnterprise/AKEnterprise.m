@@ -14,9 +14,11 @@
 
 #import "AKObserver.h"
 
+static const NSUInteger kAKCarWashersCount = 3;
+
 @interface AKEnterprise()
-@property (nonatomic, retain) NSHashTable    *staff;
-@property (nonatomic, retain) AKCar          *car;
+@property (nonatomic, retain) NSMutableArray    *staff;
+@property (nonatomic, retain) NSMutableArray *queueCars;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -38,8 +40,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.staff = [NSHashTable weakObjectsHashTable];
-
+        self.queueCars = [NSMutableArray object];
+        
         [self hireStaff];
     }
     
@@ -47,30 +49,21 @@
 }
 
 #pragma mark -
-#pragma mark Accessors
-
-- (void)setCar:(AKCar *)car {
-    if (_car != car) {
-        [_car removeObserver:self];
-        _car = car;
-        [_car addObserver:self];
-    }
-}
-
-#pragma mark -
 #pragma mark - Private
 
 - (void)hireStaff {
     AKBoss *boss = [AKBoss object];
-    AKAccountant *accountant = [AKAccountant object];
-    AKCarsWasher *carsWasher = [AKCarsWasher object];
     
-    [self.staff addObject:boss];
-    [self.staff addObject:accountant];
-    [self.staff addObject:carsWasher];
-
-    [carsWasher addObserver:accountant];
+    AKAccountant *accountant = [AKAccountant object];
     [accountant addObserver:boss];
+
+    NSMutableArray *staff = [NSMutableArray arrayWithObjects:boss, accountant, nil];
+    NSArray *washers = [AKEmployee employeesOfClass:[AKCarsWasher class]
+                                          withCount:kAKCarWashersCount
+                                          observers:@[accountant, self]];
+  
+    [staff addObjectsFromArray:washers];
+    self.staff = [[staff copy] autorelease];
 }
 
 - (void)dismissStaff {
@@ -103,21 +96,28 @@
 }
 
 - (void)washCar:(AKCar *)car {
-    self.car = car;
-    
     AKCarsWasher *carWasher = [self freeEmployeeWithClass:[AKCarsWasher class]];
-    [carWasher performWorkWithObject:car];
+    
+    if (carWasher) {
+        [carWasher performWorkWithObject:car];
+    } else {
+        [self.queueCars addObject:car];
+    }
 }
 
 #pragma mark -
-#pragma mark AKCarStateProtocol
+#pragma mark Worker Protocol
 
-- (void)carWashed {
-    NSLog(@"CAR WASHED");
-}
-
-- (void)carSolied {
-    NSLog(@"CAR SOILED");
+- (void)workerIsWaiting:(AKCarsWasher *)washer {
+    AKCar *car = nil;
+    NSMutableArray *cars = self.queueCars;
+    
+    @synchronized(cars) {
+        car = [cars lastObject];
+        
+        [cars removeObject:car];
+        [washer performWorkWithObject:car];
+    }
 }
 
 @end

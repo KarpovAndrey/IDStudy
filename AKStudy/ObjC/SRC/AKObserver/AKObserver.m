@@ -9,7 +9,7 @@
 #import "AKObserver.h"
 
 @interface AKObserver ()
-@property  (nonatomic, assign) NSMutableArray *mutableObservers;
+@property  (nonatomic, assign) NSHashTable *mutableObservers;
 
 @end
 
@@ -30,7 +30,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSMutableArray array];
+        self.mutableObservers = [NSHashTable weakObjectsHashTable];
     }
     
     return self;
