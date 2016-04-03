@@ -42,6 +42,10 @@
 - (id)objectFromQueue {
     id object = [self.queue lastObject];
     
+    if (object) {
+        [self removeObjectFromQueue:object];
+    }
+    
     return object;
 }
 

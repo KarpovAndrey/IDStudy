@@ -11,6 +11,7 @@
 #import "AKCarsWasher.h"
 #import "AKAccountant.h"
 #import "AKBoss.h"
+#import "AKQueue.h"
 
 #import "AKObserver.h"
 
@@ -18,7 +19,7 @@ static const NSUInteger kAKCarWashersCount = 3;
 
 @interface AKEnterprise()
 @property (nonatomic, retain) NSMutableArray    *staff;
-@property (nonatomic, retain) NSMutableArray    *queueCars;
+@property (nonatomic, retain) AKQueue           *queueCars;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -42,7 +43,7 @@ static const NSUInteger kAKCarWashersCount = 3;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queueCars = [NSMutableArray object];
+        self.queueCars = [AKQueue object];
         
         [self hireStaff];
     }
@@ -103,7 +104,7 @@ static const NSUInteger kAKCarWashersCount = 3;
         if (carWasher) {
             [carWasher performWorkWithObject:car];
         } else {
-            [self.queueCars addObject:car];
+            [self.queueCars addObjectToQueue:car];
         }
     }
 }
@@ -113,10 +114,9 @@ static const NSUInteger kAKCarWashersCount = 3;
 
 - (void)employeeBecameFree:(AKCarsWasher *)washer {
     @synchronized(self) {
-        AKCar *car = [self.queueCars firstObject];
+        AKCar *car = [self.queueCars objectFromQueue];
         
         if (car) {
-            [self.queueCars removeObject:car];
             [washer performWorkWithObject:car];
         }
     }
