@@ -9,14 +9,14 @@
 #import "AKObserver.h"
 
 @interface AKObserver ()
-@property  (nonatomic, assign) NSHashTable *mutableObservers;
+@property  (nonatomic, retain) NSHashTable *mutableObservers;
 
 @end
 
 @implementation AKObserver
+@synthesize state = _state;
 
 @dynamic observers;
-@dynamic state;
 
 #pragma mark -
 #pragma mark Initializations & Deallocations
@@ -40,22 +40,36 @@
 #pragma mark Accessors
 
 - (NSArray *)observers {
-    return [self.mutableObservers copy];
+    return [[self.mutableObservers copy] autorelease];
 }
 
 - (NSUInteger)state {
     return 0;
 }
 
+- (void)setState:(NSUInteger)state {
+    @synchronized(self) {
+        if (_state != state) {
+            _state = state;
+            
+            [self notifyObservers];
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark Public
 
 - (void)addObserver:(id)observer {
-    [self.mutableObservers addObject:observer];
+    @synchronized(self.mutableObservers) {
+        [self.mutableObservers addObject:observer];
+    }
 }
 
 - (void)removeObserver:(id)observer {
-    [self.mutableObservers removeObject:observer];
+    @synchronized(self.mutableObservers) {
+        [self.mutableObservers removeObject:observer];
+    }
 }
 
 - (BOOL)isObservedByObject:(id)object {
@@ -71,11 +85,11 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
-    for (id observer in self.observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+        for (id observer in self.mutableObservers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector withObject:self];
+            }
         }
-    }
 }
 
 @end

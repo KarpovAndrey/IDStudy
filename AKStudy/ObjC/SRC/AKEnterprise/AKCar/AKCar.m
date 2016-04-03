@@ -13,7 +13,6 @@ static const NSUInteger carCash = 100;
 @implementation AKCar
 
 @synthesize money = _money;
-@synthesize state = _state;
 
 #pragma mark - 
 #pragma mark - Initializations and Deallocations
@@ -29,33 +28,21 @@ static const NSUInteger carCash = 100;
 }
 
 #pragma mark -
-#pragma mark Public
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kAKCarStateClean:
-            return @selector(carWashed);
-            
-        case kAKCarStateDirty:
-            return @selector(carSolied);
-            
-        default:
-            return [super selectorForState:state];
-    }
-}
-
-#pragma mark -
 #pragma mark - Money Protocol
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+    @synchronized(self) {
+        self.money += money;
+    }
 }
 
 - (NSUInteger)giveMoney {
-    NSUInteger payment = self.money;
-    self.money = 0;
-    
-    return payment;
+    @synchronized(self) {
+        NSUInteger payment = self.money;
+        self.money = 0;
+        
+        return payment;
+    }
 }
 
 @end

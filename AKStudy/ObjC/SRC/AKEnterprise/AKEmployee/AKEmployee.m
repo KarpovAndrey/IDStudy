@@ -9,18 +9,24 @@
 #import "AKEmployee.h"
 #import "AKCar.h"
 
+@interface AKEmployee()
+
+- (void)completeWork;
+- (void)completeWorkWithObject:(id)object;
+- (void)workWithObject:(id)object;
+- (void)performWorkInBackgroundWithObject:(id)object;
+
+@end
+
 @implementation AKEmployee
-@synthesize state = _state;
 @synthesize money = _money;
+@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (NSArray *)employeesOfClass:(Class)theClass
-                   withCount:(NSUInteger)count
-                   observers:(NSArray *)observers
-{
-    NSArray *employees = [NSArray objectWithCount:count ofClass:theClass];
++ (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers {
+    NSArray *employees = [self objectWithCount:count];
     for (AKEmployee *employee in employees) {
         for (id observer in observers) {
             [employee addObserver:observer];
@@ -46,44 +52,60 @@
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
-        
-        [self notifyObservers];
-    }
+//    @synchronized(self) {
+        if (_state != state) {
+            _state = state;
+            
+            [self notifyObservers];
+        }
+//    }
 }
 
 #pragma mark -
 #pragma mark Public
 
-- (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
-    NSLog(@"%@ starting", self);
-    
-    sleep(arc4random_uniform(2) + 1);
-    self.state = kAKEmployeeStateBusy;
-    [self takeMoney:[object giveMoney]];
-    [self completeWorkWithObject:object];
-    self.state = kAKEmployeeStateWaiting;
-}
-
 - (SEL)selectorForState:(NSUInteger)state {
     switch (state) {
         case kAKEmployeeStateFree:
-            return @selector(workerDidFinishWork:);
+            return @selector(employeeBecameFree:);
             
         case kAKEmployeeStateBusy:
-            return @selector(workerDidStartWork:);
+            return @selector(employeeDidStartWork:);
             
         case kAKEmployeeStateWaiting:
-            return @selector(workerIsWaiting:);
+            return @selector(employeeBecameWaiting:);
             
         default:
             return [super selectorForState:state];
     }
 }
 
+
+- (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
+    NSLog(@"%@ starting", self);
+    self.state = kAKEmployeeStateBusy;
+
+    [self performSelectorInBackground:@selector(performWorkInBackgroundWithObject:) withObject:object];
+}
+
 #pragma mark -
 #pragma mark Private
+
+- (void)performWorkInBackgroundWithObject:(id)object {
+    @synchronized(object) {
+        [self workWithObject:object];
+    }
+    
+    [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:NO];
+}
+
+- (void)workWithObject:(id)object {
+    sleep(arc4random_uniform(1) + 1);
+    
+    [self takeMoney:[object giveMoney]];
+    NSLog(@"%@ take money from %@, he has %lu money", self, object, self.money);
+    [self completeWorkWithObject:object];
+}
 
 - (void)completeWorkWithObject:(id)object {
     if ([object isKindOfClass:[AKEmployee class]]) {
@@ -92,33 +114,43 @@
     }
 }
 
+- (void)completeWork {
+    @synchronized(self) {
+        self.state = kAKEmployeeStateWaiting;
+    }
+}
+
 #pragma mark -
 #pragma mark - Money Protocol
 
 - (NSUInteger)giveMoney {
-    NSUInteger payment = self.money;
-    self.money = 0;
-
-    return payment;
+    @synchronized(self) {
+        NSUInteger payment = self.money;
+        self.money = 0;
+        
+        return payment;
+    }
 }
 
 - (void)takeMoney:(NSUInteger)money {
-    self.money += money;
+    @synchronized(self) {
+        self.money += money;
+    }
 }
 
 #pragma mark -
 #pragma mark - Worker Protocol
 
-- (void)workerDidStartWork:(id)worker {
+- (void)employeeDidStartWork:(id)employee {
     
 }
 
-- (void)workerDidFinishWork:(id)worker {
+- (void)employeeBecameFree:(id)employee {
     
 }
 
-- (void)workerIsWaiting:(id<AKMoneyProtocol>)worker {
-    [self performWorkWithObject:worker];
+- (void)employeeBecameWaiting:(id<AKMoneyProtocol>)employee {
+    [self performWorkWithObject:employee];
 }
 
 @end

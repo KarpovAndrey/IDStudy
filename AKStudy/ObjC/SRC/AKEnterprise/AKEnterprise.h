@@ -14,6 +14,5 @@
 @interface AKEnterprise : NSObject
 
 - (void)washCar:(AKCar *)car;
-- (void)dismissEmployee:(AKEmployee *)object;
 
 @end
