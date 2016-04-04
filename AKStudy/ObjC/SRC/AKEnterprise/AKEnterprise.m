@@ -104,7 +104,7 @@ static const NSUInteger kAKCarWashersCount = 3;
         if (carWasher) {
             [carWasher performWorkWithObject:car];
         } else {
-            [self.queueCars addObjectToQueue:car];
+            [self.queueCars pushObject:car];
         }
     }
 }
@@ -114,7 +114,7 @@ static const NSUInteger kAKCarWashersCount = 3;
 
 - (void)employeeBecameFree:(AKCarsWasher *)washer {
     @synchronized(self) {
-        AKCar *car = [self.queueCars objectFromQueue];
+        AKCar *car = [self.queueCars popObject];
         
         if (car) {
             [washer performWorkWithObject:car];

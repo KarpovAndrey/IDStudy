@@ -11,7 +11,7 @@
 #import "AKEmployee.h"
 @class AKCar;
 
-@interface AKEnterprise : NSObject
+@interface AKEnterprise : NSObject <AKWorkerProtocol>
 
 - (void)washCar:(AKCar *)car;
 

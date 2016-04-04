@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface AKQueue : NSObject
-@property (nonatomic, retain) NSMutableArray *queue;
+@property (nonatomic, readonly) NSArray *queue;
 
-- (void)addObjectToQueue:(id)object;
-- (void)removeObjectFromQueue:(id)object;
-- (id)objectFromQueue;
+- (void)pushObject:(id)object;
+- (id)popObject;
 
 @end

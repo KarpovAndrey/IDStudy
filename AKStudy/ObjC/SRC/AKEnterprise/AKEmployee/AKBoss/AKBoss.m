@@ -10,9 +10,7 @@
 
 @implementation AKBoss
 
-- (void)performWorkWithObject:(AKEmployee *)object {
-    [super performWorkWithObject:object];
-    
+- (void)completeWork {
     self.state = kAKEmployeeStateFree;
     NSLog(@"Boss received @%lu$", (unsigned long)self.money);
 }

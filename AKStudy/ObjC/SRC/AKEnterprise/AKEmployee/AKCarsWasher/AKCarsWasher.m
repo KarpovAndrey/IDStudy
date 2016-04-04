@@ -12,7 +12,7 @@
 @implementation AKCarsWasher
 
 - (void)completeWorkWithObject:(AKCar *)car {
-    sleep(arc4random_uniform(1) + 1);
+    sleep(arc4random_uniform(2) + 1);
 
     car.state = kAKCarStateClean;
 }

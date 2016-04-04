@@ -43,10 +43,6 @@
     return [[self.mutableObservers copy] autorelease];
 }
 
-- (NSUInteger)state {
-    return 0;
-}
-
 - (void)setState:(NSUInteger)state {
     @synchronized(self) {
         if (_state != state) {
@@ -61,13 +57,13 @@
 #pragma mark Public
 
 - (void)addObserver:(id)observer {
-    @synchronized(self.mutableObservers) {
+    @synchronized(self) {
         [self.mutableObservers addObject:observer];
     }
 }
 
 - (void)removeObserver:(id)observer {
-    @synchronized(self.mutableObservers) {
+    @synchronized(self) {
         [self.mutableObservers removeObject:observer];
     }
 }

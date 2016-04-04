@@ -8,8 +8,10 @@
 
 #import "AKEmployee.h"
 #import "AKCar.h"
+#import "AKQueue.h"
 
 @interface AKEmployee()
+@property (nonatomic, retain) AKQueue *queue;
 
 - (void)completeWork;
 - (void)completeWorkWithObject:(id)object;
@@ -20,7 +22,6 @@
 
 @implementation AKEmployee
 @synthesize money = _money;
-@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Class Methods
@@ -46,19 +47,6 @@
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setState:(NSUInteger)state {
-//    @synchronized(self) {
-        if (_state != state) {
-            _state = state;
-            
-            [self notifyObservers];
-        }
-//    }
 }
 
 #pragma mark -
@@ -92,7 +80,7 @@
 #pragma mark Private
 
 - (void)performWorkInBackgroundWithObject:(id)object {
-    @synchronized(object) {
+    @synchronized(self) {
         [self workWithObject:object];
     }
     
@@ -100,7 +88,7 @@
 }
 
 - (void)workWithObject:(id)object {
-    sleep(arc4random_uniform(1) + 1);
+    sleep(arc4random_uniform(2) + 1);
     
     [self takeMoney:[object giveMoney]];
     NSLog(@"%@ take money from %@, he has %lu money", self, object, self.money);

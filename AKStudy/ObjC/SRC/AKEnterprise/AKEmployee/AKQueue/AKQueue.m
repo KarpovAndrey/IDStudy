@@ -8,13 +8,19 @@
 
 #import "AKQueue.h"
 
+@interface AKQueue ()
+@property (nonatomic, retain) NSMutableArray *queueArray;
+
+@end
+
 @implementation AKQueue
 
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
 - (void)dealloc {
-    self.queue = nil;
+    [self.queueArray removeAllObjects];
+    self.queueArray = nil;
     
     [super dealloc];
 }
@@ -22,28 +28,31 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queue = [NSMutableArray array];
+        self.queueArray = [NSMutableArray array];
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)queue {
+    return [[self.queueArray copy] autorelease];
+}
+
+#pragma mark -
 #pragma mark Public Implementations
 
-- (void)addObjectToQueue:(id)object {
-    [self.queue addObject:object];
+- (void)pushObject:(id)object {
+    [self.queueArray addObject:object];
 }
 
-- (void)removeObjectFromQueue:(id)object {
-    [self.queue removeObject:object];
-}
-
-- (id)objectFromQueue {
-    id object = [self.queue lastObject];
+- (id)popObject {
+    id object = [self.queueArray firstObject];
     
     if (object) {
-        [self removeObjectFromQueue:object];
+        [self.queueArray removeObject:object];
     }
     
     return object;

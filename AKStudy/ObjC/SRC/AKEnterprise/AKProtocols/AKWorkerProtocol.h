@@ -16,10 +16,9 @@ typedef NS_ENUM (NSUInteger, AKEmployeeState) {
 };
 
 @protocol AKWorkerProtocol <NSObject>
-@required
-- (void)employeeBecameWaiting:(id)employee;
 
 @optional
+- (void)employeeBecameWaiting:(id)employee;
 - (void)employeeDidStartWork:(id)employee;
 - (void)employeeDidFinishWork:(id)employee;
 
