@@ -14,8 +14,8 @@ static const NSUInteger carCash = 100;
 
 @synthesize money = _money;
 
-#pragma mark - 
-#pragma mark - Initializations and Deallocations
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (instancetype)init {
     self = [super init];
@@ -28,7 +28,7 @@ static const NSUInteger carCash = 100;
 }
 
 #pragma mark -
-#pragma mark - Money Protocol
+#pragma mark Money Protocol
 
 - (void)takeMoney:(NSUInteger)money {
     @synchronized(self) {

@@ -11,11 +11,13 @@
 #import "AKMoneyProtocol.h"
 #import "AKWorkerProtocol.h"
 
+#import "AKQueue.h"
 #import "AKObserver.h"
 
 @class AKEmployee;
 
 @interface AKEmployee : AKObserver <AKMoneyProtocol, AKWorkerProtocol>
+@property (nonatomic, readonly) AKQueue *queue;
 
 + (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers;
 

@@ -15,7 +15,8 @@
 
 #import "AKObserver.h"
 
-static const NSUInteger kAKCarWashersCount = 3;
+static const NSUInteger kAKCarWashersCount     = 3;
+static const NSUInteger kAKCarAccountantsCount = 2;
 
 @interface AKEnterprise()
 @property (nonatomic, retain) NSMutableArray    *staff;
@@ -30,7 +31,7 @@ static const NSUInteger kAKCarWashersCount = 3;
 @implementation AKEnterprise
 
 #pragma mark -
-#pragma mark - Initializations and Deallocations
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc {
     [self dismissStaff];
@@ -52,17 +53,17 @@ static const NSUInteger kAKCarWashersCount = 3;
 }
 
 #pragma mark -
-#pragma mark - Private
+#pragma mark Private
 
 - (void)hireStaff {
     AKBoss *boss = [AKBoss object];
-    AKAccountant *accountant = [AKAccountant object];
-    [accountant addObserver:boss];
+    NSArray *accountants = [AKAccountant employeesWithCount:kAKCarAccountantsCount observers:@[boss]];
     
-    self.staff = [NSMutableArray arrayWithObjects:accountant, boss, nil];
+    self.staff = [NSMutableArray arrayWithObjects: boss, nil];
     NSArray *washers = [AKCarsWasher employeesWithCount:kAKCarWashersCount
-                                              observers:@[accountant, self]];
+                                              observers:@[accountants[0], accountants[1], self]];
     
+    [self.staff addObjectsFromArray:accountants];
     [self.staff addObjectsFromArray:washers];
 }
 
@@ -95,22 +96,21 @@ static const NSUInteger kAKCarWashersCount = 3;
 }
 
 #pragma mark -
-#pragma mark - Public
+#pragma mark Public
 
 - (void)washCar:(AKCar *)car {
     @synchronized(self) {
+        [self.queueCars pushObject:car];
         AKCarsWasher *carWasher = [self freeEmployeeWithClass:[AKCarsWasher class]];
         
         if (carWasher) {
-            [carWasher performWorkWithObject:car];
-        } else {
-            [self.queueCars pushObject:car];
+            [carWasher performWorkWithObject:[self.queueCars popObject]];
         }
     }
 }
 
 #pragma mark -
-#pragma mark Observer Protocol
+#pragma mark Worker Protocol
 
 - (void)employeeBecameFree:(AKCarsWasher *)washer {
     @synchronized(self) {

@@ -1,4 +1,4 @@
- //
+//
 //  AKEmployee.m
 //  AKStudy
 //
@@ -8,7 +8,6 @@
 
 #import "AKEmployee.h"
 #import "AKCar.h"
-#import "AKQueue.h"
 
 @interface AKEmployee()
 @property (nonatomic, retain) AKQueue *queue;
@@ -40,10 +39,17 @@
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
+- (void)dealloc {
+    self.queue = nil;
+    
+    [super dealloc];
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kAKEmployeeStateFree;
+        self.queue = [AKQueue object];
     }
     
     return self;
@@ -68,12 +74,20 @@
     }
 }
 
-
 - (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
-    NSLog(@"%@ starting", self);
-    self.state = kAKEmployeeStateBusy;
-
-    [self performSelectorInBackground:@selector(performWorkInBackgroundWithObject:) withObject:object];
+    @synchronized(self) {
+        if (object) {
+            NSLog(@"%@ starting", self);
+            
+            [self.queue pushObject:object];
+            if (self.state == kAKEmployeeStateFree) {
+                self.state = kAKEmployeeStateBusy;
+                
+                [self performSelectorInBackground:@selector(performWorkInBackgroundWithObject:)
+                                       withObject:[self.queue popObject]];
+            }
+        }
+    }
 }
 
 #pragma mark -
@@ -88,7 +102,7 @@
 }
 
 - (void)workWithObject:(id)object {
-    sleep(arc4random_uniform(2) + 1);
+    usleep(arc4random_uniform(10) + 1);
     
     [self takeMoney:[object giveMoney]];
     NSLog(@"%@ take money from %@, he has %lu money", self, object, self.money);
@@ -103,13 +117,17 @@
 }
 
 - (void)completeWork {
-    @synchronized(self) {
+    AKEmployee *object = [self.queue popObject];
+    
+    if (object) {
+        [self performWorkInBackgroundWithObject:object];
+    } else {
         self.state = kAKEmployeeStateWaiting;
     }
 }
 
 #pragma mark -
-#pragma mark - Money Protocol
+#pragma mark Money Protocol
 
 - (NSUInteger)giveMoney {
     @synchronized(self) {
@@ -127,7 +145,7 @@
 }
 
 #pragma mark -
-#pragma mark - Worker Protocol
+#pragma mark Worker Protocol
 
 - (void)employeeDidStartWork:(id)employee {
     
