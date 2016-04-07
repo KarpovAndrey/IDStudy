@@ -14,13 +14,17 @@
 #import "AKQueue.h"
 
 #import "AKObserver.h"
+#import "AKDispatcher.h"
 
 static const NSUInteger kAKCarWashersCount     = 3;
 static const NSUInteger kAKCarAccountantsCount = 2;
 
 @interface AKEnterprise()
 @property (nonatomic, retain) NSMutableArray    *staff;
-@property (nonatomic, retain) AKQueue           *queueCars;
+
+@property (nonatomic, retain) AKDispatcher      *washerDispatcher;
+@property (nonatomic, retain) AKDispatcher      *accountantDispatcher;
+@property (nonatomic, retain) AKDispatcher      *bossDispatcher;
 
 - (void)hireStaff;
 - (void)dismissStaff;
@@ -36,7 +40,9 @@ static const NSUInteger kAKCarAccountantsCount = 2;
 - (void)dealloc {
     [self dismissStaff];
     self.staff = nil;
-    self.queueCars = nil;
+    self.washerDispatcher = nil;
+    self.accountantDispatcher = nil;
+    self.bossDispatcher = nil;
     
     [super dealloc];
 }
@@ -44,8 +50,6 @@ static const NSUInteger kAKCarAccountantsCount = 2;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.queueCars = [AKQueue object];
-        
         [self hireStaff];
     }
     
@@ -57,12 +61,16 @@ static const NSUInteger kAKCarAccountantsCount = 2;
 
 - (void)hireStaff {
     AKBoss *boss = [AKBoss object];
+    self.bossDispatcher = [[[AKDispatcher alloc] initWithStaff:@[boss]] autorelease];
+    
     NSArray *accountants = [AKAccountant employeesWithCount:kAKCarAccountantsCount observers:@[boss]];
+    self.accountantDispatcher = [[[AKDispatcher alloc] initWithStaff:@[accountants[0], accountants[1]]] autorelease];
     
+    NSArray *washers = [AKAccountant employeesWithCount:kAKCarAccountantsCount observers:@[self]];
+    self.washerDispatcher = [[[AKDispatcher alloc] initWithStaff:@[washers[0], washers[1], washers[2]]] autorelease];
     self.staff = [NSMutableArray arrayWithObjects: boss, nil];
-    NSArray *washers = [AKCarsWasher employeesWithCount:kAKCarWashersCount
-                                              observers:@[accountants[0], accountants[1], self]];
     
+    self.staff = [NSMutableArray arrayWithObject:boss];
     [self.staff addObjectsFromArray:accountants];
     [self.staff addObjectsFromArray:washers];
 }
@@ -85,40 +93,23 @@ static const NSUInteger kAKCarAccountantsCount = 2;
     [self.staff removeObject:object];
 }
 
-- (id)freeEmployeeWithClass:(Class)class {
-    for (AKEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class] && employee.state == kAKEmployeeStateFree) {
-            return employee;
-        }
-    }
-    
-    return nil;
-}
-
 #pragma mark -
 #pragma mark Public
 
 - (void)washCar:(AKCar *)car {
-    @synchronized(self) {
-        [self.queueCars pushObject:car];
-        AKCarsWasher *carWasher = [self freeEmployeeWithClass:[AKCarsWasher class]];
-        
-        if (carWasher) {
-            [carWasher performWorkWithObject:[self.queueCars popObject]];
-        }
-    }
+    [self.washerDispatcher addObject:car];
 }
 
 #pragma mark -
 #pragma mark Worker Protocol
 
-- (void)employeeBecameFree:(AKCarsWasher *)washer {
-    @synchronized(self) {
-        AKCar *car = [self.queueCars popObject];
-        
-        if (car) {
-            [washer performWorkWithObject:car];
-        }
+- (void)employeeBecameWaiting:(id<AKMoneyProtocol>)employee {
+    if ([employee isMemberOfClass:[AKCarsWasher class]]) {
+        [self.accountantDispatcher addObject:employee];
+    }
+    
+    if ([employee isMemberOfClass:[AKAccountant class]]) {
+        [self.bossDispatcher addObject:employee];
     }
 }
 

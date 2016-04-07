@@ -38,6 +38,8 @@
 		84AFB1AA1C8AD0BE001795AE /* AKClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41211C84E3C900AB4C4C /* AKClusterAlphabet.m */; };
 		84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */; };
 		84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; };
+		84B616791CB6CD120048C92A /* AKDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B616781CB6CD120048C92A /* AKDispatcher.m */; };
+		84B6167A1CB6CD120048C92A /* AKDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B616781CB6CD120048C92A /* AKDispatcher.m */; };
 		84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B677931C86E3500042FC86 /* TestAKStudy.m */; };
 		84B677991C86E3770042FC86 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
@@ -141,6 +143,8 @@
 		84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AKExtensions.m"; sourceTree = "<group>"; };
 		84B14F671C7FAD8E003B4B17 /* NSString+AKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AKExtensions.h"; sourceTree = "<group>"; };
 		84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKExtensions.m"; sourceTree = "<group>"; };
+		84B616771CB6CD120048C92A /* AKDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatcher.h; sourceTree = "<group>"; };
+		84B616781CB6CD120048C92A /* AKDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatcher.m; sourceTree = "<group>"; };
 		84B677911C86E3500042FC86 /* TestAKStudy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAKStudy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B677931C86E3500042FC86 /* TestAKStudy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAKStudy.m; sourceTree = "<group>"; };
 		84B677951C86E3500042FC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -526,6 +530,15 @@
 			path = AKExtensions;
 			sourceTree = "<group>";
 		};
+		84B616761CB6CCF80048C92A /* AKDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				84B616771CB6CD120048C92A /* AKDispatcher.h */,
+				84B616781CB6CD120048C92A /* AKDispatcher.m */,
+			);
+			path = AKDispatcher;
+			sourceTree = "<group>";
+		};
 		84B677921C86E3500042FC86 /* TestAKStudy */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +560,7 @@
 		84F708D31CADA49A00CBBFF7 /* AKEnterprise */ = {
 			isa = PBXGroup;
 			children = (
+				84B616761CB6CCF80048C92A /* AKDispatcher */,
 				84AA39471CB11CA2004DF487 /* AKProtocols */,
 				84F708E31CADA49A00CBBFF7 /* AKEnterprise.h */,
 				84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */,
@@ -749,6 +763,7 @@
 				84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */,
 				84F708ED1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
 				84FB41221C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */,
+				84B616791CB6CD120048C92A /* AKDispatcher.m in Sources */,
 				84C406C01C986539002000DE /* AKObserver.m in Sources */,
 				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
 				84F708EB1CADA49A00CBBFF7 /* AKBoss.m in Sources */,
@@ -800,6 +815,7 @@
 				84AFB1AA1C8AD0BE001795AE /* AKClusterAlphabet.m in Sources */,
 				84F708EE1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
 				84F708F01CADA49A00CBBFF7 /* AKEmployee.m in Sources */,
+				84B6167A1CB6CD120048C92A /* AKDispatcher.m in Sources */,
 				84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */,
 				84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */,
 				84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */,

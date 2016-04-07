@@ -10,7 +10,6 @@
 #import "AKCar.h"
 
 @interface AKEmployee()
-@property (nonatomic, retain) AKQueue *queue;
 
 - (void)completeWork;
 - (void)completeWorkWithObject:(id)object;
@@ -39,17 +38,10 @@
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
-- (void)dealloc {
-    self.queue = nil;
-    
-    [super dealloc];
-}
-
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.state = kAKEmployeeStateFree;
-        self.queue = [AKQueue object];
     }
     
     return self;
@@ -79,12 +71,11 @@
         if (object) {
             NSLog(@"%@ starting", self);
             
-            [self.queue pushObject:object];
             if (self.state == kAKEmployeeStateFree) {
                 self.state = kAKEmployeeStateBusy;
                 
                 [self performSelectorInBackground:@selector(performWorkInBackgroundWithObject:)
-                                       withObject:[self.queue popObject]];
+                                       withObject:object];
             }
         }
     }

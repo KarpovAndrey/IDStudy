@@ -17,7 +17,6 @@
 @class AKEmployee;
 
 @interface AKEmployee : AKObserver <AKMoneyProtocol, AKWorkerProtocol>
-@property (nonatomic, readonly) AKQueue *queue;
 
 + (NSArray *)employeesWithCount:(NSUInteger)count observers:(NSArray *)observers;
 
