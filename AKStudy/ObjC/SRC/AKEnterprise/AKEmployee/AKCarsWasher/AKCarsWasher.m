@@ -12,9 +12,10 @@
 @implementation AKCarsWasher
 
 - (void)completeWorkWithObject:(AKCar *)car {
-    usleep(arc4random_uniform(100000) + 1);
+    usleep(arc4random_uniform(2) + 1);
 
     car.state = kAKCarStateClean;
+    NSLog(@"CAR %@ WASHED", car);
 }
 
 @end

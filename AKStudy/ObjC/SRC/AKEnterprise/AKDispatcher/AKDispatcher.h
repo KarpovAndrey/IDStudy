@@ -15,6 +15,6 @@
 - (instancetype)initWithStaff:(NSArray *)staff NS_DESIGNATED_INITIALIZER;
 
 - (BOOL)containsEmployee:(AKEmployee *)employee;
-- (void)addObject:(id)object;
+- (void)workWithObject:(id)object;
 
 @end

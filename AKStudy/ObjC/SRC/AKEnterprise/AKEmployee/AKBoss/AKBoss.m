@@ -12,8 +12,7 @@
 
 - (void)completeWork {
     self.state = kAKEmployeeStateFree;
-    NSLog(@"Boss received @%lu$", (unsigned long)self.money);
-    [self performWorkWithObject:[self.queue popObject]];
+    NSLog(@"Boss received @%lu", (unsigned long)self.money);
 }
 
 @end

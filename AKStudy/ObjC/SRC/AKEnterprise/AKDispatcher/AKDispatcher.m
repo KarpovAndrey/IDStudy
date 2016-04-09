@@ -15,6 +15,8 @@
 @property (nonatomic, retain) AKQueue        *queue;
 
 - (AKEmployee *)vacantEmployee;
+- (void)dismissStaff;
+- (void)dismissEmployee:(AKEmployee *)object;
 
 @end
 
@@ -24,7 +26,7 @@
 #pragma mark Initialization & Deallocation
 
 - (void)dealloc {
-    self.staff = nil;
+    [self dismissStaff];
     self.queue = nil;
     
     [super dealloc];
@@ -67,14 +69,17 @@
     return [self.staff containsObject:employee];
 }
 
-- (void)addObject:(id)object {
+- (void)workWithObject:(id)object {
     @synchronized (self) {
-        [self.queue pushObject:object];
-        AKEmployee *employee = [self vacantEmployee];
-        
-        if (employee) {
-            [employee performWorkWithObject:[self.queue popObject]];
+        if (object) {
+            [self.queue pushObject:object];
+            AKEmployee *employee = [self vacantEmployee];
+            
+            if (employee) {
+                [employee performWorkWithObject:[self.queue popObject]];
+            }
         }
+        
     }
 }
 
@@ -82,12 +87,42 @@
 #pragma mark Private
 
 - (AKEmployee *)vacantEmployee {
-    for (AKEmployee *employee in self.staff) {
-        if (employee.state == kAKEmployeeStateFree) {
-            return employee;
+    @synchronized (self) {
+        for (AKEmployee *employee in self.staff) {
+            if (employee.state == kAKEmployeeStateFree) {
+                return employee;
+            }
         }
     }
+    
     return nil;
+}
+
+- (void)dismissStaff {
+    NSArray *staff = [[self.staff copy] autorelease];
+    
+    for (AKEmployee *employee in staff) {
+        [self dismissEmployee:employee];
+    }
+}
+
+- (void)dismissEmployee:(AKEmployee *)object {
+    for (AKEmployee *employee in self.staff) {
+        if ([employee isObservedByObject:object]) {
+            [employee removeObserver:object];
+        }
+    }
+    
+    [self.staff removeObject:object];
+}
+
+#pragma mark -
+#pragma mark Observer Protocol
+
+- (void)employeeBecameFree:(id)employee {
+    @synchronized (self) {
+        [self workWithObject:[self.queue popObject]];
+    }
 }
 
 @end
