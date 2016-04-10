@@ -23,6 +23,7 @@
 
 - (void)dealloc {
     self.mutableObservers = nil;
+    self.handlersDictionary = nil;
     
     [super dealloc];
 }
@@ -31,6 +32,7 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.handlersDictionary = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -48,6 +50,13 @@
         if (_state != state) {
             _state = state;
             
+            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+            void (^employeeBlock)(void) = [self.handlersDictionary objectForKey:keyNumber];
+            
+            if (employeeBlock) {
+                employeeBlock();
+            }
+            
             [self notifyObservers];
         }
     }
@@ -55,6 +64,18 @@
 
 #pragma mark -
 #pragma mark Public
+
+- (void)addBlockForState:(AKEmployeeHandler)employeeBlock state:(NSUInteger)state {
+    [self removeBlockForState:state];
+    
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlersDictionary setObject:[[employeeBlock copy] autorelease] forKey:keyNumber];
+}
+
+- (void)removeBlockForState:(NSUInteger)state {
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    [self.handlersDictionary removeObjectForKey:keyNumber];
+}
 
 - (void)addObserver:(id)observer {
     @synchronized(self) {
