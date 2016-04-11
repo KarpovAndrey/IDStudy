@@ -58,7 +58,11 @@
     if (_staff != staff) {
         _staff = staff;
         
-        [_staff makeObjectsPerformSelector:@selector(addObserver:) withObject:self];
+        for (AKEmployee *employee in staff) {
+            [employee addHandler:^{
+                [self employeeBecameFree:employee];}
+                        forState:kAKEmployeeStateFree object:self];
+        }
     }
 }
 
@@ -108,9 +112,7 @@
 
 - (void)dismissEmployee:(AKEmployee *)object {
     for (AKEmployee *employee in self.staff) {
-        if ([employee isObservedByObject:object]) {
-            [employee removeObserver:object];
-        }
+        [employee removeHandlerForObject:self];
     }
     
     [self.staff removeObject:object];

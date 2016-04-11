@@ -9,20 +9,16 @@
 #import "AKObserver.h"
 
 @interface AKObserver ()
-@property  (nonatomic, retain) NSHashTable *mutableObservers;
 
 @end
 
 @implementation AKObserver
 @synthesize state = _state;
 
-@dynamic observers;
-
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
 - (void)dealloc {
-    self.mutableObservers = nil;
     self.handlersDictionary = nil;
     
     [super dealloc];
@@ -31,7 +27,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [NSHashTable weakObjectsHashTable];
         self.handlersDictionary = [NSMutableDictionary dictionary];
     }
     
@@ -41,23 +36,16 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)observers {
-    return [[self.mutableObservers copy] autorelease];
-}
-
 - (void)setState:(NSUInteger)state {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
             
-            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-            void (^employeeBlock)(void) = [self.handlersDictionary objectForKey:keyNumber];
-            
-            if (employeeBlock) {
-                employeeBlock();
-            }
-            
-            [self notifyObservers];
+            NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:_state];
+            NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
+                for (AKEmployeeHandler employeeHandler in array) {
+                    employeeHandler();
+                }
         }
     }
 }
@@ -65,48 +53,28 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)addBlockForState:(AKEmployeeHandler)employeeBlock state:(NSUInteger)state {
-    [self removeBlockForState:state];
+- (void)addHandler:(AKEmployeeHandler)employeeHandler forState:(NSUInteger)state object:(id)object {
+    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
+    NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
+    if (!array) {
+        array = [NSMutableArray array];
+    }
     
+    [array addObject:[[employeeHandler copy] autorelease]];
+    [self.handlersDictionary setObject:array forKey:keyNumber];
+}
+
+- (void)removeHandlerForState:(NSUInteger)state object:(id)object {
     NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary setObject:[[employeeBlock copy] autorelease] forKey:keyNumber];
-}
+    NSMutableArray *array = [self.handlersDictionary objectForKey:keyNumber];
+    [array removeAllObjects];}
 
-- (void)removeBlockForState:(NSUInteger)state {
-    NSNumber *keyNumber = [NSNumber numberWithUnsignedInteger:state];
-    [self.handlersDictionary removeObjectForKey:keyNumber];
-}
-
-- (void)addObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers addObject:observer];
+- (void)removeHandlerForObject:(id)object {
+    NSArray *allKeys = [self.handlersDictionary allKeys];
+    
+    for (NSNumber *key in allKeys) {
+        [self removeHandlerForState:[key unsignedIntegerValue] object:object];
     }
-}
-
-- (void)removeObserver:(id)observer {
-    @synchronized(self) {
-        [self.mutableObservers removeObject:observer];
-    }
-}
-
-- (BOOL)isObservedByObject:(id)object {
-    return [self.mutableObservers containsObject:object];
-}
-
-- (SEL)selectorForState:(NSUInteger)state {
-    return nil;
-}
-
-- (void)notifyObservers {
-    [self notifyObserversWithSelector:[self selectorForState:self.state]];
-}
-
-- (void)notifyObserversWithSelector:(SEL)selector {
-        for (id observer in self.mutableObservers) {
-            if ([observer respondsToSelector:selector]) {
-                [observer performSelector:selector withObject:self];
-            }
-        }
 }
 
 @end

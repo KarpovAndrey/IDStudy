@@ -12,13 +12,13 @@ typedef NS_ENUM (NSUInteger, AKEmployeeState) {
     kAKEmployeeStateUndefined,
     kAKEmployeeStateBusy,
     kAKEmployeeStateFree,
-    kAKEmployeeStateWaiting
+    kAKEmployeeStateStandby
 };
 
 @protocol AKWorkerProtocol <NSObject>
 
 @optional
-- (void)employeeBecameWaiting:(id)employee;
+- (void)employeeBecameStandby:(id)employee;
 - (void)employeeDidStartWork:(id)employee;
 - (void)employeeDidFinishWork:(id)employee;
 

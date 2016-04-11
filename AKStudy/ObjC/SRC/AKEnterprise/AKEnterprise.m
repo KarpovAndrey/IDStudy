@@ -26,6 +26,7 @@ static const NSUInteger kAKAccountantsCount = 2;
 
 - (void)hireStaff;
 - (AKDispatcher *)dispatherForObject:(id)object;
+- (void)addHandlerForStandbyState:(NSArray *)staff;
 
 @end
 
@@ -58,15 +59,27 @@ static const NSUInteger kAKAccountantsCount = 2;
     AKBoss *boss = [AKBoss object];
     self.bossDispatcher = [[[AKDispatcher alloc] initWithStaff:@[boss]] autorelease];
     
-    NSArray *accountants = [AKAccountant employeesWithCount:kAKAccountantsCount observer:self];
+    NSArray *accountants = [AKAccountant employeesWithCount:kAKAccountantsCount];
     self.accountantDispatcher = [[[AKDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    NSArray *washers = [AKCarsWasher employeesWithCount:kAKCarWashersCount observer:self];
+    NSArray *washers = [AKCarsWasher employeesWithCount:kAKCarWashersCount];
     self.washerDispatcher = [[[AKDispatcher alloc] initWithStaff:washers] autorelease];
+    
+    [self addHandlerForStandbyState:washers];
+    [self addHandlerForStandbyState:accountants];
 }
 
 - (AKDispatcher *)dispatherForObject:(id)object {
     return [self.washerDispatcher containsEmployee:object] ? self.accountantDispatcher : self.bossDispatcher;
+}
+
+- (void)addHandlerForStandbyState:(NSArray *)staff {
+    @synchronized (self) {
+        for (AKEmployee *employee in staff) {
+            [employee addHandler:^ {[self employeeBecameStandby:employee];}
+                        forState:kAKEmployeeStateStandby object:self];
+        }
+    }
 }
 
 #pragma mark -
@@ -81,7 +94,7 @@ static const NSUInteger kAKAccountantsCount = 2;
 #pragma mark -
 #pragma mark Observer Protocol
 
-- (void)employeeBecameWaiting:(id)employee {
+- (void)employeeBecameStandby:(id)employee {
     [[self dispatherForObject:employee] workWithObject:employee];
 }
 

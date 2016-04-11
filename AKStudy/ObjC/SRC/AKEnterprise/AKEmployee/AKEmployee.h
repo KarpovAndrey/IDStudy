@@ -18,7 +18,7 @@
 
 @interface AKEmployee : AKObserver <AKMoneyProtocol, AKWorkerProtocol>
 
-+ (NSArray *)employeesWithCount:(NSUInteger)count observer:(id)observer;
++ (NSArray *)employeesWithCount:(NSUInteger)count;
 
 - (void)performWorkWithObject:(id<AKMoneyProtocol>)object;
 

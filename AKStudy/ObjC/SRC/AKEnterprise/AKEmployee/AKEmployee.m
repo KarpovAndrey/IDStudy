@@ -24,10 +24,10 @@
 #pragma mark -
 #pragma mark Class Methods
 
-+ (NSArray *)employeesWithCount:(NSUInteger)count observer:(id)observer {
-    NSArray *array = [self objectWithCount:count];
-    for (AKEmployee *employee in array) {
-        [employee addObserver:observer];
++ (NSArray *)employeesWithCount:(NSUInteger)count {
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSUInteger index = 0; index < count; index++) {
+        [array addObject:[self object]];
     }
     
     return [[array copy] autorelease];
@@ -47,22 +47,6 @@
 
 #pragma mark -
 #pragma mark Public
-
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case kAKEmployeeStateFree:
-            return @selector(employeeBecameFree:);
-            
-        case kAKEmployeeStateBusy:
-            return @selector(employeeDidStartWork:);
-            
-        case kAKEmployeeStateWaiting:
-            return @selector(employeeBecameWaiting:);
-            
-        default:
-            return [super selectorForState:state];
-    }
-}
 
 - (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
     @synchronized(self) {
@@ -110,7 +94,7 @@
 }
 
 - (void)completeWork {
-    self.state = kAKEmployeeStateWaiting;
+    self.state = kAKEmployeeStateStandby;
 }
 
 #pragma mark -
@@ -129,17 +113,6 @@
     @synchronized(self) {
         self.money += money;
     }
-}
-
-#pragma mark -
-#pragma mark Worker Protocol
-
-- (void)employeeDidStartWork:(id)employee {
-    
-}
-
-- (void)employeeBecameFree:(id)employee {
-    
 }
 
 @end
