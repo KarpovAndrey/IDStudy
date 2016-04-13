@@ -12,7 +12,7 @@
 
 - (void)completeWork {
     self.state = kAKEmployeeStateFree;
-    NSLog(@"Boss received @%lu", (unsigned long)self.money);
+    NSLog(@"Boss received %lu", (unsigned long)self.money);
 }
 
 @end

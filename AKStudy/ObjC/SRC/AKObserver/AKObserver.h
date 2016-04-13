@@ -8,14 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^AKEmployeeHandler)(void);
+typedef void (^AKObjectHandler)(void);
 
 @interface AKObserver : NSObject
 @property (nonatomic, assign)   NSUInteger     state;
-@property (nonatomic, retain)   NSMutableDictionary *handlersDictionary;
 
-- (void)addHandler:(AKEmployeeHandler)employeeHandler forState:(NSUInteger)state object:(id)object;
-- (void)removeHandlerForState:(NSUInteger)state object:(id)object;
+- (void)addHandler:(AKObjectHandler)handler forState:(NSUInteger)state object:(id)object;
+- (void)removeHandlerForState:(NSUInteger)state;
 - (void)removeHandlerForObject:(id)object;
 
 @end

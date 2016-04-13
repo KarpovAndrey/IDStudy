@@ -22,18 +22,6 @@
 @synthesize money = _money;
 
 #pragma mark -
-#pragma mark Class Methods
-
-+ (NSArray *)employeesWithCount:(NSUInteger)count {
-    NSMutableArray *array = [NSMutableArray array];
-    for (NSUInteger index = 0; index < count; index++) {
-        [array addObject:[self object]];
-    }
-    
-    return [[array copy] autorelease];
-}
-
-#pragma mark -
 #pragma mark Initializations & Deallocations
 
 - (instancetype)init {

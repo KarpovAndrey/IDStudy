@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */; };
 		8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */; };
+		8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; };
+		8418E5801CBE76D800141D27 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; };
+		8418E5831CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
+		8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
+		8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
+		8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
 		847692131C762984008682D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691D91C762984008682D4 /* main.c */; };
 		847692141C762984008682D4 /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DC1C762984008682D4 /* AKArray.c */; };
 		847692151C762984008682D4 /* AKEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DF1C762984008682D4 /* AKEnumerator.c */; };
@@ -89,6 +95,12 @@
 		8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureFemale.m; sourceTree = "<group>"; };
 		8402EEEB1C7B768D0004E6DC /* AKCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureMale.h; sourceTree = "<group>"; };
 		8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureMale.m; sourceTree = "<group>"; };
+		8418E57D1CBE76D800141D27 /* AKObserverDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverDictionary.h; sourceTree = "<group>"; };
+		8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverDictionary.m; sourceTree = "<group>"; };
+		8418E5811CBE76E400141D27 /* AKObserverArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverArray.h; sourceTree = "<group>"; };
+		8418E5821CBE76E400141D27 /* AKObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverArray.m; sourceTree = "<group>"; };
+		8418E5851CBE76F400141D27 /* AKObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverObject.h; sourceTree = "<group>"; };
+		8418E5861CBE76F400141D27 /* AKObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverObject.m; sourceTree = "<group>"; };
 		847691D31C762922008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847691D91C762984008682D4 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		847691DC1C762984008682D4 /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
@@ -214,6 +226,43 @@
 				8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */,
 			);
 			path = AKCreatureMale;
+			sourceTree = "<group>";
+		};
+		8418E5751CBE769700141D27 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				8418E57C1CBE76C900141D27 /* AKObserverDictionary */,
+				8418E5761CBE769700141D27 /* AKObserverArray */,
+				8418E5771CBE769700141D27 /* AKObserverObject */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		8418E5761CBE769700141D27 /* AKObserverArray */ = {
+			isa = PBXGroup;
+			children = (
+				8418E5811CBE76E400141D27 /* AKObserverArray.h */,
+				8418E5821CBE76E400141D27 /* AKObserverArray.m */,
+			);
+			path = AKObserverArray;
+			sourceTree = "<group>";
+		};
+		8418E5771CBE769700141D27 /* AKObserverObject */ = {
+			isa = PBXGroup;
+			children = (
+				8418E5851CBE76F400141D27 /* AKObserverObject.h */,
+				8418E5861CBE76F400141D27 /* AKObserverObject.m */,
+			);
+			path = AKObserverObject;
+			sourceTree = "<group>";
+		};
+		8418E57C1CBE76C900141D27 /* AKObserverDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				8418E57D1CBE76D800141D27 /* AKObserverDictionary.h */,
+				8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */,
+			);
+			path = AKObserverDictionary;
 			sourceTree = "<group>";
 		};
 		847691D21C762922008682D4 /* ObjC */ = {
@@ -551,6 +600,7 @@
 		84C406BD1C98651C002000DE /* AKObserver */ = {
 			isa = PBXGroup;
 			children = (
+				8418E5751CBE769700141D27 /* Private */,
 				84C406BE1C986539002000DE /* AKObserver.h */,
 				84C406BF1C986539002000DE /* AKObserver.m */,
 			);
@@ -754,6 +804,7 @@
 				84F708E71CADA49A00CBBFF7 /* AKCar.m in Sources */,
 				84AA394D1CB11D6B004DF487 /* AKQueue.m in Sources */,
 				84FB411A1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */,
+				8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */,
 				84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */,
 				84F708E91CADA49A00CBBFF7 /* AKAccountant.m in Sources */,
 				8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */,
@@ -761,12 +812,14 @@
 				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
 				84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */,
 				84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */,
+				8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */,
 				84F708ED1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
 				84FB41221C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */,
 				84B616791CB6CD120048C92A /* AKDispatcher.m in Sources */,
 				84C406C01C986539002000DE /* AKObserver.m in Sources */,
 				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
 				84F708EB1CADA49A00CBBFF7 /* AKBoss.m in Sources */,
+				8418E5831CBE76E400141D27 /* AKObserverArray.m in Sources */,
 				8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */,
 				84F708EF1CADA49A00CBBFF7 /* AKEmployee.m in Sources */,
 				84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */,
@@ -807,6 +860,7 @@
 				84F708EC1CADA49A00CBBFF7 /* AKBoss.m in Sources */,
 				84B677991C86E3770042FC86 /* AKCreature.m in Sources */,
 				84AFB1A81C8AD0BA001795AE /* AKStringAlphabet.m in Sources */,
+				8418E5801CBE76D800141D27 /* AKObserverDictionary.m in Sources */,
 				84AA394E1CB11D6B004DF487 /* AKQueue.m in Sources */,
 				84AFB1A91C8AD0BC001795AE /* AKRangeAlphabet.m in Sources */,
 				84AFB1A71C8AD0A3001795AE /* NSObject+AKExtensions.m in Sources */,
@@ -816,7 +870,9 @@
 				84F708EE1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
 				84F708F01CADA49A00CBBFF7 /* AKEmployee.m in Sources */,
 				84B6167A1CB6CD120048C92A /* AKDispatcher.m in Sources */,
+				8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */,
 				84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */,
+				8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */,
 				84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */,
 				84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */,
 			);

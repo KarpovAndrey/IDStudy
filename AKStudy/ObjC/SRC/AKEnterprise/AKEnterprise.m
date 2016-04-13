@@ -59,10 +59,10 @@ static const NSUInteger kAKAccountantsCount = 2;
     AKBoss *boss = [AKBoss object];
     self.bossDispatcher = [[[AKDispatcher alloc] initWithStaff:@[boss]] autorelease];
     
-    NSArray *accountants = [AKAccountant employeesWithCount:kAKAccountantsCount];
+    NSArray *accountants = [AKAccountant objectWithCount:kAKAccountantsCount];
     self.accountantDispatcher = [[[AKDispatcher alloc] initWithStaff:accountants] autorelease];
     
-    NSArray *washers = [AKCarsWasher employeesWithCount:kAKCarWashersCount];
+    NSArray *washers = [AKCarsWasher objectWithCount:kAKCarWashersCount];
     self.washerDispatcher = [[[AKDispatcher alloc] initWithStaff:washers] autorelease];
     
     [self addHandlerForStandbyState:washers];
@@ -74,10 +74,11 @@ static const NSUInteger kAKAccountantsCount = 2;
 }
 
 - (void)addHandlerForStandbyState:(NSArray *)staff {
-    @synchronized (self) {
+    @synchronized(self) {
         for (AKEmployee *employee in staff) {
-            [employee addHandler:^ {[self employeeBecameStandby:employee];}
-                        forState:kAKEmployeeStateStandby object:self];
+            [employee addHandler:^ {
+                [self employeeBecameStandby:employee];
+            } forState:kAKEmployeeStateStandby object:self];
         }
     }
 }
@@ -86,7 +87,7 @@ static const NSUInteger kAKAccountantsCount = 2;
 #pragma mark Public
 
 - (void)washCar:(AKCar *)car {
-    @synchronized (self) {
+    @synchronized(self) {
         [self.washerDispatcher workWithObject:car];
     }
 }
