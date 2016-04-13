@@ -18,7 +18,7 @@
 #pragma mark Initializations & Deallocations
 
 - (void)dealloc {
-    self.arrayObjects = nil;
+    self.arrayObservers = nil;
     
     [super dealloc];
 }
@@ -26,7 +26,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.arrayObjects = [AKObserverArray object];
+        self.arrayObservers = [AKObserverArray object];
     }
     
     return self;
@@ -36,11 +36,11 @@
     AKObserverArray *observerArray = [AKObserverArray object];
     [observerArray addHandler:handler forObject:object];
     self.state = state;
-    self.arrayObjects = observerArray;
+    self.arrayObservers = observerArray;
 }
 
 - (void)removeHandlersForObject:(id)object {
-    [self.arrayObjects removeHandlersForObject:object];
+    [self.arrayObservers removeHandlersForObject:object];
 }
 
 @end

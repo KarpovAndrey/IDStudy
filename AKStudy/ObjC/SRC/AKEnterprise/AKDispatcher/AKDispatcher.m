@@ -61,8 +61,7 @@
         for (AKEmployee *employee in staff) {
             [employee addHandler:^{
                 [self employeeBecameFree:employee];
-            }
-                 forState:kAKEmployeeStateFree object:self];
+            } forState:kAKEmployeeStateFree object:self];
         }
     }
 }
@@ -111,13 +110,13 @@
     }
 }
 
-//- (void)dismissEmployee:(AKEmployee *)object {
-//    for (AKEmployee *employee in self.staff) {
-//        [employee removeHandlerForObject:self];
-//    }
-//    
-//    [self.staff removeObject:object];
-//}
+- (void)dismissEmployee:(AKEmployee *)object {
+    for (AKEmployee *employee in self.staff) {
+        [employee removeHandlerForObject:self];
+    }
+
+    [self.staff removeObject:object];
+}
 
 #pragma mark -
 #pragma mark Observer Protocol
