@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-#import "AKObserver.h"
-#import "AKObserverArray.h"
+typedef void (^AKObjectHandler)(void);
+
+@class AKObserverArray;
 
 @interface AKObserverDictionary : NSObject
-@property (nonatomic, retain) AKObserverArray *arrayObservers;
-@property (nonatomic, assign) NSUInteger state;
+@property (nonatomic, readonly) NSUInteger      state;
+@property (nonatomic, readonly) AKObserverArray *arrayObservers;
+@property (nonatomic, readonly) NSArray         *handlers;
 
-- (void)addHandler:(AKObjectHandler)handler forstate:(NSUInteger)state object:(id)object;
+- (instancetype)initWithState:(NSUInteger)state NS_DESIGNATED_INITIALIZER;
+
+- (void)addHandler:(AKObjectHandler)handler object:(id)object;
 - (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end

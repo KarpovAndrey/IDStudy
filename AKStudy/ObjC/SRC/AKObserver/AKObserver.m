@@ -12,18 +12,20 @@
 #import "AKObserverObject.h"
 
 @interface AKObserver ()
-@property (nonatomic, retain) NSMutableArray *observers;
+@property (nonatomic, retain) NSMutableArray *observerDictionaries;
+
+- (AKObserverDictionary *)dictonaryForState:(NSUInteger)state;
+- (void)performHandler;
 
 @end
 
 @implementation AKObserver
-@synthesize state = _state;
 
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
 - (void)dealloc {
-    self.observers = nil;
+    self.observerDictionaries = nil;
     
     [super dealloc];
 }
@@ -31,7 +33,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.observers = [NSMutableArray array];
+        self.observerDictionaries = [NSMutableArray array];
     }
     
     return self;
@@ -45,13 +47,7 @@
         if (_state != state) {
             _state = state;
             
-            for (AKObserverDictionary *observerDictionary in self.observers) {
-                if (observerDictionary.state == state) {
-                    for (AKObserverObject *observer in observerDictionary.arrayObservers.handlersObject) {
-                        observer.handler();
-                    }
-                }
-            }
+            [self performHandler];
         }
     }
 }
@@ -60,22 +56,51 @@
 #pragma mark Public
 
 - (void)addHandler:(AKObjectHandler)handler forState:(NSUInteger)state object:(id)object {
-    AKObserverDictionary *dictionary = [AKObserverDictionary object];
-    [dictionary addHandler:handler forstate:state object:object];
-    [self.observers addObject:dictionary];
+    if (object) {
+        AKObserverDictionary *dictionary = [self dictonaryForState:state];
+        
+        [dictionary addHandler:handler object:object];
+        [self.observerDictionaries addObject:dictionary];
+    }
 }
 
 - (void)removeHandlerForState:(NSUInteger)state {
-    for (AKObserverDictionary *observerDictionary in self.observers) {
+    for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
         if (observerDictionary.state == state) {
-            [self.observers removeObject:observerDictionary];
+            [self.observerDictionaries removeObject:observerDictionary];
         }
     }
 }
 
 - (void)removeHandlerForObject:(id)object {
-    for (AKObserverDictionary *observerDictionary in self.observers) {
-        [observerDictionary removeHandlersForObject:object];
+    if (object) {
+        for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
+            [observerDictionary removeHandlersForObject:object];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (AKObserverDictionary *)dictonaryForState:(NSUInteger)state {
+    for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
+        if (observerDictionary.state == state) {
+            
+            return observerDictionary;
+        }
+    }
+    
+    return [[[AKObserverDictionary alloc] initWithState:state] autorelease];
+}
+
+- (void)performHandler {
+    for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
+        if (observerDictionary.state == self.state) {
+            for (AKObjectHandler handler in observerDictionary.handlers) {
+                handler();
+            }
+        }
     }
 }
 

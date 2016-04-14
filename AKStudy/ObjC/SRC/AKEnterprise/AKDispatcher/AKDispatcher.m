@@ -33,12 +33,7 @@
 }
 
 - (instancetype)init {
-    self = [self initWithStaff:nil];
-    if (self) {
-        
-    }
-    
-    return self;
+    return [self initWithStaff:nil];
 }
 
 - (instancetype)initWithStaff:(NSArray *)staff {
@@ -61,7 +56,8 @@
         for (AKEmployee *employee in staff) {
             [employee addHandler:^{
                 [self employeeBecameFree:employee];
-            } forState:kAKEmployeeStateFree object:self];
+            }           forState:kAKEmployeeStateFree
+                          object:self];
         }
     }
 }

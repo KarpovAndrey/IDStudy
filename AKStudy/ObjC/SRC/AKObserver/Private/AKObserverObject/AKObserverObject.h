@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKObserver.h"
+
+typedef void (^AKObjectHandler)(void);
 
 @interface AKObserverObject : NSObject
-@property (nonatomic, retain) id              object;
+@property (nonatomic, weak)   id              object;
 @property (nonatomic, copy)   AKObjectHandler handler;
 
-- (instancetype)initWithObject:(id)object handler:(AKObjectHandler)handler NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithObject:(id)object handler:(AKObjectHandler)handler;
 
 @end

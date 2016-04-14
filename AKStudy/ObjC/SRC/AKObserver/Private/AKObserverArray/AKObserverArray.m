@@ -7,8 +7,10 @@
 //
 
 #import "AKObserverArray.h"
+#import "AKObserverObject.h"
 
 @interface AKObserverArray ()
+@property (nonatomic, retain) NSMutableArray *handlers;
 
 @end
 
@@ -18,7 +20,7 @@
 #pragma mark Initializations & Deallocations
 
 - (void)dealloc {
-    self.handlersObject = nil;
+    self.handlers = nil;
     
     [super dealloc];
 }
@@ -26,11 +28,17 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.handlersObject = [NSMutableArray array];
-        
+        self.handlers = [NSMutableArray array];
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)handlersObjects {
+    return [[self.handlers copy] autorelease];
 }
 
 #pragma mark -
@@ -39,16 +47,20 @@
 - (void)addHandler:(AKObjectHandler)handler forObject:(id)object {
     AKObserverObject *observerObject = [[[AKObserverObject alloc] initWithObject:object
                                                                          handler:handler] autorelease];
-    [self.handlersObject addObject:observerObject];
+    [self.handlers addObject:observerObject];
 }
 
 - (void)removeHandlersForObject:(id)object {
-    NSArray *objects = [[self.handlersObject copy] autorelease];
+    NSArray *objects = [[self.handlersObjects copy] autorelease];
     for (AKObserverObject *observerObject in objects) {
         if (observerObject.object == object) {
-            [self.handlersObject removeObject:observerObject];
+            [self.handlers removeObject:observerObject];
         }
     }
+}
+
+- (void)removeAllHandlers {
+    [self.handlers removeAllObjects];
 }
 
 @end

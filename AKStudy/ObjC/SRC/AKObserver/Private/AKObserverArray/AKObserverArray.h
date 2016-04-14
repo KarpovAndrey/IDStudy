@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKObserverDictionary.h"
-#import "AKObserverObject.h"
-#import "AKObserver.h"
+
+typedef void (^AKObjectHandler)(void);
 
 @interface AKObserverArray : NSObject
-@property (nonatomic, retain) NSMutableArray *handlersObject;
+@property (nonatomic, readonly) NSArray *handlersObjects;
 
 - (void)addHandler:(AKObjectHandler)handler forObject:(id)object;
 - (void)removeHandlersForObject:(id)object;
+- (void)removeAllHandlers;
 
 @end

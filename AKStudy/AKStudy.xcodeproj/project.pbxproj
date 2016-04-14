@@ -12,7 +12,7 @@
 		8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; };
 		8418E5831CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
 		8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
-		8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
+		8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
 		847692131C762984008682D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691D91C762984008682D4 /* main.c */; };
 		847692141C762984008682D4 /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DC1C762984008682D4 /* AKArray.c */; };

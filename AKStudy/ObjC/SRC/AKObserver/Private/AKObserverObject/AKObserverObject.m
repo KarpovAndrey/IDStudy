@@ -8,21 +8,7 @@
 
 #import "AKObserverObject.h"
 
-@interface AKObserverObject ()
-
-@end
-
 @implementation AKObserverObject
-
-- (void)dealloc {
-    self.object = nil;
-    
-    [super dealloc];
-}
-
-- (instancetype)init {
-    return [self initWithObject:nil handler:nil];
-}
 
 - (instancetype)initWithObject:(id)object handler:(AKObjectHandler)handler {
     self = [super init];
