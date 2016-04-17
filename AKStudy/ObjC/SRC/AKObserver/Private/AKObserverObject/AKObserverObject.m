@@ -10,6 +10,17 @@
 
 @implementation AKObserverObject
 
+#pragma mark -
+#pragma mark Class Methods
+
++ (AKObserverObject *)observerObjectWithObject:(id)object handler:(AKObjectHandler)handler {
+    return [[AKObserverObject alloc] initWithObject:object handler:handler];
+}
+
+
+# pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (instancetype)initWithObject:(id)object handler:(AKObjectHandler)handler {
     self = [super init];
     if (self) {

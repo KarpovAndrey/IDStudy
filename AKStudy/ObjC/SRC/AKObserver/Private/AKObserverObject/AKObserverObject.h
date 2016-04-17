@@ -14,6 +14,8 @@ typedef void (^AKObjectHandler)(void);
 @property (nonatomic, weak)   id              object;
 @property (nonatomic, copy)   AKObjectHandler handler;
 
++ (AKObserverObject *)observerObjectWithObject:(id)object handler:(AKObjectHandler)handler;
+
 - (instancetype)initWithObject:(id)object handler:(AKObjectHandler)handler;
 
 @end

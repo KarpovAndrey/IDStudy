@@ -75,13 +75,17 @@ static const NSUInteger kAKAccountantsCount = 2;
 
 - (void)addHandlerForStandbyState:(NSArray *)staff {
     @synchronized(self) {
+        
+        AKWeakSelf(AKEnterprise);
         for (AKEmployee *employee in staff) {
+            AKStrongSelf(AKEnterprise);
             [employee addHandler:^ {
-                [self employeeBecameStandby:employee];
+                [strongSelf employeeBecameStandby:employee];
             } forState:kAKEmployeeStateStandby object:self];
         }
     }
 }
+
 
 #pragma mark -
 #pragma mark Public
@@ -96,7 +100,9 @@ static const NSUInteger kAKAccountantsCount = 2;
 #pragma mark Observer Protocol
 
 - (void)employeeBecameStandby:(id)employee {
-    [[self dispatherForObject:employee] workWithObject:employee];
+    @synchronized (self) {
+        [[self dispatherForObject:employee] workWithObject:employee];
+    }
 }
 
 @end

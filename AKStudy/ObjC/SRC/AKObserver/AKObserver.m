@@ -60,7 +60,6 @@
         AKObserverDictionary *dictionary = [self dictonaryForState:state];
         
         [dictionary addHandler:handler object:object];
-        [self.observerDictionaries addObject:dictionary];
     }
 }
 
@@ -86,12 +85,15 @@
 - (AKObserverDictionary *)dictonaryForState:(NSUInteger)state {
     for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
         if (observerDictionary.state == state) {
-            
             return observerDictionary;
         }
     }
     
-    return [[[AKObserverDictionary alloc] initWithState:state] autorelease];
+    
+    AKObserverDictionary *dictionary = [AKObserverDictionary dictionaryWithState:state];
+    [self.observerDictionaries addObject:dictionary];
+
+    return dictionary;
 }
 
 - (void)performHandler {

@@ -53,9 +53,11 @@
     if (_staff != staff) {
         _staff = staff;
         
+        AKWeakSelf(AKDispatcher);
         for (AKEmployee *employee in staff) {
+            AKStrongSelf(AKDispatcher);
             [employee addHandler:^{
-                [self employeeBecameFree:employee];
+                [strongSelf employeeBecameFree:employee];
             }           forState:kAKEmployeeStateFree
                           object:self];
         }

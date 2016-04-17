@@ -45,8 +45,7 @@
 #pragma mark Public
 
 - (void)addHandler:(AKObjectHandler)handler forObject:(id)object {
-    AKObserverObject *observerObject = [[[AKObserverObject alloc] initWithObject:object
-                                                                         handler:handler] autorelease];
+    AKObserverObject *observerObject = [AKObserverObject observerObjectWithObject:object handler:handler];
     [self.handlers addObject:observerObject];
 }
 

@@ -14,8 +14,9 @@ typedef void (^AKObjectHandler)(void);
 
 @interface AKObserverDictionary : NSObject
 @property (nonatomic, readonly) NSUInteger      state;
-@property (nonatomic, readonly) AKObserverArray *arrayObservers;
 @property (nonatomic, readonly) NSArray         *handlers;
+
++ (AKObserverDictionary *)dictionaryWithState:(NSUInteger)state;
 
 - (instancetype)initWithState:(NSUInteger)state NS_DESIGNATED_INITIALIZER;
 
