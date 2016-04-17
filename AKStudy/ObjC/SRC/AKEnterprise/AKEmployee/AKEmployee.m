@@ -14,7 +14,6 @@
 - (void)completeWork;
 - (void)completeWorkWithObject:(id)object;
 - (void)workWithObject:(id)object;
-- (void)performWorkInBackgroundWithObject:(id)object;
 
 @end
 
@@ -44,23 +43,24 @@
             if (self.state == kAKEmployeeStateFree) {
                 self.state = kAKEmployeeStateBusy;
                 
-                [self performSelectorInBackground:@selector(performWorkInBackgroundWithObject:)
-                                       withObject:object];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                    usleep(arc4random_uniform(10000) + 1);
+                    [self workWithObject:object];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self completeWork];
+                    });
+                });
             }
         }
     }
 }
 
+
+
+
 #pragma mark -
 #pragma mark Private
-
-- (void)performWorkInBackgroundWithObject:(id)object {
-    @synchronized(self) {
-        [self workWithObject:object];
-        
-        [self performSelectorOnMainThread:@selector(completeWork) withObject:nil waitUntilDone:NO];
-    }
-}
 
 - (void)workWithObject:(id)object {
     @synchronized (self) {

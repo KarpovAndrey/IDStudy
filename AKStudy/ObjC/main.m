@@ -18,7 +18,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         AKEnterprise *enterprise = [AKEnterprise object];
-        NSArray *carsArray = [AKCar objectWithCount:30];
+        NSArray *carsArray = [AKCar objectWithCount:15];
         
         for (AKCar *car in carsArray) {
             [enterprise washCar:car];
