@@ -15,7 +15,7 @@
     usleep(arc4random_uniform(2) + 1);
 
     car.state = kAKCarStateClean;
-    NSLog(@"CAR %@ WASHED", car);
+//    NSLog(@"CAR %@ WASHED", car);
 }
 
 @end

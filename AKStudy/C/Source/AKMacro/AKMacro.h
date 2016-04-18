@@ -55,12 +55,4 @@
         assert(context);\
         context->object = object;\
 
-#define AKWeakSelf(selfClass)\
-            __weak selfClass *weakSelf = self;\
-
-#define AKStrongSelf(selfClass)\
-        __strong selfClass *strongSelf = weakSelf;\
-            if (!strongSelf)\
-                return;\
-
 #endif /* AKMacro_h */

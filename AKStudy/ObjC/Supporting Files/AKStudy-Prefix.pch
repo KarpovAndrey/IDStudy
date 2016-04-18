@@ -11,6 +11,6 @@
 
 #import <Foundation/Foundation.h>
 #import "NSObject+AKExtensions.h"
-#import "AKMacro.h"
+#import "AKMacroObjC.h"
 
 #endif /* AKStudy_Prefix_pch */

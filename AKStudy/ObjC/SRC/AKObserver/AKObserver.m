@@ -63,7 +63,7 @@
     }
 }
 
-- (void)removeHandlerForState:(NSUInteger)state {
+- (void)removeHandlersForState:(NSUInteger)state {
     for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
         if (observerDictionary.state == state) {
             [self.observerDictionaries removeObject:observerDictionary];
@@ -71,7 +71,7 @@
     }
 }
 
-- (void)removeHandlerForObject:(id)object {
+- (void)removeHandlersForObject:(id)object {
     if (object) {
         for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
             [observerDictionary removeHandlersForObject:object];

@@ -49,6 +49,7 @@
 		84B677991C86E3770042FC86 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84C406C01C986539002000DE /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; };
+		84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
 		84F708E71CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
 		84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
@@ -161,6 +162,9 @@
 		84B677951C86E3500042FC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C406BE1C986539002000DE /* AKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserver.h; sourceTree = "<group>"; };
 		84C406BF1C986539002000DE /* AKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserver.m; sourceTree = "<group>"; };
+		84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroObjC.h; sourceTree = "<group>"; };
+		84C956AA1CC575E30026BCC5 /* AKDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatch.h; sourceTree = "<group>"; };
+		84C956AB1CC575E30026BCC5 /* AKDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatch.m; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
 		84F708D51CADA49A00CBBFF7 /* AKCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCar.h; sourceTree = "<group>"; };
 		84F708D61CADA49A00CBBFF7 /* AKCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCar.m; sourceTree = "<group>"; };
@@ -484,6 +488,8 @@
 		847692251C762AAA008682D4 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				84C956A91CC575D40026BCC5 /* AKDispatch */,
+				84C956A61CC573A20026BCC5 /* AKMacro */,
 				847A81341C77ADB9004110B2 /* AKCreature */,
 				84FB41131C84E04E00AB4C4C /* AKAlphabet */,
 				84C406BD1C98651C002000DE /* AKObserver */,
@@ -604,6 +610,23 @@
 				84C406BF1C986539002000DE /* AKObserver.m */,
 			);
 			path = AKObserver;
+			sourceTree = "<group>";
+		};
+		84C956A61CC573A20026BCC5 /* AKMacro */ = {
+			isa = PBXGroup;
+			children = (
+				84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */,
+			);
+			path = AKMacro;
+			sourceTree = "<group>";
+		};
+		84C956A91CC575D40026BCC5 /* AKDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				84C956AA1CC575E30026BCC5 /* AKDispatch.h */,
+				84C956AB1CC575E30026BCC5 /* AKDispatch.m */,
+			);
+			path = AKDispatch;
 			sourceTree = "<group>";
 		};
 		84F708D31CADA49A00CBBFF7 /* AKEnterprise */ = {
@@ -811,6 +834,7 @@
 				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
 				84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */,
 				84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */,
+				84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */,
 				8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */,
 				84F708ED1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
 				84FB41221C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */,

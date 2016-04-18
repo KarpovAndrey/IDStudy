@@ -8,6 +8,7 @@
 
 #import "AKEmployee.h"
 #import "AKCar.h"
+#import "AKDispatch.h"
 
 @interface AKEmployee()
 
@@ -38,17 +39,18 @@
 - (void)performWorkWithObject:(id <AKMoneyProtocol>)object {
     @synchronized(self) {
         if (object) {
-            NSLog(@"%@ starting", self);
+//            NSLog(@"%@ starting", self);
             
             if (self.state == kAKEmployeeStateFree) {
                 self.state = kAKEmployeeStateBusy;
-                
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                AKWeakify;
+                AKDispatchAsyncInBackground( ^{
+                    AKStrongifyAndReturnIfNil;
                     usleep(arc4random_uniform(10000) + 1);
-                    [self workWithObject:object];
+                    [strongSelf workWithObject:object];
                     
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self completeWork];
+                    AKDispatchAsyncOnMainThread( ^{
+                        [strongSelf completeWork];
                     });
                 });
             }
@@ -67,7 +69,7 @@
         usleep(arc4random_uniform(1) + 1);
         
         [self takeMoney:[object giveMoney]];
-        NSLog(@"%@ take money from %@, he has %lu money", self, object, self.money);
+//        NSLog(@"%@ take money from %@, he has %lu money", self, object, self.money);
         [self completeWorkWithObject:object];
     }
 }

@@ -14,7 +14,7 @@ typedef void (^AKObjectHandler)(void);
 @property (nonatomic, assign)   NSUInteger     state;
 
 - (void)addHandler:(AKObjectHandler)handler forState:(NSUInteger)state object:(id)object;
-- (void)removeHandlerForState:(NSUInteger)state;
-- (void)removeHandlerForObject:(id)object;
+- (void)removeHandlersForState:(NSUInteger)state;
+- (void)removeHandlersForObject:(id)object;
 
 @end

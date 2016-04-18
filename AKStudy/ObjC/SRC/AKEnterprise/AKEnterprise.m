@@ -76,9 +76,9 @@ static const NSUInteger kAKAccountantsCount = 2;
 - (void)addHandlerForStandbyState:(NSArray *)staff {
     @synchronized(self) {
         
-        AKWeakSelf(AKEnterprise);
+        AKWeakify;
         for (AKEmployee *employee in staff) {
-            AKStrongSelf(AKEnterprise);
+            AKStrongifyAndReturnIfNil;
             [employee addHandler:^ {
                 [strongSelf employeeBecameStandby:employee];
             } forState:kAKEmployeeStateStandby object:self];
