@@ -7,6 +7,7 @@
 //
 
 #import "AKAppDelegate.h"
+#import "AKLabelViewController.h"
 
 @interface AKAppDelegate ()
 
@@ -17,10 +18,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
-    
+
+    window.rootViewController = [AKLabelViewController new];
     window.backgroundColor = [UIColor greenColor];
+
     [window makeKeyAndVisible];
     
+//    window.rootViewController.view.frame = CGRectMake(0, 0, 200, 200);
+
     return YES;
 }
 

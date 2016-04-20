@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */; };
 		8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */; };
+		8412EC881CC7FCBB0064786A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412EC871CC7FCBB0064786A /* main.m */; };
+		8412EC8E1CC7FCBB0064786A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412EC8D1CC7FCBB0064786A /* ViewController.m */; };
+		8412EC911CC7FCBB0064786A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8412EC8F1CC7FCBB0064786A /* Main.storyboard */; };
+		8412EC931CC7FCBB0064786A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8412EC921CC7FCBB0064786A /* Assets.xcassets */; };
+		8412EC961CC7FCBB0064786A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8412EC941CC7FCBB0064786A /* LaunchScreen.storyboard */; };
+		8412EC9F1CC802240064786A /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412EC9E1CC802240064786A /* AKAppDelegate.m */; };
+		8412ECA81CC8057B0064786A /* AKLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412ECA61CC8057B0064786A /* AKLabelViewController.m */; };
+		8412ECA91CC8057B0064786A /* AKLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8412ECA71CC8057B0064786A /* AKLabelViewController.xib */; };
+		8412ECAD1CC81B6D0064786A /* AKLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8412ECAC1CC81B6D0064786A /* AKLabelView.m */; };
 		8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; };
 		8418E5831CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
 		8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
@@ -95,6 +104,21 @@
 		8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureFemale.m; sourceTree = "<group>"; };
 		8402EEEB1C7B768D0004E6DC /* AKCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureMale.h; sourceTree = "<group>"; };
 		8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureMale.m; sourceTree = "<group>"; };
+		8412EC841CC7FCBA0064786A /* IOSProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8412EC871CC7FCBB0064786A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8412EC8C1CC7FCBB0064786A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8412EC8D1CC7FCBB0064786A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8412EC901CC7FCBB0064786A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8412EC921CC7FCBB0064786A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8412EC951CC7FCBB0064786A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8412EC971CC7FCBB0064786A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8412EC9D1CC802240064786A /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
+		8412EC9E1CC802240064786A /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
+		8412ECA51CC8057B0064786A /* AKLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLabelViewController.h; sourceTree = "<group>"; };
+		8412ECA61CC8057B0064786A /* AKLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLabelViewController.m; sourceTree = "<group>"; };
+		8412ECA71CC8057B0064786A /* AKLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKLabelViewController.xib; sourceTree = "<group>"; };
+		8412ECAB1CC81B6D0064786A /* AKLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLabelView.h; sourceTree = "<group>"; };
+		8412ECAC1CC81B6D0064786A /* AKLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLabelView.m; sourceTree = "<group>"; };
 		8418E57D1CBE76D800141D27 /* AKObserverDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverDictionary.h; sourceTree = "<group>"; };
 		8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverDictionary.m; sourceTree = "<group>"; };
 		8418E5811CBE76E400141D27 /* AKObserverArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverArray.h; sourceTree = "<group>"; };
@@ -189,6 +213,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8412EC811CC7FCBA0064786A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8476922B1C763B66008682D4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +260,59 @@
 				8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */,
 			);
 			path = AKCreatureMale;
+			sourceTree = "<group>";
+		};
+		8412EC851CC7FCBB0064786A /* IOSProject */ = {
+			isa = PBXGroup;
+			children = (
+				8412EC9C1CC802240064786A /* Source */,
+				8412EC8C1CC7FCBB0064786A /* ViewController.h */,
+				8412EC8D1CC7FCBB0064786A /* ViewController.m */,
+				8412EC8F1CC7FCBB0064786A /* Main.storyboard */,
+				8412EC921CC7FCBB0064786A /* Assets.xcassets */,
+				8412EC941CC7FCBB0064786A /* LaunchScreen.storyboard */,
+				8412EC971CC7FCBB0064786A /* Info.plist */,
+				8412EC861CC7FCBB0064786A /* Supporting Files */,
+			);
+			path = IOSProject;
+			sourceTree = "<group>";
+		};
+		8412EC861CC7FCBB0064786A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8412EC871CC7FCBB0064786A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8412EC9C1CC802240064786A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8412ECAA1CC81B5B0064786A /* AKLabelView */,
+				8412ECA11CC802EC0064786A /* AKLabelViewController */,
+				8412EC9D1CC802240064786A /* AKAppDelegate.h */,
+				8412EC9E1CC802240064786A /* AKAppDelegate.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8412ECA11CC802EC0064786A /* AKLabelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8412ECA51CC8057B0064786A /* AKLabelViewController.h */,
+				8412ECA61CC8057B0064786A /* AKLabelViewController.m */,
+				8412ECA71CC8057B0064786A /* AKLabelViewController.xib */,
+			);
+			path = AKLabelViewController;
+			sourceTree = "<group>";
+		};
+		8412ECAA1CC81B5B0064786A /* AKLabelView */ = {
+			isa = PBXGroup;
+			children = (
+				8412ECAB1CC81B6D0064786A /* AKLabelView.h */,
+				8412ECAC1CC81B6D0064786A /* AKLabelView.m */,
+			);
+			path = AKLabelView;
 			sourceTree = "<group>";
 		};
 		8418E5751CBE769700141D27 /* Private */ = {
@@ -533,6 +617,7 @@
 				847691D81C762984008682D4 /* C */,
 				847691D21C762922008682D4 /* ObjC */,
 				84B677921C86E3500042FC86 /* TestAKStudy */,
+				8412EC851CC7FCBB0064786A /* IOSProject */,
 				84A6B15C1C32D2FF000ACAA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -543,6 +628,7 @@
 				84A6B15B1C32D2FF000ACAA5 /* C */,
 				8476922E1C763B66008682D4 /* ObjC */,
 				84B677911C86E3500042FC86 /* TestAKStudy.xctest */,
+				8412EC841CC7FCBA0064786A /* IOSProject.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -717,6 +803,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8412EC831CC7FCBA0064786A /* IOSProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8412EC9A1CC7FCBB0064786A /* Build configuration list for PBXNativeTarget "IOSProject" */;
+			buildPhases = (
+				8412EC801CC7FCBA0064786A /* Sources */,
+				8412EC811CC7FCBA0064786A /* Frameworks */,
+				8412EC821CC7FCBA0064786A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IOSProject;
+			productName = IOSProject;
+			productReference = 8412EC841CC7FCBA0064786A /* IOSProject.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8476922D1C763B66008682D4 /* ObjC */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 847692321C763B66008682D4 /* Build configuration list for PBXNativeTarget "ObjC" */;
@@ -777,6 +880,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Admin;
 				TargetAttributes = {
+					8412EC831CC7FCBA0064786A = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					8476922D1C763B66008682D4 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -804,11 +910,23 @@
 				84A6B15A1C32D2FF000ACAA5 /* C */,
 				8476922D1C763B66008682D4 /* ObjC */,
 				84B677901C86E3500042FC86 /* TestAKStudy */,
+				8412EC831CC7FCBA0064786A /* IOSProject */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8412EC821CC7FCBA0064786A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8412EC961CC7FCBB0064786A /* LaunchScreen.storyboard in Resources */,
+				8412ECA91CC8057B0064786A /* AKLabelViewController.xib in Resources */,
+				8412EC931CC7FCBB0064786A /* Assets.xcassets in Resources */,
+				8412EC911CC7FCBB0064786A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84B6778F1C86E3500042FC86 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -819,6 +937,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8412EC801CC7FCBA0064786A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8412EC8E1CC7FCBB0064786A /* ViewController.m in Sources */,
+				8412ECAD1CC81B6D0064786A /* AKLabelView.m in Sources */,
+				8412ECA81CC8057B0064786A /* AKLabelViewController.m in Sources */,
+				8412EC881CC7FCBB0064786A /* main.m in Sources */,
+				8412EC9F1CC802240064786A /* AKAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8476922A1C763B66008682D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -902,7 +1032,59 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		8412EC8F1CC7FCBB0064786A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8412EC901CC7FCBB0064786A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8412EC941CC7FCBB0064786A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8412EC951CC7FCBB0064786A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		8412EC981CC7FCBB0064786A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = IOSProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AK.IOSProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8412EC991CC7FCBB0064786A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = IOSProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AK.IOSProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		847692331C763B66008682D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1055,6 +1237,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8412EC9A1CC7FCBB0064786A /* Build configuration list for PBXNativeTarget "IOSProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8412EC981CC7FCBB0064786A /* Debug */,
+				8412EC991CC7FCBB0064786A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		847692321C763B66008682D4 /* Build configuration list for PBXNativeTarget "ObjC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

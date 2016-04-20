@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class AKLabelView;
+
 @interface AKLabelViewController : UIViewController
+
+- (AKLabelView *)labelView;
 
 @end

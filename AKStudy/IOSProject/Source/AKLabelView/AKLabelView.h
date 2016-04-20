@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AKLabelView : UIView
+@property (nonatomic, strong) IBOutlet UILabel *label;
 
 @end
