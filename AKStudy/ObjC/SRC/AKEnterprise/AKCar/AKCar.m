@@ -14,26 +14,35 @@ static const NSUInteger carCash = 100;
 
 @synthesize money = _money;
 
-#pragma mark - 
-#pragma mark - Initializations and Deallocations
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.carState = kAKCarStateDirty;
+        self.state = kAKCarStateDirty;
         self.money = carCash;
     }
+    
     return self;
 }
 
 #pragma mark -
-#pragma mark - Money Protocol
+#pragma mark Money Protocol
 
-- (NSUInteger)takeMoney {
-    NSUInteger money = self.money;
-    self.money = 0;
-    
-    return money;
+- (void)takeMoney:(NSUInteger)money {
+    @synchronized(self) {
+        self.money += money;
+    }
+}
+
+- (NSUInteger)giveMoney {
+    @synchronized(self) {
+        NSUInteger payment = self.money;
+        self.money = 0;
+        
+        return payment;
+    }
 }
 
 @end

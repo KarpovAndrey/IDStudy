@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */; };
 		8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */; };
+		8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; };
+		8418E5831CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
+		8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
+		8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
 		847692131C762984008682D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691D91C762984008682D4 /* main.c */; };
 		847692141C762984008682D4 /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DC1C762984008682D4 /* AKArray.c */; };
 		847692151C762984008682D4 /* AKEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DF1C762984008682D4 /* AKEnumerator.c */; };
@@ -29,6 +34,8 @@
 		847692241C762984008682D4 /* AKValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692111C762984008682D4 /* AKValueBitOutputTests.c */; };
 		847A81371C77ADB9004110B2 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A813D1C77C195004110B2 /* AKCreatureTest.m */; };
+		84AA394D1CB11D6B004DF487 /* AKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA394C1CB11D6B004DF487 /* AKQueue.m */; };
+		84AA394E1CB11D6B004DF487 /* AKQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA394C1CB11D6B004DF487 /* AKQueue.m */; };
 		84AFB1A61C8AD0A0001795AE /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; };
 		84AFB1A71C8AD0A3001795AE /* NSObject+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */; };
 		84AFB1A81C8AD0BA001795AE /* AKStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */; };
@@ -36,16 +43,26 @@
 		84AFB1AA1C8AD0BE001795AE /* AKClusterAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41211C84E3C900AB4C4C /* AKClusterAlphabet.m */; };
 		84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */; };
 		84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; };
+		84B616791CB6CD120048C92A /* AKDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B616781CB6CD120048C92A /* AKDispatcher.m */; };
+		84B6167A1CB6CD120048C92A /* AKDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B616781CB6CD120048C92A /* AKDispatcher.m */; };
 		84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B677931C86E3500042FC86 /* TestAKStudy.m */; };
 		84B677991C86E3770042FC86 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
+		84C406C01C986539002000DE /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; };
+		84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
-		84E9CABC1C9207C50097ECCB /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CABB1C9207C50097ECCB /* AKEnterprise.m */; };
-		84E9CAC01C92080C0097ECCB /* AKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CABF1C92080C0097ECCB /* AKEmployee.m */; };
-		84E9CAC41C9209620097ECCB /* AKCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CAC31C9209620097ECCB /* AKCarsWasher.m */; };
-		84E9CAC81C9209870097ECCB /* AKBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CAC71C9209870097ECCB /* AKBoss.m */; };
-		84E9CACC1C9209C90097ECCB /* AKAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CACB1C9209C90097ECCB /* AKAccountant.m */; };
-		84E9CAD31C921D760097ECCB /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E9CAD21C921D760097ECCB /* AKCar.m */; };
+		84F708E71CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
+		84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
+		84F708E91CADA49A00CBBFF7 /* AKAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708DA1CADA49A00CBBFF7 /* AKAccountant.m */; };
+		84F708EA1CADA49A00CBBFF7 /* AKAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708DA1CADA49A00CBBFF7 /* AKAccountant.m */; };
+		84F708EB1CADA49A00CBBFF7 /* AKBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708DD1CADA49A00CBBFF7 /* AKBoss.m */; };
+		84F708EC1CADA49A00CBBFF7 /* AKBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708DD1CADA49A00CBBFF7 /* AKBoss.m */; };
+		84F708ED1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E01CADA49A00CBBFF7 /* AKCarsWasher.m */; };
+		84F708EE1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E01CADA49A00CBBFF7 /* AKCarsWasher.m */; };
+		84F708EF1CADA49A00CBBFF7 /* AKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E21CADA49A00CBBFF7 /* AKEmployee.m */; };
+		84F708F01CADA49A00CBBFF7 /* AKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E21CADA49A00CBBFF7 /* AKEmployee.m */; };
+		84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
+		84F708F21CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
 		84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84FB411A1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41191C84E29B00AB4C4C /* AKRangeAlphabet.m */; };
 		84FB411E1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */; };
@@ -78,6 +95,12 @@
 		8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureFemale.m; sourceTree = "<group>"; };
 		8402EEEB1C7B768D0004E6DC /* AKCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureMale.h; sourceTree = "<group>"; };
 		8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureMale.m; sourceTree = "<group>"; };
+		8418E57D1CBE76D800141D27 /* AKObserverDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverDictionary.h; sourceTree = "<group>"; };
+		8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverDictionary.m; sourceTree = "<group>"; };
+		8418E5811CBE76E400141D27 /* AKObserverArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverArray.h; sourceTree = "<group>"; };
+		8418E5821CBE76E400141D27 /* AKObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverArray.m; sourceTree = "<group>"; };
+		8418E5851CBE76F400141D27 /* AKObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverObject.h; sourceTree = "<group>"; };
+		8418E5861CBE76F400141D27 /* AKObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverObject.m; sourceTree = "<group>"; };
 		847691D31C762922008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847691D91C762984008682D4 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		847691DC1C762984008682D4 /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
@@ -123,28 +146,38 @@
 		847A813C1C77C195004110B2 /* AKCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureTest.h; sourceTree = "<group>"; };
 		847A813D1C77C195004110B2 /* AKCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureTest.m; sourceTree = "<group>"; };
 		84A6B15B1C32D2FF000ACAA5 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
+		84AA39481CB11CA2004DF487 /* AKMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMoneyProtocol.h; sourceTree = "<group>"; };
+		84AA39491CB11CA2004DF487 /* AKWorkerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKWorkerProtocol.h; sourceTree = "<group>"; };
+		84AA394B1CB11D6B004DF487 /* AKQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKQueue.h; sourceTree = "<group>"; };
+		84AA394C1CB11D6B004DF487 /* AKQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKQueue.m; sourceTree = "<group>"; };
 		84B14F5B1C7F4D45003B4B17 /* AKStudy-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AKStudy-Prefix.pch"; sourceTree = "<group>"; };
 		84B14F611C7F51E4003B4B17 /* NSObject+AKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AKExtensions.h"; sourceTree = "<group>"; };
 		84B14F621C7F51E4003B4B17 /* NSObject+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AKExtensions.m"; sourceTree = "<group>"; };
 		84B14F671C7FAD8E003B4B17 /* NSString+AKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AKExtensions.h"; sourceTree = "<group>"; };
 		84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AKExtensions.m"; sourceTree = "<group>"; };
+		84B616771CB6CD120048C92A /* AKDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatcher.h; sourceTree = "<group>"; };
+		84B616781CB6CD120048C92A /* AKDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatcher.m; sourceTree = "<group>"; };
 		84B677911C86E3500042FC86 /* TestAKStudy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestAKStudy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B677931C86E3500042FC86 /* TestAKStudy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAKStudy.m; sourceTree = "<group>"; };
 		84B677951C86E3500042FC86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C406BE1C986539002000DE /* AKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserver.h; sourceTree = "<group>"; };
+		84C406BF1C986539002000DE /* AKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserver.m; sourceTree = "<group>"; };
+		84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroObjC.h; sourceTree = "<group>"; };
+		84C956AA1CC575E30026BCC5 /* AKDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatch.h; sourceTree = "<group>"; };
+		84C956AB1CC575E30026BCC5 /* AKDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatch.m; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
-		84E9CABA1C9207C50097ECCB /* AKEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnterprise.h; sourceTree = "<group>"; };
-		84E9CABB1C9207C50097ECCB /* AKEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEnterprise.m; sourceTree = "<group>"; };
-		84E9CABE1C92080C0097ECCB /* AKEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEmployee.h; sourceTree = "<group>"; };
-		84E9CABF1C92080C0097ECCB /* AKEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEmployee.m; sourceTree = "<group>"; };
-		84E9CAC21C9209620097ECCB /* AKCarsWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCarsWasher.h; sourceTree = "<group>"; };
-		84E9CAC31C9209620097ECCB /* AKCarsWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCarsWasher.m; sourceTree = "<group>"; };
-		84E9CAC61C9209870097ECCB /* AKBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKBoss.h; sourceTree = "<group>"; };
-		84E9CAC71C9209870097ECCB /* AKBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKBoss.m; sourceTree = "<group>"; };
-		84E9CACA1C9209C90097ECCB /* AKAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAccountant.h; sourceTree = "<group>"; };
-		84E9CACB1C9209C90097ECCB /* AKAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAccountant.m; sourceTree = "<group>"; };
-		84E9CACE1C920A6D0097ECCB /* AKMoneyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMoneyProtocol.h; sourceTree = "<group>"; };
-		84E9CAD11C921D760097ECCB /* AKCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCar.h; sourceTree = "<group>"; };
-		84E9CAD21C921D760097ECCB /* AKCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCar.m; sourceTree = "<group>"; };
+		84F708D51CADA49A00CBBFF7 /* AKCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCar.h; sourceTree = "<group>"; };
+		84F708D61CADA49A00CBBFF7 /* AKCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCar.m; sourceTree = "<group>"; };
+		84F708D91CADA49A00CBBFF7 /* AKAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAccountant.h; sourceTree = "<group>"; };
+		84F708DA1CADA49A00CBBFF7 /* AKAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAccountant.m; sourceTree = "<group>"; };
+		84F708DC1CADA49A00CBBFF7 /* AKBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKBoss.h; sourceTree = "<group>"; };
+		84F708DD1CADA49A00CBBFF7 /* AKBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKBoss.m; sourceTree = "<group>"; };
+		84F708DF1CADA49A00CBBFF7 /* AKCarsWasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCarsWasher.h; sourceTree = "<group>"; };
+		84F708E01CADA49A00CBBFF7 /* AKCarsWasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCarsWasher.m; sourceTree = "<group>"; };
+		84F708E11CADA49A00CBBFF7 /* AKEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEmployee.h; sourceTree = "<group>"; };
+		84F708E21CADA49A00CBBFF7 /* AKEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEmployee.m; sourceTree = "<group>"; };
+		84F708E31CADA49A00CBBFF7 /* AKEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKEnterprise.h; sourceTree = "<group>"; };
+		84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKEnterprise.m; sourceTree = "<group>"; };
 		84FB41141C84E07E00AB4C4C /* AKAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAlphabet.h; sourceTree = "<group>"; };
 		84FB41151C84E07E00AB4C4C /* AKAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAlphabet.m; sourceTree = "<group>"; };
 		84FB41181C84E29B00AB4C4C /* AKRangeAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRangeAlphabet.h; sourceTree = "<group>"; };
@@ -196,6 +229,43 @@
 				8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */,
 			);
 			path = AKCreatureMale;
+			sourceTree = "<group>";
+		};
+		8418E5751CBE769700141D27 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				8418E57C1CBE76C900141D27 /* AKObserverDictionary */,
+				8418E5761CBE769700141D27 /* AKObserverArray */,
+				8418E5771CBE769700141D27 /* AKObserverObject */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		8418E5761CBE769700141D27 /* AKObserverArray */ = {
+			isa = PBXGroup;
+			children = (
+				8418E5811CBE76E400141D27 /* AKObserverArray.h */,
+				8418E5821CBE76E400141D27 /* AKObserverArray.m */,
+			);
+			path = AKObserverArray;
+			sourceTree = "<group>";
+		};
+		8418E5771CBE769700141D27 /* AKObserverObject */ = {
+			isa = PBXGroup;
+			children = (
+				8418E5851CBE76F400141D27 /* AKObserverObject.h */,
+				8418E5861CBE76F400141D27 /* AKObserverObject.m */,
+			);
+			path = AKObserverObject;
+			sourceTree = "<group>";
+		};
+		8418E57C1CBE76C900141D27 /* AKObserverDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				8418E57D1CBE76D800141D27 /* AKObserverDictionary.h */,
+				8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */,
+			);
+			path = AKObserverDictionary;
 			sourceTree = "<group>";
 		};
 		847691D21C762922008682D4 /* ObjC */ = {
@@ -418,9 +488,12 @@
 		847692251C762AAA008682D4 /* SRC */ = {
 			isa = PBXGroup;
 			children = (
-				84E9CAB91C9207BA0097ECCB /* AKEnterprise */,
-				84FB41131C84E04E00AB4C4C /* AKAlphabet */,
+				84C956A91CC575D40026BCC5 /* AKDispatch */,
+				84C956A61CC573A20026BCC5 /* AKMacro */,
 				847A81341C77ADB9004110B2 /* AKCreature */,
+				84FB41131C84E04E00AB4C4C /* AKAlphabet */,
+				84C406BD1C98651C002000DE /* AKObserver */,
+				84F708D31CADA49A00CBBFF7 /* AKEnterprise */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -474,6 +547,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		84AA39471CB11CA2004DF487 /* AKProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				84AA39481CB11CA2004DF487 /* AKMoneyProtocol.h */,
+				84AA39491CB11CA2004DF487 /* AKWorkerProtocol.h */,
+			);
+			path = AKProtocols;
+			sourceTree = "<group>";
+		};
+		84AA394A1CB11D50004DF487 /* AKQueue */ = {
+			isa = PBXGroup;
+			children = (
+				84AA394B1CB11D6B004DF487 /* AKQueue.h */,
+				84AA394C1CB11D6B004DF487 /* AKQueue.m */,
+			);
+			path = AKQueue;
+			sourceTree = "<group>";
+		};
 		84B14F5A1C7F4D45003B4B17 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +584,15 @@
 			path = AKExtensions;
 			sourceTree = "<group>";
 		};
+		84B616761CB6CCF80048C92A /* AKDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				84B616771CB6CD120048C92A /* AKDispatcher.h */,
+				84B616781CB6CD120048C92A /* AKDispatcher.m */,
+			);
+			path = AKDispatcher;
+			sourceTree = "<group>";
+		};
 		84B677921C86E3500042FC86 /* TestAKStudy */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,64 +602,93 @@
 			path = TestAKStudy;
 			sourceTree = "<group>";
 		};
-		84E9CAB91C9207BA0097ECCB /* AKEnterprise */ = {
+		84C406BD1C98651C002000DE /* AKObserver */ = {
 			isa = PBXGroup;
 			children = (
-				84E9CACE1C920A6D0097ECCB /* AKMoneyProtocol.h */,
-				84E9CACF1C921D2C0097ECCB /* AKCar */,
-				84E9CABD1C9207F00097ECCB /* AKEmployee */,
-				84E9CABA1C9207C50097ECCB /* AKEnterprise.h */,
-				84E9CABB1C9207C50097ECCB /* AKEnterprise.m */,
+				8418E5751CBE769700141D27 /* Private */,
+				84C406BE1C986539002000DE /* AKObserver.h */,
+				84C406BF1C986539002000DE /* AKObserver.m */,
+			);
+			path = AKObserver;
+			sourceTree = "<group>";
+		};
+		84C956A61CC573A20026BCC5 /* AKMacro */ = {
+			isa = PBXGroup;
+			children = (
+				84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */,
+			);
+			path = AKMacro;
+			sourceTree = "<group>";
+		};
+		84C956A91CC575D40026BCC5 /* AKDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				84C956AA1CC575E30026BCC5 /* AKDispatch.h */,
+				84C956AB1CC575E30026BCC5 /* AKDispatch.m */,
+			);
+			path = AKDispatch;
+			sourceTree = "<group>";
+		};
+		84F708D31CADA49A00CBBFF7 /* AKEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				84B616761CB6CCF80048C92A /* AKDispatcher */,
+				84AA39471CB11CA2004DF487 /* AKProtocols */,
+				84F708E31CADA49A00CBBFF7 /* AKEnterprise.h */,
+				84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */,
+				84F708D41CADA49A00CBBFF7 /* AKCar */,
+				84F708D71CADA49A00CBBFF7 /* AKEmployee */,
 			);
 			path = AKEnterprise;
 			sourceTree = "<group>";
 		};
-		84E9CABD1C9207F00097ECCB /* AKEmployee */ = {
+		84F708D41CADA49A00CBBFF7 /* AKCar */ = {
 			isa = PBXGroup;
 			children = (
-				84E9CAC91C9209B10097ECCB /* AKAccountant */,
-				84E9CAC51C9209760097ECCB /* AKBoss */,
-				84E9CAC11C9209490097ECCB /* AKCarsWasher */,
-				84E9CABE1C92080C0097ECCB /* AKEmployee.h */,
-				84E9CABF1C92080C0097ECCB /* AKEmployee.m */,
+				84F708D51CADA49A00CBBFF7 /* AKCar.h */,
+				84F708D61CADA49A00CBBFF7 /* AKCar.m */,
+			);
+			path = AKCar;
+			sourceTree = "<group>";
+		};
+		84F708D71CADA49A00CBBFF7 /* AKEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				84F708E11CADA49A00CBBFF7 /* AKEmployee.h */,
+				84F708E21CADA49A00CBBFF7 /* AKEmployee.m */,
+				84AA394A1CB11D50004DF487 /* AKQueue */,
+				84F708DE1CADA49A00CBBFF7 /* AKCarsWasher */,
+				84F708D81CADA49A00CBBFF7 /* AKAccountant */,
+				84F708DB1CADA49A00CBBFF7 /* AKBoss */,
 			);
 			path = AKEmployee;
 			sourceTree = "<group>";
 		};
-		84E9CAC11C9209490097ECCB /* AKCarsWasher */ = {
+		84F708D81CADA49A00CBBFF7 /* AKAccountant */ = {
 			isa = PBXGroup;
 			children = (
-				84E9CAC21C9209620097ECCB /* AKCarsWasher.h */,
-				84E9CAC31C9209620097ECCB /* AKCarsWasher.m */,
-			);
-			path = AKCarsWasher;
-			sourceTree = "<group>";
-		};
-		84E9CAC51C9209760097ECCB /* AKBoss */ = {
-			isa = PBXGroup;
-			children = (
-				84E9CAC61C9209870097ECCB /* AKBoss.h */,
-				84E9CAC71C9209870097ECCB /* AKBoss.m */,
-			);
-			path = AKBoss;
-			sourceTree = "<group>";
-		};
-		84E9CAC91C9209B10097ECCB /* AKAccountant */ = {
-			isa = PBXGroup;
-			children = (
-				84E9CACA1C9209C90097ECCB /* AKAccountant.h */,
-				84E9CACB1C9209C90097ECCB /* AKAccountant.m */,
+				84F708D91CADA49A00CBBFF7 /* AKAccountant.h */,
+				84F708DA1CADA49A00CBBFF7 /* AKAccountant.m */,
 			);
 			path = AKAccountant;
 			sourceTree = "<group>";
 		};
-		84E9CACF1C921D2C0097ECCB /* AKCar */ = {
+		84F708DB1CADA49A00CBBFF7 /* AKBoss */ = {
 			isa = PBXGroup;
 			children = (
-				84E9CAD11C921D760097ECCB /* AKCar.h */,
-				84E9CAD21C921D760097ECCB /* AKCar.m */,
+				84F708DC1CADA49A00CBBFF7 /* AKBoss.h */,
+				84F708DD1CADA49A00CBBFF7 /* AKBoss.m */,
 			);
-			path = AKCar;
+			path = AKBoss;
+			sourceTree = "<group>";
+		};
+		84F708DE1CADA49A00CBBFF7 /* AKCarsWasher */ = {
+			isa = PBXGroup;
+			children = (
+				84F708DF1CADA49A00CBBFF7 /* AKCarsWasher.h */,
+				84F708E01CADA49A00CBBFF7 /* AKCarsWasher.m */,
+			);
+			path = AKCarsWasher;
 			sourceTree = "<group>";
 		};
 		84FB41131C84E04E00AB4C4C /* AKAlphabet */ = {
@@ -694,21 +823,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F708E71CADA49A00CBBFF7 /* AKCar.m in Sources */,
+				84AA394D1CB11D6B004DF487 /* AKQueue.m in Sources */,
 				84FB411A1C84E29B00AB4C4C /* AKRangeAlphabet.m in Sources */,
+				8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */,
 				84B14F691C7FAD8E003B4B17 /* NSString+AKExtensions.m in Sources */,
-				84E9CABC1C9207C50097ECCB /* AKEnterprise.m in Sources */,
+				84F708E91CADA49A00CBBFF7 /* AKAccountant.m in Sources */,
 				8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */,
-				84E9CAC41C9209620097ECCB /* AKCarsWasher.m in Sources */,
-				84E9CACC1C9209C90097ECCB /* AKAccountant.m in Sources */,
 				84B14F631C7F51E4003B4B17 /* NSObject+AKExtensions.m in Sources */,
 				847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */,
-				84E9CAD31C921D760097ECCB /* AKCar.m in Sources */,
 				84FB41161C84E07E00AB4C4C /* AKAlphabet.m in Sources */,
+				84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */,
+				84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */,
+				8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */,
+				84F708ED1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
 				84FB41221C84E3C900AB4C4C /* AKClusterAlphabet.m in Sources */,
+				84B616791CB6CD120048C92A /* AKDispatcher.m in Sources */,
+				84C406C01C986539002000DE /* AKObserver.m in Sources */,
 				847A81371C77ADB9004110B2 /* AKCreature.m in Sources */,
-				84E9CAC01C92080C0097ECCB /* AKEmployee.m in Sources */,
-				84E9CAC81C9209870097ECCB /* AKBoss.m in Sources */,
+				84F708EB1CADA49A00CBBFF7 /* AKBoss.m in Sources */,
+				8418E5831CBE76E400141D27 /* AKObserverArray.m in Sources */,
 				8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */,
+				84F708EF1CADA49A00CBBFF7 /* AKEmployee.m in Sources */,
 				84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */,
 				84FB411E1C84E3B400AB4C4C /* AKStringAlphabet.m in Sources */,
 			);
@@ -743,12 +879,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F708F21CADA49A00CBBFF7 /* AKEnterprise.m in Sources */,
+				84F708EC1CADA49A00CBBFF7 /* AKBoss.m in Sources */,
 				84B677991C86E3770042FC86 /* AKCreature.m in Sources */,
 				84AFB1A81C8AD0BA001795AE /* AKStringAlphabet.m in Sources */,
+				84AA394E1CB11D6B004DF487 /* AKQueue.m in Sources */,
 				84AFB1A91C8AD0BC001795AE /* AKRangeAlphabet.m in Sources */,
 				84AFB1A71C8AD0A3001795AE /* NSObject+AKExtensions.m in Sources */,
 				84AFB1A61C8AD0A0001795AE /* NSString+AKExtensions.m in Sources */,
+				84F708EA1CADA49A00CBBFF7 /* AKAccountant.m in Sources */,
 				84AFB1AA1C8AD0BE001795AE /* AKClusterAlphabet.m in Sources */,
+				84F708EE1CADA49A00CBBFF7 /* AKCarsWasher.m in Sources */,
+				84F708F01CADA49A00CBBFF7 /* AKEmployee.m in Sources */,
+				84B6167A1CB6CD120048C92A /* AKDispatcher.m in Sources */,
+				8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */,
+				84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */,
+				8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */,
 				84B677941C86E3500042FC86 /* TestAKStudy.m in Sources */,
 				84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */,
 			);
@@ -761,6 +907,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supporting Files/AKStudy-Prefix.pch";
@@ -773,6 +920,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ObjC/Supporting Files/AKStudy-Prefix.pch";

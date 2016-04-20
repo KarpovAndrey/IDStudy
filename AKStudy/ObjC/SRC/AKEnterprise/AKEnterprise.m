@@ -9,65 +9,100 @@
 #import "AKEnterprise.h"
 
 #import "AKCarsWasher.h"
-#import "AKBoss.h"
 #import "AKAccountant.h"
+#import "AKBoss.h"
+#import "AKQueue.h"
+
+#import "AKObserver.h"
+#import "AKDispatcher.h"
+
+static const NSUInteger kAKCarWashersCount  = 3;
+static const NSUInteger kAKAccountantsCount = 2;
 
 @interface AKEnterprise()
-@property (nonatomic, retain) NSMutableArray *staff;
+@property (nonatomic, retain) AKDispatcher      *washerDispatcher;
+@property (nonatomic, retain) AKDispatcher      *accountantDispatcher;
+@property (nonatomic, retain) AKDispatcher      *bossDispatcher;
 
 - (void)hireStaff;
-- (void)dismissStaff;
+- (AKDispatcher *)dispatherForObject:(id)object;
+- (void)addHandlerForStandbyState:(NSArray *)staff;
 
 @end
 
 @implementation AKEnterprise
 
 #pragma mark -
-#pragma mark - Initializations and Deallocations
+#pragma mark Initializations and Deallocations
 
-- (void)dealloc
-{
-    [self dismissStaff];
-    self.staff = nil;
+- (void)dealloc {
+    self.washerDispatcher = nil;
+    self.accountantDispatcher = nil;
+    self.bossDispatcher = nil;
     
     [super dealloc];
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self hireStaff];
+    }
+    
+    return self;
+}
+
 #pragma mark -
-#pragma mark - Private
+#pragma mark Private
 
 - (void)hireStaff {
     AKBoss *boss = [AKBoss object];
-    AKAccountant *accountant = [AKAccountant object];
-    AKCarsWasher *carsWasher = [AKCarsWasher object];
+    self.bossDispatcher = [[[AKDispatcher alloc] initWithStaff:@[boss]] autorelease];
     
-    self.staff = [@[boss, accountant, carsWasher] mutableCopy];
-
+    NSArray *accountants = [AKAccountant objectWithCount:kAKAccountantsCount];
+    self.accountantDispatcher = [[[AKDispatcher alloc] initWithStaff:accountants] autorelease];
+    
+    NSArray *washers = [AKCarsWasher objectWithCount:kAKCarWashersCount];
+    self.washerDispatcher = [[[AKDispatcher alloc] initWithStaff:washers] autorelease];
+    
+    [self addHandlerForStandbyState:washers];
+    [self addHandlerForStandbyState:accountants];
 }
 
-- (void)dismissStaff {
-    for (AKEmployee *employee in self.staff){
-        [self.staff removeObject:employee];
-    }
+- (AKDispatcher *)dispatherForObject:(id)object {
+    return [self.washerDispatcher containsEmployee:object] ? self.accountantDispatcher : self.bossDispatcher;
 }
 
-- (id)freeEmployeeWithClass:(Class)class {
-    for (AKEmployee *employee in self.staff) {
-        if ([employee isMemberOfClass:class]) {
-            return employee;
+- (void)addHandlerForStandbyState:(NSArray *)staff {
+    @synchronized(self) {
+        
+        AKWeakify;
+        for (AKEmployee *employee in staff) {
+            AKStrongifyAndReturnIfNil;
+            [employee addHandler:^ {
+                [strongSelf employeeBecameStandby:employee];
+            } forState:kAKEmployeeStateStandby object:self];
         }
     }
-    
-    return nil;
+}
+
+
+#pragma mark -
+#pragma mark Public
+
+- (void)washCar:(AKCar *)car {
+    @synchronized(self) {
+        [self.washerDispatcher workWithObject:car];
+    }
 }
 
 #pragma mark -
-#pragma mark - Public
+#pragma mark Observer Protocol
 
-- (void)addCarToWash:(AKCar *)car {
-    AKCarsWasher *carWasher = [self freeEmployeeWithClass:[AKCarsWasher class]];
-    [carWasher washCar:car];
+- (void)employeeBecameStandby:(id)employee {
+    @synchronized (self) {
+        [[self dispatherForObject:employee] workWithObject:employee];
+    }
 }
-
 
 @end

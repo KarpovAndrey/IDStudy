@@ -12,30 +12,21 @@
 #import "AKAlphabet.h"
 #import "AKRangeAlphabet.h"
 #import "AKEnterprise.h"
+#import "AKCar.h"
+#import "AKBoss.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        AKEnterprise *enterprise = [AKEnterprise object];
+        NSArray *carsArray = [AKCar objectWithCount:15];
         
-//        AKAlphabet *alphabet1 = [[[AKAlphabet alloc] initWithRange:NSMakeRange(65, 20)]autorelease];
-//     
-//        for (NSString *symbol in alphabet1) {
-////            if ([symbol  isEqual: @"B"]) {
-//                NSLog(@"%@", symbol);
-////            }
-//        }
+        for (AKCar *car in carsArray) {
+            [enterprise washCar:car];
+        }
         
-        //        NSLog(@"%@", alphabet2.alphabetString);
-//        NSLog(@"%lu", (unsigned long)alphabet2.count);
-//
-//        NSLog(@"%@", [NSString randomStringWithType:kAKLowercaseLetters length:111]);
-//        AKAlphabet *alphabet = [AKAlphabet alphabetWithRange:NSMakeRange('A', 'Z')];
-//        AKAlphabet *alphabetWithAlphabet = [AKAlphabet alphabetWithAlphabets:@[@"dsadasdsada", @"sdasdasdas"]];
-//        AKAlphabet *alphabetWithStrings = [AKAlphabet alphabetWithStrings:@[@"dsfsdfsdfsdf", @"35435345gfdf"]];
-//        NSLog(@"%lu", alphabet.count);
-//        NSLog(@"%lu", (unsigned long)alphabet1.count);
-//        NSLog(@"%lu", (unsigned long)alphabet2.count);
-
+        NSRunLoop *loop = [NSRunLoop mainRunLoop];
+        [loop run];
     }
-    
+
     return 0;
 }

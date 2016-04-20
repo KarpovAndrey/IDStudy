@@ -7,13 +7,15 @@
 //
 
 #import "AKCarsWasher.h"
+#import "AKCar.h"
 
 @implementation AKCarsWasher
 
-- (void)washCar:(AKCar *)car {
-    NSLog(@"CAR WASHED");
-    
-    self.money = [car takeMoney];
+- (void)completeWorkWithObject:(AKCar *)car {
+    usleep(arc4random_uniform(2) + 1);
+
+    car.state = kAKCarStateClean;
+//    NSLog(@"CAR %@ WASHED", car);
 }
 
 @end
