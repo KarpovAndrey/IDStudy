@@ -20,19 +20,27 @@
 #pragma mark Accessors
 
 - (AKLabelView *)labelView {
-    if ([self isViewLoaded] && [self isKindOfClass:[AKLabelView class]]) {
+    if ([self isViewLoaded] && [self.view isKindOfClass:[AKLabelView class]]) {
         return (AKLabelView *)self.view;
     }
     
-    return (AKLabelView *)self.view;
+    return nil;
 }
 
 #pragma mark -
 #pragma mark View Lifecycle
 
+//- (void)loadView {
+//    [super loadView];
+//    self.view.backgroundColor = [UIColor clearColor];
+//    NSLog(@"loadView");
+//}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    NSLog(@"viewDidLoad");
+
 //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 100)];
 //    label.text = @"OLOLO";
 //    label.backgroundColor = [UIColor redColor];
@@ -44,6 +52,42 @@
 //    [[(AKLabelView *) [self view] label] setText:@"New text"];
     
     self.labelView.label.text = @"New text";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSLog(@"viewWillAppear");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    NSLog(@"viewDidAppear");
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    NSLog(@"viewWillDisappear");
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    NSLog(@"viewDidDisappear");
+}
+
+- (void)viewWillLayoutSubviews NS_AVAILABLE_IOS(5_0) {
+    [super viewWillLayoutSubviews];
+    
+    NSLog(@"viewDidLayoutSubviews");
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    NSLog(@"viewDidLayoutSubviews");
 }
 
 - (void)didReceiveMemoryWarning {

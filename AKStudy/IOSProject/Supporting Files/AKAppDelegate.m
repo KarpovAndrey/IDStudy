@@ -20,7 +20,9 @@
     self.window = window;
 
     window.rootViewController = [AKLabelViewController new];
-    window.backgroundColor = [UIColor greenColor];
+//    window.rootViewController = [[AKLabelViewController alloc] initWithNibName:nil bundle:nil];
+
+    window.backgroundColor = [UIColor clearColor];
 
     [window makeKeyAndVisible];
     
