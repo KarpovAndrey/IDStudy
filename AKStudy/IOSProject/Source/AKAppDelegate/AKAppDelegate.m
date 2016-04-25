@@ -19,15 +19,9 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
 
-    window.rootViewController = [AKLabelViewController new];
-//    window.rootViewController = [[AKLabelViewController alloc] initWithNibName:nil bundle:nil];
-
-    window.backgroundColor = [UIColor clearColor];
-
+    window.rootViewController = [AKLabelViewController defaultControllerFromNib];
     [window makeKeyAndVisible];
     
-//    window.rootViewController.view.frame = CGRectMake(0, 0, 200, 200);
-
     return YES;
 }
 

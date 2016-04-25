@@ -14,7 +14,6 @@
 		8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
 		8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
-		84579F8E1CC9718300A0C163 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84579F8D1CC9718300A0C163 /* Default-568h@2x.png */; };
 		847692131C762984008682D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691D91C762984008682D4 /* main.c */; };
 		847692141C762984008682D4 /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DC1C762984008682D4 /* AKArray.c */; };
 		847692151C762984008682D4 /* AKEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DF1C762984008682D4 /* AKEnumerator.c */; };
@@ -52,14 +51,14 @@
 		84C406C01C986539002000DE /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; };
 		84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
-		84E8888D1CC9391D008AA282 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E8887B1CC9391D008AA282 /* Assets.xcassets */; };
-		84E8888E1CC9391D008AA282 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E8887C1CC9391D008AA282 /* LaunchScreen.storyboard */; };
-		84E8888F1CC9391D008AA282 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E8887E1CC9391D008AA282 /* Main.storyboard */; };
-		84E888901CC9391D008AA282 /* AKLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E888831CC9391D008AA282 /* AKLabelView.m */; };
-		84E888931CC9391D008AA282 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8888A1CC9391D008AA282 /* AKAppDelegate.m */; };
-		84E888951CC9391D008AA282 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8888C1CC9391D008AA282 /* main.m */; };
-		84E8889E1CC93A2C008AA282 /* AKLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E8889C1CC93A2C008AA282 /* AKLabelViewController.m */; };
-		84E8889F1CC93A2C008AA282 /* AKLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E8889D1CC93A2C008AA282 /* AKLabelViewController.xib */; };
+		84EA93B21CCE99C400FAEAB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EA939E1CCE99C400FAEAB8 /* Assets.xcassets */; };
+		84EA93B31CCE99C400FAEAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EA939F1CCE99C400FAEAB8 /* LaunchScreen.storyboard */; };
+		84EA93B51CCE99C400FAEAB8 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93A61CCE99C400FAEAB8 /* AKAppDelegate.m */; };
+		84EA93B61CCE99C400FAEAB8 /* AKLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93AB1CCE99C400FAEAB8 /* AKLabelView.m */; };
+		84EA93B71CCE99C400FAEAB8 /* AKLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93AD1CCE99C400FAEAB8 /* AKLabelViewController.m */; };
+		84EA93B81CCE99C400FAEAB8 /* AKLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EA93AE1CCE99C400FAEAB8 /* AKLabelViewController.xib */; };
+		84EA93BA1CCE99C400FAEAB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93B11CCE99C400FAEAB8 /* main.m */; };
+		84EA93C21CCE9E4700FAEAB8 /* UIViewController+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93C11CCE9E4700FAEAB8 /* UIViewController+AKCategory.m */; };
 		84F708E71CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
 		84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
 		84F708E91CADA49A00CBBFF7 /* AKAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708DA1CADA49A00CBBFF7 /* AKAccountant.m */; };
@@ -111,7 +110,6 @@
 		8418E5821CBE76E400141D27 /* AKObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverArray.m; sourceTree = "<group>"; };
 		8418E5851CBE76F400141D27 /* AKObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverObject.h; sourceTree = "<group>"; };
 		8418E5861CBE76F400141D27 /* AKObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverObject.m; sourceTree = "<group>"; };
-		84579F8D1CC9718300A0C163 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		847691D31C762922008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847691D91C762984008682D4 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		847691DC1C762984008682D4 /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
@@ -177,18 +175,21 @@
 		84C956AA1CC575E30026BCC5 /* AKDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatch.h; sourceTree = "<group>"; };
 		84C956AB1CC575E30026BCC5 /* AKDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatch.m; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
-		84E8887B1CC9391D008AA282 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		84E8887D1CC9391D008AA282 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		84E8887F1CC9391D008AA282 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84E888821CC9391D008AA282 /* AKLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLabelView.h; sourceTree = "<group>"; };
-		84E888831CC9391D008AA282 /* AKLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLabelView.m; sourceTree = "<group>"; };
-		84E888891CC9391D008AA282 /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
-		84E8888A1CC9391D008AA282 /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
-		84E8888C1CC9391D008AA282 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84E8889B1CC93A2C008AA282 /* AKLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLabelViewController.h; sourceTree = "<group>"; };
-		84E8889C1CC93A2C008AA282 /* AKLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLabelViewController.m; sourceTree = "<group>"; };
-		84E8889D1CC93A2C008AA282 /* AKLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKLabelViewController.xib; sourceTree = "<group>"; };
-		84E888A31CC97105008AA282 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = IOSProject/Info.plist; sourceTree = SOURCE_ROOT; };
+		84EA939E1CCE99C400FAEAB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		84EA93A01CCE99C400FAEAB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84EA93A51CCE99C400FAEAB8 /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
+		84EA93A61CCE99C400FAEAB8 /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
+		84EA93AA1CCE99C400FAEAB8 /* AKLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLabelView.h; sourceTree = "<group>"; };
+		84EA93AB1CCE99C400FAEAB8 /* AKLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLabelView.m; sourceTree = "<group>"; };
+		84EA93AC1CCE99C400FAEAB8 /* AKLabelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLabelViewController.h; sourceTree = "<group>"; };
+		84EA93AD1CCE99C400FAEAB8 /* AKLabelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLabelViewController.m; sourceTree = "<group>"; };
+		84EA93AE1CCE99C400FAEAB8 /* AKLabelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKLabelViewController.xib; sourceTree = "<group>"; };
+		84EA93B01CCE99C400FAEAB8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EA93B11CCE99C400FAEAB8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84EA93BB1CCE9AD800FAEAB8 /* AKMacroIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroIOS.h; sourceTree = "<group>"; };
+		84EA93BC1CCE9BCD00FAEAB8 /* IOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSProject-Prefix.pch"; sourceTree = "<group>"; };
+		84EA93C01CCE9E4700FAEAB8 /* UIViewController+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AKCategory.h"; sourceTree = "<group>"; };
+		84EA93C11CCE9E4700FAEAB8 /* UIViewController+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AKCategory.m"; sourceTree = "<group>"; };
 		84F708D51CADA49A00CBBFF7 /* AKCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCar.h; sourceTree = "<group>"; };
 		84F708D61CADA49A00CBBFF7 /* AKCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCar.m; sourceTree = "<group>"; };
 		84F708D91CADA49A00CBBFF7 /* AKAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAccountant.h; sourceTree = "<group>"; };
@@ -559,9 +560,8 @@
 		84A6B1521C32D2FF000ACAA5 = {
 			isa = PBXGroup;
 			children = (
-				84579F8D1CC9718300A0C163 /* Default-568h@2x.png */,
 				84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */,
-				84E8887A1CC9391D008AA282 /* IOSProject */,
+				84EA939D1CCE99C400FAEAB8 /* IOSProject */,
 				847691D81C762984008682D4 /* C */,
 				847691D21C762922008682D4 /* ObjC */,
 				84B677921C86E3500042FC86 /* TestAKStudy */,
@@ -662,55 +662,74 @@
 			path = AKDispatch;
 			sourceTree = "<group>";
 		};
-		84E8887A1CC9391D008AA282 /* IOSProject */ = {
+		84EA939D1CCE99C400FAEAB8 /* IOSProject */ = {
 			isa = PBXGroup;
 			children = (
-				84E8889A1CC93A2C008AA282 /* AKLabelViewController */,
-				84E888801CC9391D008AA282 /* Source */,
-				84E888881CC9391D008AA282 /* Supporting Files */,
+				84EA93A31CCE99C400FAEAB8 /* Source */,
+				84EA93AF1CCE99C400FAEAB8 /* Supporting Files */,
 			);
 			path = IOSProject;
 			sourceTree = "<group>";
 		};
-		84E888801CC9391D008AA282 /* Source */ = {
+		84EA93A31CCE99C400FAEAB8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				84E888811CC9391D008AA282 /* AKLabelView */,
+				84EA93A41CCE99C400FAEAB8 /* AKAppDelegate */,
+				84EA93A71CCE99C400FAEAB8 /* AKExtentions */,
+				84EA93A81CCE99C400FAEAB8 /* AKLabelViewController */,
+				84EA93BB1CCE9AD800FAEAB8 /* AKMacroIOS.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		84E888811CC9391D008AA282 /* AKLabelView */ = {
+		84EA93A41CCE99C400FAEAB8 /* AKAppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				84E888821CC9391D008AA282 /* AKLabelView.h */,
-				84E888831CC9391D008AA282 /* AKLabelView.m */,
+				84EA93A51CCE99C400FAEAB8 /* AKAppDelegate.h */,
+				84EA93A61CCE99C400FAEAB8 /* AKAppDelegate.m */,
+			);
+			path = AKAppDelegate;
+			sourceTree = "<group>";
+		};
+		84EA93A71CCE99C400FAEAB8 /* AKExtentions */ = {
+			isa = PBXGroup;
+			children = (
+				84EA93C01CCE9E4700FAEAB8 /* UIViewController+AKCategory.h */,
+				84EA93C11CCE9E4700FAEAB8 /* UIViewController+AKCategory.m */,
+			);
+			path = AKExtentions;
+			sourceTree = "<group>";
+		};
+		84EA93A81CCE99C400FAEAB8 /* AKLabelViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84EA93A91CCE99C400FAEAB8 /* AKLabelView */,
+				84EA93AC1CCE99C400FAEAB8 /* AKLabelViewController.h */,
+				84EA93AD1CCE99C400FAEAB8 /* AKLabelViewController.m */,
+				84EA93AE1CCE99C400FAEAB8 /* AKLabelViewController.xib */,
+			);
+			path = AKLabelViewController;
+			sourceTree = "<group>";
+		};
+		84EA93A91CCE99C400FAEAB8 /* AKLabelView */ = {
+			isa = PBXGroup;
+			children = (
+				84EA93AA1CCE99C400FAEAB8 /* AKLabelView.h */,
+				84EA93AB1CCE99C400FAEAB8 /* AKLabelView.m */,
 			);
 			path = AKLabelView;
 			sourceTree = "<group>";
 		};
-		84E888881CC9391D008AA282 /* Supporting Files */ = {
+		84EA93AF1CCE99C400FAEAB8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84E8887B1CC9391D008AA282 /* Assets.xcassets */,
-				84E8887C1CC9391D008AA282 /* LaunchScreen.storyboard */,
-				84E888A31CC97105008AA282 /* Info.plist */,
-				84E8887E1CC9391D008AA282 /* Main.storyboard */,
-				84E888891CC9391D008AA282 /* AKAppDelegate.h */,
-				84E8888A1CC9391D008AA282 /* AKAppDelegate.m */,
-				84E8888C1CC9391D008AA282 /* main.m */,
+				84EA939F1CCE99C400FAEAB8 /* LaunchScreen.storyboard */,
+				84EA939E1CCE99C400FAEAB8 /* Assets.xcassets */,
+				84EA93B01CCE99C400FAEAB8 /* Info.plist */,
+				84EA93B11CCE99C400FAEAB8 /* main.m */,
+				84EA93BC1CCE9BCD00FAEAB8 /* IOSProject-Prefix.pch */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		84E8889A1CC93A2C008AA282 /* AKLabelViewController */ = {
-			isa = PBXGroup;
-			children = (
-				84E8889B1CC93A2C008AA282 /* AKLabelViewController.h */,
-				84E8889C1CC93A2C008AA282 /* AKLabelViewController.m */,
-				84E8889D1CC93A2C008AA282 /* AKLabelViewController.xib */,
-			);
-			path = AKLabelViewController;
 			sourceTree = "<group>";
 		};
 		84F708D31CADA49A00CBBFF7 /* AKEnterprise */ = {
@@ -918,11 +937,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E8888F1CC9391D008AA282 /* Main.storyboard in Resources */,
-				84E8889F1CC93A2C008AA282 /* AKLabelViewController.xib in Resources */,
-				84E8888D1CC9391D008AA282 /* Assets.xcassets in Resources */,
-				84E8888E1CC9391D008AA282 /* LaunchScreen.storyboard in Resources */,
-				84579F8E1CC9718300A0C163 /* Default-568h@2x.png in Resources */,
+				84EA93B81CCE99C400FAEAB8 /* AKLabelViewController.xib in Resources */,
+				84EA93B21CCE99C400FAEAB8 /* Assets.xcassets in Resources */,
+				84EA93B31CCE99C400FAEAB8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,10 +957,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E888901CC9391D008AA282 /* AKLabelView.m in Sources */,
-				84E8889E1CC93A2C008AA282 /* AKLabelViewController.m in Sources */,
-				84E888951CC9391D008AA282 /* main.m in Sources */,
-				84E888931CC9391D008AA282 /* AKAppDelegate.m in Sources */,
+				84EA93B51CCE99C400FAEAB8 /* AKAppDelegate.m in Sources */,
+				84EA93B71CCE99C400FAEAB8 /* AKLabelViewController.m in Sources */,
+				84EA93C21CCE9E4700FAEAB8 /* UIViewController+AKCategory.m in Sources */,
+				84EA93BA1CCE99C400FAEAB8 /* main.m in Sources */,
+				84EA93B61CCE99C400FAEAB8 /* AKLabelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,21 +1049,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		84E8887C1CC9391D008AA282 /* LaunchScreen.storyboard */ = {
+		84EA939F1CCE99C400FAEAB8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84E8887D1CC9391D008AA282 /* Base */,
+				84EA93A01CCE99C400FAEAB8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		84E8887E1CC9391D008AA282 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84E8887F1CC9391D008AA282 /* Base */,
-			);
-			name = Main.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -1058,13 +1067,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = IOSProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/IOSProject/Supporting Files/IOSProject-Prefix.pch";
+				INFOPLIST_FILE = "IOSProject/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AK.IOSProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1074,13 +1085,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = IOSProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/IOSProject/Supporting Files/IOSProject-Prefix.pch";
+				INFOPLIST_FILE = "IOSProject/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AK.IOSProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

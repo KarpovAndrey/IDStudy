@@ -1,0 +1,15 @@
+//
+//  IOSProject-Prefix.pch
+//  AKStudy
+//
+//  Created by Admin on 25.04.16.
+//  Copyright © 2016 Admin. All rights reserved.
+//
+
+#ifndef IOSProject_Prefix_pch
+#define IOSProject_Prefix_pch
+
+#import "AKMacroIOS.h"
+#import "UIViewController+AKCategory.h"
+
+#endif /* IOSProject_Prefix_pch */

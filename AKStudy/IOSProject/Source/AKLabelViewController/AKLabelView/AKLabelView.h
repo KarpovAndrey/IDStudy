@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum AKLabelLocation : NSUInteger {
+    kAKLabelUpperLeftLocation,
+    kAKLabelUpperRightLocation,
+    kAKLabelLowerRightLocation,
+    kAKLabelLowerLeftLocation
+} AKLabelLocation;
+
 @interface AKLabelView : UIView
 @property (nonatomic, strong) IBOutlet UILabel *label;
+
+- (void)moveLabel;
+- (void)animateLabel;
 
 @end

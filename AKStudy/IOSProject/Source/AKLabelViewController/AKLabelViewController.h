@@ -12,6 +12,7 @@
 
 @interface AKLabelViewController : UIViewController
 
-- (AKLabelView *)labelView;
+- (IBAction)onClickAnimationsButton:(id)sender;
+- (IBAction)onClickStepsButton:(id)sender;
 
 @end
