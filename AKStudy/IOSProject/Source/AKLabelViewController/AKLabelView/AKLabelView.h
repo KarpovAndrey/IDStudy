@@ -17,8 +17,11 @@ typedef enum AKLabelLocation : NSUInteger {
 
 @interface AKLabelView : UIView
 @property (nonatomic, strong) IBOutlet UILabel *label;
+@property (nonatomic, strong) IBOutlet UIView  *subView;
 
-- (void)moveLabel;
-- (void)animateLabel;
+@property (nonatomic, retain) IBOutlet UISwitch *animationSwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *stepsSwitch;
+
+- (void)moveLabelAnimated:(BOOL)animated;
 
 @end

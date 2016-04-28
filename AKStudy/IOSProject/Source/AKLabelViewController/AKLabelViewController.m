@@ -10,7 +10,7 @@
 #import "AKLabelView.h"
 
 @interface AKLabelViewController ()
-@property (nonatomic, readonly) AKLabelView *rootView;
+@property (nonatomic, strong) AKLabelView *rootView;
 
 @end
 
@@ -24,12 +24,16 @@ AKRootViewAndReturnIfNil(AKLabelView);
 #pragma mark -
 #pragma mark Handling Interface
 
-- (IBAction)onClickAnimationsButton:(id)sender {
-    [self.rootView animateLabel];
+- (IBAction)onClickGoButton:(id)sender {
+    [self.rootView moveLabelAnimated:NO];
 }
 
-- (IBAction)onClickStepsButton:(id)sender {
-    [self.rootView moveLabel];
+- (IBAction)onAnimatedSwitch:(id)sender {
+
+}
+
+- (IBAction)onStepsSwitch:(id)sender {
+    
 }
 
 @end

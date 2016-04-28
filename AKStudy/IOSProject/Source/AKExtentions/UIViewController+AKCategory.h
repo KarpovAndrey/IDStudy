@@ -10,7 +10,7 @@
 
 @interface UIViewController (AKCategory)
 
-+ (instancetype)controllerFromNib:(NSString *)nibName;
++ (instancetype)controllerFromNibNamed:(NSString *)nibName;
 + (instancetype)defaultControllerFromNib;
 
 @end

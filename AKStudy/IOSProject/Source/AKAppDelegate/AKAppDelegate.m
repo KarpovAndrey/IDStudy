@@ -20,6 +20,8 @@
     self.window = window;
 
     window.rootViewController = [AKLabelViewController defaultControllerFromNib];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     [window makeKeyAndVisible];
     
     return YES;
