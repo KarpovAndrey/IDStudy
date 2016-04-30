@@ -11,5 +11,6 @@
 
 #import "AKMacroIOS.h"
 #import "UIViewController+AKCategory.h"
+#import "CGGeometry+AKCategory.h"
 
 #endif /* IOSProject_Prefix_pch */

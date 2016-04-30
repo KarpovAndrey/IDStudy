@@ -12,8 +12,7 @@
 
 @interface AKLabelViewController : UIViewController
 
-- (IBAction)onClickGoButton:(id)sender;
-- (IBAction)onAnimatedSwitch:(id)sender;
-- (IBAction)onStepsSwitch:(id)sender;
+- (IBAction)onClickmovingButton:(id)sender;
+- (IBAction)onInfiniteSwitch:(id)sender;
 
 @end

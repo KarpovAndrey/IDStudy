@@ -14,14 +14,30 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="8hb-3i-fj5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8hb-3i-fj5" secondAttribute="trailing" id="TXY-N6-t4x"/>
+                            <constraint firstItem="8hb-3i-fj5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="cqp-iI-2gh"/>
+                            <constraint firstItem="8hb-3i-fj5" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="wYJ-CZ-w8T"/>
+                            <constraint firstItem="8hb-3i-fj5" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="y59-jO-bDH"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LaunchScreen" width="640" height="1136"/>
+    </resources>
 </document>

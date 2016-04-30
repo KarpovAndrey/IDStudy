@@ -9,26 +9,32 @@
 #import "AKLabelView.h"
 
 typedef void (^AKLabelHandler)(void);
-static const NSUInteger kAKDefaultAnimateDuretion = 1;
+static const NSTimeInterval kAKDefaultAnimateDuration = 0.7;
+static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
 
 @interface AKLabelView ()
-@property (nonatomic, assign) NSUInteger squarePosition;
+@property (nonatomic, assign) AKLabelLocation squarePosition;
 
 - (AKLabelLocation)nextPosition;
-- (CGRect)frameForPosition:(NSUInteger)position;
+- (CGRect)frameForPosition:(AKLabelLocation)position;
 
 @end
 
 @implementation AKLabelView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Ball"]];
+}
+
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setSquarePosition:(NSUInteger)squarePosition {
+- (void)setSquarePosition:(AKLabelLocation)squarePosition {
     [self setSquarePosition:squarePosition animated:NO];
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition animated:(BOOL)animated {
+- (void)setSquarePosition:(AKLabelLocation)squarePosition animated:(BOOL)animated {
     if (_squarePosition != squarePosition) {
         [self setSquarePosition:squarePosition animated:animated completionHandler:^{
             _squarePosition = squarePosition;
@@ -36,12 +42,12 @@ static const NSUInteger kAKDefaultAnimateDuretion = 1;
     }
 }
 
-- (void)setSquarePosition:(NSUInteger)squarePosition
+- (void)setSquarePosition:(AKLabelLocation)squarePosition
                  animated:(BOOL)animated
         completionHandler:(AKLabelHandler)handler
 {
-    [UIView animateWithDuration:animated ? kAKDefaultAnimateDuretion : 0
-                          delay:0.2
+    [UIView animateWithDuration:animated ? kAKDefaultAnimateDuration : 0
+                          delay:kAKDefaultAnimateDelay
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          self.label.frame = [self frameForPosition:squarePosition];
@@ -49,7 +55,8 @@ static const NSUInteger kAKDefaultAnimateDuretion = 1;
                          if (handler) {
                              handler();
                          }
-                         if (self.stepsSwitch.on) {
+                         
+                         if (self.infiniteSwitch.on) {
                              [self setSquarePosition:[self nextPosition] animated:self.animationSwitch.on];
                          }
                      }];
@@ -58,7 +65,7 @@ static const NSUInteger kAKDefaultAnimateDuretion = 1;
 #pragma mark -
 #pragma mark Public
 
-- (void)moveLabelAnimated:(BOOL)animated {
+- (void)moveLabelAnimated:(BOOL)animated {    
     [self setSquarePosition:[self nextPosition] animated:animated];
 }
 
@@ -81,26 +88,33 @@ static const NSUInteger kAKDefaultAnimateDuretion = 1;
     }
 }
 
-- (CGRect)frameForPosition:(NSUInteger)position {
+- (CGRect)frameForPosition:(AKLabelLocation)position {
+    CGFloat x = 0;
+    CGFloat y = 0;
+    
     CGSize subViewSize = self.subView.frame.size;
     CGSize labelSize = self.label.frame.size;
     
     CGFloat xUpperPosition = subViewSize.width - labelSize.width;
     CGFloat yLowerPosition = subViewSize.height - labelSize.height;
     switch (position) {
-        case kAKLabelUpperLeftLocation:
-            return CGRectMake(0, 0, labelSize.width, labelSize.height);
-            
         case kAKLabelUpperRightLocation:
-            return CGRectMake(xUpperPosition, 0, labelSize.width, labelSize.height);
-            
+            x = xUpperPosition;
+            break;
+
         case kAKLabelLowerRightLocation:
-            return CGRectMake(xUpperPosition, yLowerPosition,
-                              labelSize.width, labelSize.height);
+            x = xUpperPosition;
+            y = yLowerPosition;
+            break;
+
+        case kAKLabelLowerLeftLocation:
+            y = yLowerPosition;
+            break;
         
-        default:
-            return CGRectMake(0, yLowerPosition,
-                              labelSize.width, labelSize.height);
+        default: kAKLabelUpperLeftLocation:
+            break;
     }
+    
+    return CGRectMakeWithSize(x, y, labelSize);
 }
 @end

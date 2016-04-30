@@ -50,6 +50,8 @@
 		84B6779A1C86E3DC0042FC86 /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; };
 		84C406C01C986539002000DE /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; };
 		84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
+		84CE52471CD421E10014DD85 /* UIViewController+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CE52461CD421E10014DD85 /* UIViewController+AKCategory.m */; };
+		84CE52581CD42BCC0014DD85 /* CGGeometry+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CE52571CD42BCC0014DD85 /* CGGeometry+AKCategory.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
 		84EA93B21CCE99C400FAEAB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EA939E1CCE99C400FAEAB8 /* Assets.xcassets */; };
 		84EA93B31CCE99C400FAEAB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EA939F1CCE99C400FAEAB8 /* LaunchScreen.storyboard */; };
@@ -58,7 +60,6 @@
 		84EA93B71CCE99C400FAEAB8 /* AKLabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93AD1CCE99C400FAEAB8 /* AKLabelViewController.m */; };
 		84EA93B81CCE99C400FAEAB8 /* AKLabelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EA93AE1CCE99C400FAEAB8 /* AKLabelViewController.xib */; };
 		84EA93BA1CCE99C400FAEAB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93B11CCE99C400FAEAB8 /* main.m */; };
-		84EA93C21CCE9E4700FAEAB8 /* UIViewController+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EA93C11CCE9E4700FAEAB8 /* UIViewController+AKCategory.m */; };
 		84F708E71CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
 		84F708E81CADA49A00CBBFF7 /* AKCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708D61CADA49A00CBBFF7 /* AKCar.m */; };
 		84F708E91CADA49A00CBBFF7 /* AKAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708DA1CADA49A00CBBFF7 /* AKAccountant.m */; };
@@ -174,8 +175,12 @@
 		84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroObjC.h; sourceTree = "<group>"; };
 		84C956AA1CC575E30026BCC5 /* AKDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatch.h; sourceTree = "<group>"; };
 		84C956AB1CC575E30026BCC5 /* AKDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatch.m; sourceTree = "<group>"; };
+		84CE52451CD421E10014DD85 /* UIViewController+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AKCategory.h"; sourceTree = "<group>"; };
+		84CE52461CD421E10014DD85 /* UIViewController+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AKCategory.m"; sourceTree = "<group>"; };
+		84CE52561CD42BCC0014DD85 /* CGGeometry+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+AKCategory.h"; sourceTree = "<group>"; };
+		84CE52571CD42BCC0014DD85 /* CGGeometry+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+AKCategory.m"; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
-		84EA939E1CCE99C400FAEAB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		84EA939E1CCE99C400FAEAB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = IOSProject/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		84EA93A01CCE99C400FAEAB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84EA93A51CCE99C400FAEAB8 /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		84EA93A61CCE99C400FAEAB8 /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
@@ -188,8 +193,6 @@
 		84EA93B11CCE99C400FAEAB8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84EA93BB1CCE9AD800FAEAB8 /* AKMacroIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroIOS.h; sourceTree = "<group>"; };
 		84EA93BC1CCE9BCD00FAEAB8 /* IOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSProject-Prefix.pch"; sourceTree = "<group>"; };
-		84EA93C01CCE9E4700FAEAB8 /* UIViewController+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AKCategory.h"; sourceTree = "<group>"; };
-		84EA93C11CCE9E4700FAEAB8 /* UIViewController+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AKCategory.m"; sourceTree = "<group>"; };
 		84F708D51CADA49A00CBBFF7 /* AKCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCar.h; sourceTree = "<group>"; };
 		84F708D61CADA49A00CBBFF7 /* AKCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCar.m; sourceTree = "<group>"; };
 		84F708D91CADA49A00CBBFF7 /* AKAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAccountant.h; sourceTree = "<group>"; };
@@ -662,6 +665,24 @@
 			path = AKDispatch;
 			sourceTree = "<group>";
 		};
+		84CE52441CD421E10014DD85 /* UIViewController+AKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				84CE52451CD421E10014DD85 /* UIViewController+AKCategory.h */,
+				84CE52461CD421E10014DD85 /* UIViewController+AKCategory.m */,
+			);
+			path = "UIViewController+AKCategory";
+			sourceTree = "<group>";
+		};
+		84CE52551CD42BCC0014DD85 /* CGGeometry+AKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				84CE52561CD42BCC0014DD85 /* CGGeometry+AKCategory.h */,
+				84CE52571CD42BCC0014DD85 /* CGGeometry+AKCategory.m */,
+			);
+			path = "CGGeometry+AKCategory";
+			sourceTree = "<group>";
+		};
 		84EA939D1CCE99C400FAEAB8 /* IOSProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,8 +715,8 @@
 		84EA93A71CCE99C400FAEAB8 /* AKExtentions */ = {
 			isa = PBXGroup;
 			children = (
-				84EA93C01CCE9E4700FAEAB8 /* UIViewController+AKCategory.h */,
-				84EA93C11CCE9E4700FAEAB8 /* UIViewController+AKCategory.m */,
+				84CE52551CD42BCC0014DD85 /* CGGeometry+AKCategory */,
+				84CE52441CD421E10014DD85 /* UIViewController+AKCategory */,
 			);
 			path = AKExtentions;
 			sourceTree = "<group>";
@@ -959,7 +980,8 @@
 			files = (
 				84EA93B51CCE99C400FAEAB8 /* AKAppDelegate.m in Sources */,
 				84EA93B71CCE99C400FAEAB8 /* AKLabelViewController.m in Sources */,
-				84EA93C21CCE9E4700FAEAB8 /* UIViewController+AKCategory.m in Sources */,
+				84CE52471CD421E10014DD85 /* UIViewController+AKCategory.m in Sources */,
+				84CE52581CD42BCC0014DD85 /* CGGeometry+AKCategory.m in Sources */,
 				84EA93BA1CCE99C400FAEAB8 /* main.m in Sources */,
 				84EA93B61CCE99C400FAEAB8 /* AKLabelView.m in Sources */,
 			);

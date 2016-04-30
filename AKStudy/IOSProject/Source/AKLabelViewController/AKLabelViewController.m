@@ -24,16 +24,19 @@ AKRootViewAndReturnIfNil(AKLabelView);
 #pragma mark -
 #pragma mark Handling Interface
 
-- (IBAction)onClickGoButton:(id)sender {
-    [self.rootView moveLabelAnimated:NO];
+- (IBAction)onClickmovingButton:(id)sender {
+    AKLabelView *view = self.rootView;
+    [view moveLabelAnimated:view.animationSwitch.on ? YES : NO];
+    if (view.infiniteSwitch.on) {
+        view.movingButton.enabled = NO;
+    }
 }
 
-- (IBAction)onAnimatedSwitch:(id)sender {
-
-}
-
-- (IBAction)onStepsSwitch:(id)sender {
-    
+- (IBAction)onInfiniteSwitch:(id)sender {
+    AKLabelView *view = self.rootView;
+    if (!view.infiniteSwitch.on) {
+        view.movingButton.enabled = YES;
+    }
 }
 
 @end
