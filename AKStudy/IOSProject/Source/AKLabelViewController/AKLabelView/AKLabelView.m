@@ -16,11 +16,14 @@ static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
 @property (nonatomic, assign) AKLabelLocation squarePosition;
 
 - (AKLabelLocation)nextPosition;
-- (CGRect)frameForPosition:(AKLabelLocation)position;
+- (CGAffineTransform)transformForPosition:(AKLabelLocation)position;
 
 @end
 
 @implementation AKLabelView
+
+#pragma mark -
+#pragma mark View Lifecycle
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -50,7 +53,7 @@ static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
                           delay:kAKDefaultAnimateDelay
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         self.label.frame = [self frameForPosition:squarePosition];
+                         self.label.transform = [self transformForPosition:squarePosition];
                      } completion:^(BOOL finished){
                          if (handler) {
                              handler();
@@ -65,7 +68,7 @@ static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
 #pragma mark -
 #pragma mark Public
 
-- (void)moveLabelAnimated:(BOOL)animated {    
+- (void)moveLabelAnimated:(BOOL)animated {
     [self setSquarePosition:[self nextPosition] animated:animated];
 }
 
@@ -88,10 +91,7 @@ static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
     }
 }
 
-- (CGRect)frameForPosition:(AKLabelLocation)position {
-    CGFloat x = 0;
-    CGFloat y = 0;
-    
+- (CGAffineTransform)transformForPosition:(AKLabelLocation)position {
     CGSize subViewSize = self.subView.frame.size;
     CGSize labelSize = self.label.frame.size;
     
@@ -99,22 +99,17 @@ static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
     CGFloat yLowerPosition = subViewSize.height - labelSize.height;
     switch (position) {
         case kAKLabelUpperRightLocation:
-            x = xUpperPosition;
-            break;
-
+            return CGAffineTransformMakeTranslation(xUpperPosition, 0);
+            
         case kAKLabelLowerRightLocation:
-            x = xUpperPosition;
-            y = yLowerPosition;
-            break;
+            return CGAffineTransformMakeTranslation(xUpperPosition, yLowerPosition);
 
         case kAKLabelLowerLeftLocation:
-            y = yLowerPosition;
-            break;
-        
-        default: kAKLabelUpperLeftLocation:
-            break;
+            return CGAffineTransformMakeTranslation(0, yLowerPosition);
+
+            
+        default:
+            return CGAffineTransformMakeTranslation(0, 0);
     }
-    
-    return CGRectMakeWithSize(x, y, labelSize);
 }
 @end

@@ -32,6 +32,10 @@ AKRootViewAndReturnIfNil(AKLabelView);
     }
 }
 
+- (IBAction)onAnimatedSwitch:(id)sender {
+    
+}
+
 - (IBAction)onInfiniteSwitch:(id)sender {
     AKLabelView *view = self.rootView;
     if (!view.infiniteSwitch.on) {
