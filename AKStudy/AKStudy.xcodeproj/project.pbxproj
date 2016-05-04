@@ -14,6 +14,9 @@
 		8418E5841CBE76E400141D27 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; };
 		8418E5871CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
+		844BA5BA1CDA82D400A5DB1F /* AKUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844BA5B81CDA82D400A5DB1F /* AKUserViewController.m */; };
+		844BA5BB1CDA82D400A5DB1F /* AKUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844BA5B91CDA82D400A5DB1F /* AKUserViewController.xib */; };
+		844BA5BF1CDA830400A5DB1F /* AKUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844BA5BE1CDA830400A5DB1F /* AKUserView.m */; };
 		847692131C762984008682D4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691D91C762984008682D4 /* main.c */; };
 		847692141C762984008682D4 /* AKArray.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DC1C762984008682D4 /* AKArray.c */; };
 		847692151C762984008682D4 /* AKEnumerator.c in Sources */ = {isa = PBXBuildFile; fileRef = 847691DF1C762984008682D4 /* AKEnumerator.c */; };
@@ -111,6 +114,11 @@
 		8418E5821CBE76E400141D27 /* AKObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverArray.m; sourceTree = "<group>"; };
 		8418E5851CBE76F400141D27 /* AKObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverObject.h; sourceTree = "<group>"; };
 		8418E5861CBE76F400141D27 /* AKObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverObject.m; sourceTree = "<group>"; };
+		844BA5B71CDA82D400A5DB1F /* AKUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUserViewController.h; sourceTree = "<group>"; };
+		844BA5B81CDA82D400A5DB1F /* AKUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUserViewController.m; sourceTree = "<group>"; };
+		844BA5B91CDA82D400A5DB1F /* AKUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKUserViewController.xib; sourceTree = "<group>"; };
+		844BA5BD1CDA830400A5DB1F /* AKUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUserView.h; sourceTree = "<group>"; };
+		844BA5BE1CDA830400A5DB1F /* AKUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUserView.m; sourceTree = "<group>"; };
 		847691D31C762922008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847691D91C762984008682D4 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		847691DC1C762984008682D4 /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
@@ -300,6 +308,26 @@
 				8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */,
 			);
 			path = AKObserverDictionary;
+			sourceTree = "<group>";
+		};
+		844BA5B61CDA82C700A5DB1F /* AKUserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				844BA5BC1CDA82E900A5DB1F /* AKUserView */,
+				844BA5B71CDA82D400A5DB1F /* AKUserViewController.h */,
+				844BA5B81CDA82D400A5DB1F /* AKUserViewController.m */,
+				844BA5B91CDA82D400A5DB1F /* AKUserViewController.xib */,
+			);
+			path = AKUserViewController;
+			sourceTree = "<group>";
+		};
+		844BA5BC1CDA82E900A5DB1F /* AKUserView */ = {
+			isa = PBXGroup;
+			children = (
+				844BA5BD1CDA830400A5DB1F /* AKUserView.h */,
+				844BA5BE1CDA830400A5DB1F /* AKUserView.m */,
+			);
+			path = AKUserView;
 			sourceTree = "<group>";
 		};
 		847691D21C762922008682D4 /* ObjC */ = {
@@ -695,8 +723,9 @@
 		84EA93A31CCE99C400FAEAB8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				84EA93A41CCE99C400FAEAB8 /* AKAppDelegate */,
 				84EA93A71CCE99C400FAEAB8 /* AKExtentions */,
+				84EA93A41CCE99C400FAEAB8 /* AKAppDelegate */,
+				844BA5B61CDA82C700A5DB1F /* AKUserViewController */,
 				84EA93A81CCE99C400FAEAB8 /* AKLabelViewController */,
 				84EA93BB1CCE9AD800FAEAB8 /* AKMacroIOS.h */,
 			);
@@ -961,6 +990,7 @@
 				84EA93B81CCE99C400FAEAB8 /* AKLabelViewController.xib in Resources */,
 				84EA93B21CCE99C400FAEAB8 /* Assets.xcassets in Resources */,
 				84EA93B31CCE99C400FAEAB8 /* LaunchScreen.storyboard in Resources */,
+				844BA5BB1CDA82D400A5DB1F /* AKUserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,9 +1009,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EA93B51CCE99C400FAEAB8 /* AKAppDelegate.m in Sources */,
+				844BA5BA1CDA82D400A5DB1F /* AKUserViewController.m in Sources */,
 				84EA93B71CCE99C400FAEAB8 /* AKLabelViewController.m in Sources */,
 				84CE52471CD421E10014DD85 /* UIViewController+AKCategory.m in Sources */,
 				84CE52581CD42BCC0014DD85 /* CGGeometry+AKCategory.m in Sources */,
+				844BA5BF1CDA830400A5DB1F /* AKUserView.m in Sources */,
 				84EA93BA1CCE99C400FAEAB8 /* main.m in Sources */,
 				84EA93B61CCE99C400FAEAB8 /* AKLabelView.m in Sources */,
 			);

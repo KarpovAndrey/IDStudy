@@ -13,7 +13,6 @@
 @interface AKLabelViewController : UIViewController
 
 - (IBAction)onClickmovingButton:(id)sender;
-- (IBAction)onAnimatedSwitch:(id)sender;
 - (IBAction)onInfiniteSwitch:(id)sender;
 
 @end

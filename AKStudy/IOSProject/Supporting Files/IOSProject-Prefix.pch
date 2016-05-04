@@ -10,7 +10,9 @@
 #define IOSProject_Prefix_pch
 
 #import "AKMacroIOS.h"
+#import "AKMacroObjC.h"
 #import "UIViewController+AKCategory.h"
 #import "CGGeometry+AKCategory.h"
+#import "NSString+AKExtensions.h"
 
 #endif /* IOSProject_Prefix_pch */

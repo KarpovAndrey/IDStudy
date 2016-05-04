@@ -10,7 +10,7 @@
 
 typedef void (^AKLabelHandler)(void);
 static const NSTimeInterval kAKDefaultAnimateDuration = 0.7;
-static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
+static const NSTimeInterval kAKDefaultAnimateDelay    = 0.2;
 
 @interface AKLabelView ()
 @property (nonatomic, assign) AKLabelLocation squarePosition;
@@ -112,4 +112,5 @@ static const NSTimeInterval kAKDefaultAnimateDelay = 0.2;
             return CGAffineTransformMakeTranslation(0, 0);
     }
 }
+
 @end

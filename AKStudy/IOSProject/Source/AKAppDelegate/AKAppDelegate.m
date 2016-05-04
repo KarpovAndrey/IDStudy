@@ -8,6 +8,7 @@
 
 #import "AKAppDelegate.h"
 #import "AKLabelViewController.h"
+#import "AKUserViewController.h"
 
 @interface AKAppDelegate ()
 
@@ -19,7 +20,7 @@
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window = window;
 
-    window.rootViewController = [AKLabelViewController defaultControllerFromNib];
+    window.rootViewController = [AKUserViewController defaultControllerFromNib];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     [window makeKeyAndVisible];

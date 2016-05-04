@@ -25,9 +25,6 @@
                         <constraint firstAttribute="width" secondItem="Oze-7A-JM2" secondAttribute="height" multiplier="49:31" id="0xB-EV-8IJ"/>
                         <constraint firstAttribute="width" secondItem="Oze-7A-JM2" secondAttribute="height" multiplier="49:31" id="BTh-qt-2fi"/>
                     </constraints>
-                    <connections>
-                        <action selector="onAnimatedSwitch:" destination="-1" eventType="touchUpInside" id="dzR-Pc-UUs"/>
-                    </connections>
                 </switch>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="cvgfdg" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="A4S-o3-Hy2">
                     <rect key="frame" x="240" y="424" width="51" height="31"/>
@@ -62,7 +59,7 @@
                     <color key="backgroundColor" red="0.66666666669999997" green="0.63035670570000002" blue="0.52430082990000004" alpha="1" colorSpace="calibratedRGB"/>
                     <accessibility key="accessibilityConfiguration" label="fdsfds"/>
                     <size key="titleShadowOffset" width="0.0" height="1"/>
-                    <state key="normal" image="Button">
+                    <state key="normal" backgroundImage="Button">
                         <color key="titleColor" red="0.8961419658050026" green="0.93657967931937169" blue="0.8923853060175404" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -147,7 +144,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <connections>
-                <outlet property="animationSwitch" destination="Oze-7A-JM2" id="ekW-2F-ZRS"/>
+                <outlet property="animationSwitch" destination="Oze-7A-JM2" id="ZXB-UZ-bOh"/>
                 <outlet property="infiniteSwitch" destination="A4S-o3-Hy2" id="duo-Cu-ZjA"/>
                 <outlet property="label" destination="8Kq-EE-9jf" id="3Ij-iC-Zud"/>
                 <outlet property="movingButton" destination="dJ8-ZQ-1TZ" id="T8w-p7-S0R"/>

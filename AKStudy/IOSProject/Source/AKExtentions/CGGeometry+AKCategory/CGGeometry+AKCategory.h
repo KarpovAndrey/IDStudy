@@ -14,12 +14,12 @@ CGRectMakeWithSize(CGFloat x, CGFloat y, CGSize size) {
 }
 
 CG_INLINE CGRect
-CGRectMakeWithPointAndSize(CGPoint point, CGSize size) {
+CGRectMakeWithPointSize(CGPoint point, CGSize size) {
     return CGRectMake(point.x, point.y, size.width, size.height);
 }
 
 CG_INLINE CGRect
-CGRectMakeWithOriginWithSize(CGSize size) {
+CGRectMakeWithZeroPointSize(CGSize size) {
     return CGRectMake(0, 0, size.width, size.height);
 }
 
@@ -30,7 +30,7 @@ CGRectMakeWithPointSquare(CGPoint point, CGFloat sideLength) {
 }
 
 CG_INLINE CGRect
-CGRectMakeWithOriginSquare(CGFloat sideLength) {
+CGRectMakeWithZeroPointSquare(CGFloat sideLength) {
     return CGRectMake(0, 0, sideLength, sideLength);
 }
 

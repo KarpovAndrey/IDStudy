@@ -29,5 +29,7 @@ typedef NS_ENUM(NSUInteger, AKAlphabetType) {
 + (instancetype)randomStringWithType:(AKAlphabetType)type;
 + (instancetype)randomStringWithType:(AKAlphabetType)type length:(NSUInteger)length;
 
++ (NSArray *)arrayRandomStringsCount:(NSUInteger)count;
+
 @end
 
