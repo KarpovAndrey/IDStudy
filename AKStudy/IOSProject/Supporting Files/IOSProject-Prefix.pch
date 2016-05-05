@@ -14,5 +14,7 @@
 #import "UIViewController+AKCategory.h"
 #import "CGGeometry+AKCategory.h"
 #import "NSString+AKExtensions.h"
+#import "UIWindow+AKCategory.h"
+#import "UITableView+AKCategory.h"
 
 #endif /* IOSProject_Prefix_pch */

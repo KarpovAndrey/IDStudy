@@ -43,10 +43,10 @@ AKRootViewAndReturnIfNil(AKUserView);
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifierWithClass:[self class]];
-//    
-//    cell.textLabel.text = self.stringsArray[indexPath.row];
-
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifierWithClass:[self class]];
+    //
+    //    cell.textLabel.text = self.stringsArray[indexPath.row];
+    
     AKUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AKUserViewCell class])];
     
     if (!cell) {

@@ -10,7 +10,8 @@
 
 #import "AKAlphabet.h"
 
-const NSUInteger kAKDefaultLenght = 20;
+const NSUInteger kAKDefaultLenght          = 20;
+const NSUInteger kAKDefaultQuantityStringsMax = 50;
 
 @interface NSString (AKExtensions)
 
@@ -70,6 +71,20 @@ const NSUInteger kAKDefaultLenght = 20;
     }
     
     return string;
+}
+
++ (NSArray *)randomStringsWithCount:(NSUInteger)count {
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    
+    for (NSUInteger index = 0; index < count; index++) {
+        [mutableArray addObject:[NSString randomString]];
+    }
+    
+    return [mutableArray copy];
+}
+
++ (NSArray *)randomStrings {
+    return [self randomStringsWithCount:arc4random_uniform(kAKDefaultQuantityStringsMax) + 1];
 }
 
 @end

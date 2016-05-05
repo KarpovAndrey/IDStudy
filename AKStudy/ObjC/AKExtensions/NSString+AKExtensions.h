@@ -29,7 +29,9 @@ typedef NS_ENUM(NSUInteger, AKAlphabetType) {
 + (instancetype)randomStringWithType:(AKAlphabetType)type;
 + (instancetype)randomStringWithType:(AKAlphabetType)type length:(NSUInteger)length;
 
-+ (NSArray *)arrayRandomStringsCount:(NSUInteger)count;
+//Default quantity determined with arc4random_uniform(50) + 1
++ (NSArray *)randomStringsWithCount:(NSUInteger)count;
++ (NSArray *)randomStrings;
 
 @end
 

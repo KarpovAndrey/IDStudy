@@ -21,11 +21,4 @@
     return cell;
 }
 
-
-//AKUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AKUserViewCell class])];
-//
-//if (!cell) {
-//    UINib *nib = [UINib nibWithNibName:NSStringFromClass([AKUserViewCell class]) bundle:[NSBundle mainBundle]];
-//    cell = [[nib instantiateWithOwner:[AKUserViewCell class] options:nil] firstObject];
-//}
 @end
