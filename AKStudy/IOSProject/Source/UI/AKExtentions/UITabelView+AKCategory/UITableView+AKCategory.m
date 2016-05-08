@@ -21,4 +21,14 @@
     return cell;
 }
 
+- (id)dequeueReusableCellFromNibWithClass:(Class)theClass {
+    UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(theClass)];
+    if (!cell) {
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
+        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
+    }
+    
+    return cell;
+}
+
 @end

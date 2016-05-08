@@ -9,6 +9,7 @@
 #import "AKAppDelegate.h"
 #import "AKLabelViewController.h"
 #import "AKUserViewController.h"
+#import "AKStringsModel.h"
 
 @interface AKAppDelegate ()
 
@@ -19,33 +20,34 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-
-    window.rootViewController = [AKUserViewController defaultControllerFromNib];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
+    AKUserViewController *viewController = [AKUserViewController defaultControllerFromNib];
+    viewController.stringsModel = [AKStringsModel new];
+    window.rootViewController = viewController;
+    
     [window makeKeyAndVisible];
     
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
- 
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
- 
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    
 }
 
 @end

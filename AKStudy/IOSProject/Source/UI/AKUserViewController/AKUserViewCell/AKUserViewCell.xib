@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Duck" translatesAutoresizingMaskIntoConstraints="NO" id="0KA-rT-OPL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Duck" translatesAutoresizingMaskIntoConstraints="NO" id="0KA-rT-OPL">
                         <rect key="frame" x="8" y="4" width="70" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="Fap-a8-ldk"/>

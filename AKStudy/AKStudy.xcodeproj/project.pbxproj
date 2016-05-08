@@ -44,6 +44,8 @@
 		84B677991C86E3770042FC86 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		84C406C01C986539002000DE /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; };
 		84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
+		84CDD6E61CDF7D5C003C6A0B /* AKStringsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDD6E41CDF7D5C003C6A0B /* AKStringsModel.m */; };
+		84CDD6E91CDF7DC8003C6A0B /* AKRandomStringModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDD6E81CDF7DC8003C6A0B /* AKRandomStringModel.m */; };
 		84E1BB981C7CCE9900EC8FB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 847691D31C762922008682D4 /* main.m */; };
 		84E869AF1CDB7D7800D0E13C /* NSString+AKExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B14F681C7FAD8E003B4B17 /* NSString+AKExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84E869B01CDB7E9D00D0E13C /* AKAlphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FB41151C84E07E00AB4C4C /* AKAlphabet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -177,6 +179,10 @@
 		84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroObjC.h; sourceTree = "<group>"; };
 		84C956AA1CC575E30026BCC5 /* AKDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatch.h; sourceTree = "<group>"; };
 		84C956AB1CC575E30026BCC5 /* AKDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatch.m; sourceTree = "<group>"; };
+		84CDD6E31CDF7D5C003C6A0B /* AKStringsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStringsModel.h; sourceTree = "<group>"; };
+		84CDD6E41CDF7D5C003C6A0B /* AKStringsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKStringsModel.m; sourceTree = "<group>"; };
+		84CDD6E71CDF7DC8003C6A0B /* AKRandomStringModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKRandomStringModel.h; sourceTree = "<group>"; };
+		84CDD6E81CDF7DC8003C6A0B /* AKRandomStringModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKRandomStringModel.m; sourceTree = "<group>"; };
 		84D867D41C79B9A3005B7E18 /* iOS Study Plan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iOS Study Plan.txt"; path = "../../../Downloads/iOS Study Plan.txt"; sourceTree = "<group>"; };
 		84E86A011CDBE97300D0E13C /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		84E86A021CDBE97300D0E13C /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
@@ -314,6 +320,14 @@
 				8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */,
 			);
 			path = AKObserverDictionary;
+			sourceTree = "<group>";
+		};
+		846801D21CDE412300AF2271 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84CDD6E21CDF7D5C003C6A0B /* AKRandomStringsModel */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		847691D21C762922008682D4 /* ObjC */ = {
@@ -679,9 +693,29 @@
 			path = AKDispatch;
 			sourceTree = "<group>";
 		};
+		84CDD6E21CDF7D5C003C6A0B /* AKRandomStringsModel */ = {
+			isa = PBXGroup;
+			children = (
+				84CDD6E51CDF7D5C003C6A0B /* RandomStringModel */,
+				84CDD6E31CDF7D5C003C6A0B /* AKStringsModel.h */,
+				84CDD6E41CDF7D5C003C6A0B /* AKStringsModel.m */,
+			);
+			path = AKRandomStringsModel;
+			sourceTree = "<group>";
+		};
+		84CDD6E51CDF7D5C003C6A0B /* RandomStringModel */ = {
+			isa = PBXGroup;
+			children = (
+				84CDD6E71CDF7DC8003C6A0B /* AKRandomStringModel.h */,
+				84CDD6E81CDF7DC8003C6A0B /* AKRandomStringModel.m */,
+			);
+			path = RandomStringModel;
+			sourceTree = "<group>";
+		};
 		84E869FE1CDBE97300D0E13C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				846801D21CDE412300AF2271 /* Models */,
 				84E869FF1CDBE97300D0E13C /* UI */,
 			);
 			path = Source;
@@ -1063,6 +1097,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E869B31CDB7ED600D0E13C /* AKClusterAlphabet.m in Sources */,
+				84CDD6E91CDF7DC8003C6A0B /* AKRandomStringModel.m in Sources */,
 				84E86A2A1CDBE97300D0E13C /* AKLabelViewController.m in Sources */,
 				84E869B21CDB7ED600D0E13C /* AKStringAlphabet.m in Sources */,
 				84E86A271CDBE97300D0E13C /* UIViewController+AKCategory.m in Sources */,
@@ -1078,6 +1113,7 @@
 				84E86A241CDBE97300D0E13C /* AKAppDelegate.m in Sources */,
 				84E86A2D1CDBE97300D0E13C /* AKUserViewCell.m in Sources */,
 				84E869B01CDB7E9D00D0E13C /* AKAlphabet.m in Sources */,
+				84CDD6E61CDF7D5C003C6A0B /* AKStringsModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
