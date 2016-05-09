@@ -1,74 +1,90 @@
 //
-//  AKStringsModel.m
+//  AKArrayModel.m
 //  AKStudy
 //
 //  Created by Admin on 07.05.16.
 //  Copyright © 2016 Admin. All rights reserved.
 //
 
-#import "AKStringsModel.h"
-#import "AKRandomStringModel.h"
+#import "AKArrayModel.h"
+#import "AKStringModel.h"
 
-static const NSUInteger kAKDefaultQuantityStringsMax = 40;
-
-@interface AKStringsModel ()
-
-- (void)addRandomStringModels;
+@interface AKArrayModel ()
+@property (nonatomic, strong) NSMutableArray *arrayObjects;
 
 @end
 
-@implementation AKStringsModel
+@implementation AKArrayModel
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)arrayModelWithObject:(id)object {
+    return [[self alloc] initWithObject:object];
+}
+
++ (instancetype)arrayModelWithObjects:(NSArray *)objects {
+    return [[self alloc] initWithObjects:objects, nil];
+}
 
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
-- (instancetype)init {
+- (instancetype)initWithObject:(id)object {
     self = [super init];
     if (self) {
-        self.stringsModels = [NSMutableArray array];
-        [self addRandomStringModels];
+        self.arrayObjects = [NSMutableArray arrayWithObject:object];
     }
     
     return self;
 }
 
-#pragma marl -
-#pragma mark Private Methods
-
-- (void)addRandomStringModels {
-    NSUInteger count = arc4random_uniform(kAKDefaultQuantityStringsMax) + 1;
-    for (NSUInteger index = 0; index < count; index++) {
-        [self.stringsModels addObject:[AKRandomStringModel new]];
+- (instancetype)initWithObjects:(NSArray *)objects {
+    self = [super init];
+    if (self) {
+        self.arrayObjects = [NSMutableArray arrayWithArray:objects];
     }
+    
+    return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSUInteger)count {
+    return self.arrayObjects.count;
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (NSUInteger)count {
-    return self.stringsModels.count;
+- (BOOL)containsObject:(id)object {
+    return [self containsObject:object];
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
-    return [self.stringsModels objectAtIndex:index];
+    return [self.arrayObjects objectAtIndex:index];
 }
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
-    return self.stringsModels[index];
+    return self.arrayObjects[index];
 }
 
-- (void)setObject:(id)object atIndexedSubscript:(NSUInteger)index {
-    self.stringsModels[index] = object;
-}
-
-- (NSString *)stringFromObjectAtIndex:(NSUInteger)index {
-    AKRandomStringModel *object = [self objectAtIndex:index];
-    
-    return object.randomString;
+- (void)removeObject:(id)object {
+    [self.arrayObjects removeObject:object];
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-    return [self.stringsModels removeObjectAtIndex:index];
+    return [self.arrayObjects removeObjectAtIndex:index];
 }
 
+- (void)removeAllObject {
+    [self.arrayObjects removeAllObjects];
+}
+
+
+- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex withObjectAtIndex:(NSUInteger)destinationIndex {
+    [self.arrayObjects exchangeObjectAtIndex:sourceIndex
+                           withObjectAtIndex:destinationIndex];
+}
 @end

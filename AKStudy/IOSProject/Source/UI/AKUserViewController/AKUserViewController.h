@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class AKStringsModel;
+@class AKArrayModel;
 
 @interface AKUserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) AKStringsModel *stringsModel;
+@property (nonatomic, strong) AKArrayModel *arrayModel;
 
 @end

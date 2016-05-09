@@ -9,7 +9,7 @@
 #import "AKUserViewController.h"
 #import "AKUserView.h"
 #import "AKUserViewCell.h"
-#import "AKStringsModel.h"
+#import "AKArrayModel.h"
 
 @interface AKUserViewController ()
 @property (nonatomic, readonly) AKUserView   *rootView;
@@ -43,7 +43,7 @@ AKRootViewAndReturnIfNil(AKUserView);
 #pragma mark UITableViewDataSource Protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.stringsModel.count;
+    return self.arrayModel.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -54,25 +54,25 @@ AKRootViewAndReturnIfNil(AKUserView);
         cell = [[nib instantiateWithOwner:[AKUserViewCell class] options:nil] firstObject];
     }
     
-    cell.cellLabel.text = [self.stringsModel[indexPath.row] randomString];
-    
+    [cell fillWithModel:self.arrayModel[indexPath.row]];
+        
     return cell;
 }
 
 //Removing cell with swipe
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)        tableView:(UITableView *)tableView
+       commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+        forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.stringsModel removeObjectAtIndex:indexPath.row];
+        [self.arrayModel removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
-- (NSString *)tableView:(UITableView *)tableView
-titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)                              tableView:(UITableView *)tableView
+    titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return @"REMOVE CELL";
 }
@@ -82,13 +82,12 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath;
+- (void)    tableView:(UITableView *)tableView
+   moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+          toIndexPath:(NSIndexPath *)destinationIndexPath;
 {
-    NSMutableArray *tempArray = self.stringsModel.stringsModels;
-    
-    [tempArray exchangeObjectAtIndex:sourceIndexPath.row
-                   withObjectAtIndex:destinationIndexPath.row];
-    self.stringsModel.stringsModels = tempArray;
+    [self.arrayModel exchangeObjectAtIndex:sourceIndexPath.row
+                                      withObjectAtIndex:destinationIndexPath.row];
 }
 
 @end

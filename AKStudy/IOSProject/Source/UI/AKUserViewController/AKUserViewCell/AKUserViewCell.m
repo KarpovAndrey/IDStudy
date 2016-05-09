@@ -7,8 +7,12 @@
 //
 
 #import "AKUserViewCell.h"
+#import "AKStringModel.h"
 
 @implementation AKUserViewCell
 
+- (void)fillWithModel:(AKStringModel *)theModel {
+    self.cellLabel.text = theModel.string;
+}
 
 @end

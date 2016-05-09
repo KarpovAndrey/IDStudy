@@ -8,14 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AKStringsModel : NSObject
-@property (nonatomic, strong) NSMutableArray *stringsModels;
+@interface AKArrayModel : NSObject
+@property (nonatomic, readonly) NSUInteger count;
 
-- (NSUInteger)count;
++ (instancetype)arrayModelWithObject:(id)object;
++ (instancetype)arrayModelWithObjects:(NSArray *)objects;
+
+- (instancetype)initWithObject:(id)object;
+- (instancetype)initWithObjects:(NSArray *)objects;
+
+- (BOOL)containsObject:(id)object;
+
 - (id)objectAtIndex:(NSUInteger)index;
-- (void)setObject:(id)object atIndexedSubscript:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
-- (NSString *)stringFromObjectAtIndex:(NSUInteger)index;
+
+- (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
+- (void)removeAllObject;
+
+- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex withObjectAtIndex:(NSUInteger)destinationIndex;
 
 @end

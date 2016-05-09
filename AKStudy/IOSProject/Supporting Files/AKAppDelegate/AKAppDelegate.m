@@ -9,7 +9,8 @@
 #import "AKAppDelegate.h"
 #import "AKLabelViewController.h"
 #import "AKUserViewController.h"
-#import "AKStringsModel.h"
+#import "AKArrayModel.h"
+#import "AKStringModel.h"
 
 @interface AKAppDelegate ()
 
@@ -22,7 +23,9 @@
     self.window = window;
     
     AKUserViewController *viewController = [AKUserViewController defaultControllerFromNib];
-    viewController.stringsModel = [AKStringsModel new];
+    
+    viewController.arrayModel = [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
+//    viewController.stringsModel = [AKArrayModel new];
     window.rootViewController = viewController;
     
     [window makeKeyAndVisible];

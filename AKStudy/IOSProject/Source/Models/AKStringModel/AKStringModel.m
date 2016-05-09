@@ -6,14 +6,37 @@
 //  Copyright © 2016 Admin. All rights reserved.
 //
 
-#import "AKRandomStringModel.h"
+#import "AKStringModel.h"
 
-@interface AKRandomStringModel ()
-@property (nonatomic, copy) NSString *randomString;
+static const NSUInteger kAKDefaultStringCount = 40;
+
+@interface AKStringModel ()
+@property (nonatomic, copy) NSString *string;
 
 @end
 
-@implementation AKRandomStringModel
+@implementation AKStringModel
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (instancetype)randomStringModel {
+    return [[self class] new];
+}
+
++ (instancetype)stringModelWirhString:(NSString *)string {
+    return [[[self class] alloc] initWithString:string];
+}
+
++ (NSArray *)randomStringsModel {
+    NSMutableArray *mutableArray = [NSMutableArray array];
+    
+    for (NSUInteger index = 0; index < arc4random_uniform(kAKDefaultStringCount) + 1; index++) {
+        [mutableArray addObject:[self randomStringModel]];
+    }
+
+    return [mutableArray copy];
+}
 
 #pragma mark -
 #pragma mark Ininializations & Deallocations
@@ -21,7 +44,16 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.randomString = [NSMutableString randomString];
+        self.string = [NSString randomString];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithString:(NSString *)string {
+    self = [super init];
+    if (self) {
+        self.string = [string copy];
     }
     
     return self;

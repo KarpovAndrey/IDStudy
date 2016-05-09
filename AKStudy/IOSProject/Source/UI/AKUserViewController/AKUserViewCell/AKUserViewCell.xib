@@ -15,18 +15,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Duck" translatesAutoresizingMaskIntoConstraints="NO" id="0KA-rT-OPL">
-                        <rect key="frame" x="8" y="4" width="70" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="70" id="Fap-a8-ldk"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDJ-Ks-wKU">
                         <rect key="frame" x="86" y="10" width="234" height="24"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="0.17959289770820752" green="0.14749105941064844" blue="0.69415064102564106" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Duck" translatesAutoresizingMaskIntoConstraints="NO" id="0KA-rT-OPL">
+                        <rect key="frame" x="8" y="4" width="70" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="Fap-a8-ldk"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0KA-rT-OPL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1dP-y3-uAG"/>
