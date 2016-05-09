@@ -54,7 +54,7 @@ AKRootViewAndReturnIfNil(AKUserView);
         cell = [[nib instantiateWithOwner:[AKUserViewCell class] options:nil] firstObject];
     }
     
-    cell.cellLabel.text = [self.stringsModel stringFromObjectAtIndex:indexPath.row];
+    cell.cellLabel.text = [self.stringsModel[indexPath.row] randomString];
     
     return cell;
 }
