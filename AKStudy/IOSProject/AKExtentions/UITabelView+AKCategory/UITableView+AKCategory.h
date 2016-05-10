@@ -11,5 +11,6 @@
 @interface UITableView (AKCategory)
 
 - (id)dequeueReusableCellWithIdentifierWithClass:(Class)theClass;
+- (id)dequeueCellFromNibWithClass:(Class)theClass;
 
 @end

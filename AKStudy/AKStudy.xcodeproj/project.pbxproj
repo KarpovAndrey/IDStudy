@@ -117,6 +117,7 @@
 		8418E5821CBE76E400141D27 /* AKObserverArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverArray.m; sourceTree = "<group>"; };
 		8418E5851CBE76F400141D27 /* AKObserverObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserverObject.h; sourceTree = "<group>"; };
 		8418E5861CBE76F400141D27 /* AKObserverObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserverObject.m; sourceTree = "<group>"; };
+		8434CF8A1CE1A25000C8498F /* AKMacroIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroIOS.h; sourceTree = "<group>"; };
 		847691D31C762922008682D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		847691D91C762984008682D4 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		847691DC1C762984008682D4 /* AKArray.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AKArray.c; sourceTree = "<group>"; };
@@ -199,7 +200,6 @@
 		84B95DDD1CE0CF5500BAA556 /* AKUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKUserViewController.xib; sourceTree = "<group>"; };
 		84B95DE01CE0CF5500BAA556 /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		84B95DE11CE0CF5500BAA556 /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
-		84B95DE21CE0CF5500BAA556 /* AKMacroIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacroIOS.h; sourceTree = "<group>"; };
 		84B95DE31CE0CF5500BAA556 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B95DE51CE0CF5500BAA556 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84B95DE71CE0CF5500BAA556 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -666,6 +666,7 @@
 		84B95DB41CE0CF5500BAA556 /* IOSProject */ = {
 			isa = PBXGroup;
 			children = (
+				8434CF8A1CE1A25000C8498F /* AKMacroIOS.h */,
 				84B95DB51CE0CF5500BAA556 /* AKExtentions */,
 				84B95DC21CE0CF5500BAA556 /* Source */,
 				84B95DDE1CE0CF5500BAA556 /* Supporting Files */,
@@ -802,7 +803,6 @@
 			isa = PBXGroup;
 			children = (
 				84B95DDF1CE0CF5500BAA556 /* AKAppDelegate */,
-				84B95DE21CE0CF5500BAA556 /* AKMacroIOS.h */,
 				84B95DE31CE0CF5500BAA556 /* Assets.xcassets */,
 				84B95DE41CE0CF5500BAA556 /* LaunchScreen.storyboard */,
 				84B95DE61CE0CF5500BAA556 /* Main.storyboard */,

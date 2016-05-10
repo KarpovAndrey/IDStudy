@@ -70,6 +70,10 @@
     return self.arrayObjects[index];
 }
 
+- (void)addObjectToArray {
+    return [self.arrayObjects addObject:[AKStringModel new]];
+}
+
 - (void)removeObject:(id)object {
     [self.arrayObjects removeObject:object];
 }

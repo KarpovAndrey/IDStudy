@@ -16,5 +16,6 @@
 #import "NSString+AKExtensions.h"
 #import "UIWindow+AKCategory.h"
 #import "UITableView+AKCategory.h"
+#import "UINib+AKCategory.h"
 
 #endif /* IOSProject_Prefix_pch */

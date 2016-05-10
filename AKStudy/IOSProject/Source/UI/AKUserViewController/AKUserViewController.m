@@ -23,20 +23,20 @@
 
 AKRootViewAndReturnIfNil(AKUserView);
 
+- (void)setStringsModel:(AKArrayModel *)arrayModel {
+    if (_arrayModel != arrayModel) {
+        _arrayModel = arrayModel;
+        [self.rootView.tableView reloadData];
+    }
+}
+
 #pragma mark -
 #pragma mark LifeCycle
 
-- (void)loadView {
-    [super loadView];
-    
-    self.rootView.tableView.editing = YES;
-}
-
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.editing = YES;
     
-    [self.rootView.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"RandomString"];
+    self.rootView.tableView.editing = YES;
 }
 
 #pragma mark -
@@ -47,15 +47,9 @@ AKRootViewAndReturnIfNil(AKUserView);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AKUserViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AKUserViewCell class])];
-    
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:NSStringFromClass([AKUserViewCell class]) bundle:[NSBundle mainBundle]];
-        cell = [[nib instantiateWithOwner:[AKUserViewCell class] options:nil] firstObject];
-    }
-    
+    AKUserViewCell *cell = [tableView dequeueCellFromNibWithClass:[AKUserViewCell class]];
     [cell fillWithModel:self.arrayModel[indexPath.row]];
-        
+    
     return cell;
 }
 
@@ -87,7 +81,18 @@ AKRootViewAndReturnIfNil(AKUserView);
           toIndexPath:(NSIndexPath *)destinationIndexPath;
 {
     [self.arrayModel exchangeObjectAtIndex:sourceIndexPath.row
-                                      withObjectAtIndex:destinationIndexPath.row];
+                         withObjectAtIndex:destinationIndexPath.row];
+}
+
+//Adding cells
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return UITableViewCellEditingStyleInsert;
+    } else {
+        return UITableViewCellEditingStyleDelete;
+    }
 }
 
 @end

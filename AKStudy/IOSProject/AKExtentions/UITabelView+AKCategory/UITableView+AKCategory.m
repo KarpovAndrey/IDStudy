@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+AKCategory.h"
+#import "UINib+AKCategory.h"
 
 @implementation UITableView (AKCategory)
 
@@ -21,11 +22,10 @@
     return cell;
 }
 
-- (id)dequeueReusableCellFromNibWithClass:(Class)theClass {
+- (id)dequeueCellFromNibWithClass:(Class)theClass {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(theClass)];
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:NSStringFromClass([theClass class]) bundle:[NSBundle mainBundle]];
-        cell = [[nib instantiateWithOwner:self options:nil] firstObject];
+    if (cell == nil) {
+        cell = [UINib loadNibWithClass:theClass];
     }
     
     return cell;
