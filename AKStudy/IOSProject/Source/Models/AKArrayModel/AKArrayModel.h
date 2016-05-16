@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKObserver.h"
 
-@interface AKArrayModel : NSObject
+typedef NS_ENUM(NSUInteger) {
+    kAKChangedArrayModelState
+} AKArrayModelState;
+
+@interface AKArrayModel : AKObserver <NSFastEnumeration>
 @property (nonatomic, readonly) NSUInteger count;
 
 + (instancetype)arrayModelWithObject:(id)object;
@@ -21,13 +26,13 @@
 
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
+- (NSUInteger)indexOfObject:(id)object;
 
-- (void)addObjectToArray;
-
+- (void)addObject:(id)object;
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObject;
 
-- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex withObjectAtIndex:(NSUInteger)destinationIndex;
+- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
 
 @end

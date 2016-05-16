@@ -8,6 +8,7 @@
 
 #import "AKArrayModel.h"
 #import "AKStringModel.h"
+#import "AKStateModel.h"
 
 @interface AKArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
@@ -70,8 +71,17 @@
     return self.arrayObjects[index];
 }
 
-- (void)addObjectToArray {
-    return [self.arrayObjects addObject:[AKStringModel new]];
+- (NSUInteger)indexOfObject:(id)object {
+    return [self.arrayObjects indexOfObject:object];
+}
+
+- (void)addObject:(id)object {
+    [self.arrayObjects addObject:object];
+    
+    AKStateModel *stateModel = [AKStateModel new];
+    stateModel.state = kAKObjectAddedState;
+    stateModel.index = self.arrayObjects.count - 1;
+    [self setState:kAKChangedArrayModelState withObject:stateModel];
 }
 
 - (void)removeObject:(id)object {
@@ -79,7 +89,13 @@
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
-    return [self.arrayObjects removeObjectAtIndex:index];
+    [self.arrayObjects removeObjectAtIndex:index];
+    
+    AKStateModel *stateModel = [AKStateModel new];
+    stateModel.state = kAKObjectRemovedState;
+    stateModel.index = index;
+    [self setState:kAKChangedArrayModelState withObject:stateModel];
+
 }
 
 - (void)removeAllObject {
@@ -87,8 +103,19 @@
 }
 
 
-- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex withObjectAtIndex:(NSUInteger)destinationIndex {
+- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     [self.arrayObjects exchangeObjectAtIndex:sourceIndex
                            withObjectAtIndex:destinationIndex];
 }
+
+#pragma mark -
+#pragma mark NSFastEnumeration
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
+                                  objects:(__unsafe_unretained id [])buffer
+                                    count:(NSUInteger)len
+{
+    return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
+
 @end

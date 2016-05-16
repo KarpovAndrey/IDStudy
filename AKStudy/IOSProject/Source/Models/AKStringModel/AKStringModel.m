@@ -11,8 +11,8 @@
 static const NSUInteger kAKDefaultStringCount = 40;
 
 @interface AKStringModel ()
-@property (nonatomic, copy) NSString *string;
-
+@property (nonatomic, copy)     NSString    *string;
+@property (nonatomic, strong)   UIImage     *image;
 @end
 
 @implementation AKStringModel
@@ -45,6 +45,7 @@ static const NSUInteger kAKDefaultStringCount = 40;
     self = [super init];
     if (self) {
         self.string = [NSString randomString];
+        self.image = [UIImage imageNamed:@"Duck"];
     }
     
     return self;

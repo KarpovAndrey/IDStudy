@@ -10,6 +10,7 @@
 
 @interface AKStringModel : NSObject
 @property (nonatomic, readonly) NSString *string;
+@property (nonatomic, readonly) UIImage  *image;
 
 + (NSArray *)randomStringsModel;
 

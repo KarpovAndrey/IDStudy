@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^AKObjectHandler)(void);
+typedef void(^AKObjectHandler)(id object);
 
 @interface AKObserverObject : NSObject
 @property (nonatomic, weak)   id              object;

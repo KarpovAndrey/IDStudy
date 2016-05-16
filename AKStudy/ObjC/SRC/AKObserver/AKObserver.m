@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSMutableArray *observerDictionaries;
 
 - (AKObserverDictionary *)dictonaryForState:(NSUInteger)state;
-- (void)performHandler;
+- (void)performHandlerForState:(NSUInteger)state withObject:(id)object;
 
 @end
 
@@ -43,12 +43,16 @@
 #pragma mark Accessors
 
 - (void)setState:(NSUInteger)state {
+    [self setState:state withObject:nil];
+}
+
+- (void)setState:(NSUInteger)state withObject:(id)object {
     @synchronized(self) {
         if (_state != state) {
             _state = state;
-            
-            [self performHandler];
         }
+
+        [self performHandlerForState:_state withObject:object];
     }
 }
 
@@ -89,18 +93,17 @@
         }
     }
     
-    
     AKObserverDictionary *dictionary = [AKObserverDictionary dictionaryWithState:state];
     [self.observerDictionaries addObject:dictionary];
 
     return dictionary;
 }
 
-- (void)performHandler {
+- (void)performHandlerForState:(NSUInteger)state withObject:(id)object {
     for (AKObserverDictionary *observerDictionary in self.observerDictionaries) {
         if (observerDictionary.state == self.state) {
             for (AKObjectHandler handler in observerDictionary.handlers) {
-                handler();
+                handler(object);
             }
         }
     }

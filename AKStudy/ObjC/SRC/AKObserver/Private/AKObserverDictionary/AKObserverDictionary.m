@@ -43,7 +43,7 @@
     self = [super init];
     if (self) {
         self.state = state;
-        self.observerArray = [AKObserverArray object];
+        self.observerArray = [[AKObserverArray alloc] init];
     }
     
     return self;
@@ -67,7 +67,7 @@
 #pragma mark Public
 
 - (void)addHandler:(AKObjectHandler)handler object:(id)object  {
-    AKObserverArray *observerArray = [AKObserverArray object];
+    AKObserverArray *observerArray = [[AKObserverArray alloc] init];
     [observerArray addHandler:handler forObject:object];
     self.observerArray = observerArray;
 }

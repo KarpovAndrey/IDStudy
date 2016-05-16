@@ -10,9 +10,15 @@
 #import "AKUserView.h"
 #import "AKUserViewCell.h"
 #import "AKArrayModel.h"
+#import "AKStringModel.h"
+#import "AKStateModel.h"
+
+static const NSString *kAKRemoveButtonString = @"REMOVE CELL";
 
 @interface AKUserViewController ()
 @property (nonatomic, readonly) AKUserView   *rootView;
+
+- (void)performChangeWithObject:(AKStateModel *)object;
 
 @end
 
@@ -23,20 +29,41 @@
 
 AKRootViewAndReturnIfNil(AKUserView);
 
-- (void)setStringsModel:(AKArrayModel *)arrayModel {
+- (void)setArrayModel:(AKArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
-        [self.rootView.tableView reloadData];
+        
+        AKWeakify(AKUserViewController);
+        [_arrayModel addHandler:^(AKStateModel *object) {
+            AKStrongifyAndReturnIfNil(AKUserViewController);
+            [strongSelf performChangeWithObject:object];
+        }
+                       forState:kAKChangedArrayModelState
+                         object:self];
     }
 }
 
 #pragma mark -
-#pragma mark LifeCycle
+#pragma mark Private
 
--(void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.rootView.tableView.editing = YES;
+- (void)performChangeWithObject:(AKStateModel *)object {
+    UITableView *tableView = self.rootView.tableView;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:object.index inSection:0];
+    if (object.state == kAKObjectRemovedState) {
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationTop];
+    } else {
+        [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationLeft];
+    }
+}
+
+#pragma mark -
+#pragma mark Handling Interface
+
+- (IBAction)onEditingSwitch:(id)sender {
+    AKUserView *rootView = self.rootView;
+    rootView.tableView.editing = !rootView.tableView.editing;
 }
 
 #pragma mark -
@@ -53,25 +80,24 @@ AKRootViewAndReturnIfNil(AKUserView);
     return cell;
 }
 
-//Removing cell with swipe
 - (void)        tableView:(UITableView *)tableView
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.arrayModel removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        AKStringModel *stringModel = [AKStringModel new];
+        [self.arrayModel addObject:stringModel];
     }
 }
 
 - (NSString *)                              tableView:(UITableView *)tableView
     titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"REMOVE CELL";
+    return [kAKRemoveButtonString copy];
 }
 
-//Moving cells
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
@@ -81,10 +107,9 @@ AKRootViewAndReturnIfNil(AKUserView);
           toIndexPath:(NSIndexPath *)destinationIndexPath;
 {
     [self.arrayModel exchangeObjectAtIndex:sourceIndexPath.row
-                         withObjectAtIndex:destinationIndexPath.row];
+                         toIndex:destinationIndexPath.row];
 }
 
-//Adding cells
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {

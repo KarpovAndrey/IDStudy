@@ -13,6 +13,7 @@
 
 - (void)fillWithModel:(AKStringModel *)theModel {
     self.cellLabel.text = theModel.string;
+    self.cellImage.image = theModel.image;
 }
 
 @end
