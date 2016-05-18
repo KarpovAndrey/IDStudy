@@ -11,6 +11,7 @@
 #import "AKStateModel.h"
 
 static const NSString * kAKArrayObjectsKey = @"arrayObjects";
+static const NSString * kAKArrayObjectsStateName = @"arrayObjectsState.plist";
 
 @interface AKArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
@@ -104,10 +105,28 @@ static const NSString * kAKArrayObjectsKey = @"arrayObjects";
     [self.arrayObjects removeAllObjects];
 }
 
-
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     [self.arrayObjects exchangeObjectAtIndex:sourceIndex
                            withObjectAtIndex:destinationIndex];
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)loadArrayModel {
+    NSString *path = [NSFileManager pathToFileWithName:[kAKArrayObjectsStateName copy]];
+    AKArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    
+    if (!model) {
+        model = [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
+    }
+    
+    self.arrayObjects = model.arrayObjects;
+}
+
+- (void)saveArrayModel {
+    NSString *path = [NSFileManager pathToFileWithName:[kAKArrayObjectsStateName copy]];
+    [NSKeyedArchiver archiveRootObject:self toFile:path];
 }
 
 #pragma mark -

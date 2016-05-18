@@ -89,6 +89,7 @@
 		84F708F21CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
 		84FE051F1CECD9E600AEC0D6 /* Duck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84FE051E1CECD9E600AEC0D6 /* Duck.jpg */; };
 		84FE05231CECDC0D00AEC0D6 /* UIImage+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE05221CECDC0D00AEC0D6 /* UIImage+AKCategory.m */; };
+		84FE05271CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE05261CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -250,6 +251,8 @@
 		84FE051E1CECD9E600AEC0D6 /* Duck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Duck.jpg; sourceTree = "<group>"; };
 		84FE05211CECDC0D00AEC0D6 /* UIImage+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AKCategory.h"; sourceTree = "<group>"; };
 		84FE05221CECDC0D00AEC0D6 /* UIImage+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AKCategory.m"; sourceTree = "<group>"; };
+		84FE05251CED1ADE00AEC0D6 /* NSFileManager+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+AKCategory.h"; sourceTree = "<group>"; };
+		84FE05261CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+AKCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -699,6 +702,7 @@
 		84B95DB51CE0CF5500BAA556 /* AKExtentions */ = {
 			isa = PBXGroup;
 			children = (
+				84FE05241CED1AC500AEC0D6 /* NSFileManager+AKCategory */,
 				84FE05201CECDBF900AEC0D6 /* UIImage+AKCategory */,
 				84B95E091CE0ED6C00BAA556 /* UINib+AKCategory */,
 				84B95DB61CE0CF5500BAA556 /* CGGeometry+AKCategory */,
@@ -1012,6 +1016,15 @@
 			path = "UIImage+AKCategory";
 			sourceTree = "<group>";
 		};
+		84FE05241CED1AC500AEC0D6 /* NSFileManager+AKCategory */ = {
+			isa = PBXGroup;
+			children = (
+				84FE05251CED1ADE00AEC0D6 /* NSFileManager+AKCategory.h */,
+				84FE05261CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m */,
+			);
+			path = "NSFileManager+AKCategory";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1160,6 +1173,7 @@
 				84B95DF21CE0CF5500BAA556 /* AKLabelViewController.m in Sources */,
 				84B95DEC1CE0CF5500BAA556 /* UITableView+AKCategory.m in Sources */,
 				849F02DE1CEA5CC000BBDC8E /* AKStateModel.m in Sources */,
+				84FE05271CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m in Sources */,
 				84E869B31CDB7ED600D0E13C /* AKClusterAlphabet.m in Sources */,
 				84B95DED1CE0CF5500BAA556 /* UIViewController+AKCategory.m in Sources */,
 				84B95E061CE0D03F00BAA556 /* AKArrayModel.m in Sources */,

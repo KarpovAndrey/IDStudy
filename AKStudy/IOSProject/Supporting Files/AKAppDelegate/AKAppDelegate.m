@@ -12,7 +12,10 @@
 #import "AKArrayModel.h"
 #import "AKStringModel.h"
 
+static const NSString * kAKArrayObjectsStateName = @"arrayObjectsState.plist";
+
 @interface AKAppDelegate ()
+@property (nonatomic, strong) AKArrayModel *model;
 
 @end
 
@@ -23,11 +26,12 @@
     self.window = window;
     
     AKUserViewController *viewController = [AKUserViewController defaultControllerFromNib];
-    
-    viewController.arrayModel = [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
-//    viewController.stringsModel = [AKArrayModel new];
+
+    AKArrayModel *model = [AKArrayModel new];
+    self.model = model;
+    viewController.arrayModel = model;
+        
     window.rootViewController = viewController;
-    
     [window makeKeyAndVisible];
     
     return YES;
@@ -38,7 +42,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
+    [self.model saveArrayModel];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -50,7 +54,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
+    [self.model saveArrayModel];
 }
 
 @end

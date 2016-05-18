@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger) {
+typedef NS_ENUM(NSUInteger, AKObjectState) {
     kAKObjectAddedState,
     kAKObjectRemovedState,
-} AKObjectState;
+};
 
 @interface AKStateModel : NSObject
 @property (nonatomic, assign) AKObjectState    state;

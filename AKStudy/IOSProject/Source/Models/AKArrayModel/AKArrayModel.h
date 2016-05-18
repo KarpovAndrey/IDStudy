@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "AKObserver.h"
 
-typedef NS_ENUM(NSUInteger) {
+typedef NS_ENUM(NSUInteger, AKArrayModelState) {
     kAKChangedArrayModelState
-} AKArrayModelState;
+};
 
 @interface AKArrayModel : AKObserver <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSUInteger count;
@@ -34,5 +34,8 @@ typedef NS_ENUM(NSUInteger) {
 - (void)removeAllObject;
 
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
+
+- (void)loadArrayModel;
+- (void)saveArrayModel;
 
 @end

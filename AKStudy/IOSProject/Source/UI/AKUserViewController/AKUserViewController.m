@@ -33,6 +33,8 @@ AKRootViewAndReturnIfNil(AKUserView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
+        [_arrayModel loadArrayModel];
+        
         AKWeakify(AKUserViewController);
         [_arrayModel addHandler:^(AKStateModel *object) {
             AKStrongifyAndReturnIfNil(AKUserViewController);
@@ -84,11 +86,12 @@ AKRootViewAndReturnIfNil(AKUserView);
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AKArrayModel *model = self.arrayModel;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.arrayModel removeObjectAtIndex:indexPath.row];
+        [model removeObjectAtIndex:indexPath.row];
     } else {
         AKStringModel *stringModel = [AKStringModel new];
-        [self.arrayModel addObject:stringModel];
+        [model addObject:stringModel];
     }
 }
 
