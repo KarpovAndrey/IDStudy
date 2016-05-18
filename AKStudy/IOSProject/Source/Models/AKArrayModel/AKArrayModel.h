@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger) {
     kAKChangedArrayModelState
 } AKArrayModelState;
 
-@interface AKArrayModel : AKObserver <NSFastEnumeration>
+@interface AKArrayModel : AKObserver <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSUInteger count;
 
 + (instancetype)arrayModelWithObject:(id)object;

@@ -10,6 +10,8 @@
 #import "AKStringModel.h"
 #import "AKStateModel.h"
 
+static const NSString * kAKArrayObjectsKey = @"arrayObjects";
+
 @interface AKArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
 
@@ -109,13 +111,29 @@
 }
 
 #pragma mark -
-#pragma mark NSFastEnumeration
+#pragma mark NSFastEnumeration Protocol
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                   objects:(__unsafe_unretained id [])buffer
                                     count:(NSUInteger)len
 {
     return [self.arrayObjects countByEnumeratingWithState:state objects:buffer count:len];
+}
+
+#pragma mark -
+#pragma mark NSCoding Protocol
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.arrayObjects forKey:[kAKArrayObjectsKey copy]];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [self init];
+    if (self) {
+        self.arrayObjects = [aDecoder decodeObjectForKey:[kAKArrayObjectsKey copy]];
+    }
+    
+    return self;
 }
 
 @end

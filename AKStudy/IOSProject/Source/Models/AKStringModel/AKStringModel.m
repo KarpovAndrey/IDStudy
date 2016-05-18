@@ -8,7 +8,9 @@
 
 #import "AKStringModel.h"
 
-static const NSUInteger kAKDefaultStringCount = 40;
+static const NSUInteger kAKDefaultStringCount   = 40;
+static const NSString * kAKImagePath            = @"Duck.jpg";
+static const NSString * kAKStringKey            = @"string";
 
 @interface AKStringModel ()
 @property (nonatomic, copy)     NSString    *string;
@@ -45,7 +47,7 @@ static const NSUInteger kAKDefaultStringCount = 40;
     self = [super init];
     if (self) {
         self.string = [NSString randomString];
-        self.image = [UIImage imageNamed:@"Duck"];
+        self.image = [UIImage imagePathWithName:[kAKImagePath copy]];
     }
     
     return self;
@@ -55,6 +57,23 @@ static const NSUInteger kAKDefaultStringCount = 40;
     self = [super init];
     if (self) {
         self.string = [string copy];
+    }
+    
+    return self;
+}
+
+
+#pragma mark -
+#pragma mark NSCoding Protocol
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.string forKey:[kAKStringKey copy]];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [self init];
+    if (self) {
+        self.string = [aDecoder decodeObjectForKey:[kAKStringKey copy]];
     }
     
     return self;
