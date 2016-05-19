@@ -12,11 +12,13 @@
 #import "AKArrayModel.h"
 #import "AKStringModel.h"
 #import "AKStateModel.h"
+#import "AKLoadingView.h"
 
-static const NSString *kAKRemoveButtonString = @"REMOVE CELL";
+static NSString * const kAKRemoveButtonString = @"REMOVE CELL";
 
 @interface AKUserViewController ()
-@property (nonatomic, readonly) AKUserView   *rootView;
+@property (nonatomic, readonly) AKUserView      *rootView;
+@property (nonatomic, strong)   AKLoadingView   *loadingView;
 
 - (void)performChangeWithObject:(AKStateModel *)object;
 
@@ -33,16 +35,36 @@ AKRootViewAndReturnIfNil(AKUserView);
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        [_arrayModel loadArrayModel];
-        
         AKWeakify(AKUserViewController);
         [_arrayModel addHandler:^(AKStateModel *object) {
             AKStrongifyAndReturnIfNil(AKUserViewController);
             [strongSelf performChangeWithObject:object];
         }
-                       forState:kAKChangedArrayModelState
+                       forState:kAKArrayModelChangedState
                          object:self];
+        
+        [_arrayModel addHandler:^(AKStateModel *object) {
+            AKStrongifyAndReturnIfNil(AKUserViewController);
+            AKUserView *view = strongSelf.rootView;
+            [view.tableView reloadData];
+            [view removeLoading];
+        }
+                       forState:kAKArrayModelLoadedState
+                         object:self];
+        
+        [self.rootView showLoading];
+        [_arrayModel loadArrayModel];
     }
+}
+
+#pragma mark -
+#pragma mark View Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.rootView showLoading];
+    [_arrayModel loadArrayModel];
 }
 
 #pragma mark -

@@ -25,7 +25,7 @@
 - (id)dequeueCellFromNibWithClass:(Class)theClass {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(theClass)];
     if (cell == nil) {
-        cell = [UINib loadNibWithClass:theClass];
+        cell = [UINib loadFromNibWithClass:theClass];
     }
     
     return cell;

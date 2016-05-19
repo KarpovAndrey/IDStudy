@@ -12,8 +12,6 @@
 #import "AKArrayModel.h"
 #import "AKStringModel.h"
 
-static const NSString * kAKArrayObjectsStateName = @"arrayObjectsState.plist";
-
 @interface AKAppDelegate ()
 @property (nonatomic, strong) AKArrayModel *model;
 
@@ -26,7 +24,6 @@ static const NSString * kAKArrayObjectsStateName = @"arrayObjectsState.plist";
     self.window = window;
     
     AKUserViewController *viewController = [AKUserViewController defaultControllerFromNib];
-
     AKArrayModel *model = [AKArrayModel new];
     self.model = model;
     viewController.arrayModel = model;

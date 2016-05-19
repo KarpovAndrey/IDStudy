@@ -10,7 +10,8 @@
 #import "AKObserver.h"
 
 typedef NS_ENUM(NSUInteger, AKArrayModelState) {
-    kAKChangedArrayModelState
+    kAKArrayModelChangedState,
+    kAKArrayModelLoadedState
 };
 
 @interface AKArrayModel : AKObserver <NSFastEnumeration, NSCoding>

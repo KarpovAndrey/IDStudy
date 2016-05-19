@@ -10,6 +10,6 @@
 
 @interface UINib (AKCategory)
 
-+ (id)loadNibWithClass:(Class)theClass;
++ (id)loadFromNibWithClass:(Class)theClass;
 
 @end

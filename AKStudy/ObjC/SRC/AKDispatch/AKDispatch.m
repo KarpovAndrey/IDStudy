@@ -19,53 +19,53 @@ dispatch_queue_t AKQueueWithPriority(AKDispatchPriority priority);
 #pragma mak -
 #pragma mark Public Implementations Async Methods
 
-void AKDispatchAsyncWithPriority(AKDispatchPriority priority, AKObjectHandler handler) {
+void AKDispatchAsyncWithPriority(AKDispatchPriority priority, AKDispatchHandler handler) {
     dispatch_async(AKQueueWithPriority(priority), handler);
 }
 
-void AKDispatchAsyncInBackground(AKObjectHandler handler) {
+void AKDispatchAsyncInBackground(AKDispatchHandler handler) {
     AKDispatchAsyncWithPriority(kKAPriorityBackground, handler);
 }
-void AKDispatchAsyncOnMainThread(AKObjectHandler handler) {
+void AKDispatchAsyncOnMainThread(AKDispatchHandler handler) {
     AKDispatchAsyncWithPriority(kAKPriorityMain, handler);
 }
 
-void AKDispatchAsyncDefaultPriority(AKObjectHandler handler) {
+void AKDispatchAsyncDefaultPriority(AKDispatchHandler handler) {
     AKDispatchAsyncWithPriority(kAKPriorityDefault, handler);
 }
 
-void AKDispatchAsyncHighPriority(AKObjectHandler handler) {
+void AKDispatchAsyncHighPriority(AKDispatchHandler handler) {
     AKDispatchAsyncWithPriority(kAKPriorityHigh, handler);
     
 }
-void AKDispatchAsyncLowPriority(AKObjectHandler handler) {
+void AKDispatchAsyncLowPriority(AKDispatchHandler handler) {
     AKDispatchAsyncWithPriority(kAKPriorityLow, handler);
 }
 
 #pragma mak -
 #pragma mark Public Implementations Sync Methods
 
-void AKDispatchSyncWithPriority(AKDispatchPriority priority, AKObjectHandler handler) {
+void AKDispatchSyncWithPriority(AKDispatchPriority priority, AKDispatchHandler handler) {
     dispatch_sync(AKQueueWithPriority(priority), handler);
 }
 
-void AKDispatchSyncInBackground(AKObjectHandler handler) {
+void AKDispatchSyncInBackground(AKDispatchHandler handler) {
     AKDispatchSyncWithPriority(kKAPriorityBackground, handler);
 }
 
-void AKDispatchSyncOnMainThread(AKObjectHandler handler) {
+void AKDispatchSyncOnMainThread(AKDispatchHandler handler) {
     AKDispatchSyncWithPriority(kAKPriorityMain, handler);
 }
 
-void AKDispatchSyncDefaultPriority(AKObjectHandler handler) {
+void AKDispatchSyncDefaultPriority(AKDispatchHandler handler) {
     AKDispatchSyncWithPriority(kAKPriorityDefault, handler);
 }
 
-void AKDispatchSyncHighPriority(AKObjectHandler handler) {
+void AKDispatchSyncHighPriority(AKDispatchHandler handler) {
     AKDispatchSyncWithPriority(kAKPriorityHigh, handler);
 }
 
-void AKDispatchSyncLowPriority(AKObjectHandler handler) {
+void AKDispatchSyncLowPriority(AKDispatchHandler handler) {
     AKDispatchSyncWithPriority(kAKPriorityLow, handler);
 }
 
