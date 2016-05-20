@@ -21,6 +21,7 @@ static NSString * const kAKRemoveButtonString = @"REMOVE CELL";
 @property (nonatomic, strong)   AKLoadingView   *loadingView;
 
 - (void)performChangeWithObject:(AKStateModel *)object;
+- (void)load;
 
 @end
 
@@ -47,13 +48,12 @@ AKRootViewAndReturnIfNil(AKUserView);
             AKStrongifyAndReturnIfNil(AKUserViewController);
             AKUserView *view = strongSelf.rootView;
             [view.tableView reloadData];
-            [view removeLoading];
+            [view removeLoadingViewAnimated:YES];
         }
                        forState:kAKArrayModelLoadedState
                          object:self];
         
-        [self.rootView showLoading];
-        [_arrayModel loadArrayModel];
+        [self load];
     }
 }
 
@@ -63,8 +63,7 @@ AKRootViewAndReturnIfNil(AKUserView);
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.rootView showLoading];
-    [_arrayModel loadArrayModel];
+    [self load];
 }
 
 #pragma mark -
@@ -80,6 +79,11 @@ AKRootViewAndReturnIfNil(AKUserView);
         [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationLeft];
     }
+}
+
+- (void)load {
+    [self.rootView showLoadingViewWithMessage:@"Show must go on" animated:YES];
+    [_arrayModel loadArrayModel];
 }
 
 #pragma mark -

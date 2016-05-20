@@ -16,6 +16,7 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 
 @interface AKArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
+@property (nonatomic, copy)   NSString       *path;
 @property (nonatomic, readonly, getter=isCached) BOOL cached;
 
 @end
@@ -62,8 +63,11 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 }
 
 - (BOOL)isCached {
-    NSLog(@"%d", [[NSFileManager defaultManager] fileExistsAtPath:kAKArrayObjectsKey]);
     return [[NSFileManager defaultManager] fileExistsAtPath:kAKArrayObjectsKey];
+}
+
+- (NSString *)path {
+    return [NSFileManager pathToFileWithName:kAKArrayObjectsStateName];
 }
 
 #pragma mark -
@@ -121,18 +125,21 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 #pragma mark Public
 
 - (void)loadArrayModel {
+    if (self.state == kAKArrayModelLoadingState) {
+        return;
+    } else {
+        self.state = kAKArrayModelLoadingState;
+    }
+    
     AKWeakify(AKArrayModel);
     AKDispatchAsyncInBackground(^ {
         
         sleep(3);
         
         AKStrongifyAndReturnIfNil(AKArrayModel);
-        NSString *path = [NSFileManager pathToFileWithName:kAKArrayObjectsStateName];
-        AKArrayModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        if (!model) {
-            model = [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
-        }
+        AKArrayModel *model = self.isCached
+                                    ? [NSKeyedUnarchiver unarchiveObjectWithFile:self.path]
+                                    : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
         
         strongSelf.arrayObjects = model.arrayObjects;
         
@@ -144,8 +151,7 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 }
 
 - (void)saveArrayModel {
-    NSString *path = [NSFileManager pathToFileWithName:kAKArrayObjectsStateName];
-    [NSKeyedArchiver archiveRootObject:self toFile:path];
+    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
 }
 
 #pragma mark -

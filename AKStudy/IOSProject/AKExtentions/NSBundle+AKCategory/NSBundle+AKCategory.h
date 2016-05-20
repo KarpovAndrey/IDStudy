@@ -10,6 +10,6 @@
 
 @interface NSBundle (AKCategory)
 
-+ (NSString *)imagePathWithName:(NSString *)name;
++ (NSString *)pathToFileWithName:(NSString *)name;
 
 @end

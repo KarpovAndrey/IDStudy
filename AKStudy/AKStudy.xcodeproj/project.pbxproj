@@ -799,20 +799,12 @@
 		84B95DCB1CE0CF5500BAA556 /* AKLabelViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84B95DCC1CE0CF5500BAA556 /* AKLabelSubView */,
 				84B95DCD1CE0CF5500BAA556 /* AKLabelView */,
 				84B95DD01CE0CF5500BAA556 /* AKLabelViewController.h */,
 				84B95DD11CE0CF5500BAA556 /* AKLabelViewController.m */,
 				84B95DD21CE0CF5500BAA556 /* AKLabelViewController.xib */,
 			);
 			path = AKLabelViewController;
-			sourceTree = "<group>";
-		};
-		84B95DCC1CE0CF5500BAA556 /* AKLabelSubView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AKLabelSubView;
 			sourceTree = "<group>";
 		};
 		84B95DCD1CE0CF5500BAA556 /* AKLabelView */ = {

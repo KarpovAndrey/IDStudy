@@ -10,7 +10,7 @@
 
 @implementation NSBundle (AKCategory)
 
-+ (NSString *)imagePathWithName:(NSString *)name {
++ (NSString *)pathToFileWithName:(NSString *)name {
     return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
 }
 

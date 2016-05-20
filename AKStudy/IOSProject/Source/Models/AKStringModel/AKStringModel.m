@@ -48,7 +48,7 @@ static NSString * const kAKStringKey            = @"string";
     self = [super init];
     if (self) {
         self.string = [NSString randomString];
-        self.image = [UIImage imageWithContentsOfFile:[NSBundle imagePathWithName:kAKImagePath]];
+        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kAKImagePath]];
     }
     
     return self;

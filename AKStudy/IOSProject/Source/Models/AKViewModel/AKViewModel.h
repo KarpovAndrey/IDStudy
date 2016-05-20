@@ -10,7 +10,12 @@
 
 @interface AKViewModel: UIView
 
-- (void)showLoading;
-- (void)removeLoading;
+- (void)showLoadingView;
+- (void)showLoadingViewAnimated:(BOOL)animated;
+- (void)showLoadingViewWithMessage:(NSString *)message;
+- (void)showLoadingViewWithMessage:(NSString *)message animated:(BOOL)animated;
+
+- (void)removeLoadingView;
+- (void)removeLoadingViewAnimated:(BOOL)animated;
 
 @end

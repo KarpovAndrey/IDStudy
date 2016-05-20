@@ -10,6 +10,8 @@
 #import "AKObserver.h"
 
 typedef NS_ENUM(NSUInteger, AKArrayModelState) {
+    kAKArrayModelUndefinedState,
+    kAKArrayModelLoadingState,
     kAKArrayModelChangedState,
     kAKArrayModelLoadedState
 };
