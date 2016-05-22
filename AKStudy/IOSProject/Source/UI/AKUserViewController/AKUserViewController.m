@@ -13,8 +13,10 @@
 #import "AKStringModel.h"
 #import "AKStateModel.h"
 #import "AKLoadingView.h"
+#import "AKArrayManager.h"
 
 static NSString * const kAKRemoveButtonString = @"REMOVE CELL";
+static NSString * const kAKLoadingViewMessage = @"Show must go on";
 
 @interface AKUserViewController ()
 @property (nonatomic, readonly) AKUserView      *rootView;
@@ -22,6 +24,7 @@ static NSString * const kAKRemoveButtonString = @"REMOVE CELL";
 
 - (void)performChangeWithObject:(AKStateModel *)object;
 - (void)load;
+- (void)performHandlers;
 
 @end
 
@@ -32,27 +35,11 @@ static NSString * const kAKRemoveButtonString = @"REMOVE CELL";
 
 AKRootViewAndReturnIfNil(AKUserView);
 
-- (void)setArrayModel:(AKArrayModel *)arrayModel {
+- (void)setArrayModel:(AKArrayManager *)arrayModel {
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
-        AKWeakify(AKUserViewController);
-        [_arrayModel addHandler:^(AKStateModel *object) {
-            AKStrongifyAndReturnIfNil(AKUserViewController);
-            [strongSelf performChangeWithObject:object];
-        }
-                       forState:kAKArrayModelChangedState
-                         object:self];
-        
-        [_arrayModel addHandler:^(AKStateModel *object) {
-            AKStrongifyAndReturnIfNil(AKUserViewController);
-            AKUserView *view = strongSelf.rootView;
-            [view.tableView reloadData];
-            [view removeLoadingViewAnimated:YES];
-        }
-                       forState:kAKArrayModelLoadedState
-                         object:self];
-        
+        [self performHandlers];
         [self load];
     }
 }
@@ -82,8 +69,27 @@ AKRootViewAndReturnIfNil(AKUserView);
 }
 
 - (void)load {
-    [self.rootView showLoadingViewWithMessage:@"Show must go on" animated:YES];
-    [_arrayModel loadArrayModel];
+    [self.rootView showLoadingViewWithMessage:kAKLoadingViewMessage animated:YES];
+    [_arrayModel load];
+}
+
+- (void)performHandlers {
+    AKWeakify(AKUserViewController);
+    [_arrayModel addHandler:^(AKStateModel *object) {
+        AKStrongifyAndReturnIfNil(AKUserViewController);
+        [strongSelf performChangeWithObject:object];
+    }
+                   forState:kAKArrayModelChangedState
+                     object:self];
+    
+    [_arrayModel addHandler:^(AKStateModel *object) {
+        AKStrongifyAndReturnIfNil(AKUserViewController);
+        AKUserView *view = strongSelf.rootView;
+        [view.tableView reloadData];
+        [view removeLoadingViewAnimated:YES];
+    }
+                   forState:kAKArrayModelLoadedState
+                     object:self];
 }
 
 #pragma mark -
@@ -108,6 +114,9 @@ AKRootViewAndReturnIfNil(AKUserView);
     return cell;
 }
 
+#pragma mark -
+#pragma mark Public
+
 - (void)        tableView:(UITableView *)tableView
        commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
         forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,8 +125,7 @@ AKRootViewAndReturnIfNil(AKUserView);
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [model removeObjectAtIndex:indexPath.row];
     } else {
-        AKStringModel *stringModel = [AKStringModel new];
-        [model addObject:stringModel];
+        [model addObject:[AKStringModel new]];
     }
 }
 
@@ -136,7 +144,7 @@ AKRootViewAndReturnIfNil(AKUserView);
           toIndexPath:(NSIndexPath *)destinationIndexPath;
 {
     [self.arrayModel exchangeObjectAtIndex:sourceIndexPath.row
-                         toIndex:destinationIndexPath.row];
+                                   toIndex:destinationIndexPath.row];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView

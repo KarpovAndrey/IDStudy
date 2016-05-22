@@ -42,7 +42,7 @@ static CGFloat const kAKDefaultRemovingAlpha    = 0.2;
         view.label.text = message;
         self.loadingView = view;
     }
-    
+
     [UIView animateWithDuration:animated ? kAKDefaultAnimateDuration : 0
                      animations: ^ {
                          self.loadingView.alpha = kAKDefaultLoadingAlpha;

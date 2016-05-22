@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, AKArrayModelState) {
 
 @interface AKArrayModel : AKObserver <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSUInteger count;
+@property (nonatomic, readonly) NSArray    *objects;
 
 + (instancetype)arrayModelWithObject:(id)object;
 + (instancetype)arrayModelWithObjects:(NSArray *)objects;
@@ -32,13 +33,11 @@ typedef NS_ENUM(NSUInteger, AKArrayModelState) {
 - (NSUInteger)indexOfObject:(id)object;
 
 - (void)addObject:(id)object;
+- (void)addObjects:(NSArray *)objects;
 - (void)removeObject:(id)object;
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)removeAllObject;
 
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
-
-- (void)loadArrayModel;
-- (void)saveArrayModel;
 
 @end

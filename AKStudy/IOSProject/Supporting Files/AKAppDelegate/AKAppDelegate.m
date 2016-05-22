@@ -11,11 +11,7 @@
 #import "AKUserViewController.h"
 #import "AKArrayModel.h"
 #import "AKStringModel.h"
-
-@interface AKAppDelegate ()
-@property (nonatomic, strong) AKArrayModel *model;
-
-@end
+#import "AKArrayManager.h"
 
 @implementation AKAppDelegate
 
@@ -24,9 +20,7 @@
     self.window = window;
     
     AKUserViewController *viewController = [AKUserViewController defaultControllerFromNib];
-    AKArrayModel *model = [AKArrayModel new];
-    self.model = model;
-    viewController.arrayModel = model;
+    viewController.arrayModel = [AKArrayManager new];
         
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
@@ -39,7 +33,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [self.model saveArrayModel];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -51,7 +45,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self.model saveArrayModel];
+
 }
 
 @end

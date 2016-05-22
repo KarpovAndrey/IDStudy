@@ -71,6 +71,7 @@
 		84B95E071CE0D03F00BAA556 /* AKStringModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B95E051CE0D03F00BAA556 /* AKStringModel.m */; };
 		84B95E0C1CE0ED8400BAA556 /* UINib+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B95E0B1CE0ED8400BAA556 /* UINib+AKCategory.m */; };
 		84C406C01C986539002000DE /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; };
+		84C6F4961CF238EF00CD045C /* AKArrayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6F4951CF238EF00CD045C /* AKArrayManager.m */; };
 		84C956AC1CC575E30026BCC5 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
 		84D7DB001CEDFD630082B5AC /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84D7DB041CEE42910082B5AC /* NSBundle+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D7DB031CEE42910082B5AC /* NSBundle+AKCategory.m */; };
@@ -233,6 +234,8 @@
 		84B95E0B1CE0ED8400BAA556 /* UINib+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+AKCategory.m"; sourceTree = "<group>"; };
 		84C406BE1C986539002000DE /* AKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKObserver.h; sourceTree = "<group>"; };
 		84C406BF1C986539002000DE /* AKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKObserver.m; sourceTree = "<group>"; };
+		84C6F4941CF238EF00CD045C /* AKArrayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKArrayManager.h; sourceTree = "<group>"; };
+		84C6F4951CF238EF00CD045C /* AKArrayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKArrayManager.m; sourceTree = "<group>"; };
 		84C956A81CC573EA0026BCC5 /* AKMacroObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroObjC.h; sourceTree = "<group>"; };
 		84C956AA1CC575E30026BCC5 /* AKDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKDispatch.h; sourceTree = "<group>"; };
 		84C956AB1CC575E30026BCC5 /* AKDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKDispatch.m; sourceTree = "<group>"; };
@@ -884,6 +887,7 @@
 		84B95E001CE0D03F00BAA556 /* AKArrayModel */ = {
 			isa = PBXGroup;
 			children = (
+				84C6F4931CF238E200CD045C /* AKArrayModelManager */,
 				84B95E011CE0D03F00BAA556 /* AKArrayModel.h */,
 				84B95E021CE0D03F00BAA556 /* AKArrayModel.m */,
 			);
@@ -916,6 +920,15 @@
 				84C406BF1C986539002000DE /* AKObserver.m */,
 			);
 			path = AKObserver;
+			sourceTree = "<group>";
+		};
+		84C6F4931CF238E200CD045C /* AKArrayModelManager */ = {
+			isa = PBXGroup;
+			children = (
+				84C6F4941CF238EF00CD045C /* AKArrayManager.h */,
+				84C6F4951CF238EF00CD045C /* AKArrayManager.m */,
+			);
+			path = AKArrayModelManager;
 			sourceTree = "<group>";
 		};
 		84C956A61CC573A20026BCC5 /* AKMacro */ = {
@@ -1219,6 +1232,7 @@
 				846C010A1CEE5D5E00EBC949 /* AKLoadingView.m in Sources */,
 				846C01061CEE5D2500EBC949 /* AKViewModel.m in Sources */,
 				84B95DF91CE0CF5500BAA556 /* AKAppDelegate.m in Sources */,
+				84C6F4961CF238EF00CD045C /* AKArrayManager.m in Sources */,
 				84B95DFE1CE0CF5500BAA556 /* main.m in Sources */,
 				84E869B01CDB7E9D00D0E13C /* AKAlphabet.m in Sources */,
 			);

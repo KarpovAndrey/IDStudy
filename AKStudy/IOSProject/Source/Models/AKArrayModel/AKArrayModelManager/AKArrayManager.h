@@ -1,5 +1,5 @@
 //
-//  AKArrayModelManager.h
+//  AKArrayManager.h
 //  AKStudy
 //
 //  Created by Admin on 22.05.16.
@@ -8,9 +8,9 @@
 
 #import "AKArrayModel.h"
 
-@interface AKArrayModelManager : AKArrayModel
+@interface AKArrayManager : AKArrayModel
 
-- (void)loadArrayModel;
-- (void)saveArrayModel;
+- (void)load;
+- (void)save;
 
 @end

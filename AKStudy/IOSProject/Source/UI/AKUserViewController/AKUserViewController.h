@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class AKArrayModel;
+@class AKArrayManager;
 
 @interface AKUserViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) AKArrayModel *arrayModel;
+@property (nonatomic, strong) AKArrayManager *arrayModel;
 
 - (IBAction)onEditingSwitch:(id)sender;
 

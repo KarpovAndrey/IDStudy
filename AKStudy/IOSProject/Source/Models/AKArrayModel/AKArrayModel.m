@@ -12,12 +12,9 @@
 #import "AKDispatch.h"
 
 static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
-static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist";
 
 @interface AKArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;
-@property (nonatomic, copy)   NSString       *path;
-@property (nonatomic, readonly, getter=isCached) BOOL cached;
 
 @end
 
@@ -37,8 +34,17 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 #pragma mark -
 #pragma mark Initializations & Deallocations
 
-- (instancetype)initWithObject:(id)object {
+- (instancetype)init {
     self = [super init];
+    if (self) {
+        self.arrayObjects = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithObject:(id)object {
+    self = [self init];
     if (self) {
         self.arrayObjects = [NSMutableArray arrayWithObject:object];
     }
@@ -47,7 +53,7 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 }
 
 - (instancetype)initWithObjects:(NSArray *)objects {
-    self = [super init];
+    self = [self init];
     if (self) {
         self.arrayObjects = [NSMutableArray arrayWithArray:objects];
     }
@@ -62,12 +68,8 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
     return self.arrayObjects.count;
 }
 
-- (BOOL)isCached {
-    return [[NSFileManager defaultManager] fileExistsAtPath:kAKArrayObjectsKey];
-}
-
-- (NSString *)path {
-    return [NSFileManager pathToFileWithName:kAKArrayObjectsStateName];
+- (NSArray *)objects {
+    return [self.arrayObjects copy];
 }
 
 #pragma mark -
@@ -98,6 +100,10 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
     [self setState:kAKArrayModelChangedState withObject:stateModel];
 }
 
+- (void)addObjects:(NSArray *)objects {
+    [self.arrayObjects addObjectsFromArray:objects];
+}
+
 - (void)removeObject:(id)object {
     [self.arrayObjects removeObject:object];
 }
@@ -109,7 +115,6 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
     stateModel.state = kAKObjectRemovedState;
     stateModel.index = index;
     [self setState:kAKArrayModelChangedState withObject:stateModel];
-
 }
 
 - (void)removeAllObject {
@@ -118,40 +123,7 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     [self.arrayObjects exchangeObjectAtIndex:sourceIndex
-                           withObjectAtIndex:destinationIndex];
-}
-
-#pragma mark -
-#pragma mark Public
-
-- (void)loadArrayModel {
-    if (self.state == kAKArrayModelLoadingState) {
-        return;
-    } else {
-        self.state = kAKArrayModelLoadingState;
-    }
-    
-    AKWeakify(AKArrayModel);
-    AKDispatchAsyncInBackground(^ {
-        
-        sleep(3);
-        
-        AKStrongifyAndReturnIfNil(AKArrayModel);
-        AKArrayModel *model = self.isCached
-                                    ? [NSKeyedUnarchiver unarchiveObjectWithFile:self.path]
-                                    : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
-        
-        strongSelf.arrayObjects = model.arrayObjects;
-        
-        AKDispatchAsyncOnMainThread(^ {
-            strongSelf.state = kAKArrayModelLoadedState;
-        });
-    });
-    
-}
-
-- (void)saveArrayModel {
-    [NSKeyedArchiver archiveRootObject:self toFile:self.path];
+                                  withObjectAtIndex:destinationIndex];
 }
 
 #pragma mark -

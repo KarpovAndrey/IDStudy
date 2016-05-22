@@ -1,5 +1,5 @@
 //
-//  AKArrayModelManager.m
+//  AKArrayManager.m
 //  AKStudy
 //
 //  Created by Admin on 22.05.16.
@@ -7,23 +7,20 @@
 //
 
 #import "AKArrayModel.h"
-#import "AKArrayModelManager.h"
+#import "AKArrayManager.h"
 #import "AKDispatch.h"
 #import "AKStringModel.h"
 
 static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist";
-static NSString * const kAKArrayObjectsManagerKey   = @"arrayObjectsManager";
+static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
 
 @interface AKArrayManager ()
-@property (nonatomic, strong)                    NSMutableArray          *arrayObjects;
-@property (nonatomic, copy)                      NSString                *path;
-@property (nonatomic, readonly, getter=isCached) BOOL                    cached;
+@property (nonatomic, copy)                      NSString       *path;
+@property (nonatomic, readonly, getter=isCached) BOOL           cached;
 
 @end
 
-@implementation AKArrayModelManager
-
-@synthesize arrayObjects;
+@implementation AKArrayManager
 
 #pragma mark -
 #pragma mark Inializations & Deallocations
@@ -35,13 +32,8 @@ static NSString * const kAKArrayObjectsManagerKey   = @"arrayObjectsManager";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(saveArrayModel)
-                                                     name:UIApplicationWillResignActiveNotification object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(saveArrayModel)
-                                                     name:UIApplicationWillTerminateNotification object:nil];
+        [self addObserverForSaveSelectorWithName:UIApplicationWillResignActiveNotification];
+        [self addObserverForSaveSelectorWithName:UIApplicationWillTerminateNotification];
     }
     
     return self;
@@ -59,51 +51,58 @@ static NSString * const kAKArrayObjectsManagerKey   = @"arrayObjectsManager";
 }
 
 #pragma mark -
+#pragma mark Private
+
+- (void)addObserverForSaveSelectorWithName:(NSString *)name {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(save)
+                                                 name:name
+                                               object:nil];
+}
+
+#pragma mark -
 #pragma mark Public
 
-- (void)loadArrayModel {
+- (void)load {
     if (self.state == kAKArrayModelLoadingState) {
         return;
     } else {
         self.state = kAKArrayModelLoadingState;
     }
     
-    AKWeakify(AKArrayModel);
+    AKWeakify(AKArrayManager);
     AKDispatchAsyncInBackground(^ {
-        
         sleep(3);
-        
-        AKStrongifyAndReturnIfNil(AKArrayModel);
-        
+        AKStrongifyAndReturnIfNil(AKArrayManager);
         AKArrayModel *model = self.isCached ? [NSKeyedUnarchiver unarchiveObjectWithFile:self.path]
-        : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
+                                            : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
+        
         [strongSelf addObjects:model.objects];
         
         AKDispatchAsyncOnMainThread(^ {
             strongSelf.state = kAKArrayModelLoadedState;
         });
     });
-    
 }
 
-- (void)saveArrayModel {
+- (void)save {
     [NSKeyedArchiver archiveRootObject:self toFile:self.path];
 }
 
 #pragma mark -
 #pragma mark NSCoding Protocol
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.arrayObjects forKey:kAKArrayObjectsManagerKey];
-}
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [self init];
     if (self) {
-        self.arrayObjects = [aDecoder decodeObjectForKey:kAKArrayObjectsManagerKey];
+        [self addObjects:[aDecoder decodeObjectForKey:kAKArrayObjectsKey]];
     }
     
     return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.objects forKey:kAKArrayObjectsKey];
 }
 
 @end
