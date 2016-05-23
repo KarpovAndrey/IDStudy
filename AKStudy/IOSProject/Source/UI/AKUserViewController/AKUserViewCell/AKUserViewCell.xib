@@ -27,6 +27,9 @@
                             <constraint firstAttribute="width" constant="70" id="Fap-a8-ldk"/>
                         </constraints>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="G6G-4i-Dgw">
+                        <rect key="frame" x="33" y="12" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0KA-rT-OPL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="0O1-cd-pIb"/>
@@ -41,6 +44,7 @@
             <color key="backgroundColor" red="1" green="0.61736059647027708" blue="0.39663748227492868" alpha="1" colorSpace="calibratedRGB"/>
             <color key="tintColor" red="1" green="0.0099695103759999994" blue="0.040939670159999997" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="activityIndicator" destination="G6G-4i-Dgw" id="UVt-Dc-ubs"/>
                 <outlet property="cellImage" destination="0KA-rT-OPL" id="Yir-ux-q9l"/>
                 <outlet property="cellLabel" destination="SDJ-Ks-wKU" id="Mdd-fW-Uwc"/>
             </connections>

@@ -40,4 +40,6 @@ typedef NS_ENUM(NSUInteger, AKArrayModelState) {
 
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
 
+- (void)load;
+
 @end

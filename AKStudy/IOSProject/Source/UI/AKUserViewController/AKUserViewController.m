@@ -35,7 +35,7 @@ static NSString * const kAKLoadingViewMessage = @"Show must go on";
 
 AKRootViewAndReturnIfNil(AKUserView);
 
-- (void)setArrayModel:(AKArrayManager *)arrayModel {
+- (void)setArrayModel:(AKArrayModel *)arrayModel {
     if (_arrayModel != arrayModel) {
         _arrayModel = arrayModel;
         
@@ -70,19 +70,20 @@ AKRootViewAndReturnIfNil(AKUserView);
 
 - (void)load {
     [self.rootView showLoadingViewWithMessage:kAKLoadingViewMessage animated:YES];
-    [_arrayModel load];
+    [self.arrayModel load];
 }
 
 - (void)performHandlers {
+    AKArrayModel *model = self.arrayModel;
     AKWeakify(AKUserViewController);
-    [_arrayModel addHandler:^(AKStateModel *object) {
+    [model addHandler:^(AKStateModel *object) {
         AKStrongifyAndReturnIfNil(AKUserViewController);
         [strongSelf performChangeWithObject:object];
     }
                    forState:kAKArrayModelChangedState
                      object:self];
     
-    [_arrayModel addHandler:^(AKStateModel *object) {
+    [model addHandler:^(AKStateModel *object) {
         AKStrongifyAndReturnIfNil(AKUserViewController);
         AKUserView *view = strongSelf.rootView;
         [view.tableView reloadData];
@@ -132,7 +133,7 @@ AKRootViewAndReturnIfNil(AKUserView);
 - (NSString *)                              tableView:(UITableView *)tableView
     titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [kAKRemoveButtonString copy];
+    return kAKRemoveButtonString;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {

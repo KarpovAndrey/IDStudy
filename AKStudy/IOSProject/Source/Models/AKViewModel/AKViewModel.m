@@ -39,12 +39,13 @@ static CGFloat const kAKDefaultRemovingAlpha    = 0.2;
     AKLoadingView *view = self.loadingView;
     if (!view) {
         view = [UINib loadFromNibWithClass:[AKLoadingView class]];
+        view.frame = self.frame;
         view.label.text = message;
         self.loadingView = view;
     }
 
     [UIView animateWithDuration:animated ? kAKDefaultAnimateDuration : 0
-                     animations: ^ {
+                     animations:^{
                          self.loadingView.alpha = kAKDefaultLoadingAlpha;
                          [self addSubview:view];
                      }];
@@ -57,10 +58,9 @@ static CGFloat const kAKDefaultRemovingAlpha    = 0.2;
 - (void)removeLoadingViewAnimated:(BOOL)animated {
     
     [UIView animateWithDuration:animated ? kAKDefaultAnimateDuration : 0
-                     animations:^ {
+                     animations:^{
                          self.loadingView.alpha = kAKDefaultRemovingAlpha;
-                     }
-                     completion:^ (BOOL finished) {
+                     } completion:^(BOOL finished) {
                          [self.loadingView removeFromSuperview];
                      }];
 }

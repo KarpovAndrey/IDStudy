@@ -7,6 +7,7 @@
 //
 
 #import "AKStringModel.h"
+#import "AKDispatch.h"
 
 static NSUInteger const kAKDefaultStringCount   = 40;
 static NSString * const kAKImagePath            = @"Duck.jpg";
@@ -33,7 +34,6 @@ static NSString * const kAKStringKey            = @"string";
 
 + (NSArray *)randomStringsModel {
     NSMutableArray *mutableArray = [NSMutableArray array];
-    
     for (NSUInteger index = 0; index < arc4random_uniform(kAKDefaultStringCount) + 1; index++) {
         [mutableArray addObject:[self randomStringModel]];
     }
@@ -48,7 +48,6 @@ static NSString * const kAKStringKey            = @"string";
     self = [super init];
     if (self) {
         self.string = [NSString randomString];
-        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kAKImagePath]];
     }
     
     return self;
@@ -63,6 +62,27 @@ static NSString * const kAKStringKey            = @"string";
     return self;
 }
 
+#pragma mark -
+#pragma mark Public
+
+- (void)load {
+    if (self.state == kAKStringModelLoadingState) {
+        return;
+    } else {
+        self.state = kAKStringModelLoadingState;
+    }
+    
+    AKWeakify(AKStringModel);
+    AKDispatchAsyncInBackground(^{
+        sleep(3);
+        AKStrongifyAndReturnIfNil(AKStringModel);
+        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kAKImagePath]];
+        
+        AKDispatchAsyncOnMainThread(^{
+            [strongSelf setState:kAKStringModelLoadedState withObject:strongSelf.image];
+        });
+    });
+}
 
 #pragma mark -
 #pragma mark NSCoding Protocol

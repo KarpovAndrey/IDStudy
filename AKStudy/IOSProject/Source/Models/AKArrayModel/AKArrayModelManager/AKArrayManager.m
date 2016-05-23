@@ -15,7 +15,7 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
 
 @interface AKArrayManager ()
-@property (nonatomic, copy)                      NSString       *path;
+@property (nonatomic, readonly)                  NSString       *path;
 @property (nonatomic, readonly, getter=isCached) BOOL           cached;
 
 @end
@@ -32,7 +32,7 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self addObserverForSaveSelectorWithName:UIApplicationWillResignActiveNotification];
+        [self addObserverForSaveSelectorWithName:UIApplicationDidEnterBackgroundNotification];
         [self addObserverForSaveSelectorWithName:UIApplicationWillTerminateNotification];
     }
     
@@ -70,10 +70,10 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
         self.state = kAKArrayModelLoadingState;
     }
     
-    AKWeakify(AKArrayManager);
+    AKWeakify(AKArrayModel);
     AKDispatchAsyncInBackground(^ {
         sleep(3);
-        AKStrongifyAndReturnIfNil(AKArrayManager);
+        AKStrongifyAndReturnIfNil(AKArrayModel);
         AKArrayModel *model = self.isCached ? [NSKeyedUnarchiver unarchiveObjectWithFile:self.path]
                                             : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
         
@@ -87,22 +87,6 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
 
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self toFile:self.path];
-}
-
-#pragma mark -
-#pragma mark NSCoding Protocol
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [self init];
-    if (self) {
-        [self addObjects:[aDecoder decodeObjectForKey:kAKArrayObjectsKey]];
-    }
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.objects forKey:kAKArrayObjectsKey];
 }
 
 @end

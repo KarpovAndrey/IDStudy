@@ -126,6 +126,10 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
                                   withObjectAtIndex:destinationIndex];
 }
 
+- (void)load {
+    
+}
+
 #pragma mark -
 #pragma mark NSFastEnumeration Protocol
 
