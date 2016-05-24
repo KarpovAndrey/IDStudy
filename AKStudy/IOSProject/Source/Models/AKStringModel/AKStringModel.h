@@ -7,23 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKObserver.h"
+#import "AKModel.h"
 
-typedef NS_ENUM(NSUInteger, AKStringModelState) {
-    kAKStringModelUndefinedState,
-    kAKStringModelLoadingState,
-    kAKStringModelChangedState,
-    kAKStringModelLoadedState
-};
-
-@interface AKStringModel : AKObserver <NSCoding>
+@interface AKStringModel : AKModel <NSCoding>
 @property (nonatomic, readonly) NSString *string;
 @property (nonatomic, readonly) UIImage  *image;
 
 + (NSArray *)randomStringsModel;
 
 - (instancetype)initWithString:(NSString *)string;
-
-- (void)load;
 
 @end

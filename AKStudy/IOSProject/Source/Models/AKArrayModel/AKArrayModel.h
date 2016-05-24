@@ -7,16 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AKObserver.h"
+#import "AKModel.h"
 
-typedef NS_ENUM(NSUInteger, AKArrayModelState) {
-    kAKArrayModelUndefinedState,
-    kAKArrayModelLoadingState,
-    kAKArrayModelChangedState,
-    kAKArrayModelLoadedState
-};
-
-@interface AKArrayModel : AKObserver <NSFastEnumeration, NSCoding>
+@interface AKArrayModel : AKModel <NSFastEnumeration, NSCoding>
 @property (nonatomic, readonly) NSUInteger count;
 @property (nonatomic, readonly) NSArray    *objects;
 
@@ -39,7 +32,5 @@ typedef NS_ENUM(NSUInteger, AKArrayModelState) {
 - (void)removeAllObject;
 
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex;
-
-- (void)load;
 
 @end

@@ -63,25 +63,14 @@ static NSString * const kAKStringKey            = @"string";
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Private
 
-- (void)load {
-    if (self.state == kAKStringModelLoadingState) {
-        return;
-    } else {
-        self.state = kAKStringModelLoadingState;
-    }
-    
-    AKWeakify(AKStringModel);
-    AKDispatchAsyncInBackground(^{
-        sleep(3);
-        AKStrongifyAndReturnIfNil(AKStringModel);
-        self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kAKImagePath]];
-        
-        AKDispatchAsyncOnMainThread(^{
-            [strongSelf setState:kAKStringModelLoadedState withObject:strongSelf.image];
-        });
-    });
+- (void)prepareToLoading {
+    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kAKImagePath]];
+}
+
+- (void)finishLoading {
+    [self setState:kAKModelLoadedState withObject:self.image];
 }
 
 #pragma mark -

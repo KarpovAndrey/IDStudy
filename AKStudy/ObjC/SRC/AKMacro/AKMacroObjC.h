@@ -9,7 +9,10 @@
 #ifndef AKMacroObjC_h
 #define AKMacroObjC_h
 
-#define AKWeakify(theClass) \
+#define AKWeakify \
+            __weak id weakSelf = self;
+
+#define AKWeakifyWithClass(theClass) \
             __weak theClass *weakSelf = self;
 
 #define AKStrongifyAndReturnIfNil(theClass) \

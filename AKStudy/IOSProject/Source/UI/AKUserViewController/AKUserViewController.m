@@ -75,13 +75,13 @@ AKRootViewAndReturnIfNil(AKUserView);
 
 - (void)performHandlers {
     AKArrayModel *model = self.arrayModel;
-    AKWeakify(AKUserViewController);
+    AKWeakify;
     [model addHandler:^(AKStateModel *object) {
         AKStrongifyAndReturnIfNil(AKUserViewController);
         [strongSelf performChangeWithObject:object];
     }
-                   forState:kAKArrayModelChangedState
-                     object:self];
+                   forState:kAKModelChangedState
+                    object:self];
     
     [model addHandler:^(AKStateModel *object) {
         AKStrongifyAndReturnIfNil(AKUserViewController);
@@ -89,7 +89,7 @@ AKRootViewAndReturnIfNil(AKUserView);
         [view.tableView reloadData];
         [view removeLoadingViewAnimated:YES];
     }
-                   forState:kAKArrayModelLoadedState
+                   forState:kAKModelLoadedState
                      object:self];
 }
 

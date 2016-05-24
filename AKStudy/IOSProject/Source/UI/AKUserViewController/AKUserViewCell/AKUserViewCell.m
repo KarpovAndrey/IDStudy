@@ -28,15 +28,12 @@
         self.cellLabel.text = model.string;
         self.cellImage.image = nil;
         
-        AKWeakify(AKUserViewCell);
+        AKWeakify;
         [_model addHandler:^(UIImage *image){
             AKStrongifyAndReturnIfNil(AKUserViewCell);
             strongSelf.cellImage.image = image;
-            
-            UIActivityIndicatorView *activityIndicator = strongSelf.activityIndicator;
-            [activityIndicator stopAnimating];
-            activityIndicator.hidden = YES;
-        } forState:kAKStringModelLoadedState
+            [strongSelf.activityIndicator stopAnimating];
+        } forState:kAKModelLoadedState
                     object:self];
         
         [self load];
@@ -47,12 +44,16 @@
 #pragma mark Public
 
 - (void)load {
-    [self.model load];
+    AKStringModel *stringModel = self.model;
+    [stringModel load];
+    if (stringModel.state == kAKModelLoadedState) {
+        return;
+    }
+    
     [self.activityIndicator startAnimating];
 }
 
 - (void)fillWithModel:(AKStringModel *)theModel {
-    self.cellImage.image = nil;
     self.model = theModel;
 }
 

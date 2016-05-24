@@ -97,7 +97,7 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
     AKStateModel *stateModel = [AKStateModel new];
     stateModel.state = kAKObjectAddedState;
     stateModel.index = self.arrayObjects.count - 1;
-    [self setState:kAKArrayModelChangedState withObject:stateModel];
+    [self setState:kAKModelChangedState withObject:stateModel];
 }
 
 - (void)addObjects:(NSArray *)objects {
@@ -114,7 +114,7 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
     AKStateModel *stateModel = [AKStateModel new];
     stateModel.state = kAKObjectRemovedState;
     stateModel.index = index;
-    [self setState:kAKArrayModelChangedState withObject:stateModel];
+    [self setState:kAKModelChangedState withObject:stateModel];
 }
 
 - (void)removeAllObject {
@@ -124,10 +124,6 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)destinationIndex {
     [self.arrayObjects exchangeObjectAtIndex:sourceIndex
                                   withObjectAtIndex:destinationIndex];
-}
-
-- (void)load {
-    
 }
 
 #pragma mark -

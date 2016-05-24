@@ -60,30 +60,20 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
                                                object:nil];
 }
 
+- (void)prepareToLoading {
+    AKArrayModel *model = self.isCached ? [NSKeyedUnarchiver unarchiveObjectWithFile:self.path]
+                                        : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
+    
+    [self addObjects:model.objects];
+    
+}
+
+- (void)finishLoading {
+    self.state = kAKModelLoadedState;
+}
+
 #pragma mark -
 #pragma mark Public
-
-- (void)load {
-    if (self.state == kAKArrayModelLoadingState) {
-        return;
-    } else {
-        self.state = kAKArrayModelLoadingState;
-    }
-    
-    AKWeakify(AKArrayModel);
-    AKDispatchAsyncInBackground(^ {
-        sleep(3);
-        AKStrongifyAndReturnIfNil(AKArrayModel);
-        AKArrayModel *model = self.isCached ? [NSKeyedUnarchiver unarchiveObjectWithFile:self.path]
-                                            : [AKArrayModel arrayModelWithObjects:[AKStringModel randomStringsModel]];
-        
-        [strongSelf addObjects:model.objects];
-        
-        AKDispatchAsyncOnMainThread(^ {
-            strongSelf.state = kAKArrayModelLoadedState;
-        });
-    });
-}
 
 - (void)save {
     [NSKeyedArchiver archiveRootObject:self toFile:self.path];
