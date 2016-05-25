@@ -27,8 +27,8 @@
                             <constraint firstAttribute="width" constant="70" id="Fap-a8-ldk"/>
                         </constraints>
                     </imageView>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="G6G-4i-Dgw">
-                        <rect key="frame" x="33" y="12" width="20" height="20"/>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lG5-tE-6XC">
+                        <rect key="frame" x="34" y="11" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
@@ -44,10 +44,11 @@
             <color key="backgroundColor" red="1" green="0.61736059647027708" blue="0.39663748227492868" alpha="1" colorSpace="calibratedRGB"/>
             <color key="tintColor" red="1" green="0.0099695103759999994" blue="0.040939670159999997" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="activityIndicator" destination="G6G-4i-Dgw" id="UVt-Dc-ubs"/>
-                <outlet property="cellImage" destination="0KA-rT-OPL" id="Yir-ux-q9l"/>
+                <outlet property="activityIndicator" destination="lG5-tE-6XC" id="Igu-2t-CeR"/>
+                <outlet property="cellImage" destination="0KA-rT-OPL" id="0Xi-bI-oH2"/>
                 <outlet property="cellLabel" destination="SDJ-Ks-wKU" id="Mdd-fW-Uwc"/>
             </connections>
+            <point key="canvasLocation" x="272" y="403"/>
         </tableViewCell>
     </objects>
 </document>

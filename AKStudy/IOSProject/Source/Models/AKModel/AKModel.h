@@ -12,7 +12,8 @@ typedef NS_ENUM(NSUInteger, AKModelState) {
     kAKModelUndefinedState,
     kAKModelLoadingState,
     kAKModelChangedState,
-    kAKModelLoadedState
+    kAKModelLoadedState,
+    kAKModelUnloadedState
 };
 
 @interface AKModel : AKObserver

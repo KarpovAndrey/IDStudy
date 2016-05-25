@@ -37,7 +37,7 @@ static NSString * const kAKStringKey            = @"string";
     for (NSUInteger index = 0; index < arc4random_uniform(kAKDefaultStringCount) + 1; index++) {
         [mutableArray addObject:[self randomStringModel]];
     }
-
+    
     return [mutableArray copy];
 }
 
