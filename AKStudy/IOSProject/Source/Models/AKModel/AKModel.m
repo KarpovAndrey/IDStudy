@@ -39,8 +39,11 @@
     } else {
         if (state == kAKModelLoadedState) {
             [self finishLoading];
+            
+            return;
         }
-        state = kAKModelLoadingState;
+        
+        self.state = kAKModelLoadingState;
     }
     
     AKWeakify;
