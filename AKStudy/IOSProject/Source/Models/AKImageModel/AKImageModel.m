@@ -8,25 +8,19 @@
 
 #import "AKImageModel.h"
 
-@interface AKImageModel ()
-@property (nonatomic, strong)     NSURL     *url;
-@property (nonatomic, strong)     UIImage   *image;
-
-@end
-
 @implementation AKImageModel
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (instancetype)imageWithUrl:(NSURL *)url {
-    return [[self alloc] initWithUrl:url];
++ (instancetype)imageWithURL:(NSString *)url {
+    return [[self alloc] initWithURL:url];
 }
 
 #pragma mark -
-#pragma mark Initializations & Deallocations
+#pragma mark Initializations and Deallocatins
 
-- (instancetype)initWithUrl:(NSURL *)url {
+- (instancetype)initWithURL:(NSString *)url {
     self = [super init];
     if (self) {
         self.url = url;
@@ -38,25 +32,16 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)load {
-    if (self.state == kAKModelLoadingState) {
-        return;
-    }
-    
-    if (self.state == kAKModelLoadedState) {
-        return;
-    }
-    
-
+- (void)prepareToLoading {
+//    NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.url];
+//    self.image = [[UIImage alloc] initWithData:imageData];
+//    self.image = [UIImage imageWithContentsOfFile:[self.url absoluteString]];
+    self.image = [UIImage imageWithContentsOfFile:self.url];
 }
 
-- (void)dump {
-    self.image = nil;
-    self.state = kAKModelUnloadedState;
-}
-
-- (void)cancel {
-    
+- (void)finishLoading {
+    [self setState:kAKModelLoadedState withObject:self.image];
 }
 
 @end
+

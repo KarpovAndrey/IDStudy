@@ -16,7 +16,6 @@
 		8418E5881CBE76F400141D27 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
 		841B3A231CF6394E005E972E /* AKImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B3A221CF6394E005E972E /* AKImageModel.m */; };
 		841B3A2D1CF6508B005E972E /* AKLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B3A2C1CF6508B005E972E /* AKLoadingView.xib */; };
-		841B3A311CF65508005E972E /* AKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B3A301CF65508005E972E /* AKImageView.m */; };
 		8447B2AA1CF488E9003DCE14 /* AKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8447B2A91CF488E9003DCE14 /* AKModel.m */; };
 		846C01061CEE5D2500EBC949 /* AKViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C01051CEE5D2500EBC949 /* AKViewModel.m */; };
 		846C010A1CEE5D5E00EBC949 /* AKLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C01091CEE5D5E00EBC949 /* AKLoadingView.m */; };
@@ -40,6 +39,8 @@
 		847692241C762984008682D4 /* AKValueBitOutputTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 847692111C762984008682D4 /* AKValueBitOutputTests.c */; };
 		847A81371C77ADB9004110B2 /* AKCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A81361C77ADB9004110B2 /* AKCreature.m */; };
 		847A813E1C77C195004110B2 /* AKCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 847A813D1C77C195004110B2 /* AKCreatureTest.m */; };
+		8482B4CD1CF790B50000F4E9 /* Duck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8482B4CC1CF790B50000F4E9 /* Duck.jpg */; };
+		8482B4D11CF792E90000F4E9 /* AKImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8482B4D01CF792E90000F4E9 /* AKImageView.m */; };
 		849F02DE1CEA5CC000BBDC8E /* AKStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F02DD1CEA5CC000BBDC8E /* AKStateModel.m */; };
 		849F02DF1CEA781E00BBDC8E /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		849F02E01CEA782700BBDC8E /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -96,7 +97,6 @@
 		84F708F01CADA49A00CBBFF7 /* AKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E21CADA49A00CBBFF7 /* AKEmployee.m */; };
 		84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
 		84F708F21CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
-		84FE051F1CECD9E600AEC0D6 /* Duck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84FE051E1CECD9E600AEC0D6 /* Duck.jpg */; };
 		84FE05271CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FE05261CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m */; };
 /* End PBXBuildFile section */
 
@@ -136,8 +136,6 @@
 		841B3A211CF6394E005E972E /* AKImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKImageModel.h; sourceTree = "<group>"; };
 		841B3A221CF6394E005E972E /* AKImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKImageModel.m; sourceTree = "<group>"; };
 		841B3A2C1CF6508B005E972E /* AKLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKLoadingView.xib; sourceTree = "<group>"; };
-		841B3A2F1CF65508005E972E /* AKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKImageView.h; sourceTree = "<group>"; };
-		841B3A301CF65508005E972E /* AKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKImageView.m; sourceTree = "<group>"; };
 		8434CF8A1CE1A25000C8498F /* AKMacroIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKMacroIOS.h; sourceTree = "<group>"; };
 		8447B2A81CF488E9003DCE14 /* AKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKModel.h; sourceTree = "<group>"; };
 		8447B2A91CF488E9003DCE14 /* AKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKModel.m; sourceTree = "<group>"; };
@@ -189,6 +187,9 @@
 		847A81361C77ADB9004110B2 /* AKCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreature.m; sourceTree = "<group>"; };
 		847A813C1C77C195004110B2 /* AKCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureTest.h; sourceTree = "<group>"; };
 		847A813D1C77C195004110B2 /* AKCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureTest.m; sourceTree = "<group>"; };
+		8482B4CC1CF790B50000F4E9 /* Duck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Duck.jpg; sourceTree = "<group>"; };
+		8482B4CF1CF792E90000F4E9 /* AKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKImageView.h; sourceTree = "<group>"; };
+		8482B4D01CF792E90000F4E9 /* AKImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKImageView.m; sourceTree = "<group>"; };
 		849F02DC1CEA5CC000BBDC8E /* AKStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKStateModel.h; sourceTree = "<group>"; };
 		849F02DD1CEA5CC000BBDC8E /* AKStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKStateModel.m; sourceTree = "<group>"; };
 		84A6B15B1C32D2FF000ACAA5 /* C */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,7 +272,6 @@
 		84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKStringAlphabet.m; sourceTree = "<group>"; };
 		84FB41201C84E3C900AB4C4C /* AKClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKClusterAlphabet.h; sourceTree = "<group>"; };
 		84FB41211C84E3C900AB4C4C /* AKClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKClusterAlphabet.m; sourceTree = "<group>"; };
-		84FE051E1CECD9E600AEC0D6 /* Duck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Duck.jpg; sourceTree = "<group>"; };
 		84FE05251CED1ADE00AEC0D6 /* NSFileManager+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+AKCategory.h"; sourceTree = "<group>"; };
 		84FE05261CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+AKCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -366,20 +366,10 @@
 		841B3A201CF63941005E972E /* AKImageModel */ = {
 			isa = PBXGroup;
 			children = (
-				841B3A2E1CF654EB005E972E /* AKImageView */,
 				841B3A211CF6394E005E972E /* AKImageModel.h */,
 				841B3A221CF6394E005E972E /* AKImageModel.m */,
 			);
 			path = AKImageModel;
-			sourceTree = "<group>";
-		};
-		841B3A2E1CF654EB005E972E /* AKImageView */ = {
-			isa = PBXGroup;
-			children = (
-				841B3A2F1CF65508005E972E /* AKImageView.h */,
-				841B3A301CF65508005E972E /* AKImageView.m */,
-			);
-			path = AKImageView;
 			sourceTree = "<group>";
 		};
 		8447B2A71CF488BA003DCE14 /* AKModel */ = {
@@ -669,6 +659,31 @@
 			path = AKCreatureTest;
 			sourceTree = "<group>";
 		};
+		8482B4CA1CF790B50000F4E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8482B4CB1CF790B50000F4E9 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8482B4CB1CF790B50000F4E9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8482B4CC1CF790B50000F4E9 /* Duck.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		8482B4CE1CF792E90000F4E9 /* AKImageView */ = {
+			isa = PBXGroup;
+			children = (
+				8482B4CF1CF792E90000F4E9 /* AKImageView.h */,
+				8482B4D01CF792E90000F4E9 /* AKImageView.m */,
+			);
+			path = AKImageView;
+			sourceTree = "<group>";
+		};
 		849F02DB1CEA51FD00BBDC8E /* AKStateModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -759,8 +774,8 @@
 		84B95DB41CE0CF5500BAA556 /* IOSProject */ = {
 			isa = PBXGroup;
 			children = (
-				84FE051D1CECD93B00AEC0D6 /* Images */,
 				8434CF8A1CE1A25000C8498F /* AKMacroIOS.h */,
+				8482B4CA1CF790B50000F4E9 /* Resources */,
 				84B95DB51CE0CF5500BAA556 /* AKExtentions */,
 				84B95DC21CE0CF5500BAA556 /* Source */,
 				84B95DDE1CE0CF5500BAA556 /* Supporting Files */,
@@ -859,6 +874,7 @@
 		84B95DD31CE0CF5500BAA556 /* AKUserViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8482B4CE1CF792E90000F4E9 /* AKImageView */,
 				84B95DD41CE0CF5500BAA556 /* AKUserView */,
 				84B95DD71CE0CF5500BAA556 /* AKUserViewCell */,
 				84B95DDB1CE0CF5500BAA556 /* AKUserViewController.h */,
@@ -1081,15 +1097,6 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
-		84FE051D1CECD93B00AEC0D6 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				84FE051E1CECD9E600AEC0D6 /* Duck.jpg */,
-			);
-			name = Images;
-			path = Resources/Images;
-			sourceTree = "<group>";
-		};
 		84FE05241CED1AC500AEC0D6 /* NSFileManager+AKCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -1224,8 +1231,8 @@
 				84B95DFA1CE0CF5500BAA556 /* Assets.xcassets in Resources */,
 				84B95DFC1CE0CF5500BAA556 /* Main.storyboard in Resources */,
 				84B95DFB1CE0CF5500BAA556 /* LaunchScreen.storyboard in Resources */,
-				84FE051F1CECD9E600AEC0D6 /* Duck.jpg in Resources */,
 				841B3A2D1CF6508B005E972E /* AKLoadingView.xib in Resources */,
+				8482B4CD1CF790B50000F4E9 /* Duck.jpg in Resources */,
 				84B95DF61CE0CF5500BAA556 /* AKUserViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1253,7 +1260,6 @@
 				84FE05271CED1ADE00AEC0D6 /* NSFileManager+AKCategory.m in Sources */,
 				84E869B31CDB7ED600D0E13C /* AKClusterAlphabet.m in Sources */,
 				84B95DED1CE0CF5500BAA556 /* UIViewController+AKCategory.m in Sources */,
-				841B3A311CF65508005E972E /* AKImageView.m in Sources */,
 				841B3A231CF6394E005E972E /* AKImageModel.m in Sources */,
 				84B95E061CE0D03F00BAA556 /* AKArrayModel.m in Sources */,
 				849F02E11CEA782900BBDC8E /* AKObserverArray.m in Sources */,
@@ -1274,6 +1280,7 @@
 				846C010A1CEE5D5E00EBC949 /* AKLoadingView.m in Sources */,
 				846C01061CEE5D2500EBC949 /* AKViewModel.m in Sources */,
 				84B95DF91CE0CF5500BAA556 /* AKAppDelegate.m in Sources */,
+				8482B4D11CF792E90000F4E9 /* AKImageView.m in Sources */,
 				84C6F4961CF238EF00CD045C /* AKArrayManager.m in Sources */,
 				84B95DFE1CE0CF5500BAA556 /* main.m in Sources */,
 				84E869B01CDB7E9D00D0E13C /* AKAlphabet.m in Sources */,

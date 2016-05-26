@@ -15,25 +15,32 @@ static NSString * const kAKArrayObjectsStateName    = @"arrayObjectsState.plist"
 static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
 
 @interface AKArrayManager ()
-@property (nonatomic, readonly)                  NSString       *path;
-@property (nonatomic, readonly, getter=isCached) BOOL           cached;
+@property (nonatomic, readonly) NSString       *path;
+@property (nonatomic, readonly) NSArray        *keys;
+
+@property (nonatomic, readonly, getter=isCached) BOOL cached;
+
+- (void)addObserversWithKeys:(NSArray *)keys;
+- (void)removeObserversWithKeys:(NSArray *)keys;
 
 @end
 
+
 @implementation AKArrayManager
+
+@dynamic keys;
 
 #pragma mark -
 #pragma mark Inializations & Deallocations
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self removeObserversWithKeys:self.keys];
 }
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        [self addObserverForSaveSelectorWithName:UIApplicationDidEnterBackgroundNotification];
-        [self addObserverForSaveSelectorWithName:UIApplicationWillTerminateNotification];
+        [self addObserversWithKeys:self.keys];
     }
     
     return self;
@@ -50,14 +57,28 @@ static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
     return [NSFileManager pathToFileWithName:kAKArrayObjectsStateName];
 }
 
+- (NSArray *)keys {
+    return @[UIApplicationDidEnterBackgroundNotification, UIApplicationWillTerminateNotification];
+}
+
 #pragma mark -
 #pragma mark Private
 
-- (void)addObserverForSaveSelectorWithName:(NSString *)name {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(save)
-                                                 name:name
-                                               object:nil];
+- (void)addObserversWithKeys:(NSArray *)keys {
+    for (NSString *key in keys) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(save)
+                                                     name:key
+                                                   object:nil];
+    }
+}
+
+- (void)removeObserversWithKeys:(NSArray *)keys {
+    for (NSString *key in keys) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:key
+                                                      object:nil];
+    }
 }
 
 - (void)prepareToLoading {

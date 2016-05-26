@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class AKStringModel;
+@class AKImageView;
 
 @interface AKUserViewCell : UITableViewCell
-@property (nonatomic, strong) IBOutlet UILabel                 *cellLabel;
-@property (nonatomic, strong) IBOutlet UIImageView             *cellImage;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) IBOutlet UILabel        *cellLabel;
+@property (nonatomic, strong) IBOutlet AKImageView    *cellImage;
 
 - (void)fillWithModel:(id)theModel;
 

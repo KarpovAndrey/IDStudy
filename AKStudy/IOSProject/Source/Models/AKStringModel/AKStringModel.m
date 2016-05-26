@@ -63,6 +63,14 @@ static NSString * const kAKStringKey            = @"string";
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (NSString *)url {
+//    return [[NSBundle mainBundle] URLForResource:@"Duck" withExtension:@".png"];
+    return [NSBundle pathToFileWithName:kAKImagePath];
+}
+
+#pragma mark -
 #pragma mark Private
 
 - (void)prepareToLoading {

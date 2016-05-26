@@ -8,53 +8,16 @@
 
 #import "AKUserViewCell.h"
 #import "AKStringModel.h"
-
-@interface AKUserViewCell ()
-@property (nonatomic, strong) AKStringModel *model;
-
-- (void)load;
-
-@end
+#import "AKImageView.h"
 
 @implementation AKUserViewCell
 
 #pragma mark -
-#pragma mark Accessors
-
-- (void)setModel:(AKStringModel *)model {
-    if (_model != model) {
-        _model = model;
-        
-        self.cellLabel.text = model.string;
-        self.cellImage.image = nil;
-        
-        AKWeakify;
-        [_model addHandler:^(UIImage *image){
-            AKStrongifyAndReturnIfNil(AKUserViewCell);
-            strongSelf.cellImage.image = image;
-            [strongSelf.activityIndicator stopAnimating];
-        } forState:kAKModelLoadedState
-                    object:self];
-        
-        [self load];
-    }
-}
-
-#pragma mark -
 #pragma mark Public
 
-- (void)load {
-    AKStringModel *stringModel = self.model;
-    [stringModel load];
-    if (stringModel.state == kAKModelLoadedState) {
-        return;
-    }
-    
-    [self.activityIndicator startAnimating];
-}
-
 - (void)fillWithModel:(AKStringModel *)theModel {
-    self.model = theModel;
+    self.cellLabel.text = theModel.string;
+    self.cellImage.url = theModel.url;
 }
 
 @end

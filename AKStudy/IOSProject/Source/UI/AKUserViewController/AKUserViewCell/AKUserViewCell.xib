@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,37 +14,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-5i-Xe4" customClass="AKImageView">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDJ-Ks-wKU">
-                        <rect key="frame" x="86" y="10" width="234" height="24"/>
+                        <rect key="frame" x="78" y="10" width="49" height="24"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="0.17959289770820752" green="0.14749105941064844" blue="0.69415064102564106" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0KA-rT-OPL">
-                        <rect key="frame" x="8" y="4" width="70" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="70" id="Fap-a8-ldk"/>
-                        </constraints>
-                    </imageView>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lG5-tE-6XC">
-                        <rect key="frame" x="34" y="11" width="20" height="20"/>
-                    </activityIndicatorView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="0KA-rT-OPL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="0O1-cd-pIb"/>
-                    <constraint firstItem="0KA-rT-OPL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="1dP-y3-uAG"/>
-                    <constraint firstItem="0KA-rT-OPL" firstAttribute="centerY" secondItem="SDJ-Ks-wKU" secondAttribute="centerY" constant="-0.5" id="EJ6-wL-ZQZ"/>
-                    <constraint firstItem="0KA-rT-OPL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QcH-mK-Fb7"/>
-                    <constraint firstItem="SDJ-Ks-wKU" firstAttribute="leading" secondItem="0KA-rT-OPL" secondAttribute="trailing" constant="8" id="aSn-wT-aYg"/>
-                    <constraint firstItem="SDJ-Ks-wKU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gEc-UB-KbV"/>
-                    <constraint firstItem="SDJ-Ks-wKU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="ijx-kU-inc"/>
+                    <constraint firstItem="SDJ-Ks-wKU" firstAttribute="leading" secondItem="fMk-5i-Xe4" secondAttribute="trailing" constant="8" symbolic="YES" id="3g1-aj-Muq"/>
+                    <constraint firstItem="fMk-5i-Xe4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7vt-aq-PW5"/>
+                    <constraint firstItem="fMk-5i-Xe4" firstAttribute="centerY" secondItem="SDJ-Ks-wKU" secondAttribute="centerY" id="P3Z-KD-liF"/>
+                    <constraint firstItem="fMk-5i-Xe4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Sib-S3-jvs"/>
+                    <constraint firstItem="SDJ-Ks-wKU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="78" id="YCI-RN-Wem"/>
+                    <constraint firstItem="fMk-5i-Xe4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tHZ-kF-z0c"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="0.61736059647027708" blue="0.39663748227492868" alpha="1" colorSpace="calibratedRGB"/>
             <color key="tintColor" red="1" green="0.0099695103759999994" blue="0.040939670159999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fMk-5i-Xe4" secondAttribute="trailing" constant="250" id="lhz-BH-Nii"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="lhz-BH-Nii"/>
+                </mask>
+            </variation>
             <connections>
-                <outlet property="activityIndicator" destination="lG5-tE-6XC" id="Igu-2t-CeR"/>
-                <outlet property="cellImage" destination="0KA-rT-OPL" id="0Xi-bI-oH2"/>
+                <outlet property="cellImage" destination="fMk-5i-Xe4" id="ab9-X9-zgl"/>
                 <outlet property="cellLabel" destination="SDJ-Ks-wKU" id="Mdd-fW-Uwc"/>
             </connections>
             <point key="canvasLocation" x="272" y="403"/>

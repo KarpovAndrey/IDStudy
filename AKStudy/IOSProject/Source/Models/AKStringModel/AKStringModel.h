@@ -10,8 +10,8 @@
 #import "AKModel.h"
 
 @interface AKStringModel : AKModel <NSCoding>
-@property (nonatomic, readonly) NSString *string;
-@property (nonatomic, readonly) UIImage  *image;
+@property (nonatomic, readonly) NSString    *string;
+@property (nonatomic, readonly) NSString    *url;
 
 + (NSArray *)randomStringsModel;
 

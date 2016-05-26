@@ -7,18 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AKImageView.h"
 #import "AKModel.h"
 
 @interface AKImageModel : AKModel
-@property (nonatomic, readonly)       NSURL   *url;
-@property (nonatomic, readonly)       UIImage *image;
+@property (nonatomic, strong) UIImage        *image;
+@property (nonatomic, strong) NSString       *url;
 
-+ (instancetype)imageWithUrl:(NSURL *)url;
++ (instancetype)imageWithURL:(NSString *)url;
 
-- (instancetype)initWithUrl:(NSURL *)url;
-
-- (void)load;
-- (void)dump;
-- (void)cancel;
+- (instancetype)initWithURL:(NSString *)url;
 
 @end

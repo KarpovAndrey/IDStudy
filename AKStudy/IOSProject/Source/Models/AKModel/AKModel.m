@@ -9,17 +9,10 @@
 #import "AKModel.h"
 #import "AKDispatch.h"
 
-@interface AKModel ()
-
-- (void)prepareToLoading;
-- (void)finishLoading;
-
-@end
-
 @implementation AKModel
 
 #pragma mark -
-#pragma mark Private
+#pragma mark Public
 
 - (void)prepareToLoading {
     
@@ -29,22 +22,19 @@
     
 }
 
-#pragma mark -
-#pragma mark Public
-
 - (void)load {
     NSUInteger state = self.state;
     if (state == kAKModelLoadingState) {
         return;
-    } else {
-        if (state == kAKModelLoadedState) {
-            [self finishLoading];
-            
-            return;
-        }
-        
-        self.state = kAKModelLoadingState;
     }
+    
+    if (state == kAKModelLoadedState) {
+        [self finishLoading];
+        
+        return;
+    }
+    
+    self.state = kAKModelLoadingState;
     
     AKWeakify;
     AKDispatchAsyncInBackground(^{
