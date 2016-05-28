@@ -12,7 +12,7 @@
 
 @interface AKUserViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel        *cellLabel;
-@property (nonatomic, strong) IBOutlet AKImageView    *cellImage;
+@property (nonatomic, strong) IBOutlet AKImageView    *customImageView;
 
 - (void)fillWithModel:(id)theModel;
 

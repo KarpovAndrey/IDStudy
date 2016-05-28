@@ -10,7 +10,6 @@
 
 @interface AKArrayManager : AKArrayModel
 
-//- (void)load;
 - (void)save;
 
 @end

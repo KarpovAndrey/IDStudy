@@ -15,7 +15,6 @@ static NSString * const kAKStringKey            = @"string";
 
 @interface AKStringModel ()
 @property (nonatomic, copy)     NSString    *string;
-@property (nonatomic, strong)   UIImage     *image;
 
 @end
 
@@ -65,20 +64,8 @@ static NSString * const kAKStringKey            = @"string";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSString *)url {
-//    return [[NSBundle mainBundle] URLForResource:@"Duck" withExtension:@".png"];
+- (NSString *)urlString {
     return [NSBundle pathToFileWithName:kAKImagePath];
-}
-
-#pragma mark -
-#pragma mark Private
-
-- (void)prepareToLoading {
-    self.image = [UIImage imageWithContentsOfFile:[NSBundle pathToFileWithName:kAKImagePath]];
-}
-
-- (void)finishLoading {
-    [self setState:kAKModelLoadedState withObject:self.image];
 }
 
 #pragma mark -

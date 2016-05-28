@@ -8,39 +8,63 @@
 
 #import "AKImageModel.h"
 
+@interface AKImageModel ()
+@property (nonatomic, readonly)                     NSString    *path;
+@property (nonatomic, readonly, getter = isCached)  BOOL        cached;
+
+@end
+
 @implementation AKImageModel
 
-#pragma mark -
-#pragma mark Class Methods
+@dynamic cached;
+@dynamic path;
 
-+ (instancetype)imageWithURL:(NSString *)url {
-    return [[self alloc] initWithURL:url];
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setURL:(NSURL *)URL {
+    if (_URL != URL) {
+        _URL = URL;
+        
+//        if (![_URL isEqual:URL]) {
+            [self dump];
+//        }
+    }
+    
+    [self load];
 }
 
 #pragma mark -
-#pragma mark Initializations and Deallocatins
+#pragma mark Accessors
 
-- (instancetype)initWithURL:(NSString *)url {
-    self = [super init];
-    if (self) {
-        self.url = url;
-    }
-    
-    return self;
+- (NSString *)path {
+    return self.URL.path;
+}
+
+- (BOOL)isCached {
+    return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
 }
 
 #pragma mark -
 #pragma mark Public
 
 - (void)prepareToLoading {
-//    NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.url];
-//    self.image = [[UIImage alloc] initWithData:imageData];
-//    self.image = [UIImage imageWithContentsOfFile:[self.url absoluteString]];
-    self.image = [UIImage imageWithContentsOfFile:self.url];
+    if (self.isCached) {
+        UIImage *image = [UIImage imageWithContentsOfFile:self.path];
+        
+        if (image) {
+            self.image = image;
+        }
+    }
 }
 
 - (void)finishLoading {
-    [self setState:kAKModelLoadedState withObject:self.image];
+    NSUInteger state = self.image ? kAKModelLoadedState : kAKModelFailedState;
+    [self setState:state withObject:self.image];
+}
+
+- (void)dump {
+    self.state = kAKModelUndefinedState;
 }
 
 @end

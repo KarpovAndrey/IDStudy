@@ -11,7 +11,9 @@
 @class AKImageModel;
 
 @interface AKImageView : UIView
-@property (nonatomic, strong) AKImageModel      *model;
-@property (nonatomic, strong) NSString          *url;
+@property (nonatomic, strong) AKImageModel      *imageModel;
+@property (nonatomic, strong) NSURL             *URL;
+
+- (void)dump;
 
 @end

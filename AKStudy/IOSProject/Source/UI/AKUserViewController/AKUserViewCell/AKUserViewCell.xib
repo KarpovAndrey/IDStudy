@@ -45,8 +45,8 @@
                 </mask>
             </variation>
             <connections>
-                <outlet property="cellImage" destination="fMk-5i-Xe4" id="ab9-X9-zgl"/>
                 <outlet property="cellLabel" destination="SDJ-Ks-wKU" id="Mdd-fW-Uwc"/>
+                <outlet property="customImageView" destination="fMk-5i-Xe4" id="hhZ-U4-Ojs"/>
             </connections>
             <point key="canvasLocation" x="272" y="403"/>
         </tableViewCell>

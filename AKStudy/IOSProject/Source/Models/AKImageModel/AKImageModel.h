@@ -12,10 +12,8 @@
 
 @interface AKImageModel : AKModel
 @property (nonatomic, strong) UIImage        *image;
-@property (nonatomic, strong) NSString       *url;
+@property (nonatomic, strong) NSURL          *URL;
 
-+ (instancetype)imageWithURL:(NSString *)url;
-
-- (instancetype)initWithURL:(NSString *)url;
+- (void)dump;
 
 @end

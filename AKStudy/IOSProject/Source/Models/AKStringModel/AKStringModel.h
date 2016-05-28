@@ -11,7 +11,7 @@
 
 @interface AKStringModel : AKModel <NSCoding>
 @property (nonatomic, readonly) NSString    *string;
-@property (nonatomic, readonly) NSString    *url;
+@property (nonatomic, readonly) NSString    *urlString;
 
 + (NSArray *)randomStringsModel;
 
