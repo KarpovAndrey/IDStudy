@@ -13,5 +13,6 @@
 @interface AKImageModel : AKModel
 @property (nonatomic, strong) UIImage        *image;
 @property (nonatomic, strong) NSURL          *URL;
+//@property (nonatomic, retain) NSMutableData  *imageData;
 
 @end
