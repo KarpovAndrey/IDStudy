@@ -40,7 +40,7 @@
 }
 
 - (void)baseInit {
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.frame];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
     self.imageView.backgroundColor = [UIColor clearColor];
     [self addSubview:imageView];
     

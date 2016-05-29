@@ -11,7 +11,7 @@
 #import "AKStateModel.h"
 #import "AKDispatch.h"
 
-static NSString * const kAKArrayObjectsKey          = @"arrayObjects";
+static NSString * const kAKArrayObjectsKey = @"arrayObjects";
 
 @interface AKArrayModel ()
 @property (nonatomic, strong) NSMutableArray *arrayObjects;

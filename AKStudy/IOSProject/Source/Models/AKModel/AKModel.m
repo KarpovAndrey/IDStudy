@@ -22,6 +22,10 @@
     
 }
 
+- (void)dump {
+    
+}
+
 - (void)load {
     NSUInteger state = self.state;
     if (state == kAKModelLoadingState) {
@@ -38,10 +42,11 @@
     
     AKWeakify;
     AKDispatchAsyncInBackground(^{
-        sleep(3);
         AKStrongifyAndReturnIfNil(AKModel);
-        
+        sleep(3);
+
         [strongSelf prepareToLoading];
+
         AKDispatchAsyncOnMainThread(^{
             [strongSelf finishLoading];
         });

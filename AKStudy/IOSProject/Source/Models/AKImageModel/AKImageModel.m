@@ -12,6 +12,8 @@
 @property (nonatomic, readonly)                     NSString    *path;
 @property (nonatomic, readonly, getter = isCached)  BOOL        cached;
 
+- (void)deleteIfNeeded;
+
 @end
 
 @implementation AKImageModel
@@ -26,16 +28,13 @@
     if (_URL != URL) {
         _URL = URL;
         
-//        if (![_URL isEqual:URL]) {
+        if (![_URL isEqual:URL]) {
             [self dump];
-//        }
+        }
     }
     
     [self load];
 }
-
-#pragma mark -
-#pragma mark Accessors
 
 - (NSString *)path {
     return self.URL.path;
@@ -43,6 +42,16 @@
 
 - (BOOL)isCached {
     return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+}
+
+#pragma mark -
+#pragma mark Private
+
+- (void)deleteIfNeeded {
+    if (self.isCached) {
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:self.path error:&error];
+    }
 }
 
 #pragma mark -
@@ -54,6 +63,8 @@
         
         if (image) {
             self.image = image;
+        } else {
+            [self deleteIfNeeded];
         }
     }
 }

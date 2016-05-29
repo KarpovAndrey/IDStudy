@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, AKModelState) {
 @interface AKModel : AKObserver
 
 - (void)load;
+- (void)dump;
 
 //these methods are called in subclasses
 //you should never call these method directly fromoutside subclasses
