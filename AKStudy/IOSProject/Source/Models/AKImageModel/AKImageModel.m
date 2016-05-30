@@ -10,15 +10,14 @@
 #import "AKDispatch.h"
 
 @interface AKImageModel ()
+@property (nonatomic, readonly, getter = isCached)  BOOL        cached;
 @property (nonatomic, readonly)                     NSString    *fileName;
 @property (nonatomic, readonly)                     NSString    *path;
-@property (nonatomic, readonly, getter = isCached)  BOOL        cached;
 
 @property (nonatomic, strong)   NSURLSession                *session;
 @property (nonatomic, strong)   NSURLSessionDownloadTask    *task;
 
 - (void)deleteIfNeeded;
-- (void)performLoad;
 - (void)performDownload;
 
 @end
@@ -101,7 +100,7 @@
             [self deleteIfNeeded];
         }
         
-        [self performLoad];
+        [self finishLoading];
     } else {
         [self performDownload];
     }
@@ -120,11 +119,11 @@
         [fileManager copyItemAtURL:location toURL:URL error:nil];
         self.image = [UIImage imageWithContentsOfFile:self.path];
                      
-        [self performLoad];
+        [self finishLoading];
     }];
 }
 
-- (void)performLoad {
+- (void)finishLoading {
     AKWeakify;
     AKDispatchAsyncOnMainThread(^{
         AKStrongifyAndReturnIfNil(AKImageModel);
