@@ -19,7 +19,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDJ-Ks-wKU">
-                        <rect key="frame" x="78" y="10" width="49" height="24"/>
+                        <rect key="frame" x="78" y="10" width="234" height="24"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="0.17959289770820752" green="0.14749105941064844" blue="0.69415064102564106" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -37,13 +37,8 @@
             <color key="backgroundColor" red="1" green="0.61736059647027708" blue="0.39663748227492868" alpha="1" colorSpace="calibratedRGB"/>
             <color key="tintColor" red="1" green="0.0099695103759999994" blue="0.040939670159999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="fMk-5i-Xe4" secondAttribute="trailing" constant="250" id="lhz-BH-Nii"/>
+                <constraint firstAttribute="trailing" secondItem="SDJ-Ks-wKU" secondAttribute="trailing" constant="8" id="Aeg-Sj-5B0"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="lhz-BH-Nii"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="cellLabel" destination="SDJ-Ks-wKU" id="Mdd-fW-Uwc"/>
                 <outlet property="customImageView" destination="fMk-5i-Xe4" id="hhZ-U4-Ojs"/>

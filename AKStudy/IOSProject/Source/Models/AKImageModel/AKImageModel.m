@@ -7,31 +7,49 @@
 //
 
 #import "AKImageModel.h"
-
-static NSString * const kAKImageURLString = @"http://mirgif.com/humor/prikol104.jpg";
+#import "AKDispatch.h"
 
 @interface AKImageModel ()
+@property (nonatomic, readonly)                     NSString    *fileName;
 @property (nonatomic, readonly)                     NSString    *path;
 @property (nonatomic, readonly, getter = isCached)  BOOL        cached;
 
+@property (nonatomic, strong)   NSURLSession                *session;
+@property (nonatomic, strong)   NSURLSessionDownloadTask    *task;
+
 - (void)deleteIfNeeded;
+- (void)performLoad;
+- (void)performDownload;
 
 @end
 
 @implementation AKImageModel
 
-@dynamic cached;
+@dynamic fileName;
 @dynamic path;
-//@synthesize imageData;
+@dynamic cached;
+
+#pragma mark -
+#pragma mark Initializations & Deallocations
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Accessors
 
 - (void)setURL:(NSURL *)URL {
     if (_URL != URL) {
-        _URL = URL;
-        
+
         if (![_URL isEqual:URL]) {
+            _URL = URL;
+
             [self dump];
         }
     }
@@ -39,12 +57,25 @@ static NSString * const kAKImageURLString = @"http://mirgif.com/humor/prikol104.
     [self load];
 }
 
-- (NSString *)path {
-    return self.URL.path;
+- (void)setTask:(NSURLSessionDownloadTask *)task {
+    if (_task != task) {
+        [_task cancel];
+        
+        _task = task;
+        [_task resume];
+    }
 }
 
 - (BOOL)isCached {
     return [[NSFileManager defaultManager] fileExistsAtPath:self.path];
+}
+
+- (NSString *)fileName {
+    return [[self.URL absoluteString] lastPathComponent];
+}
+
+- (NSString *)path {
+    return [NSFileManager pathToFileWithName:self.fileName];
 }
 
 #pragma mark -
@@ -60,59 +91,46 @@ static NSString * const kAKImageURLString = @"http://mirgif.com/humor/prikol104.
 #pragma mark -
 #pragma mark Public
 
-//- (void)complexDownload {
-//    NSURL *url = [NSURL URLWithString:kAKImageURLString];
-//    NSURLRequest *theRequest=[NSURLRequest requestWithURL:url
-//                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-//                                          timeoutInterval:60.0];
-//    
-//    NSURLConnection *theConnection = [NSURLConnection connectionWithRequest:theRequest delegate:self];
-//    if (theConnection) {
-//        self.imageData = [NSMutableData data];
-//    } else {
-//        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//        NSLog(@"Connection failed");
-//    }
-//}
-//
-//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-//    [imageData appendData:data];
-//}
-//
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-//    UIImage *image = [UIImage imageWithData:imageData];
-//    self.image = image;
-//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//}
-//
-//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-//    NSLog(@"%@", error);
-//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//}
-
-
 - (void)prepareToLoading {
     if (self.isCached) {
-        NSURL *url = [NSURL URLWithString:kAKImageURLString];
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-
-        //        UIImage *image = [UIImage imageWithContentsOfFile:self.path];
+        UIImage *image = [UIImage imageWithContentsOfFile:self.path];
         
         if (image) {
             self.image = image;
         } else {
             [self deleteIfNeeded];
         }
+        
+        [self performLoad];
+    } else {
+        [self performDownload];
     }
-}
-
-- (void)finishLoading {
-    NSUInteger state = self.image ? kAKModelLoadedState : kAKModelFailedState;
-    [self setState:state withObject:self.image];
 }
 
 - (void)dump {
     self.state = kAKModelUndefinedState;
+}
+
+- (void)performDownload {
+    self.task = [self.session downloadTaskWithURL:self.URL
+                                completionHandler:^ (NSURL *location, NSURLResponse *response, NSError *error)
+    {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSURL *URL = [NSURL fileURLWithPath:self.path];
+        [fileManager copyItemAtURL:location toURL:URL error:nil];
+        self.image = [UIImage imageWithContentsOfFile:self.path];
+                     
+        [self performLoad];
+    }];
+}
+
+- (void)performLoad {
+    AKWeakify;
+    AKDispatchAsyncOnMainThread(^{
+        AKStrongifyAndReturnIfNil(AKImageModel);
+        NSUInteger state = strongSelf.image ? kAKModelLoadedState : kAKModelFailedState;
+        [strongSelf setState:state withObject:strongSelf.image];
+    });
 }
 
 @end

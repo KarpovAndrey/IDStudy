@@ -23,6 +23,8 @@
     if (_stringModel != stringModel) {
         _stringModel = stringModel;
     }
+    self.cellLabel.numberOfLines = 1;
+    self.cellLabel.adjustsFontSizeToFitWidth = YES;
     
     self.cellLabel.text = stringModel.string;
     self.customImageView.URL = [NSURL URLWithString:stringModel.urlString];

@@ -12,9 +12,10 @@
 static NSUInteger const kAKDefaultStringCount   = 40;
 static NSString * const kAKImagePath            = @"Duck.jpg";
 static NSString * const kAKStringKey            = @"string";
+static NSString * const kAKImageURLString       = @"http://mirgif.com/humor/prikol104.jpg";
 
 @interface AKStringModel ()
-@property (nonatomic, copy)     NSString    *string;
+@property (nonatomic, copy)     NSString        *string;
 
 @end
 
@@ -53,7 +54,7 @@ static NSString * const kAKStringKey            = @"string";
 }
 
 - (instancetype)initWithString:(NSString *)string {
-    self = [super init];
+    self = [self init];
     if (self) {
         self.string = [string copy];
     }
@@ -65,7 +66,7 @@ static NSString * const kAKStringKey            = @"string";
 #pragma mark Accessors
 
 - (NSString *)urlString {
-    return [NSBundle pathToFileWithName:kAKImagePath];
+    return kAKImageURLString;
 }
 
 #pragma mark -

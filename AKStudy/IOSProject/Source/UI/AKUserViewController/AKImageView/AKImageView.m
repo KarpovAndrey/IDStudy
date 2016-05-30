@@ -10,11 +10,14 @@
 #import "AKImageModel.h"
 
 @interface AKImageView ()
-@property (nonatomic, strong) UIImageView               *imageView;
+@property (nonatomic, strong) UIImageView               *customImageView;
 @property (nonatomic, strong) UIActivityIndicatorView   *spinner;
+
+@property (nonatomic, readonly, getter=isCached) BOOL cached;
 
 - (void)baseInit;
 - (void)load;
+- (void)showSpinner;
 
 @end
 
@@ -28,6 +31,7 @@
     if (self) {
         [self baseInit];
     }
+    
     return self;
 }
 
@@ -36,28 +40,21 @@
     if (self) {
         [self baseInit];
     }
+    
     return self;
 }
 
 - (void)baseInit {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    self.imageView.backgroundColor = [UIColor clearColor];
+    self.customImageView.backgroundColor = [UIColor clearColor];
     [self addSubview:imageView];
     
     CALayer *layer = imageView.layer;
     [layer setBorderColor: [[UIColor grayColor] CGColor]];
     [layer setBorderWidth: 0.5];
-    self.imageView = imageView;
+    self.customImageView = imageView;
 
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    spinner.color = [UIColor whiteColor];
-    spinner.hidesWhenStopped = YES;
-    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-    spinner.center = imageView.center;
-    [spinner startAnimating];
-    [imageView addSubview:spinner];
-    
-    self.spinner = spinner;
+    [self showSpinner];
     self.imageModel = [AKImageModel new];
 }
 
@@ -72,7 +69,7 @@
         AKWeakify;
         [_imageModel addHandler:^(UIImage *image){
             AKStrongifyAndReturnIfNil(AKImageView);
-            strongSelf.imageView.image = image;
+            strongSelf.customImageView.image = image;
             [strongSelf.spinner stopAnimating];
         } forState:kAKModelLoadedState
                     object:self];
@@ -90,6 +87,16 @@
 #pragma mark -
 #pragma mark Private
 
+- (void)showSpinner {
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    UIImageView *imageView = self.customImageView;
+    spinner.center = imageView.center;
+    [spinner startAnimating];
+    [self.customImageView addSubview:spinner];
+    
+    self.spinner = spinner;
+}
+
 - (void)load {
     [self.spinner startAnimating];
     self.imageModel.URL = self.URL;
@@ -99,7 +106,7 @@
 #pragma mark Public
 
 - (void)dump {
-    self.imageView.image = nil;
+    self.customImageView.image = nil;
 }
 
 @end
