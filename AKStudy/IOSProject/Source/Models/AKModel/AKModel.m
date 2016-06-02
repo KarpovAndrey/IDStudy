@@ -22,6 +22,11 @@
     
 }
 
+- (void)completeLoading {
+    [self finishLoading];
+}
+
+
 - (void)dump {
     
 }
@@ -43,12 +48,12 @@
     AKWeakify;
     AKDispatchAsyncInBackground(^{
         AKStrongifyAndReturnIfNil(AKModel);
-        sleep(3);
+        sleep(1);
 
         [strongSelf prepareToLoading];
 
         AKDispatchAsyncOnMainThread(^{
-            [strongSelf finishLoading];
+            [strongSelf completeLoading];
         });
     });
 }

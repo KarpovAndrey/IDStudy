@@ -12,6 +12,7 @@
 #import "AKArrayModel.h"
 #import "AKStringModel.h"
 #import "AKArrayManager.h"
+#import "AKSharedCacheModel.h"
 
 @implementation AKAppDelegate
 
@@ -21,7 +22,8 @@
     
     AKUserViewController *viewController = [AKUserViewController defaultControllerFromNib];
     viewController.arrayModel = [AKArrayManager new];
-        
+    [AKSharedCacheModel sharedCache];
+    
     window.rootViewController = viewController;
     [window makeKeyAndVisible];
     

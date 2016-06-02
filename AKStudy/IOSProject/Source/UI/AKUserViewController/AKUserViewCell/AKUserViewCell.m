@@ -10,31 +10,14 @@
 #import "AKStringModel.h"
 #import "AKImageView.h"
 
-@interface AKUserViewCell ()
-@property (nonatomic, strong) AKStringModel *stringModel;
-@end
-
 @implementation AKUserViewCell
-
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setStringModel:(AKStringModel *)stringModel {
-    if (_stringModel != stringModel) {
-        _stringModel = stringModel;
-    }
-    self.cellLabel.numberOfLines = 1;
-    self.cellLabel.adjustsFontSizeToFitWidth = YES;
-    
-    self.cellLabel.text = stringModel.string;
-    self.customImageView.URL = [NSURL URLWithString:stringModel.urlString];
-}
 
 #pragma mark -
 #pragma mark Public
 
 - (void)fillWithModel:(AKStringModel *)theModel {
-    self.stringModel = theModel;
+    self.cellLabel.text = theModel.string;
+    self.customImageView.URL = [NSURL URLWithString:theModel.urlString];
 }
 
 @end

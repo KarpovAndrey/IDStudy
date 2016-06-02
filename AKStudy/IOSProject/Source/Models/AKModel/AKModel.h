@@ -25,5 +25,6 @@ typedef NS_ENUM(NSUInteger, AKModelState) {
 //you should never call these method directly fromoutside subclasses
 - (void)prepareToLoading;
 - (void)finishLoading;
+- (void)completeLoading;
 
 @end

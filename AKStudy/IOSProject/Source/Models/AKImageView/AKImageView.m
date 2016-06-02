@@ -64,15 +64,21 @@
 - (void)setImageModel:(AKImageModel *)imageModel {
     if (_imageModel != imageModel) {
         _imageModel = imageModel;
-    }
-  
+        
         AKWeakify;
         [_imageModel addHandler:^(UIImage *image){
             AKStrongifyAndReturnIfNil(AKImageView);
             strongSelf.customImageView.image = image;
             [strongSelf.spinner stopAnimating];
         } forState:kAKModelLoadedState
-                    object:self];
+                         object:self];
+        
+        [_imageModel addHandler:^(UIImage *image){
+            AKStrongifyAndReturnIfNil(AKImageView);
+            strongSelf.imageModel.URL = strongSelf.URL;
+        } forState:kAKModelLoadedState
+                         object:self];
+    }
 }
 
 - (void)setURL:(NSURL *)URL {
@@ -88,11 +94,12 @@
 #pragma mark Private
 
 - (void)showSpinner {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:
+                                        UIActivityIndicatorViewStyleWhite];
     UIImageView *imageView = self.customImageView;
     spinner.center = imageView.center;
     [spinner startAnimating];
-    [self.customImageView addSubview:spinner];
+    [imageView addSubview:spinner];
     
     self.spinner = spinner;
 }
