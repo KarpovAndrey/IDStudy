@@ -50,13 +50,10 @@
 #pragma mark Accessors
 
 - (void)setURL:(NSURL *)URL {
-    if (_URL != URL) {
-
-//        if (![_URL isEqual:URL]) {
-            _URL = URL;
-
-            [self dump];
-//        }
+    if (![_URL isEqual:URL]) {
+        _URL = URL;
+        
+        [self dump];
     }
     
     [self load];
@@ -104,29 +101,28 @@
 }
 
 - (void)performDownload {
-    if (self.isCached) {
-        [self loadFromFileSystem];
-    } else {
-        self.downloadTask = [self.session downloadTaskWithURL:self.URL
-                                    completionHandler:^ (NSURL *location, NSURLResponse *response, NSError *error)
-                     {
-                         if (!error) {
-                             NSError *fileError = nil;
-                             NSString *path = self.path;
-                             NSFileManager *fileManager = [NSFileManager defaultManager];
-                             [fileManager copyItemAtURL:location toURL:[NSURL fileURLWithPath:path] error:nil];
-                             
-                             if (self.isCached && [fileManager fileExistsAtPath:path]) {
-                                 [fileManager removeItemAtPath:path error:nil];
-                             }
-                             
-                             if (!fileError) {
-                                 [self.sharedCacheModel addValueForKey:self.absoluteStringValue];
-                             }
-                             
-                             [self loadFromFileSystem];
-                         }
-                     }];
+    @synchronized (self) {
+        id block = ^(NSURL *location, NSURLResponse *response, NSError *error) {
+            if (!error) {
+                NSError *fileError = nil;
+                NSString *path = self.path;
+                NSFileManager *fileManager = [NSFileManager defaultManager];
+                
+                if (!self.isCached && [fileManager fileExistsAtPath:path]) {
+                    [fileManager removeItemAtPath:path error:&fileError];
+                }
+                
+                [fileManager copyItemAtURL:location toURL:[NSURL fileURLWithPath:path] error:&fileError];
+                
+                if (!fileError) {
+                    [self.sharedCacheModel addValueForKey:self.absoluteStringValue];
+                }
+                
+                [self loadFromFileSystem];
+            }
+        };
+        
+        self.downloadTask = [self.session downloadTaskWithURL:self.URL completionHandler:block];
     }
 }
 
@@ -148,7 +144,7 @@
 }
 
 - (void)prepareToLoading {
-    if (self.URL.isFileURL) {
+    if (self.URL.isFileURL || self.isCached) {
         [self loadFromFileSystem];
     } else {
         [self performDownload];

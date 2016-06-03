@@ -76,7 +76,7 @@
         [_imageModel addHandler:^(UIImage *image){
             AKStrongifyAndReturnIfNil(AKImageView);
             strongSelf.imageModel.URL = strongSelf.URL;
-        } forState:kAKModelLoadedState
+        } forState:kAKModelFailedState
                          object:self];
     }
 }

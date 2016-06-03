@@ -38,7 +38,7 @@
     }
     
     if (state == kAKModelLoadedState) {
-        [self finishLoading];
+        [self completeLoading];
         
         return;
     }
@@ -53,7 +53,7 @@
         [strongSelf prepareToLoading];
 
         AKDispatchAsyncOnMainThread(^{
-            [strongSelf completeLoading];
+            [strongSelf finishLoading];
         });
     });
 }

@@ -113,21 +113,25 @@ static AKSharedCacheModel * model = nil;
 }
 
 - (void)addValueForKey:(NSString *)key {
-    if ([self isCahedForKey:key]) {
-        return;
-    } else {
-        NSString *stringValue = [key lastPathComponent];
-        NSString *stringKey = [self keyForValue:stringValue];
-        if (stringKey) {
-            [self removeValueForKey:stringKey];
+    @synchronized (self) {
+        if ([self isCahedForKey:key]) {
+            return;
+        } else {
+            NSString *stringValue = [key lastPathComponent];
+            NSString *stringKey = [self keyForValue:stringValue];
+            if (stringKey) {
+                [self removeValueForKey:stringKey];
+            }
+            
+            [self.cachedFiles setObject:stringValue forKey:key];
         }
-    
-        [self.cachedFiles setObject:stringValue forKey:key];
     }
 }
 
 - (void)removeValueForKey:(NSString *)key {
-    [self.cachedFiles removeObjectForKey:key];
+    @synchronized (self) {
+        [self.cachedFiles removeObjectForKey:key];
+    }
 }
 
 #pragma mark -
