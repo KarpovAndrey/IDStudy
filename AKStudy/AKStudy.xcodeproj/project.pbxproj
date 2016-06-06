@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6106F8B8E6455F950E6FEE0D /* libPods-IOSProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E511583E1BAFBB1FEE870C31 /* libPods-IOSProject.a */; };
 		7D4E26ED0EA9FED40CE66E45 /* libPods-C.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1240C018F7734F79EA13A55B /* libPods-C.a */; };
-		8401B16B1D05F0D000A582DE /* AKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B15F1D05F0D000A582DE /* AKLoginViewController.m */; };
 		8401B16C1D05F0D000A582DE /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B1631D05F0D000A582DE /* AKAppDelegate.m */; };
 		8401B16D1D05F0D000A582DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8401B1641D05F0D000A582DE /* Assets.xcassets */; };
 		8401B16E1D05F0D000A582DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8401B1651D05F0D000A582DE /* LaunchScreen.storyboard */; };
@@ -30,12 +29,13 @@
 		8401B19A1D05F10100A582DE /* UIViewController+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B1891D05F10100A582DE /* UIViewController+AKCategory.m */; };
 		8401B19B1D05F10100A582DE /* UIWindow+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B18C1D05F10100A582DE /* UIWindow+AKCategory.m */; };
 		8401B19C1D05F10100A582DE /* UIWindow+AKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B18C1D05F10100A582DE /* UIWindow+AKCategory.m */; };
-		8401B1A01D06088200A582DE /* AKLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B19F1D06088200A582DE /* AKLoginView.m */; };
-		8401B1A21D06089A00A582DE /* AKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8401B1A11D06089A00A582DE /* AKLoginViewController.xib */; };
 		8401B1A81D0625AC00A582DE /* AKFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B1A61D0625AC00A582DE /* AKFriendsViewController.m */; };
 		8401B1A91D0625AC00A582DE /* AKFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B1A61D0625AC00A582DE /* AKFriendsViewController.m */; };
 		8401B1AA1D0625AC00A582DE /* AKFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8401B1A71D0625AC00A582DE /* AKFriendsViewController.xib */; };
 		8401B1AB1D0625AC00A582DE /* AKFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8401B1A71D0625AC00A582DE /* AKFriendsViewController.xib */; };
+		8401B1B31D0628A000A582DE /* AKLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B1AF1D0628A000A582DE /* AKLoginView.m */; };
+		8401B1B41D0628A000A582DE /* AKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8401B1B11D0628A000A582DE /* AKLoginViewController.m */; };
+		8401B1B51D0628A000A582DE /* AKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8401B1B21D0628A000A582DE /* AKLoginViewController.xib */; };
 		8402EEE91C7B76820004E6DC /* AKCreatureFemale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */; };
 		8402EEED1C7B768D0004E6DC /* AKCreatureMale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402EEEC1C7B768D0004E6DC /* AKCreatureMale.m */; };
 		8418E57F1CBE76D800141D27 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; };
@@ -153,8 +153,6 @@
 		60F4B35BF2465EB1D0B68749 /* libPods-ObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CD1BC63855BD3B9DB0D49BA /* Pods-FBProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-FBProject/Pods-FBProject.release.xcconfig"; sourceTree = "<group>"; };
 		8401B1421D05EF2100A582DE /* FBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8401B15E1D05F0D000A582DE /* AKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLoginViewController.h; sourceTree = "<group>"; };
-		8401B15F1D05F0D000A582DE /* AKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLoginViewController.m; sourceTree = "<group>"; };
 		8401B1621D05F0D000A582DE /* AKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
 		8401B1631D05F0D000A582DE /* AKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
 		8401B1641D05F0D000A582DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,13 +176,15 @@
 		8401B18B1D05F10100A582DE /* UIWindow+AKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+AKCategory.h"; sourceTree = "<group>"; };
 		8401B18C1D05F10100A582DE /* UIWindow+AKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+AKCategory.m"; sourceTree = "<group>"; };
 		8401B18E1D05F10100A582DE /* AKMacroIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKMacroIOS.h; sourceTree = "<group>"; };
-		8401B19E1D06088200A582DE /* AKLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLoginView.h; sourceTree = "<group>"; };
-		8401B19F1D06088200A582DE /* AKLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLoginView.m; sourceTree = "<group>"; };
-		8401B1A11D06089A00A582DE /* AKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKLoginViewController.xib; sourceTree = "<group>"; };
 		8401B1A31D0612D100A582DE /* IOSProject-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSProject-Prefix.pch"; sourceTree = "<group>"; };
 		8401B1A51D0625AC00A582DE /* AKFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKFriendsViewController.h; sourceTree = "<group>"; };
 		8401B1A61D0625AC00A582DE /* AKFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKFriendsViewController.m; sourceTree = "<group>"; };
 		8401B1A71D0625AC00A582DE /* AKFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKFriendsViewController.xib; sourceTree = "<group>"; };
+		8401B1AE1D0628A000A582DE /* AKLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLoginView.h; sourceTree = "<group>"; };
+		8401B1AF1D0628A000A582DE /* AKLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLoginView.m; sourceTree = "<group>"; };
+		8401B1B01D0628A000A582DE /* AKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKLoginViewController.h; sourceTree = "<group>"; };
+		8401B1B11D0628A000A582DE /* AKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKLoginViewController.m; sourceTree = "<group>"; };
+		8401B1B21D0628A000A582DE /* AKLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKLoginViewController.xib; sourceTree = "<group>"; };
 		8402EEE71C7B76820004E6DC /* AKCreatureFemale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureFemale.h; sourceTree = "<group>"; };
 		8402EEE81C7B76820004E6DC /* AKCreatureFemale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKCreatureFemale.m; sourceTree = "<group>"; };
 		8402EEEB1C7B768D0004E6DC /* AKCreatureMale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCreatureMale.h; sourceTree = "<group>"; };
@@ -417,22 +417,10 @@
 		8401B15C1D05F0D000A582DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8401B1AC1D0628A000A582DE /* AKLoginViewController */,
 				8401B1A41D06258E00A582DE /* AKFriendsViewController */,
-				8401B15D1D05F0D000A582DE /* AKLoginViewController */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		8401B15D1D05F0D000A582DE /* AKLoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8401B19D1D0607A100A582DE /* AKLoginView */,
-				8401B15E1D05F0D000A582DE /* AKLoginViewController.h */,
-				8401B15F1D05F0D000A582DE /* AKLoginViewController.m */,
-				8401B1A11D06089A00A582DE /* AKLoginViewController.xib */,
-			);
-			name = AKLoginViewController;
-			path = AKViewController;
 			sourceTree = "<group>";
 		};
 		8401B1601D05F0D000A582DE /* SupportingFiles */ = {
@@ -568,15 +556,6 @@
 			path = Macro;
 			sourceTree = "<group>";
 		};
-		8401B19D1D0607A100A582DE /* AKLoginView */ = {
-			isa = PBXGroup;
-			children = (
-				8401B19E1D06088200A582DE /* AKLoginView.h */,
-				8401B19F1D06088200A582DE /* AKLoginView.m */,
-			);
-			path = AKLoginView;
-			sourceTree = "<group>";
-		};
 		8401B1A41D06258E00A582DE /* AKFriendsViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +564,26 @@
 				8401B1A71D0625AC00A582DE /* AKFriendsViewController.xib */,
 			);
 			path = AKFriendsViewController;
+			sourceTree = "<group>";
+		};
+		8401B1AC1D0628A000A582DE /* AKLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8401B1AD1D0628A000A582DE /* AKLoginView */,
+				8401B1B01D0628A000A582DE /* AKLoginViewController.h */,
+				8401B1B11D0628A000A582DE /* AKLoginViewController.m */,
+				8401B1B21D0628A000A582DE /* AKLoginViewController.xib */,
+			);
+			path = AKLoginViewController;
+			sourceTree = "<group>";
+		};
+		8401B1AD1D0628A000A582DE /* AKLoginView */ = {
+			isa = PBXGroup;
+			children = (
+				8401B1AE1D0628A000A582DE /* AKLoginView.h */,
+				8401B1AF1D0628A000A582DE /* AKLoginView.m */,
+			);
+			path = AKLoginView;
 			sourceTree = "<group>";
 		};
 		8402EEE61C7B76820004E6DC /* AKCreatureFemale */ = {
@@ -1468,10 +1467,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8401B1B51D0628A000A582DE /* AKLoginViewController.xib in Resources */,
 				8401B16F1D05F0D000A582DE /* Main.storyboard in Resources */,
 				8401B1751D05F0EE00A582DE /* Duck.jpg in Resources */,
 				8401B16D1D05F0D000A582DE /* Assets.xcassets in Resources */,
-				8401B1A21D06089A00A582DE /* AKLoginViewController.xib in Resources */,
 				8401B1AB1D0625AC00A582DE /* AKFriendsViewController.xib in Resources */,
 				8401B16E1D05F0D000A582DE /* LaunchScreen.storyboard in Resources */,
 			);
@@ -1665,12 +1664,12 @@
 				8401B1981D05F10100A582DE /* UITableView+AKCategory.m in Sources */,
 				8401B1901D05F10100A582DE /* CGGeometry+AKCategory.m in Sources */,
 				8401B1941D05F10100A582DE /* NSFileManager+AKCategory.m in Sources */,
+				8401B1B41D0628A000A582DE /* AKLoginViewController.m in Sources */,
 				8401B19C1D05F10100A582DE /* UIWindow+AKCategory.m in Sources */,
 				8401B1711D05F0D000A582DE /* main.m in Sources */,
+				8401B1B31D0628A000A582DE /* AKLoginView.m in Sources */,
 				8401B1961D05F10100A582DE /* UINib+AKCategory.m in Sources */,
-				8401B1A01D06088200A582DE /* AKLoginView.m in Sources */,
 				8401B1921D05F10100A582DE /* NSBundle+AKCategory.m in Sources */,
-				8401B16B1D05F0D000A582DE /* AKLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
