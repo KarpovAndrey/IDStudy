@@ -10,7 +10,7 @@
 
 @interface AKDispatch : NSObject
 
-typedef void (^AKObjectHandler)(void);
+typedef void (^AKDispatchHandler)(void);
 
 typedef enum {
     kAKPriorityMain,
@@ -21,29 +21,29 @@ typedef enum {
 } AKDispatchPriority;
 
 extern
-void AKDispatchAsyncWithPriority(AKDispatchPriority priority, AKObjectHandler handler);
+void AKDispatchAsyncWithPriority(AKDispatchPriority priority, AKDispatchHandler handler);
 extern
-void AKDispatchAsyncInBackground(AKObjectHandler handler);
+void AKDispatchAsyncInBackground(AKDispatchHandler handler);
 extern
-void AKDispatchAsyncOnMainThread(AKObjectHandler handler);
+void AKDispatchAsyncOnMainThread(AKDispatchHandler handler);
 extern
-void AKDispatchAsyncDefaultPriority(AKObjectHandler handler);
+void AKDispatchAsyncDefaultPriority(AKDispatchHandler handler);
 extern
-void AKDispatchAsyncHighPriority(AKObjectHandler handler);
+void AKDispatchAsyncHighPriority(AKDispatchHandler handler);
 extern
-void AKDispatchAsyncLowPriority(AKObjectHandler handler);
+void AKDispatchAsyncLowPriority(AKDispatchHandler handler);
 
 extern
-void AKDispatchSyncWithPriority(AKDispatchPriority priority, AKObjectHandler handler);
+void AKDispatchSyncWithPriority(AKDispatchPriority priority, AKDispatchHandler handler);
 extern
-void AKDispatchSyncInBackground(AKObjectHandler handler);
+void AKDispatchSyncInBackground(AKDispatchHandler handler);
 extern
-void AKDispatchSyncOnMainThread(AKObjectHandler handler);
+void AKDispatchSyncOnMainThread(AKDispatchHandler handler);
 extern
-void AKDispatchSyncDefaultPriority(AKObjectHandler handler);
+void AKDispatchSyncDefaultPriority(AKDispatchHandler handler);
 extern
-void AKDispatchSyncHighPriority(AKObjectHandler handler);
+void AKDispatchSyncHighPriority(AKDispatchHandler handler);
 extern
-void AKDispatchSyncLowPriority(AKObjectHandler handler);
+void AKDispatchSyncLowPriority(AKDispatchHandler handler);
 
 @end

@@ -1,0 +1,23 @@
+//
+//  IOSProject-Prefix.pch
+//  AKStudy
+//
+//  Created by Admin on 25.04.16.
+//  Copyright © 2016 Admin. All rights reserved.
+//
+
+#ifndef IOSProject_Prefix_pch
+#define IOSProject_Prefix_pch
+
+#import "AKMacroIOS.h"
+#import "AKMacroObjC.h"
+#import "UIViewController+AKCategory.h"
+#import "CGGeometry+AKCategory.h"
+#import "NSString+AKExtensions.h"
+#import "UIWindow+AKCategory.h"
+#import "UITableView+AKCategory.h"
+#import "UINib+AKCategory.h"
+#import "NSFileManager+AKCategory.h"
+#import "NSBundle+AKCategory.h"
+
+#endif /* IOSProject_Prefix_pch */

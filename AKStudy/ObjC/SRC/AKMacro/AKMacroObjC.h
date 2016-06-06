@@ -9,13 +9,16 @@
 #ifndef AKMacroObjC_h
 #define AKMacroObjC_h
 
-#define AKWeakify\
+#define AKWeakify \
             __weak id weakSelf = self;
 
-#define AKStrongifyAndReturnIfNil\
-            __strong id strongSelf = weakSelf;\
-            if (!strongSelf) {\
-                return;\
+#define AKWeakifyWithClass(theClass) \
+            __weak theClass *weakSelf = self;
+
+#define AKStrongifyAndReturnIfNil(theClass) \
+            __strong theClass *strongSelf = weakSelf; \
+            if (!strongSelf) { \
+                return; \
             }
 
 

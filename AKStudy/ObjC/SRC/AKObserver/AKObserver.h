@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^AKObjectHandler)(void);
+typedef void (^AKObjectHandler)(id object);
 
 @interface AKObserver : NSObject
 @property (nonatomic, assign)   NSUInteger     state;
+
+- (void)setState:(NSUInteger)state withObject:(id)object;
 
 - (void)addHandler:(AKObjectHandler)handler forState:(NSUInteger)state object:(id)object;
 - (void)removeHandlersForState:(NSUInteger)state;

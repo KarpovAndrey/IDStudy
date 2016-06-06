@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^AKObjectHandler)(void);
+typedef void (^AKObjectHandler)(id object);
 
 @class AKObserverArray;
 

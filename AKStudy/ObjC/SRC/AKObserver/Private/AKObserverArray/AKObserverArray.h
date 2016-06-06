@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^AKObjectHandler)(void);
+typedef void (^AKObjectHandler)(id object);
 
 @interface AKObserverArray : NSObject
 @property (nonatomic, readonly) NSArray *handlersObjects;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AKUserViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="uzM-e2-OX8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="AKUserView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i2t-rR-5P4">
+                    <rect key="frame" x="0.0" y="20" width="375" height="573"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="24A-KG-9NN"/>
+                        <outlet property="delegate" destination="-1" id="oTc-KA-zZi"/>
+                    </connections>
+                </tableView>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-aI-hzP">
+                    <rect key="frame" x="163" y="622" width="51" height="31"/>
+                    <connections>
+                        <action selector="onEditingSwitch:" destination="-1" eventType="touchUpInside" id="cgg-3j-fPf"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Editing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qir-mG-3yd">
+                    <rect key="frame" x="159" y="593" width="57" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="qir-mG-3yd" secondAttribute="height" multiplier="19:7" id="hEb-if-3S3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.1795928977" green="0.14749105940000001" blue="0.69415064100000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.6184137576525679" green="0.70434695512820511" blue="0.38462965310321851" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="i2t-rR-5P4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bvh-uW-r7F"/>
+                <constraint firstItem="HEG-aI-hzP" firstAttribute="bottom" secondItem="qir-mG-3yd" secondAttribute="bottom" constant="39" id="G5a-TW-m0Q"/>
+                <constraint firstItem="i2t-rR-5P4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="R6n-wM-8u8"/>
+                <constraint firstAttribute="bottom" secondItem="HEG-aI-hzP" secondAttribute="bottom" constant="14" id="TOM-4s-Cf2"/>
+                <constraint firstItem="HEG-aI-hzP" firstAttribute="centerX" secondItem="i2t-rR-5P4" secondAttribute="centerX" id="Uqz-t8-ijH"/>
+                <constraint firstItem="qir-mG-3yd" firstAttribute="centerY" secondItem="HEG-aI-hzP" secondAttribute="centerY" constant="-34" id="X1e-H4-JGB"/>
+                <constraint firstAttribute="bottom" secondItem="i2t-rR-5P4" secondAttribute="bottom" constant="74" id="d65-UV-VAe"/>
+                <constraint firstItem="HEG-aI-hzP" firstAttribute="centerX" secondItem="qir-mG-3yd" secondAttribute="centerX" id="dn5-4d-MMY"/>
+                <constraint firstAttribute="trailing" secondItem="i2t-rR-5P4" secondAttribute="trailing" id="oYx-su-nEx"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outlet property="tableView" destination="i2t-rR-5P4" id="8Mj-oU-V8Q"/>
+            </connections>
+            <point key="canvasLocation" x="343.5" y="410.5"/>
+        </view>
+    </objects>
+</document>
