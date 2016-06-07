@@ -40,7 +40,7 @@ AKRootViewAndReturnIfNil(AKLoginView);
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                 error:(NSError *)error
 {
-    [self.navigationController pushViewController:[AKFriendsViewController new] animated:YES];
+//    [self.navigationController pushViewController:[AKFriendsViewController new] animated:YES];
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
