@@ -10,5 +10,7 @@
 
 @interface AKLoginViewController : UIViewController
 
+- (IBAction)onClickLoginButton:(id)sender;
+
 @end
 

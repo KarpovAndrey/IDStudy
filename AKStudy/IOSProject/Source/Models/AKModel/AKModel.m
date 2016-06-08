@@ -22,6 +22,10 @@
     
 }
 
+- (void)setupLoad {
+    
+}
+
 - (void)completeLoading {
     [self finishLoading];
 }
@@ -45,13 +49,13 @@
     
     self.state = kAKModelLoadingState;
     
+    [self setupLoad];
+    
     AKWeakify;
     AKDispatchAsyncInBackground(^{
         AKStrongifyAndReturnIfNil(AKModel);
         sleep(1);
-
         [strongSelf prepareToLoading];
-
         AKDispatchAsyncOnMainThread(^{
             [strongSelf finishLoading];
         });

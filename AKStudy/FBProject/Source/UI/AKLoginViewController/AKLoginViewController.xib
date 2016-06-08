@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AKLoginViewController">
@@ -15,23 +16,32 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxS-Qy-gMu" customClass="FBSDKLoginButton">
-                    <rect key="frame" x="137" y="439" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPv-xs-rWp">
+                    <rect key="frame" x="67" y="482" width="187" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tPv-xs-rWp" secondAttribute="height" multiplier="187:32" id="TGd-vn-lVT"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="LoginButton">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="Zsj-i0-B7g"/>
+                        <action selector="onClickLoginButton:" destination="-1" eventType="touchUpInside" id="FUH-DB-zNh"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="yxS-Qy-gMu" secondAttribute="bottom" constant="99" id="LOt-wW-IoE"/>
-                <constraint firstItem="yxS-Qy-gMu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VzU-vV-W2U"/>
+                <constraint firstAttribute="bottom" secondItem="tPv-xs-rWp" secondAttribute="bottom" constant="54" id="0ef-Ix-FWl"/>
+                <constraint firstItem="tPv-xs-rWp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NfE-gB-CZ3"/>
+                <constraint firstItem="tPv-xs-rWp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="67" id="pXf-Mm-rj5"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outlet property="loginButton" destination="yxS-Qy-gMu" id="KPT-UA-kaH"/>
+                <outlet property="loginButton" destination="tPv-xs-rWp" id="VEc-yt-mGN"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="LoginButton" width="187" height="32"/>
+    </resources>
 </document>

@@ -12,7 +12,7 @@
 #import "AKLoginView.h"
 #import "AKFriendsViewController.h"
 
-@interface AKLoginViewController () <FBSDKLoginButtonDelegate>
+@interface AKLoginViewController ()
 @property (nonatomic, strong) AKLoginView *rootView;
 
 @end
@@ -34,17 +34,23 @@ AKRootViewAndReturnIfNil(AKLoginView);
 }
 
 #pragma mark -
-#pragma mark FBSDKLoginButtonDelegate
+#pragma mark Handling Interrface
 
-- (void)  loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-                error:(NSError *)error
-{
-//    [self.navigationController pushViewController:[AKFriendsViewController new] animated:YES];
-}
-
-- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    
+- (IBAction)onClickLoginButton:(id)sender {
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+             [self.navigationController pushViewController:[AKFriendsViewController new] animated:YES];
+         }
+     }];
 }
 
 @end

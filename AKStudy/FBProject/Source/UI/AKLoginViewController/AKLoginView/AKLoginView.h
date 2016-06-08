@@ -11,6 +11,6 @@
 @class FBSDKLoginButton;
 
 @interface AKLoginView : UIView
-@property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
+@property (nonatomic, strong) IBOutlet UIButton *loginButton;
 
 @end
