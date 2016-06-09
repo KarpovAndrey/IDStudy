@@ -11,7 +11,7 @@
 typedef void(^AKObjectHandler)(id object);
 
 @interface AKObserverObject : NSObject
-@property (nonatomic, weak)   id              object;
+@property (nonatomic, assign)   id              object;//weak
 @property (nonatomic, copy)   AKObjectHandler handler;
 
 + (AKObserverObject *)observerObjectWithObject:(id)object handler:(AKObjectHandler)handler;

@@ -7,13 +7,18 @@
 //
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import "AKLoginViewController.h"
 #import "AKLoginView.h"
 #import "AKFriendsViewController.h"
+#import "AKUser.h"
+
+#define kAKFacebookPermissions @[@"public_profile", @"user_friends"]
 
 @interface AKLoginViewController ()
-@property (nonatomic, strong) AKLoginView *rootView;
+@property (nonatomic, strong) AKLoginView    *rootView;
+@property (nonatomic, strong) AKUser         *user;
 
 @end
 
@@ -34,21 +39,34 @@ AKRootViewAndReturnIfNil(AKLoginView);
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(AKUser *)user {
+    if (_user != user) {
+        _user = user;
+        
+        AKFriendsViewController * controller = [AKFriendsViewController new];
+        controller.user = _user;
+        [self.navigationController pushViewController:controller animated:NO];
+    }
+}
+
+#pragma mark -
 #pragma mark Handling Interrface
 
 - (IBAction)onClickLoginButton:(id)sender {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logOut];
+
     [login
-     logInWithReadPermissions: @[@"public_profile"]
+     logInWithReadPermissions:kAKFacebookPermissions
      fromViewController:self
      handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-         if (error) {
-             NSLog(@"Process error");
-         } else if (result.isCancelled) {
-             NSLog(@"Cancelled");
-         } else {
+         if (!error && !result.isCancelled) {
              NSLog(@"Logged in");
-             [self.navigationController pushViewController:[AKFriendsViewController new] animated:YES];
+             self.user = [[AKUser alloc] initWithUserID:result.token.userID];
+         } else {
+             NSLog(@"Not logged in");
          }
      }];
 }

@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class FBSDKLoginButton;
-
 @interface AKLoginView : UIView
 @property (nonatomic, strong) IBOutlet UIButton *loginButton;
 

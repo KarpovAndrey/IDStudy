@@ -122,6 +122,14 @@
 		84F708F01CADA49A00CBBFF7 /* AKEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E21CADA49A00CBBFF7 /* AKEmployee.m */; };
 		84F708F11CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
 		84F708F21CADA49A00CBBFF7 /* AKEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F708E41CADA49A00CBBFF7 /* AKEnterprise.m */; };
+		84FD16221D09DBBA000F4795 /* AKFriendsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD16211D09DBBA000F4795 /* AKFriendsContext.m */; };
+		84FD16231D09DC4D000F4795 /* AKDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C956AB1CC575E30026BCC5 /* AKDispatch.m */; };
+		84FD16241D09DC55000F4795 /* AKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C406BF1C986539002000DE /* AKObserver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84FD16251D09DC5A000F4795 /* AKObserverDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E57E1CBE76D800141D27 /* AKObserverDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84FD16261D09DC5D000F4795 /* AKObserverArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5821CBE76E400141D27 /* AKObserverArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84FD16271D09DC60000F4795 /* AKObserverObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8418E5861CBE76F400141D27 /* AKObserverObject.m */; };
+		84FD16281D09DC6B000F4795 /* AKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8447B2A91CF488E9003DCE14 /* AKModel.m */; };
+		84FD162C1D09F045000F4795 /* AKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FD162B1D09F045000F4795 /* AKUser.m */; };
 		A10A556DF4A34E977A0CFFE4 /* libPods-FBProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BAA1A4B1EE8E51C6B6208B /* libPods-FBProject.a */; };
 		BB4F7D5CEACB6BAB0B1004E6 /* libPods-ObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F4B35BF2465EB1D0B68749 /* libPods-ObjC.a */; };
 /* End PBXBuildFile section */
@@ -327,6 +335,10 @@
 		84FB411D1C84E3B400AB4C4C /* AKStringAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKStringAlphabet.m; sourceTree = "<group>"; };
 		84FB41201C84E3C900AB4C4C /* AKClusterAlphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKClusterAlphabet.h; sourceTree = "<group>"; };
 		84FB41211C84E3C900AB4C4C /* AKClusterAlphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKClusterAlphabet.m; sourceTree = "<group>"; };
+		84FD16201D09DBBA000F4795 /* AKFriendsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKFriendsContext.h; sourceTree = "<group>"; };
+		84FD16211D09DBBA000F4795 /* AKFriendsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKFriendsContext.m; sourceTree = "<group>"; };
+		84FD162A1D09F045000F4795 /* AKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKUser.h; sourceTree = "<group>"; };
+		84FD162B1D09F045000F4795 /* AKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKUser.m; sourceTree = "<group>"; };
 		8DBFD04AC123CFAD8418315E /* Pods-FBProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FBProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FBProject/Pods-FBProject.debug.xcconfig"; sourceTree = "<group>"; };
 		B099546014E1085CD2D9FAD1 /* Pods-IOSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.release.xcconfig"; sourceTree = "<group>"; };
 		BEC5F54B1ED050C123FB758B /* Pods-IOSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSProject/Pods-IOSProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -405,17 +417,11 @@
 		8401B15A1D05F0D000A582DE /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				8401B15B1D05F0D000A582DE /* Models */,
+				84FD161E1D09C3A2000F4795 /* Context */,
+				84FD161D1D09C381000F4795 /* Models */,
 				8401B15C1D05F0D000A582DE /* UI */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		8401B15B1D05F0D000A582DE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		8401B15C1D05F0D000A582DE /* UI */ = {
@@ -1318,6 +1324,40 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		84FD161D1D09C381000F4795 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84FD16291D09F00D000F4795 /* AKUser */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84FD161E1D09C3A2000F4795 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				84FD161F1D09DBA5000F4795 /* AKFriendsContext */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		84FD161F1D09DBA5000F4795 /* AKFriendsContext */ = {
+			isa = PBXGroup;
+			children = (
+				84FD16201D09DBBA000F4795 /* AKFriendsContext.h */,
+				84FD16211D09DBBA000F4795 /* AKFriendsContext.m */,
+			);
+			path = AKFriendsContext;
+			sourceTree = "<group>";
+		};
+		84FD16291D09F00D000F4795 /* AKUser */ = {
+			isa = PBXGroup;
+			children = (
+				84FD162A1D09F045000F4795 /* AKUser.h */,
+				84FD162B1D09F045000F4795 /* AKUser.m */,
+			);
+			path = AKUser;
+			sourceTree = "<group>";
+		};
 		D4846F6F39157C8A2E7CED87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1674,7 +1714,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8401B16C1D05F0D000A582DE /* AKAppDelegate.m in Sources */,
+				84FD162C1D09F045000F4795 /* AKUser.m in Sources */,
+				84FD16281D09DC6B000F4795 /* AKModel.m in Sources */,
+				84FD16221D09DBBA000F4795 /* AKFriendsContext.m in Sources */,
+				84FD16231D09DC4D000F4795 /* AKDispatch.m in Sources */,
 				8401B19A1D05F10100A582DE /* UIViewController+AKCategory.m in Sources */,
+				84FD16251D09DC5A000F4795 /* AKObserverDictionary.m in Sources */,
 				8401B1A91D0625AC00A582DE /* AKFriendsViewController.m in Sources */,
 				8401B1981D05F10100A582DE /* UITableView+AKCategory.m in Sources */,
 				8401B1901D05F10100A582DE /* CGGeometry+AKCategory.m in Sources */,
@@ -1682,8 +1727,11 @@
 				842B00341D08B1D100E29771 /* AKFriendDetailViewController.m in Sources */,
 				8401B1B41D0628A000A582DE /* AKLoginViewController.m in Sources */,
 				8401B19C1D05F10100A582DE /* UIWindow+AKCategory.m in Sources */,
+				84FD16241D09DC55000F4795 /* AKObserver.m in Sources */,
 				8401B1711D05F0D000A582DE /* main.m in Sources */,
+				84FD16271D09DC60000F4795 /* AKObserverObject.m in Sources */,
 				8401B1B31D0628A000A582DE /* AKLoginView.m in Sources */,
+				84FD16261D09DC5D000F4795 /* AKObserverArray.m in Sources */,
 				8401B1961D05F10100A582DE /* UINib+AKCategory.m in Sources */,
 				8401B1921D05F10100A582DE /* NSBundle+AKCategory.m in Sources */,
 			);
